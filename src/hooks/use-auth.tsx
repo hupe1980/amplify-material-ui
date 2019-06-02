@@ -1,0 +1,84 @@
+import * as React from 'react';
+import useIsMounted from 'react-is-mounted-hook';
+import Auth from '@aws-amplify/auth';
+import { Hub } from '@aws-amplify/core';
+import { HubCapsule } from '@aws-amplify/core/lib/Hub';
+
+export const useAuth = () => {
+  const isMounted = useIsMounted();
+  const [state, setState] = React.useState({
+    authState: 'loading',
+    authData: null
+  });
+
+  const handleStateChange = (authState: string, authData: any) => {
+    if (authState === 'signedOut') {
+      authState = 'signIn';
+    }
+
+    if (isMounted()) {
+      setState(prevState => ({
+        ...prevState,
+        authState,
+        authData
+      }));
+    }
+  };
+
+  React.useEffect(() => {
+    const checkUser = async () => {
+      if (!Auth || typeof Auth.currentAuthenticatedUser !== 'function') {
+        throw new Error(
+          'No Auth module found, please ensure @aws-amplify/auth is imported'
+        );
+      }
+
+      try {
+        const user = await Auth.currentAuthenticatedUser();
+        if (!isMounted()) return;
+        handleStateChange('signedIn', user);
+      } catch (error) {
+        if (!isMounted()) return;
+        handleStateChange('signIn', null);
+      }
+    };
+
+    checkUser();
+  }, []);
+
+  React.useEffect(() => {
+    const handleAuthCapsule = (capsule: HubCapsule) => {
+      const { payload } = capsule;
+
+      switch (payload.event) {
+        case 'cognitoHostedUI':
+          handleStateChange('signedIn', payload.data);
+          break;
+        case 'cognitoHostedUI_failure':
+          handleStateChange('signIn', null);
+          break;
+        case 'parsingUrl_failure':
+          handleStateChange('signIn', null);
+          break;
+        case 'signOut':
+          handleStateChange('signIn', null);
+          break;
+        case 'customGreetingSignOut':
+          handleStateChange('signIn', null);
+          break;
+        default:
+          break;
+      }
+    };
+    Hub.listen('auth', handleAuthCapsule);
+
+    return () => {
+      Hub.remove('auth', handleAuthCapsule);
+    };
+  });
+
+  return {
+    ...state,
+    handleStateChange
+  };
+};
