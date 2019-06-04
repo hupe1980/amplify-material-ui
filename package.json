@@ -1,56 +1,36 @@
 {
-  "name": "amplify-material-ui",
-  "version": "0.0.5",
-  "description": "A Material-UI based implementation of aws amplify",
-  "author": "hello@webappsolutions.de",
-  "license": "MIT",
-  "keywords": [
-    "material-ui",
-    "react",
-    "aws amplify",
-    "amplify",
-    "cognito",
-    "aws",
-    "auth"
-  ],
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "files": [
-    "lib"
-  ],
-  "scripts": {
-    "build": "rimraf lib && tsc",
-    "build:watch": "rimraf lib && tsc -w",
-    "prepare": "npm run build",
-    "storybook": "start-storybook",
-    "build-storybook": "build-storybook"
-  },
-  "dependencies": {
-    "react-is-mounted-hook": "^1.0.1"
-  },
-  "peerDependencies": {
-    "@aws-amplify/auth": "^1.2.24",
-    "@aws-amplify/core": "^1.0.27",
-    "@material-ui/core": "^4.0.1",
-    "@material-ui/icons": "^4.0.1"
-  },
-  "devDependencies": {
-    "@aws-amplify/auth": "^1.2.24",
-    "@aws-amplify/core": "^1.0.27",
-    "@material-ui/core": "^4.0.1",
-    "@material-ui/icons": "^4.0.1",
-    "@material-ui/styles": "^4.0.1",
-    "@storybook/addon-actions": "^5.0.11",
-    "@storybook/addon-info": "^5.0.11",
-    "@storybook/react": "^5.0.11",
-    "@types/jest": "^24.0.13",
-    "@types/storybook__addon-info": "^4.1.1",
-    "@types/storybook__react": "^4.0.1",
-    "awesome-typescript-loader": "^5.2.1",
-    "jest": "^24.8.0",
-    "react-docgen-typescript-loader": "^3.1.0",
-    "rimraf": "^2.6.3",
-    "ts-jest": "^24.0.2",
-    "typescript": "^3.5.1"
-  }
+    "name": "root",
+    "private": true,
+    "scripts": {
+        "storybook": "start-storybook",
+        "build-storybook": "build-storybook",
+        "grooming:outdated": "yarn outdated",
+        "grooming:upgrade": "yarn upgrade-interactive --latest",
+        "lint": "eslint . --cache  --report-unused-disable-directives",
+        "lint:ci": "eslint . --report-unused-disable-directives",
+        "lint:fix": "eslint . --cache --fix",
+        "test:unit": "yarn workspace amplify-material-ui test:unit",
+        "test:e2e": "yarn workspace e2e-tests test:e2e"
+    },
+    "workspaces": [
+        "e2e-tests",
+        "amplify-material-ui"
+    ],
+    "devDependencies": {
+        "@storybook/addon-actions": "^5.0.11",
+        "@storybook/addon-info": "^5.0.11",
+        "@storybook/react": "^5.0.11",
+        "@types/storybook__addon-info": "^4.1.1",
+        "@types/storybook__react": "^4.0.1",
+        "@typescript-eslint/eslint-plugin": "^1.9.0",
+        "@typescript-eslint/parser": "^1.9.0",
+        "awesome-typescript-loader": "^5.2.1",
+        "eslint": "^5.16.0",
+        "eslint-config-prettier": "^4.3.0",
+        "eslint-plugin-prettier": "^3.1.0",
+        "eslint-plugin-react": "^7.13.0",
+        "lerna": "^3.10.5",
+        "prettier": "^1.17.1",
+        "react-docgen-typescript-loader": "^3.1.0"
+    }
 }
