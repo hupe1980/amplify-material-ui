@@ -1,0 +1,7 @@
+/.git
+/coverage
+
+
+/amplify-material-ui/lib
+
+node_modules

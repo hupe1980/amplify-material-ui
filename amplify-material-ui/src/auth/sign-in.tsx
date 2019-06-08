@@ -15,16 +15,16 @@ import AuthProps from './auth-props';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useForm } from '../hooks';
 
-export interface ConfirmSignInProps extends AuthProps {
+export interface SignInProps extends AuthProps {
   validationData?: { [key: string]: string };
-  authData: any;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     form: {
       width: '100%', // Fix IE 11 issue.
-      marginTop: theme.spacing(1)
+      marginTop: theme.spacing(1),
+      padding: theme.spacing(1)
     },
     submit: {
       margin: theme.spacing(3, 0, 2)
@@ -32,50 +32,29 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const useMfaType = (user: any) => {
-  const [mfaType, setMfaType] = React.useState('SMS');
-
-  React.useEffect(() => {
-    const newMfaType =
-      user && user.challengeName === 'SOFTWARE_TOKEN_MFA' ? 'TOTP' : 'SMS';
-    if (mfaType !== newMfaType) {
-      setMfaType(newMfaType);
-    }
-  }, [user]);
-
-  return mfaType;
-};
-
-export const ConfirmSignIn: React.FC<ConfirmSignInProps> = props => {
-  const { authState, onStateChange, authData: user } = props;
-
-  if (!['confirmSignIn'].includes(authState)) {
+const SignIn: React.FC<SignInProps> = props => {
+  const { authState, onStateChange } = props;
+  if (!['signIn', 'signedOut', 'signedUp'].includes(authState)) {
     return null;
   }
   const classes = useStyles();
 
-  const mfaType = useMfaType(user);
-
-  const confirm = async ({ code }: { code: string }) => {
-    if (!Auth || typeof Auth.confirmSignIn !== 'function') {
+  const signIn = async (inputs: any) => {
+    if (!Auth || typeof Auth.signIn !== 'function') {
       throw new Error(
         'No Auth module found, please ensure @aws-amplify/auth is imported'
       );
     }
-    await Auth.confirmSignIn(
-      user,
-      code,
-      mfaType === 'TOTP' ? 'SOFTWARE_TOKEN_MFA' : null
-    );
   };
 
-  const { inputs, handleInputChange, handleSubmit } = useForm(confirm, {
-    code: ''
+  const { inputs, handleInputChange, handleSubmit } = useForm(signIn, {
+    email: '',
+    password: ''
   });
 
   return (
     <FormSection>
-      <SectionHeader>{I18n.get('Confirm ' + mfaType + ' Code')}</SectionHeader>
+      <SectionHeader>{I18n.get('Sign in to your account')}</SectionHeader>
       <form onSubmit={handleSubmit} className={classes.form} noValidate>
         <SectionBody>
           <TextField
@@ -83,13 +62,26 @@ export const ConfirmSignIn: React.FC<ConfirmSignInProps> = props => {
             margin="normal"
             required
             fullWidth
-            id="code"
-            label={`${I18n.get('Code')} *`}
-            name="code"
-            autoComplete="code"
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
             autoFocus
             onChange={handleInputChange}
-            value={inputs.code}
+            value={inputs.email}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            onChange={handleInputChange}
+            value={inputs.password}
           />
         </SectionBody>
         <SectionFooter>
@@ -100,16 +92,25 @@ export const ConfirmSignIn: React.FC<ConfirmSignInProps> = props => {
             color="primary"
             className={classes.submit}
           >
-            {I18n.get('Confirm')}
+            Sign In
           </Button>
           <Grid container>
             <Grid item xs>
               <Link
                 href="#"
-                onClick={() => onStateChange('signIn', null)}
+                onClick={() => onStateChange('forgotPassword', null)}
                 variant="body2"
               >
-                {I18n.get('Back to Sign In')}
+                Forgot password?
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link
+                href="#"
+                onClick={() => onStateChange('signUp', null)}
+                variant="body2"
+              >
+                {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
           </Grid>
@@ -118,3 +119,5 @@ export const ConfirmSignIn: React.FC<ConfirmSignInProps> = props => {
     </FormSection>
   );
 };
+
+export default SignIn;
