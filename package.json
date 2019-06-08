@@ -2,35 +2,27 @@
     "name": "root",
     "private": true,
     "scripts": {
-        "storybook": "start-storybook",
-        "build-storybook": "build-storybook",
+        "storybook": "yarn workspace amplify-material-ui storybook",
         "grooming:outdated": "yarn outdated",
         "grooming:upgrade": "yarn upgrade-interactive --latest",
         "lint": "eslint . --cache  --report-unused-disable-directives",
         "lint:ci": "eslint . --report-unused-disable-directives",
         "lint:fix": "eslint . --cache --fix",
-        "test:unit": "yarn workspace amplify-material-ui test:unit",
-        "test:e2e": "yarn workspace e2e-tests test:e2e"
+        "test:unit": "yarn workspace amplify-material-ui test",
+        "test:e2e": "yarn workspace e2e-tests test"
     },
     "workspaces": [
         "e2e-tests",
         "amplify-material-ui"
     ],
     "devDependencies": {
-        "@storybook/addon-actions": "^5.0.11",
-        "@storybook/addon-info": "^5.0.11",
-        "@storybook/react": "^5.0.11",
-        "@types/storybook__addon-info": "^4.1.1",
-        "@types/storybook__react": "^4.0.1",
         "@typescript-eslint/eslint-plugin": "^1.9.0",
         "@typescript-eslint/parser": "^1.9.0",
-        "awesome-typescript-loader": "^5.2.1",
         "eslint": "^5.16.0",
         "eslint-config-prettier": "^4.3.0",
         "eslint-plugin-prettier": "^3.1.0",
         "eslint-plugin-react": "^7.13.0",
         "lerna": "^3.10.5",
-        "prettier": "^1.17.1",
-        "react-docgen-typescript-loader": "^3.1.0"
+        "prettier": "^1.18.2"
     }
 }

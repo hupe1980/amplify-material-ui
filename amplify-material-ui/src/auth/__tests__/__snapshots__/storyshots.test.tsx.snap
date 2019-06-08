@@ -1,0 +1,434 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Auth/Authenticator without props 1`] = `
+<div>
+  <div
+    className="MuiContainer-root MuiContainer-maxWidthXs"
+  >
+    <div
+      className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-2 MuiPaper-rounded"
+    >
+      <div
+        className="MuiCircularProgress-root makeStyles-progress-1 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <svg
+          className="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx={44}
+            cy={44}
+            fill="none"
+            r={20.2}
+            strokeWidth={3.6}
+            style={Object {}}
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Auth/ForgotPassword without props 1`] = `
+<div
+  className="MuiContainer-root MuiContainer-maxWidthXs"
+>
+  <div
+    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-51 MuiPaper-rounded"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-88 makeStyles-box-86"
+    >
+      Reset your password
+    </div>
+    <form
+      className="makeStyles-form-49"
+      noValidate={true}
+      onSubmit={[Function]}
+    >
+      <div
+        className="MuiBox-root MuiBox-root-90 makeStyles-box-89"
+      >
+        <div
+          className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+        >
+          <label
+            className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink={false}
+            htmlFor="code"
+          >
+            Code
+            <span
+              className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            onClick={[Function]}
+          >
+            <fieldset
+              aria-hidden={true}
+              className="PrivateNotchedOutline-root-144 MuiOutlinedInput-notchedOutline"
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <legend
+                className="PrivateNotchedOutline-legend-145"
+                style={
+                  Object {
+                    "width": 0.01,
+                  }
+                }
+              >
+                <span
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "&#8203;",
+                    }
+                  }
+                />
+              </legend>
+            </fieldset>
+            <input
+              aria-invalid={false}
+              autoFocus={true}
+              className="MuiInputBase-input MuiOutlinedInput-input"
+              disabled={false}
+              id="code"
+              name="code"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+        >
+          <label
+            className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink={false}
+            htmlFor="password"
+          >
+            New Password
+            <span
+              className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            onClick={[Function]}
+          >
+            <fieldset
+              aria-hidden={true}
+              className="PrivateNotchedOutline-root-144 MuiOutlinedInput-notchedOutline"
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <legend
+                className="PrivateNotchedOutline-legend-145"
+                style={
+                  Object {
+                    "width": 0.01,
+                  }
+                }
+              >
+                <span
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "&#8203;",
+                    }
+                  }
+                />
+              </legend>
+            </fieldset>
+            <input
+              aria-invalid={false}
+              className="MuiInputBase-input MuiOutlinedInput-input"
+              disabled={false}
+              id="password"
+              name="password"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={true}
+              type="password"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiBox-root MuiBox-root-147 makeStyles-box-146"
+      />
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Auth/Loading without props 1`] = `
+<div
+  className="MuiContainer-root MuiContainer-maxWidthXs"
+>
+  <div
+    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-149 MuiPaper-rounded"
+  >
+    <div
+      className="MuiCircularProgress-root makeStyles-progress-148 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+      role="progressbar"
+      style={
+        Object {
+          "height": 40,
+          "width": 40,
+        }
+      }
+    >
+      <svg
+        className="MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+          cx={44}
+          cy={44}
+          fill="none"
+          r={20.2}
+          strokeWidth={3.6}
+          style={Object {}}
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Auth/SignIn without props 1`] = `
+<div
+  className="MuiContainer-root MuiContainer-maxWidthXs"
+>
+  <div
+    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-198 MuiPaper-rounded"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-235 makeStyles-box-233"
+    >
+      Sign in to your account
+    </div>
+    <form
+      className="makeStyles-form-196"
+      noValidate={true}
+      onSubmit={[Function]}
+    >
+      <div
+        className="MuiBox-root MuiBox-root-237 makeStyles-box-236"
+      >
+        <div
+          className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+        >
+          <label
+            className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink={false}
+            htmlFor="email"
+          >
+            Email Address
+            <span
+              className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            onClick={[Function]}
+          >
+            <fieldset
+              aria-hidden={true}
+              className="PrivateNotchedOutline-root-291 MuiOutlinedInput-notchedOutline"
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <legend
+                className="PrivateNotchedOutline-legend-292"
+                style={
+                  Object {
+                    "width": 0.01,
+                  }
+                }
+              >
+                <span
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "&#8203;",
+                    }
+                  }
+                />
+              </legend>
+            </fieldset>
+            <input
+              aria-invalid={false}
+              autoComplete="email"
+              autoFocus={true}
+              className="MuiInputBase-input MuiOutlinedInput-input"
+              disabled={false}
+              id="email"
+              name="email"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+        >
+          <label
+            className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink={false}
+            htmlFor="password"
+          >
+            Password
+            <span
+              className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            onClick={[Function]}
+          >
+            <fieldset
+              aria-hidden={true}
+              className="PrivateNotchedOutline-root-291 MuiOutlinedInput-notchedOutline"
+              style={
+                Object {
+                  "paddingLeft": 8,
+                }
+              }
+            >
+              <legend
+                className="PrivateNotchedOutline-legend-292"
+                style={
+                  Object {
+                    "width": 0.01,
+                  }
+                }
+              >
+                <span
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "&#8203;",
+                    }
+                  }
+                />
+              </legend>
+            </fieldset>
+            <input
+              aria-invalid={false}
+              autoComplete="current-password"
+              className="MuiInputBase-input MuiOutlinedInput-input"
+              disabled={false}
+              id="password"
+              name="password"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={true}
+              type="password"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiBox-root MuiBox-root-294 makeStyles-box-293"
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root makeStyles-submit-197 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+          disabled={false}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="submit"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            Sign In
+          </span>
+        </button>
+        <div
+          className="MuiGrid-root MuiGrid-container"
+        >
+          <div
+            className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+              href="#"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+            >
+              Forgot password?
+            </a>
+          </div>
+          <div
+            className="MuiGrid-root MuiGrid-item"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+              href="#"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+            >
+              Don't have an account? Sign Up
+            </a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;

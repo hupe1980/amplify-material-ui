@@ -5,5 +5,13 @@ module.exports = {
         'plugin:@typescript-eslint/recommended', // Uses the recommended rules from @typescript-eslint/eslint-plugin
         'plugin:prettier/recommended', // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
     ],
-    "indent": ["error", 2]
+    overrides: [
+        {
+            files: ['**/cypress/integration/**/*', '**/cypress/support/**/*'],
+            globals: {
+                cy: false,
+                Cypress: false,
+            },
+        },
+    ],
 };
