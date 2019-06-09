@@ -5,5 +5,5 @@ import Loading from '../loading';
 const stories = storiesOf('Auth/Loading', module);
 
 stories.add('without props', () => (
-  <Loading authState="loading" onStateChange={() => {}} />
+    <Loading authState="loading" onStateChange={() => {}} />
 ));

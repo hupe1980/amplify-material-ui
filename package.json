@@ -5,9 +5,9 @@
         "storybook": "yarn workspace amplify-material-ui storybook",
         "grooming:outdated": "yarn outdated",
         "grooming:upgrade": "yarn upgrade-interactive --latest",
-        "lint": "eslint . --cache  --report-unused-disable-directives",
-        "lint:ci": "eslint . --report-unused-disable-directives",
-        "lint:fix": "eslint . --cache --fix",
+        "lint": "eslint '*/**/*.{js,ts,tsx}' --cache  --report-unused-disable-directives",
+        "lint:ci": "eslint '*/**/*.{js,ts,tsx}' --report-unused-disable-directives",
+        "lint:fix": "eslint '*/**/*.{js,ts,tsx}' --cache --fix",
         "test:unit": "yarn workspace amplify-material-ui test",
         "test:e2e": "yarn workspace e2e-tests test"
     },
@@ -18,11 +18,16 @@
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^1.9.0",
         "@typescript-eslint/parser": "^1.9.0",
+        "babel-eslint": "^10.0.1",
         "cross-env": "^5.2.0",
         "eslint": "^5.16.0",
         "eslint-config-prettier": "^4.3.0",
+        "eslint-config-react-app": "^4.0.1",
+        "eslint-plugin-import": "2.x",
+        "eslint-plugin-jsx-a11y": "6.x",
         "eslint-plugin-prettier": "^3.1.0",
         "eslint-plugin-react": "^7.13.0",
+        "eslint-plugin-react-hooks": "^1.6.0",
         "lerna": "^3.10.5",
         "prettier": "^1.18.2"
     }

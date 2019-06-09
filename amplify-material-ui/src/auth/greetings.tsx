@@ -9,15 +9,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({}));
 export interface GreetingsProps extends AuthProps {}
 
 const Greetings: React.FC<GreetingsProps> = props => {
-  const { authState } = props;
-  if (!['signedIn'].includes(authState)) {
-    return null;
-  }
+    const { authState } = props;
 
-  const classes = useStyles();
-  console.log(classes);
+    const classes = useStyles();
+    console.log(classes);
 
-  return <FormSection>Greetings</FormSection>;
+    if (!['signedIn'].includes(authState)) {
+        return null;
+    }
+
+    return <FormSection>Greetings</FormSection>;
 };
 
 export default Greetings;

@@ -13,89 +13,91 @@ import WarningIcon from '@material-ui/icons/Warning';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 const variantIcon = {
-  success: CheckCircleIcon,
-  warning: WarningIcon,
-  error: ErrorIcon,
-  info: InfoIcon
+    success: CheckCircleIcon,
+    warning: WarningIcon,
+    error: ErrorIcon,
+    info: InfoIcon,
 };
 
 const useStyles = makeStyles((theme: Theme) => ({
-  success: {
-    backgroundColor: green[600]
-  },
-  error: {
-    backgroundColor: theme.palette.error.dark
-  },
-  info: {
-    backgroundColor: theme.palette.primary.dark
-  },
-  warning: {
-    backgroundColor: amber[700]
-  },
-  icon: {
-    fontSize: 20
-  },
-  iconVariant: {
-    opacity: 0.9,
-    marginRight: theme.spacing(1)
-  },
-  message: {
-    display: 'flex',
-    alignItems: 'center'
-  }
+    success: {
+        backgroundColor: green[600],
+    },
+    error: {
+        backgroundColor: theme.palette.error.dark,
+    },
+    info: {
+        backgroundColor: theme.palette.primary.dark,
+    },
+    warning: {
+        backgroundColor: amber[700],
+    },
+    icon: {
+        fontSize: 20,
+    },
+    iconVariant: {
+        opacity: 0.9,
+        marginRight: theme.spacing(1),
+    },
+    message: {
+        display: 'flex',
+        alignItems: 'center',
+    },
 }));
 
 export interface ToastProps {
-  className?: string;
-  message?: string;
-  variant: keyof typeof variantIcon;
+    className?: string;
+    message?: string;
+    variant: keyof typeof variantIcon;
 }
 
 export const Toast: React.FC<ToastProps> = props => {
-  const [open, setOpen] = React.useState(true);
-  const classes = useStyles();
-  const { className, message, variant, ...other } = props;
-  const Icon = variantIcon[variant];
+    const [open, setOpen] = React.useState(true);
+    const classes = useStyles();
+    const { className, message, variant, ...other } = props;
+    const Icon = variantIcon[variant];
 
-  function handleClose(event?: React.SyntheticEvent, reason?: string) {
-    if (reason === 'clickaway') {
-      return;
+    function handleClose(event?: React.SyntheticEvent, reason?: string) {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
     }
 
-    setOpen(false);
-  }
-
-  return (
-    <Snackbar
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'center'
-      }}
-      open={open}
-      autoHideDuration={6000}
-      onClose={handleClose}
-    >
-      <SnackbarContent
-        className={clsx(classes[variant], className)}
-        aria-describedby="client-snackbar"
-        message={
-          <span id="client-snackbar" className={classes.message}>
-            <Icon className={clsx(classes.icon, classes.iconVariant)} />
-            {message}
-          </span>
-        }
-        action={[
-          <IconButton
-            key="close"
-            aria-label="Close"
-            color="inherit"
-            onClick={handleClose}
-          >
-            <CloseIcon className={classes.icon} />
-          </IconButton>
-        ]}
-        {...other}
-      />
-    </Snackbar>
-  );
+    return (
+        <Snackbar
+            anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'center',
+            }}
+            open={open}
+            autoHideDuration={6000}
+            onClose={handleClose}
+        >
+            <SnackbarContent
+                className={clsx(classes[variant], className)}
+                aria-describedby="client-snackbar"
+                message={
+                    <span id="client-snackbar" className={classes.message}>
+                        <Icon
+                            className={clsx(classes.icon, classes.iconVariant)}
+                        />
+                        {message}
+                    </span>
+                }
+                action={[
+                    <IconButton
+                        key="close"
+                        aria-label="Close"
+                        color="inherit"
+                        onClick={handleClose}
+                    >
+                        <CloseIcon className={classes.icon} />
+                    </IconButton>,
+                ]}
+                {...other}
+            />
+        </Snackbar>
+    );
 };
