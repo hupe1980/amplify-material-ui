@@ -4,8 +4,6 @@ describe('navigation', () => {
     });
 
     it(`displays content`, () => {
-        cy.get('[data-test=firstTest]')
-            .invoke('text')
-            .should('equal', 'Test');
+        cy.get('[data-test=signInForm]').should('be.visible');
     });
 });

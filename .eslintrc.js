@@ -6,6 +6,7 @@ const baseOverrides = Array.isArray(baseConfig.overrides)
     : [baseConfig.overrides];
 
 module.exports = {
+    ...baseConfig,
     extends: ['react-app', 'plugin:prettier/recommended'],
     overrides: [
         ...baseOverrides,
