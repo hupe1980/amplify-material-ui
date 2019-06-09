@@ -5,5 +5,5 @@ import SignIn from '../sign-in';
 const stories = storiesOf('Auth/SignIn', module);
 
 stories.add('without props', () => (
-  <SignIn authState="signIn" onStateChange={() => {}} />
+    <SignIn authState="signIn" onStateChange={() => {}} />
 ));

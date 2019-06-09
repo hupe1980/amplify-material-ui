@@ -1,4 +1,4 @@
 export default interface AuthProps {
-  authState: string;
-  onStateChange: (authState: string, authData: any) => void;
+    authState: string;
+    onStateChange: (authState: string, authData: any) => void;
 }
