@@ -57,7 +57,12 @@ const SignIn: React.FC<SignInProps> = props => {
     return (
         <FormSection>
             <SectionHeader>{I18n.get('Sign in to your account')}</SectionHeader>
-            <form onSubmit={handleSubmit} className={classes.form} noValidate>
+            <form
+                onSubmit={handleSubmit}
+                className={classes.form}
+                noValidate
+                data-test="signInForm"
+            >
                 <SectionBody>
                     <TextField
                         variant="outlined"
