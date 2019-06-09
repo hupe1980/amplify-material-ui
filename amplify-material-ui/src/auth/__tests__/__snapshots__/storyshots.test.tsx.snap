@@ -1,38 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots Auth/Authenticator without props 1`] = `
-<div>
+<div
+  className="MuiContainer-root MuiContainer-maxWidthXs"
+>
   <div
-    className="MuiContainer-root MuiContainer-maxWidthXs"
+    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-4 MuiPaper-rounded"
   >
     <div
-      className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-4 MuiPaper-rounded"
-    >
-      <div
-        className="MuiCircularProgress-root makeStyles-progress-3 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
-        role="progressbar"
-        style={
-          Object {
-            "height": 40,
-            "width": 40,
-          }
+      className="MuiCircularProgress-root makeStyles-progress-3 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+      role="progressbar"
+      style={
+        Object {
+          "height": 40,
+          "width": 40,
         }
+      }
+    >
+      <svg
+        className="MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
       >
-        <svg
-          className="MuiCircularProgress-svg"
-          viewBox="22 22 44 44"
-        >
-          <circle
-            className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
-            cx={44}
-            cy={44}
-            fill="none"
-            r={20.2}
-            strokeWidth={3.6}
-            style={Object {}}
-          />
-        </svg>
-      </div>
+        <circle
+          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+          cx={44}
+          cy={44}
+          fill="none"
+          r={20.2}
+          strokeWidth={3.6}
+          style={Object {}}
+        />
+      </svg>
     </div>
   </div>
 </div>
