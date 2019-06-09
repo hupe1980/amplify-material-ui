@@ -42,6 +42,7 @@ const SignIn: React.FC<SignInProps> = props => {
                 'No Auth module found, please ensure @aws-amplify/auth is imported',
             );
         }
+        onStateChange('signedIn', null); //TODO
     };
 
     const { inputs, handleInputChange, handleSubmit } = useForm(signIn, {
