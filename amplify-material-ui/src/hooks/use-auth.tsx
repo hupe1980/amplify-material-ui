@@ -45,9 +45,9 @@ export const useAuth = () => {
                 handleStateChange('signIn', null);
             }
         };
-
         checkUser();
-    }, [handleStateChange, isMounted]);
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     React.useEffect(() => {
         const handleAuthCapsule = (capsule: HubCapsule) => {
