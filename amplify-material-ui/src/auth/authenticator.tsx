@@ -1,16 +1,17 @@
 import * as React from 'react';
+import AuthProps from './auth-props';
 import ForgotPassword from './forgot-password';
 import Greetings from './greetings';
 import Loading from './loading';
 import SignIn from './sign-in';
 import SignUp from './sign-up';
 
-import { useAuth } from '../hooks';
-
-export interface AuthenticatorProps {}
+export interface AuthenticatorProps extends AuthProps {
+    hideDefault?: boolean;
+}
 
 const Authenticator: React.FC<AuthenticatorProps> = props => {
-    const { authState, handleStateChange } = useAuth();
+    const { authState, onStateChange } = props;
 
     const default_children = [
         ForgotPassword,
@@ -24,7 +25,7 @@ const Authenticator: React.FC<AuthenticatorProps> = props => {
         return React.createElement(child, {
             key: 'amplify-material-ui-authenticator-default-children-' + index,
             authState,
-            onStateChange: handleStateChange,
+            onStateChange,
         });
     });
 
