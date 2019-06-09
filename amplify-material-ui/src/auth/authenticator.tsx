@@ -28,7 +28,7 @@ const Authenticator: React.FC<AuthenticatorProps> = props => {
         });
     });
 
-    return <div>{render_children}</div>;
+    return <>{render_children}</>;
 };
 
 export default Authenticator;

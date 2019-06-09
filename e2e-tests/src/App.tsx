@@ -1,4 +1,5 @@
 import React from 'react';
+import { withAuthenticator } from 'amplify-material-ui';
 import logo from './logo.svg';
 import './App.css';
 
@@ -24,4 +25,4 @@ const App: React.FC = () => {
     );
 };
 
-export default App;
+export default withAuthenticator(App);
