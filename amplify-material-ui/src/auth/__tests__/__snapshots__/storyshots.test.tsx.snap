@@ -264,7 +264,7 @@ exports[`Storyshots Auth/SignIn without props 1`] = `
     </div>
     <form
       className="makeStyles-form-201"
-      data-test="signInForm"
+      data-testid="signInForm"
       noValidate={true}
       onSubmit={[Function]}
     >

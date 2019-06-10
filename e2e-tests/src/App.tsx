@@ -20,7 +20,7 @@ const App: React.FC = () => {
                     Learn React
                 </a>
             </header>
-            <span data-test="firstTest">Test</span>
+            <span data-testid="firstTest">Test</span>
         </div>
     );
 };

@@ -8,7 +8,7 @@ module.exports = {
     // env: {
     //     production: {
     //         plugins: [
-    //             ['react-remove-properties', { properties: ['data-test'] }],
+    //             ['react-remove-properties', { properties: ['data-testid'] }],
     //         ],
     //     },
     // },

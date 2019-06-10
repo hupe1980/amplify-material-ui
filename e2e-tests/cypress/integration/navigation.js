@@ -4,6 +4,6 @@ describe('navigation', () => {
     });
 
     it(`displays content`, () => {
-        cy.get('[data-test=signInForm]').should('be.visible');
+        cy.get('[data-testid=signInForm]').should('be.visible');
     });
 });
