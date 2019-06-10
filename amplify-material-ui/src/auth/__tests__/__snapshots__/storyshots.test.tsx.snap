@@ -74,7 +74,7 @@ exports[`Storyshots Auth/ForgotPassword without props 1`] = `
           >
             <fieldset
               aria-hidden={true}
-              className="PrivateNotchedOutline-root-150 MuiOutlinedInput-notchedOutline"
+              className="PrivateNotchedOutline-root-149 MuiOutlinedInput-notchedOutline"
               style={
                 Object {
                   "paddingLeft": 8,
@@ -82,7 +82,7 @@ exports[`Storyshots Auth/ForgotPassword without props 1`] = `
               }
             >
               <legend
-                className="PrivateNotchedOutline-legend-151"
+                className="PrivateNotchedOutline-legend-150"
                 style={
                   Object {
                     "width": 0.01,
@@ -136,7 +136,7 @@ exports[`Storyshots Auth/ForgotPassword without props 1`] = `
           >
             <fieldset
               aria-hidden={true}
-              className="PrivateNotchedOutline-root-150 MuiOutlinedInput-notchedOutline"
+              className="PrivateNotchedOutline-root-149 MuiOutlinedInput-notchedOutline"
               style={
                 Object {
                   "paddingLeft": 8,
@@ -144,7 +144,7 @@ exports[`Storyshots Auth/ForgotPassword without props 1`] = `
               }
             >
               <legend
-                className="PrivateNotchedOutline-legend-151"
+                className="PrivateNotchedOutline-legend-150"
                 style={
                   Object {
                     "width": 0.01,
@@ -177,7 +177,7 @@ exports[`Storyshots Auth/ForgotPassword without props 1`] = `
         </div>
       </div>
       <div
-        className="MuiBox-root MuiBox-root-153 makeStyles-box-152"
+        className="MuiBox-root MuiBox-root-152 makeStyles-box-151"
       />
     </form>
   </div>
@@ -189,10 +189,10 @@ exports[`Storyshots Auth/Loading without props 1`] = `
   className="MuiContainer-root MuiContainer-maxWidthXs"
 >
   <div
-    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-155 MuiPaper-rounded"
+    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-154 MuiPaper-rounded"
   >
     <div
-      className="MuiCircularProgress-root makeStyles-progress-154 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+      className="MuiCircularProgress-root makeStyles-progress-153 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
       role="progressbar"
       style={
         Object {
@@ -225,13 +225,13 @@ exports[`Storyshots Auth/SignIn without props 1`] = `
   className="MuiContainer-root MuiContainer-maxWidthXs"
 >
   <div
-    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-204 MuiPaper-rounded"
+    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-203 MuiPaper-rounded"
   >
     <div
-      className="MuiBox-root MuiBox-root-242 makeStyles-box-239"
+      className="MuiBox-root MuiBox-root-241 makeStyles-box-238"
     >
       <div
-        className="MuiAvatar-root makeStyles-avatar-240 MuiAvatar-colorDefault"
+        className="MuiAvatar-root makeStyles-avatar-239 MuiAvatar-colorDefault"
       >
         <svg
           aria-hidden="true"
@@ -263,13 +263,13 @@ exports[`Storyshots Auth/SignIn without props 1`] = `
       </h1>
     </div>
     <form
-      className="makeStyles-form-202"
+      className="makeStyles-form-201"
       data-testid="signInForm"
       noValidate={true}
       onSubmit={[Function]}
     >
       <div
-        className="MuiBox-root MuiBox-root-286 makeStyles-box-285"
+        className="MuiBox-root MuiBox-root-285 makeStyles-box-284"
       >
         <div
           className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
@@ -293,7 +293,7 @@ exports[`Storyshots Auth/SignIn without props 1`] = `
           >
             <fieldset
               aria-hidden={true}
-              className="PrivateNotchedOutline-root-341 MuiOutlinedInput-notchedOutline"
+              className="PrivateNotchedOutline-root-339 MuiOutlinedInput-notchedOutline"
               style={
                 Object {
                   "paddingLeft": 8,
@@ -301,7 +301,7 @@ exports[`Storyshots Auth/SignIn without props 1`] = `
               }
             >
               <legend
-                className="PrivateNotchedOutline-legend-342"
+                className="PrivateNotchedOutline-legend-340"
                 style={
                   Object {
                     "width": 0.01,
@@ -356,7 +356,7 @@ exports[`Storyshots Auth/SignIn without props 1`] = `
           >
             <fieldset
               aria-hidden={true}
-              className="PrivateNotchedOutline-root-341 MuiOutlinedInput-notchedOutline"
+              className="PrivateNotchedOutline-root-339 MuiOutlinedInput-notchedOutline"
               style={
                 Object {
                   "paddingLeft": 8,
@@ -364,7 +364,7 @@ exports[`Storyshots Auth/SignIn without props 1`] = `
               }
             >
               <legend
-                className="PrivateNotchedOutline-legend-342"
+                className="PrivateNotchedOutline-legend-340"
                 style={
                   Object {
                     "width": 0.01,
@@ -398,10 +398,10 @@ exports[`Storyshots Auth/SignIn without props 1`] = `
         </div>
       </div>
       <div
-        className="MuiBox-root MuiBox-root-344 makeStyles-box-343"
+        className="MuiBox-root MuiBox-root-342 makeStyles-box-341"
       >
         <button
-          className="MuiButtonBase-root MuiButton-root makeStyles-submit-203 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+          className="MuiButtonBase-root MuiButton-root makeStyles-submit-202 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
           disabled={false}
           onBlur={[Function]}
           onFocus={[Function]}
