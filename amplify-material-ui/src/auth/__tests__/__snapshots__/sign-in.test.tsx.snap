@@ -565,3 +565,13 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
 `;
 
 exports[`sign-in should render null if state is unvalid 1`] = `<DocumentFragment />`;
+
+exports[`sign-in should render null if state is unvalid 2`] = `<DocumentFragment />`;
+
+exports[`sign-in should render null if state is unvalid 3`] = `<DocumentFragment />`;
+
+exports[`sign-in should render null if state is unvalid 4`] = `<DocumentFragment />`;
+
+exports[`sign-in should render null if state is unvalid 5`] = `<DocumentFragment />`;
+
+exports[`sign-in should render null if state is unvalid 6`] = `<DocumentFragment />`;

@@ -3,6 +3,14 @@ import { render, cleanup } from '@testing-library/react';
 import SignIn from '../sign-in';
 
 const acceptedStates = ['signIn', 'signedUp', 'signedOut'];
+const deniedStates = [
+    'signUp',
+    'signedIn',
+    'comfirmSignIn',
+    'confirmSignUp',
+    'forgotPassword',
+    'verifyContact',
+];
 
 describe('sign-in', () => {
     beforeEach(() => cleanup());
@@ -17,10 +25,11 @@ describe('sign-in', () => {
     });
 
     it('should render null if state is unvalid', () => {
-        const { asFragment } = render(
-            <SignIn onStateChange={() => {}} authState="UNVALID_STATE" />,
-        );
-
-        expect(asFragment()).toMatchSnapshot();
+        deniedStates.forEach(state => {
+            const { asFragment } = render(
+                <SignIn onStateChange={() => {}} authState={state} />,
+            );
+            expect(asFragment()).toMatchSnapshot();
+        });
     });
 });
