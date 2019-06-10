@@ -71,11 +71,11 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
             >
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-139 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-140 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-140"
+                  class="PrivateNotchedOutline-legend-141"
                   style="width: 0px;"
                 >
                   <span>
@@ -115,11 +115,11 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
             >
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-139 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-140 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-140"
+                  class="PrivateNotchedOutline-legend-141"
                   style="width: 0.01px;"
                 >
                   <span>
@@ -141,7 +141,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
           </div>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-142 makeStyles-box-141"
+          class="MuiBox-root MuiBox-root-143 makeStyles-box-142"
         >
           <button
             class="MuiButtonBase-root MuiButton-root makeStyles-submit-2 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
@@ -197,7 +197,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
       class="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-3 MuiPaper-rounded"
     >
       <div
-        class="MuiBox-root MuiBox-root-282 makeStyles-box-38"
+        class="MuiBox-root MuiBox-root-283 makeStyles-box-38"
       >
         <div
           class="MuiAvatar-root makeStyles-avatar-39 MuiAvatar-colorDefault"
@@ -237,7 +237,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
         novalidate=""
       >
         <div
-          class="MuiBox-root MuiBox-root-283 makeStyles-box-84"
+          class="MuiBox-root MuiBox-root-284 makeStyles-box-84"
         >
           <div
             class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
@@ -259,11 +259,11 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
             >
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-139 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-140 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-140"
+                  class="PrivateNotchedOutline-legend-141"
                   style="width: 0px;"
                 >
                   <span>
@@ -303,11 +303,11 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
             >
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-139 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-140 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-140"
+                  class="PrivateNotchedOutline-legend-141"
                   style="width: 0.01px;"
                 >
                   <span>
@@ -329,7 +329,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
           </div>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-284 makeStyles-box-141"
+          class="MuiBox-root MuiBox-root-285 makeStyles-box-142"
         >
           <button
             class="MuiButtonBase-root MuiButton-root makeStyles-submit-2 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
@@ -385,7 +385,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
       class="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-3 MuiPaper-rounded"
     >
       <div
-        class="MuiBox-root MuiBox-root-285 makeStyles-box-38"
+        class="MuiBox-root MuiBox-root-286 makeStyles-box-38"
       >
         <div
           class="MuiAvatar-root makeStyles-avatar-39 MuiAvatar-colorDefault"
@@ -425,7 +425,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
         novalidate=""
       >
         <div
-          class="MuiBox-root MuiBox-root-286 makeStyles-box-84"
+          class="MuiBox-root MuiBox-root-287 makeStyles-box-84"
         >
           <div
             class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
@@ -447,11 +447,11 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
             >
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-139 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-140 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-140"
+                  class="PrivateNotchedOutline-legend-141"
                   style="width: 0px;"
                 >
                   <span>
@@ -491,11 +491,11 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
             >
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-139 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-140 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-140"
+                  class="PrivateNotchedOutline-legend-141"
                   style="width: 0.01px;"
                 >
                   <span>
@@ -517,7 +517,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
           </div>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-287 makeStyles-box-141"
+          class="MuiBox-root MuiBox-root-288 makeStyles-box-142"
         >
           <button
             class="MuiButtonBase-root MuiButton-root makeStyles-submit-2 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
