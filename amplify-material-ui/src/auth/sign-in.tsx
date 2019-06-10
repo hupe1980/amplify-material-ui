@@ -9,11 +9,13 @@ import {
     Theme,
 } from '@material-ui/core';
 import Auth from '@aws-amplify/auth';
-import { I18n } from '@aws-amplify/core';
+import { ConsoleLogger as Logger, I18n, JS } from '@aws-amplify/core';
 
 import AuthProps from './auth-props';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useForm } from '../hooks';
+
+const logger = new Logger('SignIn');
 
 export interface SignInProps extends AuthProps {
     validationData?: { [key: string]: string };
@@ -36,13 +38,63 @@ const SignIn: React.FC<SignInProps> = props => {
     const { authState, onStateChange } = props;
     const classes = useStyles();
 
+    const checkContact = async (user: any) => {
+        if (!Auth || typeof Auth.verifiedContact !== 'function') {
+            throw new Error(
+                'No Auth module found, please ensure @aws-amplify/auth is imported',
+            );
+        }
+        const data = await Auth.verifiedContact(user);
+        if (!JS.isEmpty(data.verified)) {
+            onStateChange('signedIn', user);
+        } else {
+            user = Object.assign(user, data);
+            onStateChange('verifyContact', user);
+        }
+    };
+
     const signIn = async (inputs: any) => {
         if (!Auth || typeof Auth.signIn !== 'function') {
             throw new Error(
                 'No Auth module found, please ensure @aws-amplify/auth is imported',
             );
         }
-        onStateChange('signedIn', null); //TODO
+
+        const { username, password } = inputs;
+
+        try {
+            const user = await Auth.signIn(username, password);
+            logger.debug(user);
+            if (
+                user.challengeName === 'SMS_MFA' ||
+                user.challengeName === 'SOFTWARE_TOKEN_MFA'
+            ) {
+                logger.debug('confirm user with ' + user.challengeName);
+                onStateChange('confirmSignIn', user);
+            } else if (user.challengeName === 'NEW_PASSWORD_REQUIRED') {
+                logger.debug('require new password', user.challengeParam);
+                onStateChange('requireNewPassword', user);
+            } else if (user.challengeName === 'MFA_SETUP') {
+                logger.debug('TOTP setup', user.challengeParam);
+                onStateChange('TOTPSetup', user);
+            } else {
+                checkContact(user);
+            }
+        } catch (err) {
+            if (err.code === 'UserNotConfirmedException') {
+                logger.debug('the user is not confirmed');
+                onStateChange('confirmSignUp', { username });
+            } else if (err.code === 'PasswordResetRequiredException') {
+                logger.debug('the user requires a new password');
+                onStateChange('forgotPassword', { username });
+            } else {
+                //this.error(err);
+                console.log(err);
+            }
+        } finally {
+            //this.setState({ loading: false });
+        }
+        //onStateChange('signedIn', null); //TODO
     };
 
     const { inputs, handleInputChange, handleSubmit } = useForm(signIn, {
@@ -98,6 +150,7 @@ const SignIn: React.FC<SignInProps> = props => {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                        data-testid="signInSubmit"
                     >
                         Sign In
                     </Button>

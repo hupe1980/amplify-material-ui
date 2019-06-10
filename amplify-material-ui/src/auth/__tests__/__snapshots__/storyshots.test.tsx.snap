@@ -402,6 +402,7 @@ exports[`Storyshots Auth/SignIn without props 1`] = `
       >
         <button
           className="MuiButtonBase-root MuiButton-root makeStyles-submit-202 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+          data-testid="signInSubmit"
           disabled={false}
           onBlur={[Function]}
           onFocus={[Function]}

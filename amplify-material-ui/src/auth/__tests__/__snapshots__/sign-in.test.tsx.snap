@@ -145,6 +145,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
         >
           <button
             class="MuiButtonBase-root MuiButton-root makeStyles-submit-2 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+            data-testid="signInSubmit"
             tabindex="0"
             type="submit"
           >
@@ -333,6 +334,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
         >
           <button
             class="MuiButtonBase-root MuiButton-root makeStyles-submit-2 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+            data-testid="signInSubmit"
             tabindex="0"
             type="submit"
           >
@@ -521,6 +523,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
         >
           <button
             class="MuiButtonBase-root MuiButton-root makeStyles-submit-2 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+            data-testid="signInSubmit"
             tabindex="0"
             type="submit"
           >
