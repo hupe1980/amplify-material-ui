@@ -61,7 +61,7 @@ const SignIn: React.FC<SignInProps> = props => {
                 onSubmit={handleSubmit}
                 className={classes.form}
                 noValidate
-                data-test="signInForm"
+                data-testid="signInForm"
             >
                 <SectionBody>
                     <TextField
