@@ -32,7 +32,7 @@ const SectionHeader: React.FC = ({ children }) => {
             <Avatar className={classes.avatar}>
                 <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography component="h1" variant="h6">
                 {children}
             </Typography>
         </Box>

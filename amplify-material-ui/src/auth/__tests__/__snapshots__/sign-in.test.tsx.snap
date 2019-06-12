@@ -38,7 +38,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
           </svg>
         </div>
         <h1
-          class="MuiTypography-root MuiTypography-h5"
+          class="MuiTypography-root MuiTypography-h6"
         >
           Sign in to your account
         </h1>
@@ -227,7 +227,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
           </svg>
         </div>
         <h1
-          class="MuiTypography-root MuiTypography-h5"
+          class="MuiTypography-root MuiTypography-h6"
         >
           Sign in to your account
         </h1>
@@ -416,7 +416,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
           </svg>
         </div>
         <h1
-          class="MuiTypography-root MuiTypography-h5"
+          class="MuiTypography-root MuiTypography-h6"
         >
           Sign in to your account
         </h1>
