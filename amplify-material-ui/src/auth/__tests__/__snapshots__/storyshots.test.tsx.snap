@@ -39,7 +39,7 @@ exports[`Storyshots Auth/ForgotPassword without props 1`] = `
         </svg>
       </div>
       <h1
-        className="MuiTypography-root MuiTypography-h5"
+        className="MuiTypography-root MuiTypography-h6"
       >
         Reset your password
       </h1>
@@ -257,7 +257,7 @@ exports[`Storyshots Auth/SignIn without props 1`] = `
         </svg>
       </div>
       <h1
-        className="MuiTypography-root MuiTypography-h5"
+        className="MuiTypography-root MuiTypography-h6"
       >
         Sign in to your account
       </h1>

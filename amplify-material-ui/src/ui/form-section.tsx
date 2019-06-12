@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme: Theme) =>
             flexDirection: 'column',
             alignItems: 'center',
             minWidth: '380px',
+            padding: theme.spacing(1),
         },
     }),
 );
