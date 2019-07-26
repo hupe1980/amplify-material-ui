@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Auth from '@aws-amplify/auth';
 import { render, cleanup, fireEvent } from '@testing-library/react';
-import SignIn from '../sign-in';
+import { SignIn } from '../sign-in';
 
 const acceptedStates = ['signIn', 'signedUp', 'signedOut'];
 const deniedStates = [

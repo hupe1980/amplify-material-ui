@@ -45,6 +45,8 @@
     "dependencies": {
         "formik": "^2.0.1-rc.5",
         "react-is-mounted-hook": "^1.0.1",
+        "react-recaptcha-hook": "^1.0.5",
+        "react-script-hook": "^1.0.5",
         "zxcvbn": "^4.4.2"
     },
     "peerDependencies": {

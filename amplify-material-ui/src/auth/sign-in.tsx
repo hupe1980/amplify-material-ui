@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const SignIn: React.FC<SignInProps> = props => {
+export const SignIn: React.FC<SignInProps> = props => {
     const { authState, onStateChange } = props;
     const classes = useStyles();
 
@@ -99,6 +99,7 @@ const SignIn: React.FC<SignInProps> = props => {
     const { inputs, handleInputChange, handleSubmit } = useForm(signIn, {
         email: '',
         password: '',
+        token: '',
     });
 
     if (!['signIn', 'signedOut', 'signedUp'].includes(authState)) {
@@ -180,5 +181,3 @@ const SignIn: React.FC<SignInProps> = props => {
         </FormSection>
     );
 };
-
-export default SignIn;
