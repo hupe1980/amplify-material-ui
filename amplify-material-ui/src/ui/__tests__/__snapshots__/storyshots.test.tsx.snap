@@ -27,6 +27,7 @@ exports[`Storyshots UI/PasswordField default 1`] = `
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
@@ -50,7 +51,7 @@ exports[`Storyshots UI/PasswordField default 1`] = `
             viewBox="0 0 24 24"
           >
             <path
-              d="M0 0h24v24H0zm0 0h24v24H0zm0 0h24v24H0zm0 0h24v24H0z"
+              d="m0 0h24v24H0z"
               fill="none"
             />
             <path
@@ -87,7 +88,7 @@ exports[`Storyshots UI/PasswordField styled 1`] = `
   >
     <fieldset
       aria-hidden={true}
-      className="PrivateNotchedOutline-root-123 MuiOutlinedInput-notchedOutline"
+      className="PrivateNotchedOutline-root-127 MuiOutlinedInput-notchedOutline"
       style={
         Object {
           "paddingLeft": 8,
@@ -95,7 +96,7 @@ exports[`Storyshots UI/PasswordField styled 1`] = `
       }
     >
       <legend
-        className="PrivateNotchedOutline-legend-124"
+        className="PrivateNotchedOutline-legend-128"
         style={
           Object {
             "width": 0.01,
@@ -133,6 +134,7 @@ exports[`Storyshots UI/PasswordField styled 1`] = `
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
@@ -156,7 +158,7 @@ exports[`Storyshots UI/PasswordField styled 1`] = `
             viewBox="0 0 24 24"
           >
             <path
-              d="M0 0h24v24H0zm0 0h24v24H0zm0 0h24v24H0zm0 0h24v24H0z"
+              d="m0 0h24v24H0z"
               fill="none"
             />
             <path
@@ -174,11 +176,11 @@ exports[`Storyshots UI/PasswordStrengthMeter default 1`] = `
 Array [
   <div
     aria-valuenow={0}
-    className="MuiLinearProgress-root makeStyles-progress-161 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
+    className="MuiLinearProgress-root makeStyles-progress-165 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
     role="progressbar"
   >
     <div
-      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-weak-162 MuiLinearProgress-bar1Determinate"
+      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-weak-166 MuiLinearProgress-bar1Determinate"
       style={
         Object {
           "transform": "translateX(-100%)",
@@ -199,11 +201,11 @@ exports[`Storyshots UI/PasswordStrengthMeter fair 1`] = `
 Array [
   <div
     aria-valuenow={50}
-    className="MuiLinearProgress-root makeStyles-progress-273 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
+    className="MuiLinearProgress-root makeStyles-progress-277 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
     role="progressbar"
   >
     <div
-      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-fair-275 MuiLinearProgress-bar1Determinate"
+      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-fair-279 MuiLinearProgress-bar1Determinate"
       style={
         Object {
           "transform": "translateX(-50%)",
@@ -224,11 +226,11 @@ exports[`Storyshots UI/PasswordStrengthMeter good 1`] = `
 Array [
   <div
     aria-valuenow={75}
-    className="MuiLinearProgress-root makeStyles-progress-329 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
+    className="MuiLinearProgress-root makeStyles-progress-333 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
     role="progressbar"
   >
     <div
-      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-good-332 MuiLinearProgress-bar1Determinate"
+      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-good-336 MuiLinearProgress-bar1Determinate"
       style={
         Object {
           "transform": "translateX(-25%)",
@@ -249,11 +251,11 @@ exports[`Storyshots UI/PasswordStrengthMeter strong 1`] = `
 Array [
   <div
     aria-valuenow={100}
-    className="MuiLinearProgress-root makeStyles-progress-385 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
+    className="MuiLinearProgress-root makeStyles-progress-389 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
     role="progressbar"
   >
     <div
-      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-strong-389 MuiLinearProgress-bar1Determinate"
+      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-strong-393 MuiLinearProgress-bar1Determinate"
       style={
         Object {
           "transform": "translateX(0%)",
@@ -274,11 +276,11 @@ exports[`Storyshots UI/PasswordStrengthMeter weak 1`] = `
 Array [
   <div
     aria-valuenow={25}
-    className="MuiLinearProgress-root makeStyles-progress-217 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
+    className="MuiLinearProgress-root makeStyles-progress-221 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
     role="progressbar"
   >
     <div
-      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-weak-218 MuiLinearProgress-bar1Determinate"
+      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-weak-222 MuiLinearProgress-bar1Determinate"
       style={
         Object {
           "transform": "translateX(-75%)",

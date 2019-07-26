@@ -1,4 +1,5 @@
-export { default as Authenticator } from './authenticator';
-export { default as SignIn } from './sign-in';
+export * from './authenticator';
+export * from './sign-in';
 export { default as Loading } from './loading';
 export * from './with-authenticator';
+export * from './recaptcha';

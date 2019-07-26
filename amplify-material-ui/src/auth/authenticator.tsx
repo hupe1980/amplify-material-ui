@@ -2,15 +2,15 @@ import * as React from 'react';
 import AuthProps from './auth-props';
 import ForgotPassword from './forgot-password';
 import Greetings from './greetings';
-import Loading from './loading';
-import SignIn from './sign-in';
+import { Loading } from './loading';
+import { SignIn } from './sign-in';
 import SignUp from './sign-up';
 
 export interface AuthenticatorProps extends AuthProps {
     hideDefault?: boolean;
 }
 
-const Authenticator: React.FC<AuthenticatorProps> = props => {
+export const Authenticator: React.FC<AuthenticatorProps> = props => {
     const { authState, onStateChange } = props;
 
     const default_children = [
@@ -31,5 +31,3 @@ const Authenticator: React.FC<AuthenticatorProps> = props => {
 
     return <>{render_children}</>;
 };
-
-export default Authenticator;

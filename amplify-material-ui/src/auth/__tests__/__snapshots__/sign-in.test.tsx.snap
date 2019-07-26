@@ -71,11 +71,11 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
             >
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-139 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-142 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-140"
+                  class="PrivateNotchedOutline-legend-143"
                   style="width: 0px;"
                 >
                   <span>
@@ -115,11 +115,11 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
             >
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-139 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-142 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-140"
+                  class="PrivateNotchedOutline-legend-143"
                   style="width: 0.01px;"
                 >
                   <span>
@@ -141,7 +141,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
           </div>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-142 makeStyles-box-141"
+          class="MuiBox-root MuiBox-root-145 makeStyles-box-144"
         >
           <button
             class="MuiButtonBase-root MuiButton-root makeStyles-submit-2 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
@@ -190,195 +190,6 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
 `;
 
 exports[`sign-in should be rendered correctly in the signIn, signedOut or signedUp authState 2`] = `
-<DocumentFragment>
-  <div
-    class="MuiContainer-root MuiContainer-maxWidthXs"
-  >
-    <div
-      class="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-3 MuiPaper-rounded"
-    >
-      <div
-        class="MuiBox-root MuiBox-root-282 makeStyles-box-38"
-      >
-        <div
-          class="MuiAvatar-root makeStyles-avatar-39 MuiAvatar-colorDefault"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <g
-              fill="none"
-            >
-              <path
-                d="M0 0h24v24H0V0z"
-              />
-              <path
-                d="M0 0h24v24H0V0z"
-                opacity=".87"
-              />
-            </g>
-            <path
-              d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
-            />
-          </svg>
-        </div>
-        <h1
-          class="MuiTypography-root MuiTypography-h6"
-        >
-          Sign in to your account
-        </h1>
-      </div>
-      <form
-        class="makeStyles-form-1"
-        data-testid="signInForm"
-        novalidate=""
-      >
-        <div
-          class="MuiBox-root MuiBox-root-283 makeStyles-box-84"
-        >
-          <div
-            class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
-          >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-focused Mui-focused Mui-required Mui-required"
-              data-shrink="true"
-              for="email"
-            >
-              Email Address
-              <span
-                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
-              >
-                 *
-              </span>
-            </label>
-            <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth Mui-focused Mui-focused MuiInputBase-formControl"
-            >
-              <fieldset
-                aria-hidden="true"
-                class="PrivateNotchedOutline-root-139 MuiOutlinedInput-notchedOutline"
-                style="padding-left: 8px;"
-              >
-                <legend
-                  class="PrivateNotchedOutline-legend-140"
-                  style="width: 0px;"
-                >
-                  <span>
-                    ​
-                  </span>
-                </legend>
-              </fieldset>
-              <input
-                aria-invalid="false"
-                autocomplete="email"
-                class="MuiInputBase-input MuiOutlinedInput-input"
-                id="email"
-                name="email"
-                required=""
-                type="text"
-                value=""
-              />
-            </div>
-          </div>
-          <div
-            class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
-          >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-              data-shrink="false"
-              for="password"
-            >
-              Password
-              <span
-                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
-              >
-                 *
-              </span>
-            </label>
-            <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
-            >
-              <fieldset
-                aria-hidden="true"
-                class="PrivateNotchedOutline-root-139 MuiOutlinedInput-notchedOutline"
-                style="padding-left: 8px;"
-              >
-                <legend
-                  class="PrivateNotchedOutline-legend-140"
-                  style="width: 0.01px;"
-                >
-                  <span>
-                    ​
-                  </span>
-                </legend>
-              </fieldset>
-              <input
-                aria-invalid="false"
-                autocomplete="current-password"
-                class="MuiInputBase-input MuiOutlinedInput-input"
-                id="password"
-                name="password"
-                required=""
-                type="password"
-                value=""
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiBox-root MuiBox-root-284 makeStyles-box-141"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root makeStyles-submit-2 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
-            data-testid="signInSubmit"
-            tabindex="0"
-            type="submit"
-          >
-            <span
-              class="MuiButton-label"
-            >
-              Sign In
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <div
-            class="MuiGrid-root MuiGrid-container"
-          >
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true"
-            >
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
-                href="#"
-              >
-                Forgot password?
-              </a>
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item"
-            >
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
-                href="#"
-              >
-                Don't have an account? Sign Up
-              </a>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`sign-in should be rendered correctly in the signIn, signedOut or signedUp authState 3`] = `
 <DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthXs"
@@ -449,11 +260,11 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
             >
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-139 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-142 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-140"
+                  class="PrivateNotchedOutline-legend-143"
                   style="width: 0px;"
                 >
                   <span>
@@ -493,11 +304,11 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
             >
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-139 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-142 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-140"
+                  class="PrivateNotchedOutline-legend-143"
                   style="width: 0.01px;"
                 >
                   <span>
@@ -519,7 +330,196 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
           </div>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-287 makeStyles-box-141"
+          class="MuiBox-root MuiBox-root-287 makeStyles-box-144"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root makeStyles-submit-2 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+            data-testid="signInSubmit"
+            tabindex="0"
+            type="submit"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              Sign In
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <div
+            class="MuiGrid-root MuiGrid-container"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true"
+            >
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+                href="#"
+              >
+                Forgot password?
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+                href="#"
+              >
+                Don't have an account? Sign Up
+              </a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`sign-in should be rendered correctly in the signIn, signedOut or signedUp authState 3`] = `
+<DocumentFragment>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthXs"
+  >
+    <div
+      class="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-3 MuiPaper-rounded"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-288 makeStyles-box-38"
+      >
+        <div
+          class="MuiAvatar-root makeStyles-avatar-39 MuiAvatar-colorDefault"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <g
+              fill="none"
+            >
+              <path
+                d="M0 0h24v24H0V0z"
+              />
+              <path
+                d="M0 0h24v24H0V0z"
+                opacity=".87"
+              />
+            </g>
+            <path
+              d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
+            />
+          </svg>
+        </div>
+        <h1
+          class="MuiTypography-root MuiTypography-h6"
+        >
+          Sign in to your account
+        </h1>
+      </div>
+      <form
+        class="makeStyles-form-1"
+        data-testid="signInForm"
+        novalidate=""
+      >
+        <div
+          class="MuiBox-root MuiBox-root-289 makeStyles-box-84"
+        >
+          <div
+            class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-focused Mui-focused Mui-required Mui-required"
+              data-shrink="true"
+              for="email"
+            >
+              Email Address
+              <span
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth Mui-focused Mui-focused MuiInputBase-formControl"
+            >
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-142 MuiOutlinedInput-notchedOutline"
+                style="padding-left: 8px;"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legend-143"
+                  style="width: 0px;"
+                >
+                  <span>
+                    ​
+                  </span>
+                </legend>
+              </fieldset>
+              <input
+                aria-invalid="false"
+                autocomplete="email"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                id="email"
+                name="email"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+              data-shrink="false"
+              for="password"
+            >
+              Password
+              <span
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-142 MuiOutlinedInput-notchedOutline"
+                style="padding-left: 8px;"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legend-143"
+                  style="width: 0.01px;"
+                >
+                  <span>
+                    ​
+                  </span>
+                </legend>
+              </fieldset>
+              <input
+                aria-invalid="false"
+                autocomplete="current-password"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                id="password"
+                name="password"
+                required=""
+                type="password"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root MuiBox-root-290 makeStyles-box-144"
         >
           <button
             class="MuiButtonBase-root MuiButton-root makeStyles-submit-2 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"

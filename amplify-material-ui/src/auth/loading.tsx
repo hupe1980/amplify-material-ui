@@ -21,7 +21,7 @@ export interface LoadingProps extends AuthProps {
     color?: 'inherit' | 'primary' | 'secondary' | undefined;
 }
 
-const Loading: React.FC<LoadingProps> = props => {
+export const Loading: React.FC<LoadingProps> = props => {
     const { authState } = props;
 
     const classes = useStyles();
@@ -40,5 +40,3 @@ const Loading: React.FC<LoadingProps> = props => {
 Loading.defaultProps = {
     color: 'secondary',
 };
-
-export default Loading;

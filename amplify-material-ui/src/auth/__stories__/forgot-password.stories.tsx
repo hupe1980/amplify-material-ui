@@ -4,6 +4,6 @@ import ForgotPassword from '../forgot-password';
 
 const stories = storiesOf('Auth/ForgotPassword', module);
 
-stories.add('without props', () => (
+stories.add('default', () => (
     <ForgotPassword authState="forgotPassword" onStateChange={() => {}} />
 ));
