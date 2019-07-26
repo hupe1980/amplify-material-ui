@@ -29,14 +29,14 @@
         "react-scripts": "3.0.1"
     },
     "devDependencies": {
-        "@types/jest": "24.0.13",
-        "@types/node": "12.0.7",
-        "@types/react": "16.8.19",
-        "@types/react-dom": "16.8.4",
+        "@types/jest": "24.0.15",
+        "@types/node": "12.6.8",
+        "@types/react": "16.8.23",
+        "@types/react-dom": "16.8.5",
         "cross-env": "^5.2.0",
         "cypress": "^3.3.1",
         "cypress-testing-library": "^4.0.0",
         "start-server-and-test": "^1.9.1",
-        "typescript": "3.5.1"
+        "typescript": "3.5.3"
     }
 }
