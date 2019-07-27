@@ -49,11 +49,11 @@ describe('sign-in', () => {
             <SignIn onStateChange={handleStateChange} authState="signIn" />,
         );
 
-        const emailInput = getByLabelText('Email Address', {
+        const usernameInput = getByLabelText('Username', {
             exact: false,
             selector: 'input',
         });
-        fireEvent.change(emailInput, { target: { value: 'test@test.de' } });
+        fireEvent.change(usernameInput, { target: { value: 'test@test.de' } });
 
         const passwordInput = getByLabelText('Password', {
             exact: false,

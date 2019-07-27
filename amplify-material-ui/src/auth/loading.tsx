@@ -6,7 +6,7 @@ import {
     CircularProgress,
 } from '@material-ui/core';
 
-import AuthProps from './auth-props';
+import { AuthProps } from './auth-props';
 import FormSection from '../ui/form-section';
 
 const useStyles = makeStyles((theme: Theme) =>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import ForgotPassword from '../forgot-password';
+import { ForgotPassword } from '../forgot-password';
 
 const stories = storiesOf('Auth/ForgotPassword', module);
 
