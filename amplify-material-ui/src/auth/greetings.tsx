@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import { AccountCircle } from '@material-ui/icons';
 
-import AuthProps from './auth-props';
+import { AuthProps } from './auth-props';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export interface GreetingsProps extends AuthProps {}
 
-const Greetings: React.FC<GreetingsProps> = props => {
+export const Greetings: React.FC<GreetingsProps> = props => {
     const { authState } = props;
 
     const classes = useStyles();
@@ -60,5 +60,3 @@ const Greetings: React.FC<GreetingsProps> = props => {
         </AppBar>
     );
 };
-
-export default Greetings;

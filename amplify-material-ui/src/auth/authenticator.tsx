@@ -1,10 +1,10 @@
 import * as React from 'react';
-import AuthProps from './auth-props';
-import ForgotPassword from './forgot-password';
-import Greetings from './greetings';
+import { AuthProps } from './auth-props';
+import { ForgotPassword } from './forgot-password';
+import { Greetings } from './greetings';
 import { Loading } from './loading';
 import { SignIn } from './sign-in';
-import SignUp from './sign-up';
+import { SignUp } from './sign-up';
 
 export interface AuthenticatorProps extends AuthProps {
     hideDefault?: boolean;

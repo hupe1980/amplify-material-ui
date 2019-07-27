@@ -178,7 +178,38 @@ exports[`Storyshots Auth/ForgotPassword default 1`] = `
       </div>
       <div
         className="MuiBox-root MuiBox-root-155 makeStyles-box-154"
-      />
+      >
+        <div
+          className="MuiGrid-root MuiGrid-container"
+        >
+          <div
+            className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+              href="#"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+            >
+              Resend Code
+            </a>
+          </div>
+          <div
+            className="MuiGrid-root MuiGrid-item"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+              href="#"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+            >
+              Back to Sign In
+            </a>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 </div>
@@ -189,10 +220,10 @@ exports[`Storyshots Auth/Loading default 1`] = `
   className="MuiContainer-root MuiContainer-maxWidthXs"
 >
   <div
-    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-157 MuiPaper-rounded"
+    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-266 MuiPaper-rounded"
   >
     <div
-      className="MuiCircularProgress-root makeStyles-progress-156 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+      className="MuiCircularProgress-root makeStyles-progress-265 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
       role="progressbar"
       style={
         Object {
@@ -225,13 +256,13 @@ exports[`Storyshots Auth/SignIn default 1`] = `
   className="MuiContainer-root MuiContainer-maxWidthXs"
 >
   <div
-    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-206 MuiPaper-rounded"
+    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-315 MuiPaper-rounded"
   >
     <div
-      className="MuiBox-root MuiBox-root-244 makeStyles-box-241"
+      className="MuiBox-root MuiBox-root-353 makeStyles-box-350"
     >
       <div
-        className="MuiAvatar-root makeStyles-avatar-242 MuiAvatar-colorDefault"
+        className="MuiAvatar-root makeStyles-avatar-351 MuiAvatar-colorDefault"
       >
         <svg
           aria-hidden="true"
@@ -263,13 +294,13 @@ exports[`Storyshots Auth/SignIn default 1`] = `
       </h1>
     </div>
     <form
-      className="makeStyles-form-204"
+      className="makeStyles-form-313"
       data-testid="signInForm"
       noValidate={true}
       onSubmit={[Function]}
     >
       <div
-        className="MuiBox-root MuiBox-root-288 makeStyles-box-287"
+        className="MuiBox-root MuiBox-root-397 makeStyles-box-396"
       >
         <div
           className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
@@ -277,9 +308,9 @@ exports[`Storyshots Auth/SignIn default 1`] = `
           <label
             className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
             data-shrink={false}
-            htmlFor="email"
+            htmlFor="username"
           >
-            Email Address
+            Username
             <span
               className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
             >
@@ -293,7 +324,7 @@ exports[`Storyshots Auth/SignIn default 1`] = `
           >
             <fieldset
               aria-hidden={true}
-              className="PrivateNotchedOutline-root-345 MuiOutlinedInput-notchedOutline"
+              className="PrivateNotchedOutline-root-454 MuiOutlinedInput-notchedOutline"
               style={
                 Object {
                   "paddingLeft": 8,
@@ -301,7 +332,7 @@ exports[`Storyshots Auth/SignIn default 1`] = `
               }
             >
               <legend
-                className="PrivateNotchedOutline-legend-346"
+                className="PrivateNotchedOutline-legend-455"
                 style={
                   Object {
                     "width": 0.01,
@@ -319,12 +350,11 @@ exports[`Storyshots Auth/SignIn default 1`] = `
             </fieldset>
             <input
               aria-invalid={false}
-              autoComplete="email"
               autoFocus={true}
               className="MuiInputBase-input MuiOutlinedInput-input"
               disabled={false}
-              id="email"
-              name="email"
+              id="username"
+              name="username"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -356,7 +386,7 @@ exports[`Storyshots Auth/SignIn default 1`] = `
           >
             <fieldset
               aria-hidden={true}
-              className="PrivateNotchedOutline-root-345 MuiOutlinedInput-notchedOutline"
+              className="PrivateNotchedOutline-root-454 MuiOutlinedInput-notchedOutline"
               style={
                 Object {
                   "paddingLeft": 8,
@@ -364,7 +394,7 @@ exports[`Storyshots Auth/SignIn default 1`] = `
               }
             >
               <legend
-                className="PrivateNotchedOutline-legend-346"
+                className="PrivateNotchedOutline-legend-455"
                 style={
                   Object {
                     "width": 0.01,
@@ -398,10 +428,10 @@ exports[`Storyshots Auth/SignIn default 1`] = `
         </div>
       </div>
       <div
-        className="MuiBox-root MuiBox-root-348 makeStyles-box-347"
+        className="MuiBox-root MuiBox-root-457 makeStyles-box-456"
       >
         <button
-          className="MuiButtonBase-root MuiButton-root makeStyles-submit-205 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+          className="MuiButtonBase-root MuiButton-root makeStyles-submit-314 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
           data-testid="signInSubmit"
           disabled={false}
           onBlur={[Function]}

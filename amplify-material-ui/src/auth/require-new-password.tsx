@@ -1,12 +1,5 @@
 import * as React from 'react';
-import {
-    createStyles,
-    makeStyles,
-    TextField,
-    Theme,
-    Grid,
-    Link,
-} from '@material-ui/core';
+import { createStyles, makeStyles, TextField, Theme } from '@material-ui/core';
 import { I18n } from '@aws-amplify/core';
 
 import { AuthProps } from './auth-props';
@@ -14,7 +7,7 @@ import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
 import { useForm } from '../hooks';
 
-export interface ForgotPasswordProps extends AuthProps {}
+export interface RequireNewPasswordProps extends AuthProps {}
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -28,8 +21,8 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const ForgotPassword: React.FC<ForgotPasswordProps> = props => {
-    const { authState, onStateChange } = props;
+export const RequireNewPassword: React.FC<RequireNewPasswordProps> = props => {
+    const { authState } = props;
 
     const classes = useStyles();
 
@@ -40,7 +33,7 @@ export const ForgotPassword: React.FC<ForgotPasswordProps> = props => {
         password: '',
     });
 
-    if (!['forgotPassword'].includes(authState)) {
+    if (!['requireNewPassword'].includes(authState)) {
         return null;
     }
 
@@ -74,28 +67,7 @@ export const ForgotPassword: React.FC<ForgotPasswordProps> = props => {
                         value={inputs.password}
                     />
                 </SectionBody>
-                <SectionFooter>
-                    <Grid container>
-                        <Grid item xs>
-                            <Link
-                                href="#"
-                                onClick={() => console.log('Resend code')}
-                                variant="body2"
-                            >
-                                {I18n.get('Resend Code')}
-                            </Link>
-                        </Grid>
-                        <Grid item>
-                            <Link
-                                href="#"
-                                onClick={() => onStateChange('signIn', null)}
-                                variant="body2"
-                            >
-                                {I18n.get('Back to Sign In')}
-                            </Link>
-                        </Grid>
-                    </Grid>
-                </SectionFooter>
+                <SectionFooter />
             </form>
         </FormSection>
     );

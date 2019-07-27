@@ -11,7 +11,7 @@ import {
 import Auth from '@aws-amplify/auth';
 import { ConsoleLogger as Logger, I18n, JS } from '@aws-amplify/core';
 
-import AuthProps from './auth-props';
+import { AuthProps } from './auth-props';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useForm } from '../hooks';
 
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const SignIn: React.FC<SignInProps> = props => {
-    const { authState, onStateChange } = props;
+    const { authState, onStateChange, validationData } = props;
     const classes = useStyles();
 
     const checkContact = async (user: any) => {
@@ -62,7 +62,11 @@ export const SignIn: React.FC<SignInProps> = props => {
         const { username, password } = inputs;
 
         try {
-            const user = await Auth.signIn(username, password);
+            const user = await Auth.signIn({
+                username,
+                password,
+                validationData,
+            });
             logger.debug(user);
             if (
                 user.challengeName === 'SMS_MFA' ||
@@ -97,7 +101,7 @@ export const SignIn: React.FC<SignInProps> = props => {
     };
 
     const { inputs, handleInputChange, handleSubmit } = useForm(signIn, {
-        email: '',
+        username: '',
         password: '',
         token: '',
     });
@@ -121,13 +125,12 @@ export const SignIn: React.FC<SignInProps> = props => {
                         margin="normal"
                         required
                         fullWidth
-                        id="email"
-                        label="Email Address"
-                        name="email"
-                        autoComplete="email"
+                        id="username"
+                        label="Username"
+                        name="username"
                         autoFocus
                         onChange={handleInputChange}
-                        value={inputs.email}
+                        value={inputs.username}
                     />
                     <TextField
                         variant="outlined"
