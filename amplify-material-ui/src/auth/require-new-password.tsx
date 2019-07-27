@@ -37,7 +37,24 @@ export const RequireNewPassword: React.FC<RequireNewPasswordProps> = props => {
 
     const classes = useStyles();
 
-    const submit = (inputs: any) => {
+    const checkContact = async (user: any) => {
+        if (!Auth || typeof Auth.verifiedContact !== 'function') {
+            throw new Error(
+                'No Auth module found, please ensure @aws-amplify/auth is imported',
+            );
+        }
+
+        const data = await Auth.verifiedContact(user);
+
+        if (!JS.isEmpty(data.verified)) {
+            onStateChange('signedIn', user);
+        } else {
+            user = Object.assign(user, data);
+            onStateChange('verifyContact', user);
+        }
+    };
+
+    const submit = async (inputs: any) => {
         const user = props.authData;
         const { password } = inputs;
         //const { requiredAttributes } = user.challengeParam;
@@ -48,19 +65,26 @@ export const RequireNewPassword: React.FC<RequireNewPasswordProps> = props => {
                 'No Auth module found, please ensure @aws-amplify/auth is imported',
             );
         }
-        Auth.completeNewPassword(user, password, undefined)
-            .then(user => {
-                logger.debug('complete new password', user);
-                if (user.challengeName === 'SMS_MFA') {
-                    onStateChange('confirmSignIn', user);
-                } else if (user.challengeName === 'MFA_SETUP') {
-                    logger.debug('TOTP setup', user.challengeParam);
-                    onStateChange('TOTPSetup', user);
-                } else {
-                    onStateChange(user);
-                }
-            })
-            .catch(err => console.log(err) /*this.error(err)*/);
+        try {
+            const updatedUser = await Auth.completeNewPassword(
+                user,
+                password,
+                undefined,
+            );
+
+            logger.debug('complete new password', updatedUser);
+
+            if (updatedUser.challengeName === 'SMS_MFA') {
+                onStateChange('confirmSignIn', updatedUser);
+            } else if (updatedUser.challengeName === 'MFA_SETUP') {
+                logger.debug('TOTP setup', updatedUser.challengeParam);
+                onStateChange('TOTPSetup', updatedUser);
+            } else {
+                checkContact(updatedUser);
+            }
+        } catch (error) {
+            console.log(error); /*this.error(err)*/
+        }
     };
 
     const { inputs, handleInputChange, handleSubmit } = useForm(submit, {
