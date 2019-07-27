@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
     createStyles,
     makeStyles,
+    Button,
     TextField,
     Theme,
     Grid,
@@ -75,6 +76,15 @@ export const ForgotPassword: React.FC<ForgotPasswordProps> = props => {
                     />
                 </SectionBody>
                 <SectionFooter>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
+                    >
+                        {I18n.get('Submit')}
+                    </Button>
                     <Grid container>
                         <Grid item xs>
                             <Link

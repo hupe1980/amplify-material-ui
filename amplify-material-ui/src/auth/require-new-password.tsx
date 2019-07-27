@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {
     createStyles,
+    Button,
     makeStyles,
     TextField,
     Theme,
@@ -89,6 +90,15 @@ export const RequireNewPassword: React.FC<RequireNewPasswordProps> = props => {
                     />
                 </SectionBody>
                 <SectionFooter>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
+                    >
+                        {I18n.get('Change')}
+                    </Button>
                     <Grid container>
                         <Grid item>
                             <Link
