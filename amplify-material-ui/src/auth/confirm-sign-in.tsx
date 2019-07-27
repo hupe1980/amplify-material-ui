@@ -11,7 +11,7 @@ import {
 import Auth from '@aws-amplify/auth';
 import { I18n } from '@aws-amplify/core';
 
-import AuthProps from './auth-props';
+import { AuthProps } from './auth-props';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useForm } from '../hooks';
 
