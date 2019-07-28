@@ -3,35 +3,14 @@ import Auth from '@aws-amplify/auth';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import { SignIn } from '../sign-in';
 
-const acceptedStates = ['signIn', 'signedUp', 'signedOut'];
-const deniedStates = [
-    'signUp',
-    'signedIn',
-    'comfirmSignIn',
-    'confirmSignUp',
-    'forgotPassword',
-    'verifyContact',
-];
-
 describe('sign-in', () => {
     beforeEach(() => cleanup());
 
-    it('should be rendered correctly in the signIn, signedOut or signedUp authState', () => {
-        acceptedStates.forEach(state => {
-            const { asFragment } = render(
-                <SignIn onStateChange={() => {}} authState={state} />,
-            );
-            expect(asFragment()).toMatchSnapshot();
-        });
-    });
-
-    it('should render null if state is unvalid', () => {
-        deniedStates.forEach(state => {
-            const { asFragment } = render(
-                <SignIn onStateChange={() => {}} authState={state} />,
-            );
-            expect(asFragment()).toMatchSnapshot();
-        });
+    it('should be rendered correctly in the signIn authState', () => {
+        const { asFragment } = render(
+            <SignIn onStateChange={() => {}} authState="signIn" />,
+        );
+        expect(asFragment()).toMatchSnapshot();
     });
 
     it('it should change state to requireNewPassword if challengeName equals NEW_PASSWORD_REQUIRED', async () => {

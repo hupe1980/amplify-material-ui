@@ -2,9 +2,10 @@ import * as React from 'react';
 import { CssBaseline, createMuiTheme } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 
-import { AuthProps } from './auth-props';
 import { Authenticator } from './authenticator';
 import { useAuth } from '../hooks';
+
+import { AuthProps } from './types';
 
 const defaultAuthConfig = {
     includeGreetings: false,

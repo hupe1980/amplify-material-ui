@@ -13,7 +13,7 @@ import {
 import { AccountCircle } from '@material-ui/icons';
 import Auth from '@aws-amplify/auth';
 
-import { AuthProps } from './auth-props';
+import { AuthComponent, AuthProps } from './types';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -35,16 +35,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export interface GreetingsProps extends AuthProps {}
 
-export const Greetings: React.FC<GreetingsProps> = props => {
-    const { authState } = props;
-
+export const Greetings: AuthComponent<GreetingsProps> = props => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
     const classes = useStyles();
-
-    if (!['signedIn'].includes(authState)) {
-        return null;
-    }
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
@@ -55,8 +49,8 @@ export const Greetings: React.FC<GreetingsProps> = props => {
     };
 
     const logout = async () => {
-        await Auth.signOut();
         handleClose();
+        await Auth.signOut();
     };
 
     return (
@@ -92,3 +86,5 @@ export const Greetings: React.FC<GreetingsProps> = props => {
         </AppBar>
     );
 };
+
+Greetings.validAuthStates = ['signedIn'];

@@ -10,10 +10,11 @@ import {
 } from '@material-ui/core';
 import { I18n } from '@aws-amplify/core';
 
-import { AuthProps } from './auth-props';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
 import { useForm } from '../hooks';
+
+import { AuthComponent, AuthProps } from './types';
 
 export interface ForgotPasswordProps extends AuthProps {}
 
@@ -29,8 +30,8 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const ForgotPassword: React.FC<ForgotPasswordProps> = props => {
-    const { authState, onStateChange } = props;
+export const ForgotPassword: AuthComponent<ForgotPasswordProps> = props => {
+    const { onStateChange } = props;
 
     const classes = useStyles();
 
@@ -40,10 +41,6 @@ export const ForgotPassword: React.FC<ForgotPasswordProps> = props => {
         code: '',
         password: '',
     });
-
-    if (!['forgotPassword'].includes(authState)) {
-        return null;
-    }
 
     return (
         <FormSection>
@@ -110,3 +107,5 @@ export const ForgotPassword: React.FC<ForgotPasswordProps> = props => {
         </FormSection>
     );
 };
+
+ForgotPassword.validAuthStates = ['forgotPassword'];

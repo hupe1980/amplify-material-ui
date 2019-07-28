@@ -11,9 +11,10 @@ import {
 import Auth from '@aws-amplify/auth';
 import { I18n } from '@aws-amplify/core';
 
-import { AuthProps } from './auth-props';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useForm } from '../hooks';
+
+import { AuthComponent, AuthProps } from './types';
 
 export interface SignUpProps extends AuthProps {
     validationData?: { [key: string]: string };
@@ -31,8 +32,8 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const SignUp: React.FC<SignUpProps> = props => {
-    const { authState, onStateChange } = props;
+export const SignUp: AuthComponent<SignUpProps> = props => {
+    const { onStateChange } = props;
     const classes = useStyles();
 
     const signUp = async (inputs: any) => {
@@ -47,10 +48,6 @@ export const SignUp: React.FC<SignUpProps> = props => {
         email: '',
         password: '',
     });
-
-    if (!['signUp'].includes(authState)) {
-        return null;
-    }
 
     return (
         <FormSection>
@@ -111,3 +108,5 @@ export const SignUp: React.FC<SignUpProps> = props => {
         </FormSection>
     );
 };
+
+SignUp.validAuthStates = ['signUp'];

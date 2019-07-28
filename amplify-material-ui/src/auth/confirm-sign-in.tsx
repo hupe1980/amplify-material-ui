@@ -11,13 +11,13 @@ import {
 import Auth from '@aws-amplify/auth';
 import { I18n } from '@aws-amplify/core';
 
-import { AuthProps } from './auth-props';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useForm } from '../hooks';
 
+import { AuthComponent, AuthProps } from './types';
+
 export interface ConfirmSignInProps extends AuthProps {
     validationData?: { [key: string]: string };
-    authData: any;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -48,8 +48,8 @@ const useMfaType = (user: any) => {
     return mfaType;
 };
 
-export const ConfirmSignIn: React.FC<ConfirmSignInProps> = props => {
-    const { authState, onStateChange, authData: user } = props;
+export const ConfirmSignIn: AuthComponent<ConfirmSignInProps> = props => {
+    const { onStateChange, authData: user } = props;
 
     const classes = useStyles();
 
@@ -71,10 +71,6 @@ export const ConfirmSignIn: React.FC<ConfirmSignInProps> = props => {
     const { inputs, handleInputChange, handleSubmit } = useForm(confirm, {
         code: '',
     });
-
-    if (!['confirmSignIn'].includes(authState)) {
-        return null;
-    }
 
     return (
         <FormSection>
@@ -123,3 +119,5 @@ export const ConfirmSignIn: React.FC<ConfirmSignInProps> = props => {
         </FormSection>
     );
 };
+
+ConfirmSignIn.validAuthStates = ['confirmSignIn'];

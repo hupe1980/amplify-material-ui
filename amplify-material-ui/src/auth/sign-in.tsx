@@ -11,9 +11,10 @@ import {
 import Auth from '@aws-amplify/auth';
 import { ConsoleLogger as Logger, I18n, JS } from '@aws-amplify/core';
 
-import { AuthProps } from './auth-props';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useForm } from '../hooks';
+
+import { AuthComponent, AuthProps } from './types';
 
 const logger = new Logger('SignIn');
 
@@ -33,8 +34,8 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const SignIn: React.FC<SignInProps> = props => {
-    const { authState, onStateChange, validationData } = props;
+export const SignIn: AuthComponent<SignInProps> = props => {
+    const { onStateChange, validationData } = props;
     const classes = useStyles();
 
     const checkContact = async (user: any) => {
@@ -105,10 +106,6 @@ export const SignIn: React.FC<SignInProps> = props => {
         password: '',
         token: '',
     });
-
-    if (!['signIn', 'signedOut', 'signedUp'].includes(authState)) {
-        return null;
-    }
 
     return (
         <FormSection>
@@ -184,3 +181,5 @@ export const SignIn: React.FC<SignInProps> = props => {
         </FormSection>
     );
 };
+
+SignIn.validAuthStates = ['signIn', 'signedOut', 'signedUp'];

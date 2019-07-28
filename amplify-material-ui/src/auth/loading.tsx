@@ -6,8 +6,9 @@ import {
     CircularProgress,
 } from '@material-ui/core';
 
-import { AuthProps } from './auth-props';
 import FormSection from '../ui/form-section';
+
+import { AuthComponent, AuthProps } from './types';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -21,14 +22,8 @@ export interface LoadingProps extends AuthProps {
     color?: 'inherit' | 'primary' | 'secondary' | undefined;
 }
 
-export const Loading: React.FC<LoadingProps> = props => {
-    const { authState } = props;
-
+export const Loading: AuthComponent<LoadingProps> = props => {
     const classes = useStyles();
-
-    if (!['loading'].includes(authState)) {
-        return null;
-    }
 
     return (
         <FormSection>
@@ -40,3 +35,5 @@ export const Loading: React.FC<LoadingProps> = props => {
 Loading.defaultProps = {
     color: 'secondary',
 };
+
+Loading.validAuthStates = ['loading'];

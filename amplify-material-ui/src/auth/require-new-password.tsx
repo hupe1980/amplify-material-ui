@@ -11,10 +11,11 @@ import {
 import Auth from '@aws-amplify/auth';
 import { ConsoleLogger as Logger, I18n, JS } from '@aws-amplify/core';
 
-import { AuthProps } from './auth-props';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
 import { useForm } from '../hooks';
+
+import { AuthComponent, AuthProps } from './types';
 
 const logger = new Logger('RequireNewPassword');
 
@@ -32,8 +33,10 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const RequireNewPassword: React.FC<RequireNewPasswordProps> = props => {
-    const { authState, onStateChange } = props;
+export const RequireNewPassword: AuthComponent<
+    RequireNewPasswordProps
+> = props => {
+    const { onStateChange } = props;
 
     const classes = useStyles();
 
@@ -91,10 +94,6 @@ export const RequireNewPassword: React.FC<RequireNewPasswordProps> = props => {
         password: '',
     });
 
-    if (!['requireNewPassword'].includes(authState)) {
-        return null;
-    }
-
     return (
         <FormSection>
             <SectionHeader>{I18n.get('Change Password')}</SectionHeader>
@@ -139,3 +138,5 @@ export const RequireNewPassword: React.FC<RequireNewPasswordProps> = props => {
         </FormSection>
     );
 };
+
+RequireNewPassword.validAuthStates = ['requireNewPassword'];
