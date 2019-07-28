@@ -1,4 +1,5 @@
 import * as React from 'react';
+import invariant from 'tiny-invariant';
 import {
     Button,
     Grid,
@@ -37,11 +38,11 @@ export const SignUp: AuthComponent<SignUpProps> = props => {
     const classes = useStyles();
 
     const signUp = async (inputs: any) => {
-        if (!Auth || typeof Auth.signUp !== 'function') {
-            throw new Error(
-                'No Auth module found, please ensure @aws-amplify/auth is imported',
-            );
-        }
+        invariant(
+            !Auth || typeof Auth.signUp !== 'function',
+            'No Auth module found, please ensure @aws-amplify/auth is imported',
+        );
+        // TODO
     };
 
     const { inputs, handleInputChange, handleSubmit } = useForm(signUp, {

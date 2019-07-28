@@ -1,4 +1,5 @@
 import * as React from 'react';
+import invariant from 'tiny-invariant';
 import {
     Button,
     Grid,
@@ -39,16 +40,17 @@ export const SignIn: AuthComponent<SignInProps> = props => {
     const classes = useStyles();
 
     const checkContact = async (user: any) => {
-        if (!Auth || typeof Auth.verifiedContact !== 'function') {
-            throw new Error(
-                'No Auth module found, please ensure @aws-amplify/auth is imported',
-            );
-        }
+        invariant(
+            !Auth || typeof Auth.verifiedContact !== 'function',
+            'No Auth module found, please ensure @aws-amplify/auth is imported',
+        );
+
         const data = await Auth.verifiedContact(user);
+
         if (!JS.isEmpty(data.verified)) {
             onStateChange('signedIn', user);
         } else {
-            user = Object.assign(user, data);
+            user = { ...user, ...data };
             onStateChange('verifyContact', user);
         }
     };

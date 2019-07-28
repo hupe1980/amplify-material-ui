@@ -1,4 +1,5 @@
 import * as React from 'react';
+import invariant from 'tiny-invariant';
 import {
     createStyles,
     Button,
@@ -41,11 +42,10 @@ export const RequireNewPassword: AuthComponent<
     const classes = useStyles();
 
     const checkContact = async (user: any) => {
-        if (!Auth || typeof Auth.verifiedContact !== 'function') {
-            throw new Error(
-                'No Auth module found, please ensure @aws-amplify/auth is imported',
-            );
-        }
+        invariant(
+            !Auth || typeof Auth.verifiedContact !== 'function',
+            'No Auth module found, please ensure @aws-amplify/auth is imported',
+        );
 
         const data = await Auth.verifiedContact(user);
 

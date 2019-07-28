@@ -1,4 +1,5 @@
 import * as React from 'react';
+import invariant from 'tiny-invariant';
 import {
     Button,
     Grid,
@@ -56,11 +57,11 @@ export const ConfirmSignIn: AuthComponent<ConfirmSignInProps> = props => {
     const mfaType = useMfaType(user);
 
     const confirm = async ({ code }: { code: string }) => {
-        if (!Auth || typeof Auth.confirmSignIn !== 'function') {
-            throw new Error(
-                'No Auth module found, please ensure @aws-amplify/auth is imported',
-            );
-        }
+        invariant(
+            !Auth || typeof Auth.confirmSignIn !== 'function',
+            'No Auth module found, please ensure @aws-amplify/auth is imported',
+        );
+
         await Auth.confirmSignIn(
             user,
             code,
