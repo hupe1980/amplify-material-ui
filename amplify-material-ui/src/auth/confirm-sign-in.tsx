@@ -58,7 +58,7 @@ export const ConfirmSignIn: AuthComponent<ConfirmSignInProps> = props => {
 
     const confirm = async ({ code }: { code: string }) => {
         invariant(
-            !Auth || typeof Auth.confirmSignIn !== 'function',
+            Auth && typeof Auth.confirmSignIn === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',
         );
 

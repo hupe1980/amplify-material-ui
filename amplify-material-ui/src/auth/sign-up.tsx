@@ -39,7 +39,7 @@ export const SignUp: AuthComponent<SignUpProps> = props => {
 
     const signUp = async (inputs: any) => {
         invariant(
-            !Auth || typeof Auth.signUp !== 'function',
+            Auth && typeof Auth.signUp === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',
         );
         // TODO

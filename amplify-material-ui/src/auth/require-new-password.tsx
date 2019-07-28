@@ -43,7 +43,7 @@ export const RequireNewPassword: AuthComponent<
 
     const checkContact = async (user: any) => {
         invariant(
-            !Auth || typeof Auth.verifiedContact !== 'function',
+            Auth && typeof Auth.verifiedContact === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',
         );
 

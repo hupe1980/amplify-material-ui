@@ -5,6 +5,7 @@ module.exports = {
             { flow: false, typescript: true, absoluteRuntime: false },
         ],
     ],
+    plugins: ['dev-expression'],
     // env: {
     //     production: {
     //         plugins: [
