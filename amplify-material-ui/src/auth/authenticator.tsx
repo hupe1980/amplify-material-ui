@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { CssBaseline, createMuiTheme, Theme } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/styles';
+
 import { ForgotPassword } from './forgot-password';
 import { Greetings } from './greetings';
 import { Loading } from './loading';
@@ -7,23 +10,23 @@ import { SignUp } from './sign-up';
 import { RequireNewPassword } from './require-new-password';
 import { ConfirmSignIn } from './confirm-sign-in';
 
+import { useAuth } from '../hooks';
+
 import { AuthComponent, AuthProps } from './types';
 
-export interface AuthenticatorProps extends AuthProps {
+export interface AuthenticatorProps {
     hideDefault?: boolean;
-    children?: AuthComponent[];
+    hide?: AuthComponent<AuthProps>[];
+    theme?: Theme;
+    children: (props: AuthProps) => React.ReactElement<any>;
 }
 
 export const Authenticator: React.FC<AuthenticatorProps> = props => {
-    const {
-        authState,
-        onStateChange,
-        authData,
-        children = [],
-        hideDefault = false,
-    } = props;
+    const { hide = [], hideDefault = false, children, theme } = props;
 
-    const default_children = hideDefault
+    const { authState, authData, handleStateChange } = useAuth();
+
+    let defaultChildren = hideDefault
         ? []
         : [
               ForgotPassword,
@@ -35,22 +38,33 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
               ConfirmSignIn,
           ];
 
+    defaultChildren = defaultChildren.filter(child => !hide.includes(child));
+
     const renderChildren: any = [];
 
-    [...default_children, ...children].forEach((child, index) => {
+    defaultChildren.forEach((child, index) => {
         if (child.validAuthStates.includes(authState)) {
             renderChildren.push(
                 React.createElement(child, {
-                    key:
-                        'amplify-material-ui-authenticator-default-children-' +
-                        index,
+                    key: `amplify-material-ui-authenticator-default-children-${index}`,
                     authState,
                     authData,
-                    onStateChange,
+                    onStateChange: handleStateChange,
                 }),
             );
         }
     });
 
-    return <>{renderChildren}</>;
+    return (
+        <ThemeProvider theme={createMuiTheme(theme)}>
+            <CssBaseline />
+            {renderChildren}
+            {children &&
+                children({
+                    authState,
+                    authData,
+                    onStateChange: handleStateChange,
+                })}
+        </ThemeProvider>
+    );
 };

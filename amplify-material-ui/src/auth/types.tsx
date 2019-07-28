@@ -6,7 +6,7 @@ export interface AuthProps {
     authData?: any;
 }
 
-export interface AuthComponent<P extends Partial<AuthProps> = {}>
+export interface AuthComponent<P extends Partial<AuthProps>>
     extends React.FC<P> {
     validAuthStates: string[];
 }

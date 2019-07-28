@@ -6,6 +6,7 @@ import {
     Typography,
     Menu,
     MenuItem,
+    Divider,
     createStyles,
     Theme,
     makeStyles,
@@ -33,9 +34,12 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export interface GreetingsProps extends AuthProps {}
+export interface GreetingsProps extends AuthProps {
+    renderUserMenu?: () => React.ReactElement<any>;
+}
 
 export const Greetings: AuthComponent<GreetingsProps> = props => {
+    const { authData, renderUserMenu } = props;
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
     const classes = useStyles();
@@ -81,6 +85,9 @@ export const Greetings: AuthComponent<GreetingsProps> = props => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
+                <MenuItem disabled>Angemeldet als {authData.username}</MenuItem>
+                <Divider />
+                {renderUserMenu && renderUserMenu()}
                 <MenuItem onClick={logout}>Logout</MenuItem>
             </Menu>
         </AppBar>

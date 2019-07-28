@@ -1,66 +1,39 @@
 import * as React from 'react';
-import { CssBaseline, createMuiTheme } from '@material-ui/core';
-import { ThemeProvider } from '@material-ui/styles';
 
 import { Authenticator } from './authenticator';
-import { useAuth } from '../hooks';
 
-import { AuthProps } from './types';
-
-const defaultAuthConfig = {
-    includeGreetings: false,
-    authenticatorComponents: [],
-    federated: {},
-    theme: {},
-    signUpConfig: {},
-};
+import { AuthComponent, AuthProps } from './types';
+import { Theme } from '@material-ui/core';
 
 export interface AuthConfig {
-    includeGreetings?: boolean;
-    authenticatorComponents?: [React.ComponentType];
-    federated?: object;
-    theme?: object;
-    signUpConfig?: object;
+    hide?: AuthComponent<AuthProps>[];
+    hideDefault?: boolean;
+    theme?: Theme;
 }
 
-export const withAuthenticator = <P extends Partial<AuthProps>>(
-    Component: React.ComponentType<P>,
+export const withAuthenticator = (
+    Component: React.ComponentType,
     authConfig?: AuthConfig,
-): React.ComponentType<P> => {
+): React.ComponentType<any> => {
     return props => {
-        const { authState, authData, handleStateChange } = useAuth();
-        const {
-            includeGreetings = false,
-            authenticatorComponents = [],
-            federated = {},
-            theme = {},
-            signUpConfig = {},
-        } = {
-            ...defaultAuthConfig,
-            ...authConfig,
-        };
+        const { hide = [], hideDefault = false, theme = undefined } =
+            authConfig || {};
 
         return (
-            <ThemeProvider theme={createMuiTheme(theme)}>
-                <CssBaseline />
-                <Authenticator
-                    authState={authState}
-                    authData={authData}
-                    hideDefault={
-                        authenticatorComponents &&
-                        authenticatorComponents.length > 0
-                    }
-                    onStateChange={handleStateChange}
-                />
-                {authState === 'signedIn' && (
-                    <Component
-                        {...(props as P)}
-                        authState={authState}
-                        authData={authData}
-                        onStateChange={handleStateChange}
-                    />
+            <Authenticator hideDefault={hideDefault} hide={hide} theme={theme}>
+                {({ authState, authData, onStateChange }) => (
+                    <>
+                        {authState === 'signedIn' && (
+                            <Component
+                                {...props}
+                                authState={authState}
+                                authData={authData}
+                                onStateChange={onStateChange}
+                            />
+                        )}
+                    </>
                 )}
-            </ThemeProvider>
+            </Authenticator>
         );
     };
 };
