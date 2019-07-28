@@ -4,11 +4,14 @@ import {
     Toolbar,
     IconButton,
     Typography,
+    Menu,
+    MenuItem,
     createStyles,
     Theme,
     makeStyles,
 } from '@material-ui/core';
 import { AccountCircle } from '@material-ui/icons';
+import Auth from '@aws-amplify/auth';
 
 import { AuthProps } from './auth-props';
 
@@ -35,11 +38,26 @@ export interface GreetingsProps extends AuthProps {}
 export const Greetings: React.FC<GreetingsProps> = props => {
     const { authState } = props;
 
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
     const classes = useStyles();
 
     if (!['signedIn'].includes(authState)) {
         return null;
     }
+
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const logout = async () => {
+        await Auth.signOut();
+        handleClose();
+    };
 
     return (
         <AppBar position="absolute" className={classes.appBar}>
@@ -53,10 +71,24 @@ export const Greetings: React.FC<GreetingsProps> = props => {
                 >
                     Greetings
                 </Typography>
-                <IconButton color="inherit">
+                <IconButton
+                    color="inherit"
+                    aria-controls="user-menu"
+                    aria-haspopup="true"
+                    onClick={handleClick}
+                >
                     <AccountCircle />
                 </IconButton>
             </Toolbar>
+            <Menu
+                id="user-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+            >
+                <MenuItem onClick={logout}>Logout</MenuItem>
+            </Menu>
         </AppBar>
     );
 };

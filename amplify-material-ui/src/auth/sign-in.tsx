@@ -138,7 +138,7 @@ export const SignIn: React.FC<SignInProps> = props => {
                         required
                         fullWidth
                         name="password"
-                        label="Password"
+                        label={I18n.get('Password')}
                         type="password"
                         id="password"
                         autoComplete="current-password"
@@ -155,7 +155,7 @@ export const SignIn: React.FC<SignInProps> = props => {
                         className={classes.submit}
                         data-testid="signInSubmit"
                     >
-                        Sign In
+                        {I18n.get('Sign In')}
                     </Button>
                     <Grid container>
                         <Grid item xs>
@@ -166,7 +166,7 @@ export const SignIn: React.FC<SignInProps> = props => {
                                 }
                                 variant="body2"
                             >
-                                Forgot password?
+                                {I18n.get('Reset password')}
                             </Link>
                         </Grid>
                         <Grid item>
@@ -175,7 +175,7 @@ export const SignIn: React.FC<SignInProps> = props => {
                                 onClick={() => onStateChange('signUp', null)}
                                 variant="body2"
                             >
-                                {"Don't have an account? Sign Up"}
+                                {I18n.get('Create account')}
                             </Link>
                         </Grid>
                     </Grid>

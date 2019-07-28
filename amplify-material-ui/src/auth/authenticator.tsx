@@ -12,7 +12,7 @@ export interface AuthenticatorProps extends AuthProps {
 }
 
 export const Authenticator: React.FC<AuthenticatorProps> = props => {
-    const { authState, onStateChange } = props;
+    const { authState, onStateChange, authData } = props;
 
     const default_children = [
         ForgotPassword,
@@ -27,6 +27,7 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
         return React.createElement(child, {
             key: 'amplify-material-ui-authenticator-default-children-' + index,
             authState,
+            authData,
             onStateChange,
         });
     });

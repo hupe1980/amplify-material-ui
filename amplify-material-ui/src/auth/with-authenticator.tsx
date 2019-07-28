@@ -44,6 +44,7 @@ export const withAuthenticator = <P extends Partial<AuthProps>>(
                 <CssBaseline />
                 <Authenticator
                     authState={authState}
+                    authData={authData}
                     hideDefault={
                         authenticatorComponents &&
                         authenticatorComponents.length > 0

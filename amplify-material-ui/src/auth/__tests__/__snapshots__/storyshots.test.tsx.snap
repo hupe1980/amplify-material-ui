@@ -490,7 +490,7 @@ exports[`Storyshots Auth/SignIn default 1`] = `
               onClick={[Function]}
               onFocus={[Function]}
             >
-              Forgot password?
+              Reset password
             </a>
           </div>
           <div
@@ -503,7 +503,7 @@ exports[`Storyshots Auth/SignIn default 1`] = `
               onClick={[Function]}
               onFocus={[Function]}
             >
-              Don't have an account? Sign Up
+              Create account
             </a>
           </div>
         </div>

@@ -167,7 +167,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
                 href="#"
               >
-                Forgot password?
+                Reset password
               </a>
             </div>
             <div
@@ -177,7 +177,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
                 href="#"
               >
-                Don't have an account? Sign Up
+                Create account
               </a>
             </div>
           </div>
@@ -355,7 +355,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
                 href="#"
               >
-                Forgot password?
+                Reset password
               </a>
             </div>
             <div
@@ -365,7 +365,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
                 href="#"
               >
-                Don't have an account? Sign Up
+                Create account
               </a>
             </div>
           </div>
@@ -543,7 +543,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
                 href="#"
               >
-                Forgot password?
+                Reset password
               </a>
             </div>
             <div
@@ -553,7 +553,7 @@ exports[`sign-in should be rendered correctly in the signIn, signedOut or signed
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
                 href="#"
               >
-                Don't have an account? Sign Up
+                Create account
               </a>
             </div>
           </div>
