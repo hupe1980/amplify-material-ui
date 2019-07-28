@@ -1,6 +1,6 @@
 {
     "name": "e2e-tests",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "private": true,
     "scripts": {
         "start": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts start",
@@ -23,7 +23,7 @@
         ]
     },
     "dependencies": {
-        "amplify-material-ui": "^0.0.9",
+        "amplify-material-ui": "^0.0.10",
         "aws-amplify": "^1.1.32",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
