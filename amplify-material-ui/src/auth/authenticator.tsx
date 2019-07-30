@@ -9,62 +9,72 @@ import { SignIn } from './sign-in';
 import { SignUp } from './sign-up';
 import { RequireNewPassword } from './require-new-password';
 import { ConfirmSignIn } from './confirm-sign-in';
+import { AuthRoute } from './auth-route';
+import { AuthContext } from './auth-context';
 
 import { useAuth } from '../hooks';
 
 import { AuthComponent, AuthProps } from './types';
 
+const defaultChildren = [
+    {
+        validAuthStates: ['forgotPassword'],
+        component: ForgotPassword,
+    },
+    {
+        validAuthStates: ['signedIn'],
+        component: Greetings,
+    },
+    {
+        validAuthStates: ['loading'],
+        component: Loading,
+    },
+    {
+        validAuthStates: ['signIn', 'signedOut', 'signedUp'],
+        component: SignIn,
+    },
+    {
+        validAuthStates: ['signUp'],
+        component: SignUp,
+    },
+    {
+        validAuthStates: ['requireNewPassword'],
+        component: RequireNewPassword,
+    },
+    {
+        validAuthStates: ['confirmSignIn'],
+        component: ConfirmSignIn,
+    },
+];
+
 export interface AuthenticatorProps {
-    hideDefault?: boolean;
     hide?: AuthComponent<AuthProps>[];
     theme?: Theme;
-    children: (props: AuthProps) => React.ReactElement<any>;
 }
 
 export const Authenticator: React.FC<AuthenticatorProps> = props => {
-    const { hide = [], hideDefault = false, children, theme } = props;
+    const { hide = [], children, theme } = props;
 
     const { authState, authData, handleStateChange } = useAuth();
 
-    let defaultChildren = hideDefault
-        ? []
-        : [
-              ForgotPassword,
-              Greetings,
-              Loading,
-              SignIn,
-              SignUp,
-              RequireNewPassword,
-              ConfirmSignIn,
-          ];
-
-    defaultChildren = defaultChildren.filter(child => !hide.includes(child));
-
-    const renderChildren: any = [];
-
-    defaultChildren.forEach((child, index) => {
-        if (child.validAuthStates.includes(authState)) {
-            renderChildren.push(
-                React.createElement(child, {
-                    key: `amplify-material-ui-authenticator-default-children-${index}`,
-                    authState,
-                    authData,
-                    onStateChange: handleStateChange,
-                }),
-            );
-        }
-    });
+    const renderChildren = defaultChildren
+        .filter(item => !hide.includes(item.component))
+        .map((item, index) => (
+            <AuthRoute
+                key={`amplify-material-ui-authenticator-default-children-${index}`}
+                {...item}
+            />
+        ));
 
     return (
-        <ThemeProvider theme={createMuiTheme(theme)}>
-            <CssBaseline />
-            {renderChildren}
-            {children &&
-                children({
-                    authState,
-                    authData,
-                    onStateChange: handleStateChange,
-                })}
-        </ThemeProvider>
+        <AuthContext.Provider
+            value={{ authState, authData, onStateChange: handleStateChange }}
+        >
+            <ThemeProvider theme={createMuiTheme(theme)}>
+                <CssBaseline />
+                {renderChildren}
+                {children}
+            </ThemeProvider>
+        </AuthContext.Provider>
     );
 };

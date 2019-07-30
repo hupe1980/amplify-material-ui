@@ -109,5 +109,3 @@ export const SignUp: AuthComponent<SignUpProps> = props => {
         </FormSection>
     );
 };
-
-SignUp.validAuthStates = ['signUp'];

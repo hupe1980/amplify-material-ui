@@ -120,5 +120,3 @@ export const ConfirmSignIn: AuthComponent<ConfirmSignInProps> = props => {
         </FormSection>
     );
 };
-
-ConfirmSignIn.validAuthStates = ['confirmSignIn'];

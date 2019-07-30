@@ -138,5 +138,3 @@ export const RequireNewPassword: AuthComponent<
         </FormSection>
     );
 };
-
-RequireNewPassword.validAuthStates = ['requireNewPassword'];

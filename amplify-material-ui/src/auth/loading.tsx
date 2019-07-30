@@ -35,5 +35,3 @@ export const Loading: AuthComponent<LoadingProps> = props => {
 Loading.defaultProps = {
     color: 'secondary',
 };
-
-Loading.validAuthStates = ['loading'];

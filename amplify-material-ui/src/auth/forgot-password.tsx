@@ -107,5 +107,3 @@ export const ForgotPassword: AuthComponent<ForgotPasswordProps> = props => {
         </FormSection>
     );
 };
-
-ForgotPassword.validAuthStates = ['forgotPassword'];

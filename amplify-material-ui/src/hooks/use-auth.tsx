@@ -1,4 +1,5 @@
 import * as React from 'react';
+import invariant from 'tiny-invariant';
 import useIsMounted from 'react-is-mounted-hook';
 import Auth from '@aws-amplify/auth';
 import { Hub } from '@aws-amplify/core';
@@ -30,11 +31,10 @@ export const useAuth = () => {
 
     React.useEffect(() => {
         const checkUser = async () => {
-            if (!Auth || typeof Auth.currentAuthenticatedUser !== 'function') {
-                throw new Error(
-                    'No Auth module found, please ensure @aws-amplify/auth is imported',
-                );
-            }
+            invariant(
+                Auth && typeof Auth.currentAuthenticatedUser === 'function',
+                'No Auth module found, please ensure @aws-amplify/auth is imported',
+            );
 
             try {
                 const user = await Auth.currentAuthenticatedUser();

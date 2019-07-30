@@ -183,5 +183,3 @@ export const SignIn: AuthComponent<SignInProps> = props => {
         </FormSection>
     );
 };
-
-SignIn.validAuthStates = ['signIn', 'signedOut', 'signedUp'];

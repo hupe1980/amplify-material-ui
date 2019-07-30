@@ -93,5 +93,3 @@ export const Greetings: AuthComponent<GreetingsProps> = props => {
         </AppBar>
     );
 };
-
-Greetings.validAuthStates = ['signedIn'];
