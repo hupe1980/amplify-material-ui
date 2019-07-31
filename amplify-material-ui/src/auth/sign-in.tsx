@@ -21,6 +21,8 @@ const logger = new Logger('SignIn');
 
 export interface SignInProps extends AuthProps {
     validationData?: { [key: string]: string };
+    hideSignUp?: boolean;
+    hideForgotPassword?: boolean;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -36,7 +38,13 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const SignIn: AuthComponent<SignInProps> = props => {
-    const { onStateChange, validationData } = props;
+    const {
+        onStateChange,
+        validationData,
+        hideSignUp = false,
+        hideForgotPassword = false,
+    } = props;
+
     const classes = useStyles();
 
     const checkContact = async (user: any) => {
@@ -157,26 +165,32 @@ export const SignIn: AuthComponent<SignInProps> = props => {
                         {I18n.get('Sign In')}
                     </Button>
                     <Grid container>
-                        <Grid item xs>
-                            <Link
-                                href="#"
-                                onClick={() =>
-                                    onStateChange('forgotPassword', null)
-                                }
-                                variant="body2"
-                            >
-                                {I18n.get('Reset password')}
-                            </Link>
-                        </Grid>
-                        <Grid item>
-                            <Link
-                                href="#"
-                                onClick={() => onStateChange('signUp', null)}
-                                variant="body2"
-                            >
-                                {I18n.get('Create account')}
-                            </Link>
-                        </Grid>
+                        {!hideForgotPassword && (
+                            <Grid item xs>
+                                <Link
+                                    href="#"
+                                    onClick={() =>
+                                        onStateChange('forgotPassword', null)
+                                    }
+                                    variant="body2"
+                                >
+                                    {I18n.get('Reset password')}
+                                </Link>
+                            </Grid>
+                        )}
+                        {!hideSignUp && (
+                            <Grid item>
+                                <Link
+                                    href="#"
+                                    onClick={() =>
+                                        onStateChange('signUp', null)
+                                    }
+                                    variant="body2"
+                                >
+                                    {I18n.get('Create account')}
+                                </Link>
+                            </Grid>
+                        )}
                     </Grid>
                 </SectionFooter>
             </form>
