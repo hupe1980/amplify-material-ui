@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { AuthContext } from './auth-context';
-import { AuthProps, AuthComponent } from './types';
+import { AuthProps } from './types';
 
 export interface AuthRouteProps {
     validAuthStates: string[];
-    component?: AuthComponent<AuthProps>;
+    component?: React.FC<any>;
     render?: (props: AuthProps) => any; //TODO
 }
 

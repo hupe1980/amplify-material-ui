@@ -15,7 +15,7 @@ import { ConsoleLogger as Logger, I18n, JS } from '@aws-amplify/core';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useForm } from '../hooks';
 
-import { AuthComponent, AuthProps } from './types';
+import { AuthProps } from './types';
 
 const logger = new Logger('SignIn');
 
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const SignIn: AuthComponent<SignInProps> = props => {
+export const SignIn: React.FC<SignInProps> = props => {
     const {
         onStateChange,
         validationData,

@@ -14,7 +14,7 @@ import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
 import { useForm } from '../hooks';
 
-import { AuthComponent, AuthProps } from './types';
+import { AuthProps } from './types';
 
 export interface ForgotPasswordProps extends AuthProps {}
 
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const ForgotPassword: AuthComponent<ForgotPasswordProps> = props => {
+export const ForgotPassword: React.FC<ForgotPasswordProps> = props => {
     const { onStateChange } = props;
 
     const classes = useStyles();

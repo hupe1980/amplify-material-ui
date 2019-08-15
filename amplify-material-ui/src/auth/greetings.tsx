@@ -16,7 +16,7 @@ import { AccountCircle } from '@material-ui/icons';
 import Auth from '@aws-amplify/auth';
 
 import { AuthContext } from './auth-context';
-import { AuthComponent, AuthProps } from './types';
+import { AuthProps } from './types';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -36,14 +36,20 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export interface GreetingsProps extends AuthProps {
+export interface GreetingsProps {
     renderUserMenu?: () => React.ReactElement<any>;
     title?: string;
     className?: string;
+    burgerMenu?: React.ReactElement<any>;
 }
 
-export const Greetings: AuthComponent<GreetingsProps> = props => {
-    const { className, renderUserMenu, title = 'Greetings' } = props;
+export const Greetings: React.FC<GreetingsProps> = props => {
+    const {
+        className,
+        renderUserMenu,
+        title = 'Greetings',
+        burgerMenu,
+    } = props;
 
     const { authData } = React.useContext(AuthContext) as AuthProps;
 
@@ -67,6 +73,7 @@ export const Greetings: AuthComponent<GreetingsProps> = props => {
     return (
         <AppBar position="absolute" className={clsx(classes.appBar, className)}>
             <Toolbar className={classes.toolbar}>
+                {burgerMenu}
                 <Typography
                     component="h1"
                     variant="h6"

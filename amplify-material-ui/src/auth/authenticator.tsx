@@ -14,8 +14,6 @@ import { AuthContext } from './auth-context';
 
 import { useAuth } from '../hooks';
 
-import { AuthComponent, AuthProps } from './types';
-
 const defaultChildren = [
     {
         validAuthStates: ['forgotPassword'],
@@ -48,7 +46,7 @@ const defaultChildren = [
 ];
 
 export interface AuthenticatorProps {
-    hide?: AuthComponent<AuthProps>[];
+    hide?: React.FC<any>[];
     theme?: Theme;
 }
 

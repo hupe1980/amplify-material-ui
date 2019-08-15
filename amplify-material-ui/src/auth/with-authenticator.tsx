@@ -3,11 +3,10 @@ import * as React from 'react';
 import { Authenticator } from './authenticator';
 import { AuthRoute } from './auth-route';
 
-import { AuthComponent, AuthProps } from './types';
 import { Theme } from '@material-ui/core';
 
 export interface AuthConfig {
-    hide?: AuthComponent<AuthProps>[];
+    hide?: React.FC<any>[];
     theme?: Theme;
 }
 

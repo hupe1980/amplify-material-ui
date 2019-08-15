@@ -8,7 +8,7 @@ import {
 
 import FormSection from '../ui/form-section';
 
-import { AuthComponent, AuthProps } from './types';
+import { AuthProps } from './types';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -22,7 +22,7 @@ export interface LoadingProps extends AuthProps {
     color?: 'inherit' | 'primary' | 'secondary' | undefined;
 }
 
-export const Loading: AuthComponent<LoadingProps> = props => {
+export const Loading: React.FC<LoadingProps> = props => {
     const classes = useStyles();
 
     return (

@@ -16,7 +16,7 @@ import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
 import { useForm } from '../hooks';
 
-import { AuthComponent, AuthProps } from './types';
+import { AuthProps } from './types';
 
 const logger = new Logger('RequireNewPassword');
 
@@ -34,9 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const RequireNewPassword: AuthComponent<
-    RequireNewPasswordProps
-> = props => {
+export const RequireNewPassword: React.FC<RequireNewPasswordProps> = props => {
     const { onStateChange } = props;
 
     const classes = useStyles();

@@ -15,7 +15,7 @@ import { I18n } from '@aws-amplify/core';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useForm } from '../hooks';
 
-import { AuthComponent, AuthProps } from './types';
+import { AuthProps } from './types';
 
 export interface SignUpProps extends AuthProps {
     validationData?: { [key: string]: string };
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const SignUp: AuthComponent<SignUpProps> = props => {
+export const SignUp: React.FC<SignUpProps> = props => {
     const { onStateChange } = props;
     const classes = useStyles();
 
