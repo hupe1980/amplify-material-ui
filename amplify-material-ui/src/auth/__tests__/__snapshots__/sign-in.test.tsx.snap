@@ -71,11 +71,11 @@ exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
             >
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-142 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-143 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-143"
+                  class="PrivateNotchedOutline-legend-144"
                   style="width: 0px;"
                 >
                   <span>
@@ -114,11 +114,11 @@ exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
             >
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-142 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-143 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-143"
+                  class="PrivateNotchedOutline-legend-144"
                   style="width: 0.01px;"
                 >
                   <span>
@@ -140,7 +140,7 @@ exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
           </div>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-145 makeStyles-box-144"
+          class="MuiBox-root MuiBox-root-146 makeStyles-box-145"
         >
           <button
             class="MuiButtonBase-root MuiButton-root makeStyles-submit-2 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"

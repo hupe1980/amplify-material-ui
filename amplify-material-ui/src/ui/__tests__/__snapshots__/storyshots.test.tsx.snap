@@ -88,7 +88,7 @@ exports[`Storyshots UI/PasswordField styled 1`] = `
   >
     <fieldset
       aria-hidden={true}
-      className="PrivateNotchedOutline-root-127 MuiOutlinedInput-notchedOutline"
+      className="PrivateNotchedOutline-root-131 MuiOutlinedInput-notchedOutline"
       style={
         Object {
           "paddingLeft": 8,
@@ -96,7 +96,7 @@ exports[`Storyshots UI/PasswordField styled 1`] = `
       }
     >
       <legend
-        className="PrivateNotchedOutline-legend-128"
+        className="PrivateNotchedOutline-legend-132"
         style={
           Object {
             "width": 0.01,
@@ -176,11 +176,11 @@ exports[`Storyshots UI/PasswordStrengthMeter default 1`] = `
 Array [
   <div
     aria-valuenow={0}
-    className="MuiLinearProgress-root makeStyles-progress-165 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
+    className="MuiLinearProgress-root makeStyles-progress-171 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
     role="progressbar"
   >
     <div
-      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-weak-166 MuiLinearProgress-bar1Determinate"
+      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-weak-172 MuiLinearProgress-bar1Determinate"
       style={
         Object {
           "transform": "translateX(-100%)",
@@ -201,11 +201,11 @@ exports[`Storyshots UI/PasswordStrengthMeter fair 1`] = `
 Array [
   <div
     aria-valuenow={50}
-    className="MuiLinearProgress-root makeStyles-progress-277 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
+    className="MuiLinearProgress-root makeStyles-progress-283 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
     role="progressbar"
   >
     <div
-      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-fair-279 MuiLinearProgress-bar1Determinate"
+      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-fair-285 MuiLinearProgress-bar1Determinate"
       style={
         Object {
           "transform": "translateX(-50%)",
@@ -226,11 +226,11 @@ exports[`Storyshots UI/PasswordStrengthMeter good 1`] = `
 Array [
   <div
     aria-valuenow={75}
-    className="MuiLinearProgress-root makeStyles-progress-333 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
+    className="MuiLinearProgress-root makeStyles-progress-339 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
     role="progressbar"
   >
     <div
-      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-good-336 MuiLinearProgress-bar1Determinate"
+      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-good-342 MuiLinearProgress-bar1Determinate"
       style={
         Object {
           "transform": "translateX(-25%)",
@@ -251,11 +251,11 @@ exports[`Storyshots UI/PasswordStrengthMeter strong 1`] = `
 Array [
   <div
     aria-valuenow={100}
-    className="MuiLinearProgress-root makeStyles-progress-389 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
+    className="MuiLinearProgress-root makeStyles-progress-395 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
     role="progressbar"
   >
     <div
-      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-strong-393 MuiLinearProgress-bar1Determinate"
+      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-strong-399 MuiLinearProgress-bar1Determinate"
       style={
         Object {
           "transform": "translateX(0%)",
@@ -276,11 +276,11 @@ exports[`Storyshots UI/PasswordStrengthMeter weak 1`] = `
 Array [
   <div
     aria-valuenow={25}
-    className="MuiLinearProgress-root makeStyles-progress-221 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
+    className="MuiLinearProgress-root makeStyles-progress-227 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
     role="progressbar"
   >
     <div
-      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-weak-222 MuiLinearProgress-bar1Determinate"
+      className="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary makeStyles-weak-228 MuiLinearProgress-bar1Determinate"
       style={
         Object {
           "transform": "translateX(-75%)",
