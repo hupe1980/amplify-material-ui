@@ -1,4 +1,5 @@
 import * as React from 'react';
+import clsx from 'clsx';
 import {
     AppBar,
     Toolbar,
@@ -36,10 +37,12 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export interface GreetingsProps extends AuthProps {
     renderUserMenu?: () => React.ReactElement<any>;
+    title?: string;
+    className?: string;
 }
 
 export const Greetings: AuthComponent<GreetingsProps> = props => {
-    const { authData, renderUserMenu } = props;
+    const { authData, className, renderUserMenu, title = 'Greetings' } = props;
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
     const classes = useStyles();
@@ -58,7 +61,7 @@ export const Greetings: AuthComponent<GreetingsProps> = props => {
     };
 
     return (
-        <AppBar position="absolute" className={classes.appBar}>
+        <AppBar position="absolute" className={clsx(classes.appBar, className)}>
             <Toolbar className={classes.toolbar}>
                 <Typography
                     component="h1"
@@ -67,7 +70,7 @@ export const Greetings: AuthComponent<GreetingsProps> = props => {
                     noWrap
                     className={classes.title}
                 >
-                    Greetings
+                    {title}
                 </Typography>
                 <IconButton
                     color="inherit"
