@@ -14,6 +14,41 @@ npm install amplify-material-ui
 yarn add amplify-material-ui
 ```
 
+## How to use
+
+```typescript
+import React from 'react';
+import Amplify from 'aws-amplify';
+import { withAuthenticator } from 'amplify-material-ui';
+
+import awsconfig from './aws-exports';
+import logo from './logo.svg';
+import './App.css';
+
+Amplify.configure(awsconfig);
+
+const App: React.FC = () => (
+    <div className="App">
+        <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <p>
+                Edit <code>src/App.tsx</code> and save to reload.
+            </p>
+            <a
+                className="App-link"
+                href="https://reactjs.org"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Learn React
+            </a>
+        </header>
+    </div>
+);
+
+export default withAuthenticator(App);
+```
+
 ## License
 
 [MIT](LICENSE)

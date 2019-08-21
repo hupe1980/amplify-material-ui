@@ -18,6 +18,13 @@ import { ConfirmSignIn } from './confirm-sign-in';
 import { AuthRoute } from './auth-route';
 import { AuthContext } from './auth-context';
 
+export interface AuthenticatorProps {
+    hide?: React.FC<any>[];
+    theme?: Theme;
+    hideSignUp?: boolean;
+    hideForgotPassword?: boolean;
+}
+
 const defaultChildren = [
     {
         validAuthStates: ['forgotPassword'],
@@ -49,13 +56,14 @@ const defaultChildren = [
     },
 ];
 
-export interface AuthenticatorProps {
-    hide?: React.FC<any>[];
-    theme?: Theme;
-}
-
 export const Authenticator: React.FC<AuthenticatorProps> = props => {
-    const { hide = [], children, theme } = props;
+    const {
+        hide = [],
+        children,
+        theme,
+        hideSignUp = false,
+        hideForgotPassword = false,
+    } = props;
 
     const isMounted = useIsMounted();
 
@@ -143,7 +151,12 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
 
     return (
         <AuthContext.Provider
-            value={{ ...state, onStateChange: handleStateChange }}
+            value={{
+                ...state,
+                onStateChange: handleStateChange,
+                hideSignUp,
+                hideForgotPassword,
+            }}
         >
             <ThemeProvider theme={createMuiTheme(theme)}>
                 <CssBaseline />
@@ -152,4 +165,32 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
             </ThemeProvider>
         </AuthContext.Provider>
     );
+};
+
+export const withAuthenticator = (
+    Component: React.ComponentType,
+    authenticatorProps?: AuthenticatorProps,
+): React.ComponentType<any> => {
+    return props => {
+        const {
+            hide = [],
+            theme = undefined,
+            hideSignUp = false,
+            hideForgotPassword = false,
+        } = authenticatorProps || {};
+
+        return (
+            <Authenticator
+                hide={hide}
+                theme={theme}
+                hideSignUp={hideSignUp}
+                hideForgotPassword={hideForgotPassword}
+            >
+                <AuthRoute
+                    validAuthStates={['signedIn']}
+                    render={() => <Component {...props} />}
+                />
+            </Authenticator>
+        );
+    };
 };
