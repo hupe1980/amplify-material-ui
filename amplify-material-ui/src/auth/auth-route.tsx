@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { AuthContext } from './auth-context';
+
+import { useAuthContext } from './auth-context';
 import { AuthProps } from './types';
 
 export interface AuthRouteProps {
@@ -11,7 +12,7 @@ export interface AuthRouteProps {
 export const AuthRoute: React.FC<AuthRouteProps> = props => {
     const { validAuthStates, component, render } = props;
 
-    const { authState, ...rest } = React.useContext(AuthContext) as AuthProps;
+    const { authState, ...rest } = useAuthContext();
 
     const match = validAuthStates.includes(authState);
 

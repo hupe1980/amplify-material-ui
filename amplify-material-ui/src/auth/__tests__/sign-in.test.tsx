@@ -2,20 +2,27 @@ import * as React from 'react';
 import Auth from '@aws-amplify/auth';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import { SignIn } from '../sign-in';
+import { AuthContext } from '../auth-context';
 
 describe('sign-in', () => {
+    const handleStateChange = jest.fn();
+
+    const withContext = component => (
+        <AuthContext.Provider
+            value={{ authState: 'signIn', onStateChange: handleStateChange }}
+        >
+            {component}
+        </AuthContext.Provider>
+    );
+
     beforeEach(() => cleanup());
 
     it('should be rendered correctly in the signIn authState', () => {
-        const { asFragment } = render(
-            <SignIn onStateChange={() => {}} authState="signIn" />,
-        );
+        const { asFragment } = render(withContext(<SignIn />));
         expect(asFragment()).toMatchSnapshot();
     });
 
     it('it should change state to requireNewPassword if challengeName equals NEW_PASSWORD_REQUIRED', async () => {
-        const handleStateChange = jest.fn();
-
         jest.spyOn(Auth, 'signIn').mockImplementationOnce((user, password) => {
             return new Promise((res, rej) => {
                 res({
@@ -24,9 +31,7 @@ describe('sign-in', () => {
             });
         });
 
-        const { getByTestId, getByLabelText } = render(
-            <SignIn onStateChange={handleStateChange} authState="signIn" />,
-        );
+        const { getByTestId, getByLabelText } = render(withContext(<SignIn />));
 
         const usernameInput = getByLabelText('Username', {
             exact: false,

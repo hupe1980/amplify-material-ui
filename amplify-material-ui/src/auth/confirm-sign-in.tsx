@@ -12,12 +12,11 @@ import {
 import Auth from '@aws-amplify/auth';
 import { I18n } from '@aws-amplify/core';
 
+import { useAuthContext } from './auth-context';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useForm } from '../hooks';
 
-import { AuthProps } from './types';
-
-export interface ConfirmSignInProps extends AuthProps {
+export interface ConfirmSignInProps {
     validationData?: { [key: string]: string };
 }
 
@@ -50,7 +49,7 @@ const useMfaType = (user: any) => {
 };
 
 export const ConfirmSignIn: React.FC<ConfirmSignInProps> = props => {
-    const { onStateChange, authData: user } = props;
+    const { onStateChange, authData: user } = useAuthContext();
 
     const classes = useStyles();
 

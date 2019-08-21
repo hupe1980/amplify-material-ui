@@ -106,6 +106,20 @@ exports[`Storyshots Auth/ForgotPassword default 1`] = `
             className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
             onClick={[Function]}
           >
+            <input
+              aria-invalid={false}
+              autoFocus={true}
+              className="MuiInputBase-input MuiOutlinedInput-input"
+              disabled={false}
+              id="code"
+              name="code"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
             <fieldset
               aria-hidden={true}
               className="PrivateNotchedOutline-root-191 MuiOutlinedInput-notchedOutline"
@@ -132,20 +146,6 @@ exports[`Storyshots Auth/ForgotPassword default 1`] = `
                 />
               </legend>
             </fieldset>
-            <input
-              aria-invalid={false}
-              autoFocus={true}
-              className="MuiInputBase-input MuiOutlinedInput-input"
-              disabled={false}
-              id="code"
-              name="code"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              required={true}
-              type="text"
-              value=""
-            />
           </div>
         </div>
         <div
@@ -168,6 +168,19 @@ exports[`Storyshots Auth/ForgotPassword default 1`] = `
             className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
             onClick={[Function]}
           >
+            <input
+              aria-invalid={false}
+              className="MuiInputBase-input MuiOutlinedInput-input"
+              disabled={false}
+              id="password"
+              name="password"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={true}
+              type="password"
+              value=""
+            />
             <fieldset
               aria-hidden={true}
               className="PrivateNotchedOutline-root-191 MuiOutlinedInput-notchedOutline"
@@ -194,19 +207,6 @@ exports[`Storyshots Auth/ForgotPassword default 1`] = `
                 />
               </legend>
             </fieldset>
-            <input
-              aria-invalid={false}
-              className="MuiInputBase-input MuiOutlinedInput-input"
-              disabled={false}
-              id="password"
-              name="password"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              required={true}
-              type="password"
-              value=""
-            />
           </div>
         </div>
       </div>
@@ -277,10 +277,10 @@ exports[`Storyshots Auth/Loading default 1`] = `
   className="MuiContainer-root MuiContainer-maxWidthXs"
 >
   <div
-    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-335 MuiPaper-rounded"
+    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-325 MuiPaper-rounded"
   >
     <div
-      className="MuiCircularProgress-root makeStyles-progress-334 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+      className="MuiCircularProgress-root makeStyles-progress-324 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
       role="progressbar"
       style={
         Object {
@@ -313,13 +313,13 @@ exports[`Storyshots Auth/SignIn default 1`] = `
   className="MuiContainer-root MuiContainer-maxWidthXs"
 >
   <div
-    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-384 MuiPaper-rounded"
+    className="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-374 MuiPaper-rounded"
   >
     <div
-      className="MuiBox-root MuiBox-root-422 makeStyles-box-419"
+      className="MuiBox-root MuiBox-root-412 makeStyles-box-409"
     >
       <div
-        className="MuiAvatar-root makeStyles-avatar-420 MuiAvatar-colorDefault"
+        className="MuiAvatar-root makeStyles-avatar-410 MuiAvatar-colorDefault"
       >
         <svg
           aria-hidden="true"
@@ -351,13 +351,13 @@ exports[`Storyshots Auth/SignIn default 1`] = `
       </h1>
     </div>
     <form
-      className="makeStyles-form-382"
+      className="makeStyles-form-372"
       data-testid="signInForm"
       noValidate={true}
       onSubmit={[Function]}
     >
       <div
-        className="MuiBox-root MuiBox-root-466 makeStyles-box-465"
+        className="MuiBox-root MuiBox-root-456 makeStyles-box-455"
       >
         <div
           className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
@@ -379,9 +379,23 @@ exports[`Storyshots Auth/SignIn default 1`] = `
             className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
             onClick={[Function]}
           >
+            <input
+              aria-invalid={false}
+              autoFocus={true}
+              className="MuiInputBase-input MuiOutlinedInput-input"
+              disabled={false}
+              id="username"
+              name="username"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
             <fieldset
               aria-hidden={true}
-              className="PrivateNotchedOutline-root-524 MuiOutlinedInput-notchedOutline"
+              className="PrivateNotchedOutline-root-514 MuiOutlinedInput-notchedOutline"
               style={
                 Object {
                   "paddingLeft": 8,
@@ -389,7 +403,7 @@ exports[`Storyshots Auth/SignIn default 1`] = `
               }
             >
               <legend
-                className="PrivateNotchedOutline-legend-525"
+                className="PrivateNotchedOutline-legend-515"
                 style={
                   Object {
                     "width": 0.01,
@@ -405,20 +419,6 @@ exports[`Storyshots Auth/SignIn default 1`] = `
                 />
               </legend>
             </fieldset>
-            <input
-              aria-invalid={false}
-              autoFocus={true}
-              className="MuiInputBase-input MuiOutlinedInput-input"
-              disabled={false}
-              id="username"
-              name="username"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              required={true}
-              type="text"
-              value=""
-            />
           </div>
         </div>
         <div
@@ -441,9 +441,23 @@ exports[`Storyshots Auth/SignIn default 1`] = `
             className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
             onClick={[Function]}
           >
+            <input
+              aria-invalid={false}
+              autoComplete="current-password"
+              className="MuiInputBase-input MuiOutlinedInput-input"
+              disabled={false}
+              id="password"
+              name="password"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={true}
+              type="password"
+              value=""
+            />
             <fieldset
               aria-hidden={true}
-              className="PrivateNotchedOutline-root-524 MuiOutlinedInput-notchedOutline"
+              className="PrivateNotchedOutline-root-514 MuiOutlinedInput-notchedOutline"
               style={
                 Object {
                   "paddingLeft": 8,
@@ -451,7 +465,7 @@ exports[`Storyshots Auth/SignIn default 1`] = `
               }
             >
               <legend
-                className="PrivateNotchedOutline-legend-525"
+                className="PrivateNotchedOutline-legend-515"
                 style={
                   Object {
                     "width": 0.01,
@@ -467,28 +481,14 @@ exports[`Storyshots Auth/SignIn default 1`] = `
                 />
               </legend>
             </fieldset>
-            <input
-              aria-invalid={false}
-              autoComplete="current-password"
-              className="MuiInputBase-input MuiOutlinedInput-input"
-              disabled={false}
-              id="password"
-              name="password"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              required={true}
-              type="password"
-              value=""
-            />
           </div>
         </div>
       </div>
       <div
-        className="MuiBox-root MuiBox-root-527 makeStyles-box-526"
+        className="MuiBox-root MuiBox-root-517 makeStyles-box-516"
       >
         <button
-          className="MuiButtonBase-root MuiButton-root makeStyles-submit-383 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+          className="MuiButtonBase-root MuiButton-root makeStyles-submit-373 MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
           data-testid="signInSubmit"
           disabled={false}
           onBlur={[Function]}

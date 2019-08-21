@@ -1,4 +1,10 @@
 import * as React from 'react';
+import invariant from 'tiny-invariant';
+import useIsMounted from 'react-is-mounted-hook';
+import { Hub } from '@aws-amplify/core';
+import { HubCapsule } from '@aws-amplify/core/lib/Hub';
+import Auth from '@aws-amplify/auth';
+
 import { CssBaseline, createMuiTheme, Theme } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 
@@ -11,8 +17,6 @@ import { RequireNewPassword } from './require-new-password';
 import { ConfirmSignIn } from './confirm-sign-in';
 import { AuthRoute } from './auth-route';
 import { AuthContext } from './auth-context';
-
-import { useAuth } from '../hooks';
 
 const defaultChildren = [
     {
@@ -53,7 +57,80 @@ export interface AuthenticatorProps {
 export const Authenticator: React.FC<AuthenticatorProps> = props => {
     const { hide = [], children, theme } = props;
 
-    const { authState, authData, handleStateChange } = useAuth();
+    const isMounted = useIsMounted();
+
+    const [state, setState] = React.useState({
+        authState: 'loading',
+        authData: null,
+    });
+
+    const handleStateChange = React.useCallback(
+        (authState: string, authData: any) => {
+            if (authState === 'signedOut') {
+                authState = 'signIn';
+            }
+
+            if (isMounted()) {
+                setState(prevState => ({
+                    ...prevState,
+                    authState,
+                    authData,
+                }));
+            }
+        },
+        [isMounted],
+    );
+
+    React.useEffect(() => {
+        const checkUser = async () => {
+            invariant(
+                Auth && typeof Auth.currentAuthenticatedUser === 'function',
+                'No Auth module found, please ensure @aws-amplify/auth is imported',
+            );
+
+            try {
+                const user = await Auth.currentAuthenticatedUser();
+                if (!isMounted()) return;
+                handleStateChange('signedIn', user);
+            } catch (error) {
+                if (!isMounted()) return;
+                handleStateChange('signIn', null);
+            }
+        };
+        checkUser();
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    React.useEffect(() => {
+        const handleAuthCapsule = (capsule: HubCapsule) => {
+            const { payload } = capsule;
+
+            switch (payload.event) {
+                case 'cognitoHostedUI':
+                    handleStateChange('signedIn', payload.data);
+                    break;
+                case 'cognitoHostedUI_failure':
+                    handleStateChange('signIn', null);
+                    break;
+                case 'parsingUrl_failure':
+                    handleStateChange('signIn', null);
+                    break;
+                case 'signOut':
+                    handleStateChange('signIn', null);
+                    break;
+                case 'customGreetingSignOut':
+                    handleStateChange('signIn', null);
+                    break;
+                default:
+                    break;
+            }
+        };
+        Hub.listen('auth', handleAuthCapsule);
+
+        return () => {
+            Hub.remove('auth', handleAuthCapsule);
+        };
+    });
 
     const renderChildren = defaultChildren
         .filter(item => !hide.includes(item.component))
@@ -66,7 +143,7 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
 
     return (
         <AuthContext.Provider
-            value={{ authState, authData, onStateChange: handleStateChange }}
+            value={{ ...state, onStateChange: handleStateChange }}
         >
             <ThemeProvider theme={createMuiTheme(theme)}>
                 <CssBaseline />

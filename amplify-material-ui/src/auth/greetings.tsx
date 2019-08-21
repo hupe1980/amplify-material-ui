@@ -15,8 +15,7 @@ import {
 import { AccountCircle } from '@material-ui/icons';
 import Auth from '@aws-amplify/auth';
 
-import { AuthContext } from './auth-context';
-import { AuthProps } from './types';
+import { useAuthContext } from './auth-context';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -51,7 +50,7 @@ export const Greetings: React.FC<GreetingsProps> = props => {
         burgerMenu,
     } = props;
 
-    const { authData } = React.useContext(AuthContext) as AuthProps;
+    const { authData } = useAuthContext();
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 

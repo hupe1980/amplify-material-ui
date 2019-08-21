@@ -12,12 +12,11 @@ import {
 import Auth from '@aws-amplify/auth';
 import { I18n } from '@aws-amplify/core';
 
+import { useAuthContext } from './auth-context';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useForm } from '../hooks';
 
-import { AuthProps } from './types';
-
-export interface SignUpProps extends AuthProps {
+export interface SignUpProps {
     validationData?: { [key: string]: string };
 }
 
@@ -34,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const SignUp: React.FC<SignUpProps> = props => {
-    const { onStateChange } = props;
+    const { onStateChange } = useAuthContext();
     const classes = useStyles();
 
     const signUp = async (inputs: any) => {

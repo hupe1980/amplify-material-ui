@@ -69,6 +69,15 @@ exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth Mui-focused Mui-focused MuiInputBase-formControl"
             >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                id="username"
+                name="username"
+                required=""
+                type="text"
+                value=""
+              />
               <fieldset
                 aria-hidden="true"
                 class="PrivateNotchedOutline-root-143 MuiOutlinedInput-notchedOutline"
@@ -83,15 +92,6 @@ exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
                   </span>
                 </legend>
               </fieldset>
-              <input
-                aria-invalid="false"
-                class="MuiInputBase-input MuiOutlinedInput-input"
-                id="username"
-                name="username"
-                required=""
-                type="text"
-                value=""
-              />
             </div>
           </div>
           <div
@@ -112,6 +112,16 @@ exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
             <div
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
             >
+              <input
+                aria-invalid="false"
+                autocomplete="current-password"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                id="password"
+                name="password"
+                required=""
+                type="password"
+                value=""
+              />
               <fieldset
                 aria-hidden="true"
                 class="PrivateNotchedOutline-root-143 MuiOutlinedInput-notchedOutline"
@@ -126,16 +136,6 @@ exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
                   </span>
                 </legend>
               </fieldset>
-              <input
-                aria-invalid="false"
-                autocomplete="current-password"
-                class="MuiInputBase-input MuiOutlinedInput-input"
-                id="password"
-                name="password"
-                required=""
-                type="password"
-                value=""
-              />
             </div>
           </div>
         </div>

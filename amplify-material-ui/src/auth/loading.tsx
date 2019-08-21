@@ -8,8 +8,6 @@ import {
 
 import FormSection from '../ui/form-section';
 
-import { AuthProps } from './types';
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         progress: {
@@ -18,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export interface LoadingProps extends AuthProps {
+export interface LoadingProps {
     color?: 'inherit' | 'primary' | 'secondary' | undefined;
 }
 

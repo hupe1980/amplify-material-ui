@@ -28,7 +28,7 @@
         "aws-amplify": "^1.1.34",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
-        "react-scripts": "3.0.1"
+        "react-scripts": "3.1.1"
     },
     "devDependencies": {
         "@types/jest": "^24.0.16",

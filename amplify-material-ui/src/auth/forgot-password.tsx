@@ -10,13 +10,11 @@ import {
 } from '@material-ui/core';
 import { I18n } from '@aws-amplify/core';
 
+import { useAuthContext } from './auth-context';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
-
 import { useForm } from '../hooks';
 
-import { AuthProps } from './types';
-
-export interface ForgotPasswordProps extends AuthProps {}
+export interface ForgotPasswordProps {}
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -31,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const ForgotPassword: React.FC<ForgotPasswordProps> = props => {
-    const { onStateChange } = props;
+    const { onStateChange } = useAuthContext();
 
     const classes = useStyles();
 

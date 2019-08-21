@@ -10,3 +10,5 @@ const createNamedContext = (name: string) => {
 };
 
 export const AuthContext = createNamedContext('Auth');
+
+export const useAuthContext = () => React.useContext(AuthContext) as AuthProps;

@@ -12,14 +12,13 @@ import {
 import Auth from '@aws-amplify/auth';
 import { ConsoleLogger as Logger, I18n, JS } from '@aws-amplify/core';
 
+import { useAuthContext } from './auth-context';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useForm } from '../hooks';
 
-import { AuthProps } from './types';
-
 const logger = new Logger('SignIn');
 
-export interface SignInProps extends AuthProps {
+export interface SignInProps {
     validationData?: { [key: string]: string };
     hideSignUp?: boolean;
     hideForgotPassword?: boolean;
@@ -38,8 +37,8 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const SignIn: React.FC<SignInProps> = props => {
+    const { onStateChange } = useAuthContext();
     const {
-        onStateChange,
         validationData,
         hideSignUp = false,
         hideForgotPassword = false,

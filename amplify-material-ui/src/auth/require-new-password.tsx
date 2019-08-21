@@ -12,15 +12,13 @@ import {
 import Auth from '@aws-amplify/auth';
 import { ConsoleLogger as Logger, I18n, JS } from '@aws-amplify/core';
 
+import { useAuthContext } from './auth-context';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
-
 import { useForm } from '../hooks';
-
-import { AuthProps } from './types';
 
 const logger = new Logger('RequireNewPassword');
 
-export interface RequireNewPasswordProps extends AuthProps {}
+export interface RequireNewPasswordProps {}
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -35,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const RequireNewPassword: React.FC<RequireNewPasswordProps> = props => {
-    const { onStateChange } = props;
+    const { authData: user, onStateChange } = useAuthContext();
 
     const classes = useStyles();
 
@@ -56,7 +54,6 @@ export const RequireNewPassword: React.FC<RequireNewPasswordProps> = props => {
     };
 
     const submit = async (inputs: any) => {
-        const user = props.authData;
         const { password } = inputs;
         //const { requiredAttributes } = user.challengeParam;
         //const attrs = objectWithProperties(this.inputs, requiredAttributes);
