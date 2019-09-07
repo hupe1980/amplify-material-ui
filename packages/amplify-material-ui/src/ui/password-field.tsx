@@ -7,15 +7,10 @@ import {
     OutlinedTextFieldProps,
 } from '@material-ui/core/TextField';
 
-export interface BasePasswordFieldProps {}
-export interface StandardPasswordFieldProps extends StandardTextFieldProps {}
-export interface FilledPasswordFieldProps extends FilledTextFieldProps {}
-export interface OutlinedPasswordFieldProps extends OutlinedTextFieldProps {}
-
 export type PasswordFieldProps =
-    | StandardPasswordFieldProps
-    | OutlinedPasswordFieldProps
-    | OutlinedPasswordFieldProps;
+    | StandardTextFieldProps
+    | FilledTextFieldProps
+    | OutlinedTextFieldProps;
 
 export const PasswordField: React.FC<PasswordFieldProps> = props => {
     const [showPassword, setShowPassword] = React.useState<boolean>(false);

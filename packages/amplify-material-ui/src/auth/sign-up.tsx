@@ -36,7 +36,7 @@ export const SignUp: React.FC<SignUpProps> = props => {
     const { onStateChange } = useAuthContext();
     const classes = useStyles();
 
-    const signUp = async (inputs: any) => {
+    const signUp = (inputs: any) => {
         invariant(
             Auth && typeof Auth.signUp === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',

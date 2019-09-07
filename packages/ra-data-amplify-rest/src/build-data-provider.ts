@@ -5,12 +5,11 @@ import { parseResponse } from './parse-response';
 import { RequestType, RequestParams, ApiCall, HttpMethod } from './types';
 
 const apiCallMap = new Map<HttpMethod, ApiCall>([
-    [HttpMethod.GET, API.get],
-    [HttpMethod.PUT, API.put],
-    [HttpMethod.POST, API.post],
-    [HttpMethod.DELETE, API.del],
+    [HttpMethod.GET, API.get.bind(this)],
+    [HttpMethod.PUT, API.put.bind(this)],
+    [HttpMethod.POST, API.post.bind(this)],
+    [HttpMethod.DELETE, API.del.bind(this)],
 ]);
-
 export interface BuildDataProviderOptions {
     apiName: string;
     buildDataRequest: typeof buildDataRequest;
