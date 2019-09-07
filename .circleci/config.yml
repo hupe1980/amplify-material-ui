@@ -1,10 +1,15 @@
 version: 2.1
 
-aliases:
-  node-executor: &node-executor
+executors:
+  node:
+    parameters:
+      image:
+        type: string
+        default: "10"
     docker:
-      - image: circleci/node:10
+      - image: circleci/node:<< parameters.image >>
 
+aliases:
   e2e-executor: &e2e-executor
     docker:
       - image: cypress/browsers:chrome69
@@ -31,13 +36,20 @@ aliases:
     attach_workspace:
       at: packages
 
+  ignore_master: &ignore_master
+    filters:
+      branches:
+        ignore:
+          - master
+
   e2e-test-workflow: &e2e-test-workflow
     filters:
       branches:
         ignore:
           - master
     requires:
-      - bootstrap
+      - lint
+      - unit_tests_node10
 
   test_template: &test_template
     steps:
@@ -70,9 +82,10 @@ commands:
 
 jobs:
   bootstrap:
-    <<: *node-executor
+    executor: node
     steps:
       - checkout
+      - run: ./scripts/assert-changed-files.sh "packages/*|(e2e-tests/*|.circleci/*"
       - <<: *restore_cache
       - <<: *install_node_modules
       - <<: *persist_cache
@@ -82,7 +95,7 @@ jobs:
             - "*"
 
   lint:
-    <<: *node-executor
+    executor: node
     steps:
       - checkout
       - <<: *restore_cache
@@ -90,8 +103,20 @@ jobs:
       - <<: *persist_cache
       - run: yarn lint:ci
 
-  unit_tests:
-    <<: *node-executor
+  unit_tests_node8:
+    executor:
+      name: node
+      image: "8"
+    <<: *test_template
+
+  unit_tests_node10:
+    executor: node
+    <<: *test_template
+
+  unit_tests_node12:
+    executor:
+      name: node
+      image: "12"
     <<: *test_template
 
   e2e_tests_auth:
@@ -106,9 +131,19 @@ workflows:
   build-test:
     jobs:
       - bootstrap
-      - lint
-      - unit_tests:
+      - lint:
           requires:
             - bootstrap
+      - unit_tests_node8:
+          requires:
+            - bootstrap
+      - unit_tests_node10:
+          requires:
+            - lint
+            - unit_tests_node8
+      - unit_tests_node12:
+          requires:
+            - lint
+            - unit_tests_node8
       - e2e_tests_auth:
           <<: *e2e-test-workflow
