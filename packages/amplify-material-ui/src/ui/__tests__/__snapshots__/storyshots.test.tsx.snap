@@ -176,7 +176,7 @@ exports[`Storyshots UI/PasswordStrengthMeter default 1`] = `
 Array [
   <div
     aria-valuenow={0}
-    className="MuiLinearProgress-root makeStyles-progress-151 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
+    className="MuiLinearProgress-root MuiLinearProgress-colorPrimary makeStyles-progress-151 MuiLinearProgress-determinate"
     role="progressbar"
   >
     <div
@@ -201,7 +201,7 @@ exports[`Storyshots UI/PasswordStrengthMeter fair 1`] = `
 Array [
   <div
     aria-valuenow={50}
-    className="MuiLinearProgress-root makeStyles-progress-263 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
+    className="MuiLinearProgress-root MuiLinearProgress-colorPrimary makeStyles-progress-263 MuiLinearProgress-determinate"
     role="progressbar"
   >
     <div
@@ -226,7 +226,7 @@ exports[`Storyshots UI/PasswordStrengthMeter good 1`] = `
 Array [
   <div
     aria-valuenow={75}
-    className="MuiLinearProgress-root makeStyles-progress-319 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
+    className="MuiLinearProgress-root MuiLinearProgress-colorPrimary makeStyles-progress-319 MuiLinearProgress-determinate"
     role="progressbar"
   >
     <div
@@ -251,7 +251,7 @@ exports[`Storyshots UI/PasswordStrengthMeter strong 1`] = `
 Array [
   <div
     aria-valuenow={100}
-    className="MuiLinearProgress-root makeStyles-progress-375 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
+    className="MuiLinearProgress-root MuiLinearProgress-colorPrimary makeStyles-progress-375 MuiLinearProgress-determinate"
     role="progressbar"
   >
     <div
@@ -276,7 +276,7 @@ exports[`Storyshots UI/PasswordStrengthMeter weak 1`] = `
 Array [
   <div
     aria-valuenow={25}
-    className="MuiLinearProgress-root makeStyles-progress-207 MuiLinearProgress-colorPrimary MuiLinearProgress-determinate"
+    className="MuiLinearProgress-root MuiLinearProgress-colorPrimary makeStyles-progress-207 MuiLinearProgress-determinate"
     role="progressbar"
   >
     <div

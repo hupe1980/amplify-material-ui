@@ -30,6 +30,6 @@
         "@aws-amplify/api": "^1.1.1",
         "ra-core": "^3.0.0-alpha.4",
         "rimraf": "^3.0.0",
-        "typescript": "^3.5.3"
+        "typescript": "^3.6.2"
     }
 }
