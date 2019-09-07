@@ -9,11 +9,10 @@
         "lint:ci": "eslint '*/**/*.{js,ts,tsx}' --report-unused-disable-directives",
         "lint:fix": "eslint '*/**/*.{js,ts,tsx}' --cache --fix",
         "test:unit": "yarn workspace amplify-material-ui test",
-        "test:e2e": "yarn workspace e2e-tests test",
         "prepare": "lerna run prepare"
     },
     "workspaces": [
-        "e2e-tests",
+        "e2e-tests/*",
         "packages/*"
     ],
     "devDependencies": {

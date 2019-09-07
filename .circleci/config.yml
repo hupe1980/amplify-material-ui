@@ -48,6 +48,26 @@ aliases:
       - <<: *attach_to_bootstrap
       - run: yarn test:unit
 
+commands:
+  e2e-test:
+    parameters:
+      trigger_pattern:
+        type: string
+        default: "packages/*|.circleci/*"
+      test_path:
+        type: string
+      test_command:
+        type: string
+        default: "" # if unset, e2e-test.sh specifies the command
+    steps:
+      - checkout
+      - run: ./scripts/assert-changed-files.sh "<< parameters.trigger_pattern >>|<< parameters.test_path >>/*"
+      - <<: *restore_cache
+      - <<: *install_node_modules
+      - <<: *persist_cache
+      - <<: *attach_to_bootstrap
+      - run: ./scripts/e2e-test.sh "<< parameters.test_path >>" "<< parameters.test_command >>"
+
 jobs:
   bootstrap:
     <<: *node-executor
@@ -74,15 +94,12 @@ jobs:
     <<: *node-executor
     <<: *test_template
 
-  e2e_tests:
+  e2e_tests_auth:
     <<: *e2e-executor
     steps:
-      - checkout
-      - <<: *restore_cache
-      - <<: *install_node_modules
-      - <<: *persist_cache
-      - <<: *attach_to_bootstrap
-      - run: yarn test:e2e
+      - e2e-test:
+          test_path: e2e-tests/auth
+          trigger_pattern: "packages/amplify-material-ui|.circleci/*"
 
 workflows:
   version: 2
