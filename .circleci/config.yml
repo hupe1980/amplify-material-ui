@@ -29,7 +29,7 @@ aliases:
 
   attach_to_bootstrap: &attach_to_bootstrap
     attach_workspace:
-      at: amplify-material-ui
+      at: packages
 
   e2e-test-workflow: &e2e-test-workflow
     filters:
@@ -38,7 +38,7 @@ aliases:
           - master
     requires:
       - bootstrap
-  
+
   test_template: &test_template
     steps:
       - checkout
@@ -57,7 +57,7 @@ jobs:
       - <<: *install_node_modules
       - <<: *persist_cache
       - persist_to_workspace:
-          root: amplify-material-ui
+          root: packages
           paths:
             - "*"
 
@@ -69,10 +69,10 @@ jobs:
       - <<: *install_node_modules
       - <<: *persist_cache
       - run: yarn lint:ci
-  
+
   unit_tests:
     <<: *node-executor
-    <<: *test_template  
+    <<: *test_template
 
   e2e_tests:
     <<: *e2e-executor
