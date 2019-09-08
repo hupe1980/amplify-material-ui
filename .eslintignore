@@ -2,6 +2,7 @@
 /coverage
 
 
-/amplify-material-ui/lib
+/packages/amplify-material-ui/lib
+/packages/ra-data-amplify-rest/lib
 
 node_modules

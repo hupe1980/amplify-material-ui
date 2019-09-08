@@ -14,8 +14,6 @@ import { useAuthContext } from './auth-context';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useForm } from '../hooks';
 
-export interface ForgotPasswordProps {}
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         form: {
@@ -28,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const ForgotPassword: React.FC<ForgotPasswordProps> = props => {
+export const ForgotPassword: React.FC = props => {
     const { onStateChange } = useAuthContext();
 
     const classes = useStyles();

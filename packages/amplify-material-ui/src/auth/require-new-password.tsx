@@ -18,8 +18,6 @@ import { useForm } from '../hooks';
 
 const logger = new Logger('RequireNewPassword');
 
-export interface RequireNewPasswordProps {}
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         form: {
@@ -32,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const RequireNewPassword: React.FC<RequireNewPasswordProps> = props => {
+export const RequireNewPassword: React.FC = props => {
     const { authData: user, onStateChange } = useAuthContext();
 
     const classes = useStyles();

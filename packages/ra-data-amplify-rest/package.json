@@ -1,0 +1,35 @@
+{
+    "name": "ra-data-amplify-rest",
+    "version": "0.0.1",
+    "description": "aws amplify REST Data Provider for react-admin",
+    "license": "MIT",
+    "keywords": [
+        "react",
+        "aws amplify",
+        "amplify",
+        "react admin",
+        "rest",
+        "api"
+    ],
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "files": [
+        "lib"
+    ],
+    "scripts": {
+        "build": "rimraf ./lib && tsc",
+        "watch": "rimraf ./lib && tsc --watch",
+        "test": "jest",
+        "prepare": "npm run build"
+    },
+    "peerDependencies": {
+        "@aws-amplify/api": "^1.1.1",
+        "ra-core": "^3.0.0-alpha.4"
+    },
+    "devDependencies": {
+        "@aws-amplify/api": "^1.1.1",
+        "ra-core": "^3.0.0-alpha.4",
+        "rimraf": "^3.0.0",
+        "typescript": "^3.6.2"
+    }
+}
