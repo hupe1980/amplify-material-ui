@@ -8,10 +8,10 @@
 
 ```sh
 // with npm
-npm install amplify-material-ui
+npm install ra-data-amplify-rest
 
 // with yarn
-yarn add amplify-material-ui
+yarn add ra-data-amplify-rest
 ```
 
 ## License
