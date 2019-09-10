@@ -1,4 +1,10 @@
-import { UPDATE_MANY, DELETE_MANY, UPDATE, DELETE } from 'ra-core';
+import {
+    UPDATE_MANY,
+    DELETE_MANY,
+    UPDATE,
+    DELETE,
+    DataProvider,
+} from 'ra-core';
 
 import { buildDataRequest } from './build-data-request';
 import { parseResponse } from './parse-response';
@@ -7,7 +13,7 @@ import {
     BuildDataProviderOptions,
 } from './build-data-provider';
 
-import { RequestType, RequestParams } from './types';
+import { Params } from './types';
 
 const defaultOptions = {
     buildDataRequest,
@@ -18,14 +24,14 @@ export interface DataProviderOptions extends Partial<BuildDataProviderOptions> {
     apiName: string;
 }
 
-export default (options: DataProviderOptions) => {
+export default (options: DataProviderOptions): DataProvider => {
     const dataProvider = buildDataProvider({ ...defaultOptions, ...options });
 
     return async (
-        type: RequestType,
+        type: string,
         resource: string,
-        params: RequestParams,
-    ) => {
+        params: Params,
+    ): Promise<any> => {
         if (type === UPDATE_MANY) {
             const { ids, data, ...otherParams } = params;
 

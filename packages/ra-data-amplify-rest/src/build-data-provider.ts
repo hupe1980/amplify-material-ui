@@ -2,7 +2,8 @@ import API from '@aws-amplify/api';
 
 import { buildDataRequest } from './build-data-request';
 import { parseResponse } from './parse-response';
-import { RequestType, RequestParams, ApiCall, HttpMethod } from './types';
+import { Params, Method } from './types';
+import { DataProvider } from 'ra-core';
 
 export interface BuildDataProviderOptions {
     apiName: string;
@@ -10,32 +11,34 @@ export interface BuildDataProviderOptions {
     parseResponse: typeof parseResponse;
 }
 
-export const buildDataProvider = (options: BuildDataProviderOptions) => {
+export const buildDataProvider = (
+    options: BuildDataProviderOptions,
+): DataProvider => {
     const { apiName, parseResponse, buildDataRequest } = options;
 
     return async (
-        type: RequestType,
+        type: string,
         resource: string,
-        params: RequestParams,
-    ) => {
+        params: Params,
+    ): Promise<any> => {
         const { path, method, init } = buildDataRequest(type, resource, params);
 
         let response;
 
         switch (method) {
-            case HttpMethod.GET: {
+            case Method.GET: {
                 response = await API.get(apiName, path, init);
                 break;
             }
-            case HttpMethod.PUT: {
+            case Method.PUT: {
                 response = await API.put(apiName, path, init);
                 break;
             }
-            case HttpMethod.POST: {
+            case Method.POST: {
                 response = await API.post(apiName, path, init);
                 break;
             }
-            case HttpMethod.DELETE: {
+            case Method.DELETE: {
                 response = await API.del(apiName, path, init);
                 break;
             }

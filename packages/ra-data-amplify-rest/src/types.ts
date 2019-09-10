@@ -1,25 +1,13 @@
-import {
-    GET_LIST,
-    GET_ONE,
-    GET_MANY,
-    GET_MANY_REFERENCE,
-    CREATE,
-    UPDATE,
-    UPDATE_MANY,
-    DELETE,
-    DELETE_MANY,
-} from 'ra-core';
-
-export type Init = {
+export interface Init {
     headers?: {};
     body?: {};
     response?: true; // OPTIONAL (return the entire Axios response object instead of only response.data)
     queryStringParameters?: {
-        [key: string]: any;
+        [key: string]: string;
     };
-};
+}
 
-export enum HttpMethod {
+export enum Method {
     GET,
     POST,
     PUT,
@@ -31,18 +19,7 @@ export enum HttpMethod {
     CONNECT,
 }
 
-export type RequestType =
-    | typeof GET_LIST
-    | typeof GET_ONE
-    | typeof GET_MANY
-    | typeof GET_MANY_REFERENCE
-    | typeof UPDATE
-    | typeof UPDATE_MANY
-    | typeof CREATE
-    | typeof DELETE
-    | typeof DELETE_MANY;
-
-export type RequestParams = {
+export interface Params {
     pagination: {
         page: number;
         perPage: number;
@@ -60,10 +37,4 @@ export type RequestParams = {
     data: {
         [key: string]: any;
     };
-};
-
-export type ApiCall = (
-    apiName: string,
-    path: string,
-    init: Init,
-) => Promise<any>;
+}

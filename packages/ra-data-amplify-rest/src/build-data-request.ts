@@ -8,15 +8,15 @@ import {
     DELETE,
 } from 'ra-core';
 
-import { RequestType, RequestParams, Init, HttpMethod } from './types';
+import { Params, Init, Method } from './types';
 
 export const buildDataRequest = (
-    type: RequestType,
+    type: string,
     resource: string,
-    params: RequestParams,
-) => {
+    params: Params,
+): { path: string; method: Method; init: Init } => {
     let path = '';
-    let method: HttpMethod;
+    let method: Method;
     const init: Init = {};
 
     switch (type) {
@@ -24,27 +24,30 @@ export const buildDataRequest = (
             const { page, perPage } = params.pagination;
             const { field, order } = params.sort;
             init.queryStringParameters = {
-                sort: [field, order],
-                range: [(page - 1) * perPage, page * perPage - 1],
-                filter: params.filter,
+                sort: JSON.stringify([field, order]),
+                range: JSON.stringify([
+                    (page - 1) * perPage,
+                    page * perPage - 1,
+                ]),
+                filter: JSON.stringify(params.filter),
             };
             path = `/${resource}`;
-            method = HttpMethod.GET;
+            method = Method.GET;
             break;
         }
 
         case GET_ONE: {
             path = `/${resource}/${params.id}`;
-            method = HttpMethod.GET;
+            method = Method.GET;
             break;
         }
 
         case GET_MANY: {
             init.queryStringParameters = {
-                filter: { id: params.ids },
+                filter: JSON.stringify({ id: params.ids }),
             };
             path = `/${resource}`;
-            method = HttpMethod.GET;
+            method = Method.GET;
             break;
         }
 
@@ -52,35 +55,38 @@ export const buildDataRequest = (
             const { page, perPage } = params.pagination;
             const { field, order } = params.sort;
             init.queryStringParameters = {
-                sort: [field, order],
-                range: [(page - 1) * perPage, page * perPage - 1],
-                filter: {
+                sort: JSON.stringify([field, order]),
+                range: JSON.stringify([
+                    (page - 1) * perPage,
+                    page * perPage - 1,
+                ]),
+                filter: JSON.stringify({
                     ...params.filter,
                     [params.target]: params.id,
-                },
+                }),
             };
             path = `/${resource}`;
-            method = HttpMethod.GET;
+            method = Method.GET;
             break;
         }
 
         case UPDATE: {
             path = `/${resource}/${params.id}`;
-            method = HttpMethod.PUT;
+            method = Method.PUT;
             init.body = params.data;
             break;
         }
 
         case CREATE: {
             path = `/${resource}`;
-            method = HttpMethod.POST;
+            method = Method.POST;
             init.body = params.data;
             break;
         }
 
         case DELETE: {
             path = `/${resource}/${params.id}`;
-            method = HttpMethod.DELETE;
+            method = Method.DELETE;
             break;
         }
 
