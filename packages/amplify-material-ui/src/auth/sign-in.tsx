@@ -46,7 +46,7 @@ export const SignIn: React.FC<SignInProps> = props => {
 
     const classes = useStyles();
 
-    const checkContact = async (user: any) => {
+    const checkContact = async (user: any): Promise<void> => {
         invariant(
             Auth && typeof Auth.verifiedContact === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',
@@ -62,7 +62,7 @@ export const SignIn: React.FC<SignInProps> = props => {
         }
     };
 
-    const signIn = async (inputs: any) => {
+    const signIn = async (inputs: any): Promise<void> => {
         if (!Auth || typeof Auth.signIn !== 'function') {
             throw new Error(
                 'No Auth module found, please ensure @aws-amplify/auth is imported',
@@ -168,7 +168,7 @@ export const SignIn: React.FC<SignInProps> = props => {
                             <Grid item xs>
                                 <Link
                                     href="#"
-                                    onClick={() =>
+                                    onClick={(): void =>
                                         onStateChange('forgotPassword', null)
                                     }
                                     variant="body2"

@@ -3,7 +3,7 @@ import API from '@aws-amplify/api';
 import { buildDataRequest } from './build-data-request';
 import { parseResponse } from './parse-response';
 import { Params, Method } from './types';
-import { DataProvider } from 'ra-core';
+import { LegacyDataProvider } from 'ra-core';
 
 export interface BuildDataProviderOptions {
     apiName: string;
@@ -13,7 +13,7 @@ export interface BuildDataProviderOptions {
 
 export const buildDataProvider = (
     options: BuildDataProviderOptions,
-): DataProvider => {
+): LegacyDataProvider => {
     const { apiName, parseResponse, buildDataRequest } = options;
 
     return async (

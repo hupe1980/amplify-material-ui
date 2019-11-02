@@ -3,7 +3,7 @@ import {
     DELETE_MANY,
     UPDATE,
     DELETE,
-    DataProvider,
+    LegacyDataProvider,
 } from 'ra-core';
 
 import { buildDataRequest } from './build-data-request';
@@ -24,7 +24,7 @@ export interface DataProviderOptions extends Partial<BuildDataProviderOptions> {
     apiName: string;
 }
 
-export default (options: DataProviderOptions): DataProvider => {
+export default (options: DataProviderOptions): LegacyDataProvider => {
     const dataProvider = buildDataProvider({ ...defaultOptions, ...options });
 
     return async (

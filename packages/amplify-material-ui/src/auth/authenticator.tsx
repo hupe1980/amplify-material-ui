@@ -15,6 +15,7 @@ import { SignIn } from './sign-in';
 import { SignUp } from './sign-up';
 import { RequireNewPassword } from './require-new-password';
 import { ConfirmSignIn } from './confirm-sign-in';
+import { VerifyContact } from './verify-contact';
 import { AuthRoute } from './auth-route';
 import { AuthContext } from './auth-context';
 
@@ -49,6 +50,10 @@ const defaultChildren = [
     {
         validAuthStates: ['requireNewPassword'],
         component: RequireNewPassword,
+    },
+    {
+        validAuthStates: ['verifyContact'],
+        component: VerifyContact,
     },
     {
         validAuthStates: ['confirmSignIn'],
@@ -90,7 +95,7 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
     );
 
     React.useEffect(() => {
-        const checkUser = async () => {
+        const checkUser = async (): Promise<void> => {
             invariant(
                 Auth && typeof Auth.currentAuthenticatedUser === 'function',
                 'No Auth module found, please ensure @aws-amplify/auth is imported',
@@ -110,7 +115,7 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
     }, []);
 
     React.useEffect(() => {
-        const handleAuthCapsule = (capsule: HubCapsule) => {
+        const handleAuthCapsule = (capsule: HubCapsule): void => {
             const { payload } = capsule;
 
             switch (payload.event) {
