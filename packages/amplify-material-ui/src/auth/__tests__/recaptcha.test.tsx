@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
-import { Recaptcha } from '../Recaptcha';
+import { Recaptcha } from '../recaptcha';
 
 describe('recaptcha', () => {
     it('should be rendered correctly', () => {
