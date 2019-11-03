@@ -4,6 +4,7 @@ import {
     UPDATE,
     DELETE,
     LegacyDataProvider,
+    convertLegacyDataProvider,
 } from 'ra-core';
 
 import { buildDataRequest } from './build-data-request';
@@ -27,54 +28,56 @@ export interface DataProviderOptions extends Partial<BuildDataProviderOptions> {
 export default (options: DataProviderOptions): LegacyDataProvider => {
     const dataProvider = buildDataProvider({ ...defaultOptions, ...options });
 
-    return async (
-        type: string,
-        resource: string,
-        params: Params,
-    ): Promise<any> => {
-        if (type === UPDATE_MANY) {
-            const { ids, data, ...otherParams } = params;
+    return convertLegacyDataProvider(
+        async (
+            type: string,
+            resource: string,
+            params: Params,
+        ): Promise<any> => {
+            if (type === UPDATE_MANY) {
+                const { ids, data, ...otherParams } = params;
 
-            if (!ids) return;
+                if (!ids) return;
 
-            const responses = await Promise.all(
-                ids.map(id =>
-                    dataProvider(UPDATE, resource, {
-                        data: {
+                const responses = await Promise.all(
+                    ids.map(id =>
+                        dataProvider(UPDATE, resource, {
+                            data: {
+                                id,
+                                ...data,
+                            },
+                            ...otherParams,
+                        }),
+                    ),
+                );
+
+                return {
+                    data: responses.map(response => response.data),
+                };
+            }
+
+            if (type === DELETE_MANY) {
+                const { ids, ...otherParams } = params;
+
+                if (!ids) return;
+
+                const responses = await Promise.all(
+                    ids.map(id =>
+                        dataProvider(DELETE, resource, {
                             id,
-                            ...data,
-                        },
-                        ...otherParams,
-                    }),
-                ),
-            );
+                            ...otherParams,
+                        }),
+                    ),
+                );
 
-            return {
-                data: responses.map(response => response.data),
-            };
-        }
+                return {
+                    data: responses.map(response => response.data),
+                };
+            }
 
-        if (type === DELETE_MANY) {
-            const { ids, ...otherParams } = params;
-
-            if (!ids) return;
-
-            const responses = await Promise.all(
-                ids.map(id =>
-                    dataProvider(DELETE, resource, {
-                        id,
-                        ...otherParams,
-                    }),
-                ),
-            );
-
-            return {
-                data: responses.map(response => response.data),
-            };
-        }
-
-        return dataProvider(type, resource, params);
-    };
+            return dataProvider(type, resource, params);
+        },
+    );
 };
 
 export { buildDataRequest, parseResponse, buildDataProvider };
