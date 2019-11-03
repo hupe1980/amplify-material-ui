@@ -5,11 +5,11 @@ import Auth from '@aws-amplify/auth';
 import { Hub } from '@aws-amplify/core';
 import { HubCapsule } from '@aws-amplify/core/lib/Hub';
 
-export const useAuth = () => {
+export const useAuth = (initialAuthState: string) => {
     const isMounted = useIsMounted();
 
     const [state, setState] = React.useState({
-        authState: 'loading',
+        authState: initialAuthState,
         authData: null,
     });
 
@@ -43,7 +43,7 @@ export const useAuth = () => {
                 handleStateChange('signedIn', user);
             } catch (error) {
                 if (!isMounted()) return;
-                handleStateChange('signIn', null);
+                handleStateChange(initialAuthState, null);
             }
         };
         checkUser();

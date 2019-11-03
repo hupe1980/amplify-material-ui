@@ -2,6 +2,7 @@ export * from './auth-context';
 export * from './auth-route';
 export * from './authenticator';
 export * from './confirm-sign-in';
+export * from './confirm-sign-up';
 export * from './forgot-password';
 export * from './greetings';
 export * from './loading';

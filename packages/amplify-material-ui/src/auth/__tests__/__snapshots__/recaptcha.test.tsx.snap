@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`recaptcha should be rendered correctly 1`] = `
+<DocumentFragment>
+  <span>
+    This site is protected by reCAPTCHA and the Google 
+    <a
+      href="https://policies.google.com/privacy"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+    </a>
+     and 
+    <a
+      href="https://policies.google.com/terms"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Terms of Service
+    </a>
+     apply.
+  </span>
+</DocumentFragment>
+`;

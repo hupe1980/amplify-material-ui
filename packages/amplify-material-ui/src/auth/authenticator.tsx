@@ -10,6 +10,7 @@ import { SignIn } from './sign-in';
 import { SignUp } from './sign-up';
 import { RequireNewPassword } from './require-new-password';
 import { ConfirmSignIn } from './confirm-sign-in';
+import { ConfirmSignUp } from './confirm-sign-up';
 import { VerifyContact } from './verify-contact';
 import { AuthRoute } from './auth-route';
 import { AuthContext } from './auth-context';
@@ -20,6 +21,7 @@ export interface AuthenticatorProps {
     theme?: Theme;
     hideSignUp?: boolean;
     hideForgotPassword?: boolean;
+    initialAuthState?: string;
 }
 
 const defaultChildren = [
@@ -55,6 +57,10 @@ const defaultChildren = [
         validAuthStates: ['confirmSignIn'],
         component: ConfirmSignIn,
     },
+    {
+        validAuthStates: ['confirmSignUp'],
+        component: ConfirmSignUp,
+    },
 ];
 
 export const Authenticator: React.FC<AuthenticatorProps> = props => {
@@ -64,9 +70,12 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
         theme,
         hideSignUp = false,
         hideForgotPassword = false,
+        initialAuthState = 'signIn',
     } = props;
 
-    const { authState, authData, handleStateChange } = useAuth();
+    const { authState, authData, handleStateChange } = useAuth(
+        initialAuthState,
+    );
 
     const renderChildren = defaultChildren
         .filter(item => !hide.includes(item.component))
@@ -101,10 +110,11 @@ export const withAuthenticator = (
     authenticatorProps: AuthenticatorProps = {},
 ): React.ComponentType => (props): React.ReactElement => {
     const {
-        hide = [],
-        theme = undefined,
-        hideSignUp = false,
-        hideForgotPassword = false,
+        hide,
+        theme,
+        hideSignUp,
+        hideForgotPassword,
+        initialAuthState,
     } = authenticatorProps;
 
     return (
@@ -113,6 +123,7 @@ export const withAuthenticator = (
             theme={theme}
             hideSignUp={hideSignUp}
             hideForgotPassword={hideForgotPassword}
+            initialAuthState={initialAuthState}
         >
             <AuthRoute validAuthStates={['signedIn']}>
                 {(): React.ReactElement => <Component {...props} />}

@@ -49,6 +49,26 @@ const App: React.FC = () => (
 export default withAuthenticator(App);
 ```
 
+## Hide default components
+
+You can hide default components of your Authenticator.
+
+```typescript
+withAuthenticator(App, {
+    hide: [Greetings],
+});
+```
+
+## Customize initial authState
+
+You can change the initial auth state for your Authenticator. By default the initial state is signIn which will shows the signIn component.
+
+```typescript
+withAuthenticator(App, {
+    initialAuthState: 'signUp',
+});
+```
+
 ## License
 
 [MIT](LICENSE)

@@ -26,4 +26,5 @@ const App: React.FC = () => (
 export default withAuthenticator(App, {
     hideSignUp: true,
     hideForgotPassword: true,
+    //initialAuthState: 'signUp',
 });

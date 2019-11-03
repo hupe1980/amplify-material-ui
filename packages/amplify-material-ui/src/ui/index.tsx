@@ -4,4 +4,4 @@ export { default as SectionBody } from './section-body';
 export { default as SectionFooter } from './section-footer';
 export { default as SectionHeader } from './section-header';
 export * from './toast';
-export * from './password-strenght-meter';
+export * from './password-strength-meter';
