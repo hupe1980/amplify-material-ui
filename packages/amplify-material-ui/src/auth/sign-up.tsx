@@ -36,7 +36,7 @@ export const SignUp: React.FC<SignUpProps> = props => {
     const { onStateChange } = useAuthContext();
     const classes = useStyles();
 
-    const signUp = (inputs: any) => {
+    const signUp = (inputs: any): void => {
         invariant(
             Auth && typeof Auth.signUp === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',
@@ -96,7 +96,9 @@ export const SignUp: React.FC<SignUpProps> = props => {
                             Have an account?
                             <Link
                                 href="#"
-                                onClick={() => onStateChange('signIn', null)}
+                                onClick={(): void =>
+                                    onStateChange('signIn', null)
+                                }
                                 variant="body2"
                             >
                                 Sign in

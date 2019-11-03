@@ -20,12 +20,12 @@ export interface LoadingProps {
     color?: 'inherit' | 'primary' | 'secondary' | undefined;
 }
 
-export const Loading: React.FC<LoadingProps> = props => {
+export const Loading: React.FC<LoadingProps> = ({ color }) => {
     const classes = useStyles();
 
     return (
         <FormSection>
-            <CircularProgress className={classes.progress} />
+            <CircularProgress className={classes.progress} color={color} />
         </FormSection>
     );
 };

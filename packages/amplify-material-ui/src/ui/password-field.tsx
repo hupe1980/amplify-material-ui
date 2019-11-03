@@ -24,7 +24,7 @@ export const PasswordField: React.FC<PasswordFieldProps> = props => {
                     <InputAdornment position="end">
                         <IconButton
                             aria-label="Toggle password visibility"
-                            onClick={() =>
+                            onClick={(): void =>
                                 setShowPassword(showPassword => !showPassword)
                             }
                         >

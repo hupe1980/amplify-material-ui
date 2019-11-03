@@ -18,6 +18,7 @@ import { ConfirmSignIn } from './confirm-sign-in';
 import { VerifyContact } from './verify-contact';
 import { AuthRoute } from './auth-route';
 import { AuthContext } from './auth-context';
+import { useAuth } from './use-auth';
 
 export interface AuthenticatorProps {
     hide?: React.FC<any>[];
@@ -70,80 +71,7 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
         hideForgotPassword = false,
     } = props;
 
-    const isMounted = useIsMounted();
-
-    const [state, setState] = React.useState({
-        authState: 'loading',
-        authData: null,
-    });
-
-    const handleStateChange = React.useCallback(
-        (authState: string, authData: any) => {
-            if (authState === 'signedOut') {
-                authState = 'signIn';
-            }
-
-            if (isMounted()) {
-                setState(prevState => ({
-                    ...prevState,
-                    authState,
-                    authData,
-                }));
-            }
-        },
-        [isMounted],
-    );
-
-    React.useEffect(() => {
-        const checkUser = async (): Promise<void> => {
-            invariant(
-                Auth && typeof Auth.currentAuthenticatedUser === 'function',
-                'No Auth module found, please ensure @aws-amplify/auth is imported',
-            );
-
-            try {
-                const user = await Auth.currentAuthenticatedUser();
-                if (!isMounted()) return;
-                handleStateChange('signedIn', user);
-            } catch (error) {
-                if (!isMounted()) return;
-                handleStateChange('signIn', null);
-            }
-        };
-        checkUser();
-        //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    React.useEffect(() => {
-        const handleAuthCapsule = (capsule: HubCapsule): void => {
-            const { payload } = capsule;
-
-            switch (payload.event) {
-                case 'cognitoHostedUI':
-                    handleStateChange('signedIn', payload.data);
-                    break;
-                case 'cognitoHostedUI_failure':
-                    handleStateChange('signIn', null);
-                    break;
-                case 'parsingUrl_failure':
-                    handleStateChange('signIn', null);
-                    break;
-                case 'signOut':
-                    handleStateChange('signIn', null);
-                    break;
-                case 'customGreetingSignOut':
-                    handleStateChange('signIn', null);
-                    break;
-                default:
-                    break;
-            }
-        };
-        Hub.listen('auth', handleAuthCapsule);
-
-        return () => {
-            Hub.remove('auth', handleAuthCapsule);
-        };
-    });
+    const { authState, authData, handleStateChange } = useAuth();
 
     const renderChildren = defaultChildren
         .filter(item => !hide.includes(item.component))
@@ -157,7 +85,8 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
     return (
         <AuthContext.Provider
             value={{
-                ...state,
+                authState: authState,
+                authData: authData,
                 onStateChange: handleStateChange,
                 hideSignUp,
                 hideForgotPassword,
@@ -174,28 +103,25 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
 
 export const withAuthenticator = (
     Component: React.ComponentType,
-    authenticatorProps?: AuthenticatorProps,
-): React.ComponentType<any> => {
-    return props => {
-        const {
-            hide = [],
-            theme = undefined,
-            hideSignUp = false,
-            hideForgotPassword = false,
-        } = authenticatorProps || {};
+    authenticatorProps: AuthenticatorProps = {},
+): React.ComponentType => (props): React.ReactElement => {
+    const {
+        hide = [],
+        theme = undefined,
+        hideSignUp = false,
+        hideForgotPassword = false,
+    } = authenticatorProps;
 
-        return (
-            <Authenticator
-                hide={hide}
-                theme={theme}
-                hideSignUp={hideSignUp}
-                hideForgotPassword={hideForgotPassword}
-            >
-                <AuthRoute
-                    validAuthStates={['signedIn']}
-                    render={() => <Component {...props} />}
-                />
-            </Authenticator>
-        );
-    };
+    return (
+        <Authenticator
+            hide={hide}
+            theme={theme}
+            hideSignUp={hideSignUp}
+            hideForgotPassword={hideForgotPassword}
+        >
+            <AuthRoute validAuthStates={['signedIn']}>
+                {(): React.ReactElement => <Component {...props} />}
+            </AuthRoute>
+        </Authenticator>
+    );
 };

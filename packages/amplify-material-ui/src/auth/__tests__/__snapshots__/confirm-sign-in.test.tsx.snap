@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
+exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authState 1`] = `
 <DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthXs"
@@ -40,13 +40,12 @@ exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
         <h1
           class="MuiTypography-root MuiTypography-h6"
         >
-          Sign in to your account
+          Confirm TOTP Code
         </h1>
       </div>
       <form
         action="#"
         class="makeStyles-form-1"
-        data-testid="signInForm"
       >
         <div
           class="MuiBox-root MuiBox-root-85 makeStyles-box-84"
@@ -57,10 +56,10 @@ exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-focused Mui-focused Mui-required Mui-required"
               data-shrink="true"
-              for="username"
-              id="username-label"
+              for="code"
+              id="code-label"
             >
-              Username
+              Code *
               <span
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
               >
@@ -72,9 +71,10 @@ exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
             >
               <input
                 aria-invalid="false"
+                autocomplete="code"
                 class="MuiInputBase-input MuiOutlinedInput-input"
-                id="username"
-                name="username"
+                id="code"
+                name="code"
                 required=""
                 type="text"
                 value=""
@@ -95,65 +95,19 @@ exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
               </fieldset>
             </div>
           </div>
-          <div
-            class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
-          >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-              data-shrink="false"
-              for="password"
-              id="password-label"
-            >
-              Password
-              <span
-                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
-              >
-                 *
-              </span>
-            </label>
-            <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
-            >
-              <input
-                aria-invalid="false"
-                autocomplete="current-password"
-                class="MuiInputBase-input MuiOutlinedInput-input"
-                id="password"
-                name="password"
-                required=""
-                type="password"
-                value=""
-              />
-              <fieldset
-                aria-hidden="true"
-                class="PrivateNotchedOutline-root-145 MuiOutlinedInput-notchedOutline"
-                style="padding-left: 8px;"
-              >
-                <legend
-                  class="PrivateNotchedOutline-legend-146"
-                  style="width: 0.01px;"
-                >
-                  <span>
-                    ​
-                  </span>
-                </legend>
-              </fieldset>
-            </div>
-          </div>
         </div>
         <div
           class="MuiBox-root MuiBox-root-148 makeStyles-box-147"
         >
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-2 MuiButton-containedPrimary MuiButton-fullWidth"
-            data-testid="signInSubmit"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
-              Sign In
+              Confirm
             </span>
             <span
               class="MuiTouchRipple-root"
@@ -169,17 +123,7 @@ exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
                 href="#"
               >
-                Reset password
-              </a>
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item"
-            >
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
-                href="#"
-              >
-                Create account
+                Back to Sign In
               </a>
             </div>
           </div>

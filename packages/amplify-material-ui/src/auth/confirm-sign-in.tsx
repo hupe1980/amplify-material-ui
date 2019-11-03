@@ -4,21 +4,18 @@ import {
     Button,
     Grid,
     Link,
-    TextField,
     makeStyles,
     createStyles,
     Theme,
 } from '@material-ui/core';
 import Auth from '@aws-amplify/auth';
-import { I18n } from '@aws-amplify/core';
+import { I18n, JS } from '@aws-amplify/core';
+import { Formik, Field, Form } from 'formik';
+import { TextField } from 'formik-material-ui';
 
 import { useAuthContext } from './auth-context';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
-import { useForm } from '../hooks';
-
-export interface ConfirmSignInProps {
-    validationData?: { [key: string]: string };
-}
+import { useMfaType } from './use-mfa-type';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -32,90 +29,105 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const useMfaType = (user: any) => {
-    const [mfaType, setMfaType] = React.useState('SMS');
-
-    React.useEffect(() => {
-        const newMfaType =
-            user && user.challengeName === 'SOFTWARE_TOKEN_MFA'
-                ? 'TOTP'
-                : 'SMS';
-        if (mfaType !== newMfaType) {
-            setMfaType(newMfaType);
-        }
-    }, [mfaType, user]);
-
-    return mfaType;
-};
-
-export const ConfirmSignIn: React.FC<ConfirmSignInProps> = props => {
+export const ConfirmSignIn: React.FC = () => {
     const { onStateChange, authData: user } = useAuthContext();
 
     const classes = useStyles();
 
     const mfaType = useMfaType(user);
 
-    const confirm = async ({ code }: { code: string }) => {
+    const checkContact = async (user: any): Promise<void> => {
+        invariant(
+            Auth && typeof Auth.verifiedContact === 'function',
+            'No Auth module found, please ensure @aws-amplify/auth is imported',
+        );
+
+        const data = await Auth.verifiedContact(user);
+
+        if (!JS.isEmpty(data.verified)) {
+            onStateChange('signedIn', user);
+        } else {
+            const newUser = Object.assign(user, data);
+            onStateChange('verifyContact', newUser);
+        }
+    };
+
+    const confirm = async (code: string): Promise<void> => {
         invariant(
             Auth && typeof Auth.confirmSignIn === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',
         );
 
-        await Auth.confirmSignIn(
-            user,
-            code,
-            mfaType === 'TOTP' ? 'SOFTWARE_TOKEN_MFA' : null,
-        );
+        try {
+            await Auth.confirmSignIn(
+                user,
+                code,
+                mfaType === 'TOTP' ? 'SOFTWARE_TOKEN_MFA' : null,
+            );
+            checkContact(user);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
-    const { inputs, handleInputChange, handleSubmit } = useForm(confirm, {
-        code: '',
-    });
-
     return (
-        <FormSection>
-            <SectionHeader>
-                {I18n.get('Confirm ' + mfaType + ' Code')}
-            </SectionHeader>
-            <form onSubmit={handleSubmit} className={classes.form} noValidate>
-                <SectionBody>
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="code"
-                        label={`${I18n.get('Code')} *`}
-                        name="code"
-                        autoComplete="code"
-                        autoFocus
-                        onChange={handleInputChange}
-                        value={inputs.code}
-                    />
-                </SectionBody>
-                <SectionFooter>
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                    >
-                        {I18n.get('Confirm')}
-                    </Button>
-                    <Grid container>
-                        <Grid item xs>
-                            <Link
-                                href="#"
-                                onClick={() => onStateChange('signIn', null)}
-                                variant="body2"
+        <Formik<{ code: string }>
+            initialValues={{
+                code: '',
+            }}
+            onSubmit={async ({ code }, { setSubmitting }): Promise<void> => {
+                await confirm(code);
+                setSubmitting(false);
+            }}
+        >
+            {({ submitForm, isValid }): React.ReactNode => (
+                <FormSection>
+                    <SectionHeader>
+                        {I18n.get('Confirm ' + mfaType + ' Code')}
+                    </SectionHeader>
+                    <Form className={classes.form}>
+                        <SectionBody>
+                            <Field
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                id="code"
+                                label={`${I18n.get('Code')} *`}
+                                name="code"
+                                autoComplete="code"
+                                autoFocus
+                                component={TextField}
+                            />
+                        </SectionBody>
+                        <SectionFooter>
+                            <Button
+                                onClick={submitForm}
+                                disabled={!isValid}
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className={classes.submit}
                             >
-                                {I18n.get('Back to Sign In')}
-                            </Link>
-                        </Grid>
-                    </Grid>
-                </SectionFooter>
-            </form>
-        </FormSection>
+                                {I18n.get('Confirm')}
+                            </Button>
+                            <Grid container>
+                                <Grid item xs>
+                                    <Link
+                                        href="#"
+                                        onClick={(): void =>
+                                            onStateChange('signIn', null)
+                                        }
+                                        variant="body2"
+                                    >
+                                        {I18n.get('Back to Sign In')}
+                                    </Link>
+                                </Grid>
+                            </Grid>
+                        </SectionFooter>
+                    </Form>
+                </FormSection>
+            )}
+        </Formik>
     );
 };

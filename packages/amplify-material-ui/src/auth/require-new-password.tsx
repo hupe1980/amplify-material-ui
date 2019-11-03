@@ -35,7 +35,7 @@ export const RequireNewPassword: React.FC = props => {
 
     const classes = useStyles();
 
-    const checkContact = async (user: any) => {
+    const checkContact = async (user: any): Promise<void> => {
         invariant(
             Auth && typeof Auth.verifiedContact === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',
@@ -51,7 +51,7 @@ export const RequireNewPassword: React.FC = props => {
         }
     };
 
-    const submit = async (inputs: any) => {
+    const submit = async (inputs: any): Promise<void> => {
         const { password } = inputs;
         //const { requiredAttributes } = user.challengeParam;
         //const attrs = objectWithProperties(this.inputs, requiredAttributes);
@@ -119,7 +119,9 @@ export const RequireNewPassword: React.FC = props => {
                         <Grid item>
                             <Link
                                 href="#"
-                                onClick={() => onStateChange('signIn', null)}
+                                onClick={(): void =>
+                                    onStateChange('signIn', null)
+                                }
                                 variant="body2"
                             >
                                 {I18n.get('Back to Sign In')}

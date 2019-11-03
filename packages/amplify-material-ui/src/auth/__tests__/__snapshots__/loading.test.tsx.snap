@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`loading should be rendered correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthXs"
+  >
+    <div
+      class="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-2 MuiPaper-rounded"
+    >
+      <div
+        class="MuiCircularProgress-root makeStyles-progress-1 MuiCircularProgress-colorSecondary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style="width: 40px; height: 40px;"
+      >
+        <svg
+          class="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20.2"
+            stroke-width="3.6"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

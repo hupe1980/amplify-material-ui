@@ -7,6 +7,7 @@ import { HubCapsule } from '@aws-amplify/core/lib/Hub';
 
 export const useAuth = () => {
     const isMounted = useIsMounted();
+
     const [state, setState] = React.useState({
         authState: 'loading',
         authData: null,
@@ -46,7 +47,8 @@ export const useAuth = () => {
             }
         };
         checkUser();
-    }, [handleStateChange, isMounted]);
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     React.useEffect(() => {
         const handleAuthCapsule = (capsule: HubCapsule) => {
@@ -74,7 +76,7 @@ export const useAuth = () => {
         };
         Hub.listen('auth', handleAuthCapsule);
 
-        return () => {
+        return (): void => {
             Hub.remove('auth', handleAuthCapsule);
         };
     });

@@ -4,17 +4,17 @@ import {
     Button,
     Grid,
     Link,
-    TextField,
     makeStyles,
     createStyles,
     Theme,
 } from '@material-ui/core';
 import Auth from '@aws-amplify/auth';
 import { ConsoleLogger as Logger, I18n, JS } from '@aws-amplify/core';
+import { Formik, Field, Form } from 'formik';
+import { TextField } from 'formik-material-ui';
 
 import { useAuthContext } from './auth-context';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
-import { useForm } from '../hooks';
 
 const logger = new Logger('SignIn');
 
@@ -62,14 +62,15 @@ export const SignIn: React.FC<SignInProps> = props => {
         }
     };
 
-    const signIn = async (inputs: any): Promise<void> => {
+    const signIn = async (
+        username: string,
+        password: string,
+    ): Promise<void> => {
         if (!Auth || typeof Auth.signIn !== 'function') {
             throw new Error(
                 'No Auth module found, please ensure @aws-amplify/auth is imported',
             );
         }
-
-        const { username, password } = inputs;
 
         try {
             const user = await Auth.signIn({
@@ -110,89 +111,98 @@ export const SignIn: React.FC<SignInProps> = props => {
         //onStateChange('signedIn', null); //TODO
     };
 
-    const { inputs, handleInputChange, handleSubmit } = useForm(signIn, {
-        username: '',
-        password: '',
-        token: '',
-    });
-
     return (
-        <FormSection>
-            <SectionHeader>{I18n.get('Sign in to your account')}</SectionHeader>
-            <form
-                onSubmit={handleSubmit}
-                className={classes.form}
-                noValidate
-                data-testid="signInForm"
-            >
-                <SectionBody>
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="username"
-                        label="Username"
-                        name="username"
-                        autoFocus
-                        onChange={handleInputChange}
-                        value={inputs.username}
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="password"
-                        label={I18n.get('Password')}
-                        type="password"
-                        id="password"
-                        autoComplete="current-password"
-                        onChange={handleInputChange}
-                        value={inputs.password}
-                    />
-                </SectionBody>
-                <SectionFooter>
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                        data-testid="signInSubmit"
-                    >
-                        {I18n.get('Sign In')}
-                    </Button>
-                    <Grid container>
-                        {!hideForgotPassword && (
-                            <Grid item xs>
-                                <Link
-                                    href="#"
-                                    onClick={(): void =>
-                                        onStateChange('forgotPassword', null)
-                                    }
-                                    variant="body2"
-                                >
-                                    {I18n.get('Reset password')}
-                                </Link>
+        <Formik<{ username: string; password: string }>
+            initialValues={{
+                username: '',
+                password: '',
+            }}
+            onSubmit={async (
+                { username, password },
+                { setSubmitting },
+            ): Promise<void> => {
+                await signIn(username, password);
+                setSubmitting(false);
+            }}
+        >
+            {({ submitForm, isValid }): React.ReactNode => (
+                <FormSection>
+                    <SectionHeader>
+                        {I18n.get('Sign in to your account')}
+                    </SectionHeader>
+                    <Form className={classes.form} data-testid="signInForm">
+                        <SectionBody>
+                            <Field
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                id="username"
+                                label="Username"
+                                name="username"
+                                autoFocus
+                                component={TextField}
+                            />
+                            <Field
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="password"
+                                label={I18n.get('Password')}
+                                type="password"
+                                id="password"
+                                autoComplete="current-password"
+                                component={TextField}
+                            />
+                        </SectionBody>
+                        <SectionFooter>
+                            <Button
+                                onClick={submitForm}
+                                disabled={!isValid}
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className={classes.submit}
+                                data-testid="signInSubmit"
+                            >
+                                {I18n.get('Sign In')}
+                            </Button>
+                            <Grid container>
+                                {!hideForgotPassword && (
+                                    <Grid item xs>
+                                        <Link
+                                            href="#"
+                                            onClick={(): void =>
+                                                onStateChange(
+                                                    'forgotPassword',
+                                                    null,
+                                                )
+                                            }
+                                            variant="body2"
+                                        >
+                                            {I18n.get('Reset password')}
+                                        </Link>
+                                    </Grid>
+                                )}
+                                {!hideSignUp && (
+                                    <Grid item>
+                                        <Link
+                                            href="#"
+                                            onClick={(): void =>
+                                                onStateChange('signUp', null)
+                                            }
+                                            variant="body2"
+                                        >
+                                            {I18n.get('Create account')}
+                                        </Link>
+                                    </Grid>
+                                )}
                             </Grid>
-                        )}
-                        {!hideSignUp && (
-                            <Grid item>
-                                <Link
-                                    href="#"
-                                    onClick={() =>
-                                        onStateChange('signUp', null)
-                                    }
-                                    variant="body2"
-                                >
-                                    {I18n.get('Create account')}
-                                </Link>
-                            </Grid>
-                        )}
-                    </Grid>
-                </SectionFooter>
-            </form>
-        </FormSection>
+                        </SectionFooter>
+                    </Form>
+                </FormSection>
+            )}
+        </Formik>
     );
 };

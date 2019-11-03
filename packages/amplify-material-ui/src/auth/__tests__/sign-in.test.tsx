@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Auth from '@aws-amplify/auth';
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, cleanup, fireEvent, act, wait } from '@testing-library/react';
 import { SignIn } from '../sign-in';
 import { AuthContext } from '../auth-context';
 
@@ -23,12 +23,12 @@ describe('sign-in', () => {
     });
 
     it('it should change state to requireNewPassword if challengeName equals NEW_PASSWORD_REQUIRED', async () => {
-        jest.spyOn(Auth, 'signIn').mockImplementationOnce((user, password) => {
-            return new Promise((res, rej) => {
+        jest.spyOn(Auth, 'signIn').mockImplementationOnce(() => {
+            return new Promise(res =>
                 res({
                     challengeName: 'NEW_PASSWORD_REQUIRED',
-                });
-            });
+                }),
+            );
         });
 
         const { getByTestId, getByLabelText } = render(withContext(<SignIn />));
@@ -37,21 +37,32 @@ describe('sign-in', () => {
             exact: false,
             selector: 'input',
         });
-        fireEvent.change(usernameInput, { target: { value: 'test@test.de' } });
 
         const passwordInput = getByLabelText('Password', {
             exact: false,
             selector: 'input',
         });
-        fireEvent.change(passwordInput, { target: { value: 'Qwertz123!' } });
 
-        fireEvent.click(getByTestId('signInSubmit'));
+        act(() => {
+            fireEvent.change(usernameInput, {
+                target: { value: 'test@test.de' },
+            });
 
-        await Promise.resolve();
+            fireEvent.change(passwordInput, {
+                target: { value: 'Qwertz123!' },
+            });
 
-        expect(handleStateChange).toHaveBeenCalledTimes(1);
-        expect(handleStateChange).toHaveBeenCalledWith('requireNewPassword', {
-            challengeName: 'NEW_PASSWORD_REQUIRED',
+            fireEvent.click(getByTestId('signInSubmit'));
+        });
+
+        await wait(() => {
+            expect(handleStateChange).toHaveBeenCalledTimes(1);
+            expect(handleStateChange).toHaveBeenCalledWith(
+                'requireNewPassword',
+                {
+                    challengeName: 'NEW_PASSWORD_REQUIRED',
+                },
+            );
         });
     });
 });

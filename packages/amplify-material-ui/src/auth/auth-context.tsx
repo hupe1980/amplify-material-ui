@@ -8,7 +8,9 @@ export interface AuthContextProps {
     hideForgotPassword?: boolean;
 }
 
-const createNamedContext = (name: string) => {
+const createNamedContext = (
+    name: string,
+): React.Context<AuthContextProps | null> => {
     const context = React.createContext<AuthContextProps | null>(null);
     context.displayName = name;
 
@@ -17,5 +19,5 @@ const createNamedContext = (name: string) => {
 
 export const AuthContext = createNamedContext('Auth');
 
-export const useAuthContext = () =>
+export const useAuthContext = (): AuthContextProps =>
     React.useContext(AuthContext) as AuthContextProps;

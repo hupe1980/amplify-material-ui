@@ -12,7 +12,7 @@ export const Recaptcha: React.FC<RecaptchaProps> = props => {
     const execute = useRecaptcha({ sitekey, hideDefaultBadge: true });
 
     React.useEffect(() => {
-        const getToken = async () => {
+        const getToken = async (): Promise<void> => {
             const token = await execute(action);
             onToken(token);
         };

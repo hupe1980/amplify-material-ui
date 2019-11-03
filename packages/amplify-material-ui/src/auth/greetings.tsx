@@ -36,10 +36,10 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export interface GreetingsProps {
-    renderUserMenu?: () => React.ReactElement<any>;
+    renderUserMenu?: () => React.ReactElement;
     title?: string;
     className?: string;
-    burgerMenu?: React.ReactElement<any>;
+    burgerMenu?: React.ReactElement;
 }
 
 export const Greetings: React.FC<GreetingsProps> = props => {
@@ -56,15 +56,15 @@ export const Greetings: React.FC<GreetingsProps> = props => {
 
     const classes = useStyles();
 
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleClose = () => {
+    const handleClose = (): void => {
         setAnchorEl(null);
     };
 
-    const logout = async () => {
+    const logout = async (): Promise<void> => {
         handleClose();
         await Auth.signOut();
     };

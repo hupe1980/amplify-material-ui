@@ -1,6 +1,15 @@
 import * as React from 'react';
 import invariant from 'tiny-invariant';
-import { Button, Grid, Link, FormControlLabel, Radio } from '@material-ui/core';
+import {
+    Button,
+    Grid,
+    Link,
+    FormControlLabel,
+    Radio,
+    makeStyles,
+    createStyles,
+    Theme,
+} from '@material-ui/core';
 import Auth from '@aws-amplify/auth';
 import { ConsoleLogger as Logger, I18n } from '@aws-amplify/core';
 import { Formik, Field, Form } from 'formik';
@@ -11,16 +20,25 @@ import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
 const logger = new Logger('VerifyContact');
 
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        form: {
+            width: '100%', // Fix IE 11 issue.
+            marginTop: theme.spacing(1),
+        },
+        submit: {
+            margin: theme.spacing(3, 0, 2),
+        },
+    }),
+);
+
 export const VerifyContact: React.FC = () => {
     const { onStateChange, authData } = useAuthContext();
     const [verifyAttr, setVerifyAttr] = React.useState<string | null>(null);
 
-    const verify = async (contact: string): Promise<void> => {
-        if (!contact) {
-            //this.error('Neither Email nor Phone Number selected');
-            return;
-        }
+    const classes = useStyles();
 
+    const verify = async (contact: string): Promise<void> => {
         invariant(
             Auth && typeof Auth.verifyCurrentUserAttribute === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',
@@ -93,7 +111,7 @@ export const VerifyContact: React.FC = () => {
                                 'Account recovery requires verified contact information',
                             )}
                         </SectionHeader>
-                        <Form>
+                        <Form className={classes.form}>
                             <SectionBody>
                                 <Field
                                     name="contact"
@@ -130,6 +148,7 @@ export const VerifyContact: React.FC = () => {
                                 <Button
                                     disabled={!isValid}
                                     onClick={submitForm}
+                                    className={classes.submit}
                                 >
                                     {I18n.get('Verify')}
                                 </Button>
@@ -159,7 +178,7 @@ export const VerifyContact: React.FC = () => {
                             'Account recovery requires verified contact information',
                         )}
                     </SectionHeader>
-                    <Form>
+                    <Form className={classes.form}>
                         <SectionBody>
                             <Field
                                 variant="outlined"
@@ -175,7 +194,11 @@ export const VerifyContact: React.FC = () => {
                             />
                         </SectionBody>
                         <SectionFooter>
-                            <Button disabled={!isValid} onClick={submitForm}>
+                            <Button
+                                disabled={!isValid}
+                                onClick={submitForm}
+                                className={classes.submit}
+                            >
                                 {I18n.get('Submit')}
                             </Button>
                             {skipLinkPanel()}
