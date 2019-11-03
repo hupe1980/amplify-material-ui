@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.6](https://github.com/hupe1980/mplify-material-ui/compare/ra-data-amplify-rest@0.0.5...ra-data-amplify-rest@0.0.6) (2019-11-03)
+
+
+### Bug Fixes
+
+* Add convertLegacyDataProvider ([3785c4a](https://github.com/hupe1980/mplify-material-ui/commit/3785c4a1908a573dd699d34f38c9b736eb6a4025))
+
+
+
+
+
 ## [0.0.5](https://github.com/hupe1980/mplify-material-ui/compare/ra-data-amplify-rest@0.0.4...ra-data-amplify-rest@0.0.5) (2019-11-02)
 
 **Note:** Version bump only for package ra-data-amplify-rest
