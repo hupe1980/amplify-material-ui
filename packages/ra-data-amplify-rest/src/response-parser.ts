@@ -22,7 +22,7 @@ import {
 export type ResponseParserMethod<P, T> = (
     response: any,
     resource: string,
-    parmas: P,
+    params: P,
 ) => T;
 
 export interface ResponseParser {
@@ -44,7 +44,7 @@ export const defaultResponseParser: ResponseParser = {
     getList: (response, _resource, _params): GetListResult => {
         const { headers, data } = response;
 
-        if (!headers.has('x-total-count')) {
+        if (!headers || !headers.has('x-total-count')) {
             throw new Error(
                 'The x-total-count header is missing in the HTTP Response. The amplify REST data provider expects responses for lists of resources to contain this header with the total number of results to build the pagination. If you are using CORS, did you declare X-Total-Count in the Access-Control-Expose-Headers header?',
             );
@@ -85,7 +85,7 @@ export const defaultResponseParser: ResponseParser = {
     ): GetManyReferenceResult => {
         const { headers, data } = response;
 
-        if (!headers.has('x-total-count')) {
+        if (!headers || !headers.has('x-total-count')) {
             throw new Error(
                 'The x-total-count header is missing in the HTTP Response. The amplify REST data provider expects responses for lists of resources to contain this header with the total number of results to build the pagination. If you are using CORS, did you declare X-Total-Count in the Access-Control-Expose-Headers header?',
             );
