@@ -1,9 +1,4 @@
 import * as React from 'react';
-import invariant from 'tiny-invariant';
-import useIsMounted from 'react-is-mounted-hook';
-import { Hub } from '@aws-amplify/core';
-import { HubCapsule } from '@aws-amplify/core/lib/Hub';
-import Auth from '@aws-amplify/auth';
 
 import { CssBaseline, createMuiTheme, Theme } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';

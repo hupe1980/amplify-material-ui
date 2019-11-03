@@ -4,17 +4,18 @@ import {
     Button,
     Grid,
     Link,
-    TextField,
     makeStyles,
     createStyles,
     Theme,
 } from '@material-ui/core';
 import Auth from '@aws-amplify/auth';
 import { I18n } from '@aws-amplify/core';
+import { Formik, Field, Form } from 'formik';
+import { TextField } from 'formik-material-ui';
 
 import { useAuthContext } from './auth-context';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
-import { useForm } from '../hooks';
+import { CognitoUserAttribute } from 'amazon-cognito-identity-js';
 
 export interface SignUpProps {
     validationData?: { [key: string]: string };
@@ -36,77 +37,111 @@ export const SignUp: React.FC<SignUpProps> = props => {
     const { onStateChange } = useAuthContext();
     const classes = useStyles();
 
-    const signUp = (inputs: any): void => {
+    const signUp = async (email: string, password: string): Promise<void> => {
         invariant(
             Auth && typeof Auth.signUp === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',
         );
-        // TODO
+
+        const validationData = [];
+        if (props.validationData) {
+            for (const [name, value] of Object.entries(props.validationData)) {
+                validationData.push(
+                    new CognitoUserAttribute({ Name: name, Value: value }),
+                );
+            }
+        }
+
+        const signupInfo = {
+            username: email,
+            password: password,
+            attributes: {},
+            validationData,
+        };
+
+        try {
+            const data = await Auth.signUp(signupInfo);
+            onStateChange('confirmSignUp', data.user.getUsername());
+        } catch (error) {
+            console.log(error);
+        }
     };
 
-    const { inputs, handleInputChange, handleSubmit } = useForm(signUp, {
-        email: '',
-        password: '',
-    });
-
     return (
-        <FormSection>
-            <SectionHeader>{I18n.get('Sign in to your account')}</SectionHeader>
-            <form onSubmit={handleSubmit} className={classes.form} noValidate>
-                <SectionBody>
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="email"
-                        label="Email Address"
-                        name="email"
-                        autoComplete="email"
-                        autoFocus
-                        onChange={handleInputChange}
-                        value={inputs.email}
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="password"
-                        label="Password"
-                        type="password"
-                        id="password"
-                        autoComplete="current-password"
-                        onChange={handleInputChange}
-                        value={inputs.password}
-                    />
-                </SectionBody>
-                <SectionFooter>
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                    >
-                        Sign Up
-                    </Button>
-                    <Grid container>
-                        <Grid item xs>
-                            Have an account?
-                            <Link
-                                href="#"
-                                onClick={(): void =>
-                                    onStateChange('signIn', null)
-                                }
-                                variant="body2"
+        <Formik<{ email: string; password: string }>
+            initialValues={{
+                email: '',
+                password: '',
+            }}
+            onSubmit={async (
+                { email, password },
+                { setSubmitting },
+            ): Promise<void> => {
+                await signUp(email, password);
+                setSubmitting(false);
+            }}
+        >
+            {({ submitForm, isValid }): React.ReactNode => (
+                <FormSection>
+                    <SectionHeader>
+                        {I18n.get('Sign in to your account')}
+                    </SectionHeader>
+                    <Form className={classes.form}>
+                        <SectionBody>
+                            <Field
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                id="email"
+                                label="Email Address"
+                                name="email"
+                                autoComplete="email"
+                                autoFocus
+                                component={TextField}
+                            />
+                            <Field
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="password"
+                                label="Password"
+                                type="password"
+                                id="password"
+                                autoComplete="current-password"
+                                component={TextField}
+                            />
+                        </SectionBody>
+                        <SectionFooter>
+                            <Button
+                                onClick={submitForm}
+                                disabled={!isValid}
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className={classes.submit}
                             >
-                                Sign in
-                            </Link>
-                        </Grid>
-                    </Grid>
-                </SectionFooter>
-            </form>
-        </FormSection>
+                                Sign Up
+                            </Button>
+                            <Grid container>
+                                <Grid item xs>
+                                    Have an account?
+                                    <Link
+                                        href="#"
+                                        onClick={(): void =>
+                                            onStateChange('signIn', null)
+                                        }
+                                        variant="body2"
+                                    >
+                                        Sign in
+                                    </Link>
+                                </Grid>
+                            </Grid>
+                        </SectionFooter>
+                    </Form>
+                </FormSection>
+            )}
+        </Formik>
     );
 };

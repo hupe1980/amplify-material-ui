@@ -31,7 +31,7 @@ export const useAuth = () => {
     );
 
     React.useEffect(() => {
-        const checkUser = async () => {
+        const checkUser = async (): Promise<void> => {
             invariant(
                 Auth && typeof Auth.currentAuthenticatedUser === 'function',
                 'No Auth module found, please ensure @aws-amplify/auth is imported',
@@ -51,7 +51,7 @@ export const useAuth = () => {
     }, []);
 
     React.useEffect(() => {
-        const handleAuthCapsule = (capsule: HubCapsule) => {
+        const handleAuthCapsule = (capsule: HubCapsule): void => {
             const { payload } = capsule;
 
             switch (payload.event) {

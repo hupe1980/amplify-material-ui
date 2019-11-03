@@ -4,17 +4,17 @@ import {
     createStyles,
     Button,
     makeStyles,
-    TextField,
     Theme,
     Grid,
     Link,
 } from '@material-ui/core';
 import Auth from '@aws-amplify/auth';
 import { ConsoleLogger as Logger, I18n, JS } from '@aws-amplify/core';
+import { Formik, Field, Form } from 'formik';
+import { TextField } from 'formik-material-ui';
 
 import { useAuthContext } from './auth-context';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
-import { useForm } from '../hooks';
 
 const logger = new Logger('RequireNewPassword');
 
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const RequireNewPassword: React.FC = props => {
+export const RequireNewPassword: React.FC = () => {
     const { authData: user, onStateChange } = useAuthContext();
 
     const classes = useStyles();
@@ -51,8 +51,7 @@ export const RequireNewPassword: React.FC = props => {
         }
     };
 
-    const submit = async (inputs: any): Promise<void> => {
-        const { password } = inputs;
+    const submit = async (password: string): Promise<void> => {
         //const { requiredAttributes } = user.challengeParam;
         //const attrs = objectWithProperties(this.inputs, requiredAttributes);
 
@@ -83,53 +82,64 @@ export const RequireNewPassword: React.FC = props => {
         }
     };
 
-    const { inputs, handleInputChange, handleSubmit } = useForm(submit, {
-        password: '',
-    });
-
     return (
-        <FormSection>
-            <SectionHeader>{I18n.get('Change Password')}</SectionHeader>
-            <form onSubmit={handleSubmit} className={classes.form} noValidate>
-                <SectionBody>
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="password"
-                        label={I18n.get('New Password')}
-                        type="password"
-                        id="password"
-                        onChange={handleInputChange}
-                        value={inputs.password}
-                    />
-                </SectionBody>
-                <SectionFooter>
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                    >
-                        {I18n.get('Change')}
-                    </Button>
-                    <Grid container>
-                        <Grid item>
-                            <Link
-                                href="#"
-                                onClick={(): void =>
-                                    onStateChange('signIn', null)
-                                }
-                                variant="body2"
+        <Formik<{ password: string }>
+            initialValues={{
+                password: '',
+            }}
+            onSubmit={async (
+                { password },
+                { setSubmitting },
+            ): Promise<void> => {
+                await submit(password);
+                setSubmitting(false);
+            }}
+        >
+            {({ submitForm, isValid }): React.ReactNode => (
+                <FormSection>
+                    <SectionHeader>{I18n.get('Change Password')}</SectionHeader>
+                    <Form className={classes.form}>
+                        <SectionBody>
+                            <Field
+                                variant="outlined"
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="password"
+                                label={I18n.get('New Password')}
+                                type="password"
+                                id="password"
+                                component={TextField}
+                            />
+                        </SectionBody>
+                        <SectionFooter>
+                            <Button
+                                onClick={submitForm}
+                                disabled={!isValid}
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className={classes.submit}
                             >
-                                {I18n.get('Back to Sign In')}
-                            </Link>
-                        </Grid>
-                    </Grid>
-                </SectionFooter>
-            </form>
-        </FormSection>
+                                {I18n.get('Change')}
+                            </Button>
+                            <Grid container>
+                                <Grid item>
+                                    <Link
+                                        href="#"
+                                        onClick={(): void =>
+                                            onStateChange('signIn', null)
+                                        }
+                                        variant="body2"
+                                    >
+                                        {I18n.get('Back to Sign In')}
+                                    </Link>
+                                </Grid>
+                            </Grid>
+                        </SectionFooter>
+                    </Form>
+                </FormSection>
+            )}
+        </Formik>
     );
 };
