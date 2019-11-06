@@ -17,10 +17,6 @@ import { useAuthContext } from './auth-context';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { CognitoUserAttribute } from 'amazon-cognito-identity-js';
 
-export interface SignUpProps {
-    validationData?: { [key: string]: string };
-}
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         form: {
@@ -32,6 +28,10 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
+
+export interface SignUpProps {
+    validationData?: { [key: string]: string };
+}
 
 export const SignUp: React.FC<SignUpProps> = props => {
     const { onStateChange } = useAuthContext();

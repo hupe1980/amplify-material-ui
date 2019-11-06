@@ -8,11 +8,12 @@ import {
     Theme,
 } from '@material-ui/core';
 import Auth from '@aws-amplify/auth';
-import { I18n, JS } from '@aws-amplify/core';
+import { I18n } from '@aws-amplify/core';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
 import { useAuthContext } from './auth-context';
+import { useCheckContact } from './use-check-contact';
 import { ChangeAuthStateLink } from './change-auth-state-link';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
@@ -35,23 +36,9 @@ export const useMfaType = (user: { challengeName: string }): string => {
 export const useConfirmSignIn = (
     mfaType: string,
 ): ((code: string) => Promise<void>) => {
-    const { onStateChange, authData: user } = useAuthContext();
+    const { authData: user } = useAuthContext();
 
-    const checkContact = async (user: any): Promise<void> => {
-        invariant(
-            Auth && typeof Auth.verifiedContact === 'function',
-            'No Auth module found, please ensure @aws-amplify/auth is imported',
-        );
-
-        const data = await Auth.verifiedContact(user);
-
-        if (!JS.isEmpty(data.verified)) {
-            onStateChange('signedIn', user);
-        } else {
-            const newUser = Object.assign(user, data);
-            onStateChange('verifyContact', newUser);
-        }
-    };
+    const checkContact = useCheckContact();
 
     return async (code: string): Promise<void> => {
         invariant(

@@ -19,7 +19,7 @@ import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
 const logger = new Logger('SignIn');
 
-const useSignIn = () => {
+export const useSignIn = () => {
     const { onStateChange } = useAuthContext();
 
     const checkContact = useCheckContact();
