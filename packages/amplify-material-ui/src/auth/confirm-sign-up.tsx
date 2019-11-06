@@ -9,14 +9,55 @@ import {
     Theme,
 } from '@material-ui/core';
 import Auth from '@aws-amplify/auth';
-import { I18n, JS, Logger } from '@aws-amplify/core';
+import { I18n, Logger } from '@aws-amplify/core';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
 import { useAuthContext } from './auth-context';
+import { ChangeAuthStateLink } from './change-auth-state-link';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
 const logger = new Logger('ConfirmSignUp');
+
+export const useConfirmSignUp = (): ((code: string) => Promise<void>) => {
+    const { onStateChange, authData } = useAuthContext();
+
+    const { username } = authData;
+
+    return async (code: string): Promise<void> => {
+        invariant(
+            Auth && typeof Auth.confirmSignUp === 'function',
+            'No Auth module found, please ensure @aws-amplify/auth is imported',
+        );
+
+        try {
+            await Auth.confirmSignUp(username, code);
+            onStateChange('signedUp', null);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+};
+
+export const useResendSignUp = (): (() => Promise<void>) => {
+    const { authData } = useAuthContext();
+
+    const { username } = authData;
+
+    return async (): Promise<void> => {
+        invariant(
+            Auth && typeof Auth.resendSignUp === 'function',
+            'No Auth module found, please ensure @aws-amplify/auth is imported',
+        );
+
+        try {
+            await Auth.resendSignUp(username);
+            logger.debug('code resent');
+        } catch (error) {
+            console.log(error);
+        }
+    };
+};
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -31,39 +72,11 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const ConfirmSignUp: React.FC = () => {
-    const { onStateChange, authData } = useAuthContext();
-
     const classes = useStyles();
 
-    const { username } = authData;
+    const confirmSignUp = useConfirmSignUp();
 
-    const confirm = async (code: string): Promise<void> => {
-        invariant(
-            Auth && typeof Auth.confirmSignUp === 'function',
-            'No Auth module found, please ensure @aws-amplify/auth is imported',
-        );
-
-        try {
-            await Auth.confirmSignUp(username, code);
-            onStateChange('signedUp', null);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    const resend = async (): Promise<void> => {
-        invariant(
-            Auth && typeof Auth.resendSignUp === 'function',
-            'No Auth module found, please ensure @aws-amplify/auth is imported',
-        );
-
-        try {
-            await Auth.resendSignUp(username);
-            logger.debug('code resent');
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    const resendSignUp = useResendSignUp();
 
     return (
         <Formik<{ code: string }>
@@ -71,14 +84,14 @@ export const ConfirmSignUp: React.FC = () => {
                 code: '',
             }}
             onSubmit={async ({ code }, { setSubmitting }): Promise<void> => {
-                await confirm(code);
+                await confirmSignUp(code);
                 setSubmitting(false);
             }}
         >
-            {({ submitForm, isValid }): React.ReactNode => (
+            {({ handleSubmit, isValid }): React.ReactNode => (
                 <FormSection>
                     <SectionHeader>{I18n.get('Confirm Sign Up')}</SectionHeader>
-                    <Form className={classes.form}>
+                    <Form className={classes.form} onSubmit={handleSubmit}>
                         <SectionBody>
                             <Field
                                 variant="outlined"
@@ -95,7 +108,7 @@ export const ConfirmSignUp: React.FC = () => {
                         </SectionBody>
                         <SectionFooter>
                             <Button
-                                onClick={submitForm}
+                                type="submit"
                                 disabled={!isValid}
                                 fullWidth
                                 variant="contained"
@@ -108,22 +121,17 @@ export const ConfirmSignUp: React.FC = () => {
                                 <Grid item xs>
                                     <Link
                                         href="#"
-                                        onClick={resend}
+                                        onClick={resendSignUp}
                                         variant="body2"
                                     >
                                         {I18n.get('Resend Code')}
                                     </Link>
                                 </Grid>
                                 <Grid item>
-                                    <Link
-                                        href="#"
-                                        onClick={(): void =>
-                                            onStateChange('signIn', null)
-                                        }
-                                        variant="body2"
-                                    >
-                                        {I18n.get('Back to Sign In')}
-                                    </Link>
+                                    <ChangeAuthStateLink
+                                        label={I18n.get('Back to Sign In')}
+                                        newState="signIn"
+                                    />
                                 </Grid>
                             </Grid>
                         </SectionFooter>

@@ -3,7 +3,6 @@ import invariant from 'tiny-invariant';
 import {
     Button,
     Grid,
-    Link,
     makeStyles,
     createStyles,
     Theme,
@@ -14,27 +13,29 @@ import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
 import { useAuthContext } from './auth-context';
+import { ChangeAuthStateLink } from './change-auth-state-link';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
-import { useMfaType } from './use-mfa-type';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        form: {
-            width: '100%', // Fix IE 11 issue.
-            marginTop: theme.spacing(1),
-        },
-        submit: {
-            margin: theme.spacing(3, 0, 2),
-        },
-    }),
-);
+export const useMfaType = (user: { challengeName: string }): string => {
+    const [mfaType, setMfaType] = React.useState('SMS');
 
-export const ConfirmSignIn: React.FC = () => {
+    React.useEffect(() => {
+        const newMfaType =
+            user && user.challengeName === 'SOFTWARE_TOKEN_MFA'
+                ? 'TOTP'
+                : 'SMS';
+        if (mfaType !== newMfaType) {
+            setMfaType(newMfaType);
+        }
+    }, [mfaType, user]);
+
+    return mfaType;
+};
+
+export const useConfirmSignIn = (
+    mfaType: string,
+): ((code: string) => Promise<void>) => {
     const { onStateChange, authData: user } = useAuthContext();
-
-    const classes = useStyles();
-
-    const mfaType = useMfaType(user);
 
     const checkContact = async (user: any): Promise<void> => {
         invariant(
@@ -52,7 +53,7 @@ export const ConfirmSignIn: React.FC = () => {
         }
     };
 
-    const confirm = async (code: string): Promise<void> => {
+    return async (code: string): Promise<void> => {
         invariant(
             Auth && typeof Auth.confirmSignIn === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',
@@ -69,6 +70,28 @@ export const ConfirmSignIn: React.FC = () => {
             console.log(error);
         }
     };
+};
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        form: {
+            width: '100%', // Fix IE 11 issue.
+            marginTop: theme.spacing(1),
+        },
+        submit: {
+            margin: theme.spacing(3, 0, 2),
+        },
+    }),
+);
+
+export const ConfirmSignIn: React.FC = () => {
+    const { authData: user } = useAuthContext();
+
+    const classes = useStyles();
+
+    const mfaType = useMfaType(user);
+
+    const confirmSignIn = useConfirmSignIn(mfaType);
 
     return (
         <Formik<{ code: string }>
@@ -76,16 +99,16 @@ export const ConfirmSignIn: React.FC = () => {
                 code: '',
             }}
             onSubmit={async ({ code }, { setSubmitting }): Promise<void> => {
-                await confirm(code);
+                await confirmSignIn(code);
                 setSubmitting(false);
             }}
         >
-            {({ submitForm, isValid }): React.ReactNode => (
+            {({ handleSubmit, isValid }): React.ReactNode => (
                 <FormSection>
                     <SectionHeader>
                         {I18n.get('Confirm ' + mfaType + ' Code')}
                     </SectionHeader>
-                    <Form className={classes.form}>
+                    <Form className={classes.form} onSubmit={handleSubmit}>
                         <SectionBody>
                             <Field
                                 variant="outlined"
@@ -102,7 +125,7 @@ export const ConfirmSignIn: React.FC = () => {
                         </SectionBody>
                         <SectionFooter>
                             <Button
-                                onClick={submitForm}
+                                type="submit"
                                 disabled={!isValid}
                                 fullWidth
                                 variant="contained"
@@ -113,15 +136,10 @@ export const ConfirmSignIn: React.FC = () => {
                             </Button>
                             <Grid container>
                                 <Grid item xs>
-                                    <Link
-                                        href="#"
-                                        onClick={(): void =>
-                                            onStateChange('signIn', null)
-                                        }
-                                        variant="body2"
-                                    >
-                                        {I18n.get('Back to Sign In')}
-                                    </Link>
+                                    <ChangeAuthStateLink
+                                        label={I18n.get('Back to Sign In')}
+                                        newState="signIn"
+                                    />
                                 </Grid>
                             </Grid>
                         </SectionFooter>

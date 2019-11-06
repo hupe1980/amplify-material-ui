@@ -148,7 +148,7 @@ exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
             class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-2 MuiButton-containedPrimary MuiButton-fullWidth"
             data-testid="signInSubmit"
             tabindex="0"
-            type="button"
+            type="submit"
           >
             <span
               class="MuiButton-label"

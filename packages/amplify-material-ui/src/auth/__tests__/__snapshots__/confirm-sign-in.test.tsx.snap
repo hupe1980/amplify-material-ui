@@ -102,7 +102,7 @@ exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authS
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-2 MuiButton-containedPrimary MuiButton-fullWidth"
             tabindex="0"
-            type="button"
+            type="submit"
           >
             <span
               class="MuiButton-label"

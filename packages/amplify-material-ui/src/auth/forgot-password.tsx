@@ -63,12 +63,12 @@ export const ForgotPassword: React.FC = () => {
                 setSubmitting(false);
             }}
         >
-            {({ submitForm, isValid }): React.ReactNode => (
+            {({ handleSubmit, isValid }): React.ReactNode => (
                 <FormSection>
                     <SectionHeader>
                         {I18n.get('Reset your password')}
                     </SectionHeader>
-                    <Form className={classes.form}>
+                    <Form className={classes.form} onSubmit={handleSubmit}>
                         <SectionBody>
                             <Field
                                 variant="outlined"
@@ -95,7 +95,7 @@ export const ForgotPassword: React.FC = () => {
                         </SectionBody>
                         <SectionFooter>
                             <Button
-                                onClick={submitForm}
+                                type="submit"
                                 disabled={!isValid}
                                 fullWidth
                                 variant="contained"

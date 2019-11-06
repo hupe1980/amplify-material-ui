@@ -17,6 +17,9 @@ import Auth from '@aws-amplify/auth';
 
 import { useAuthContext } from './auth-context';
 
+export const useSignOut = (global = false) => async (): Promise<void> =>
+    Auth.signOut({ global });
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         toolbar: {
@@ -37,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export interface GreetingsProps {
     renderUserMenu?: () => React.ReactElement;
-    title?: string;
+    title?: React.ReactNode;
     className?: string;
     burgerMenu?: React.ReactElement;
 }
@@ -51,6 +54,8 @@ export const Greetings: React.FC<GreetingsProps> = props => {
     } = props;
 
     const { authData } = useAuthContext();
+
+    const signOut = useSignOut();
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -66,22 +71,26 @@ export const Greetings: React.FC<GreetingsProps> = props => {
 
     const logout = async (): Promise<void> => {
         handleClose();
-        await Auth.signOut();
+        await signOut();
     };
 
     return (
         <AppBar position="absolute" className={clsx(classes.appBar, className)}>
             <Toolbar className={classes.toolbar}>
                 {burgerMenu}
-                <Typography
-                    component="h1"
-                    variant="h6"
-                    color="inherit"
-                    noWrap
-                    className={classes.title}
-                >
-                    {title}
-                </Typography>
+                {typeof title === 'string' ? (
+                    <Typography
+                        component="h1"
+                        variant="h6"
+                        color="inherit"
+                        noWrap
+                        className={classes.title}
+                    >
+                        {title}
+                    </Typography>
+                ) : (
+                    <div className={classes.title}>{title}</div>
+                )}
                 <IconButton
                     color="inherit"
                     aria-controls="user-menu"

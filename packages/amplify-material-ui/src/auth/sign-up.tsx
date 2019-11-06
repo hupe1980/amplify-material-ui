@@ -81,12 +81,12 @@ export const SignUp: React.FC<SignUpProps> = props => {
                 setSubmitting(false);
             }}
         >
-            {({ submitForm, isValid }): React.ReactNode => (
+            {({ handleSubmit, isValid }): React.ReactNode => (
                 <FormSection>
                     <SectionHeader>
                         {I18n.get('Sign in to your account')}
                     </SectionHeader>
-                    <Form className={classes.form}>
+                    <Form className={classes.form} onSubmit={handleSubmit}>
                         <SectionBody>
                             <Field
                                 variant="outlined"
@@ -115,7 +115,7 @@ export const SignUp: React.FC<SignUpProps> = props => {
                         </SectionBody>
                         <SectionFooter>
                             <Button
-                                onClick={submitForm}
+                                type="submit"
                                 disabled={!isValid}
                                 fullWidth
                                 variant="contained"

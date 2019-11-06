@@ -104,14 +104,14 @@ export const VerifyContact: React.FC = () => {
                     setSubmitting(false);
                 }}
             >
-                {({ submitForm, isSubmitting, isValid }): React.ReactNode => (
+                {({ handleSubmit, isSubmitting, isValid }): React.ReactNode => (
                     <FormSection>
                         <SectionHeader>
                             {I18n.get(
                                 'Account recovery requires verified contact information',
                             )}
                         </SectionHeader>
-                        <Form className={classes.form}>
+                        <Form className={classes.form} onSubmit={handleSubmit}>
                             <SectionBody>
                                 <Field
                                     name="contact"
@@ -147,7 +147,7 @@ export const VerifyContact: React.FC = () => {
                             <SectionFooter>
                                 <Button
                                     disabled={!isValid}
-                                    onClick={submitForm}
+                                    type="submit"
                                     className={classes.submit}
                                 >
                                     {I18n.get('Verify')}
@@ -171,14 +171,14 @@ export const VerifyContact: React.FC = () => {
                 setSubmitting(false);
             }}
         >
-            {({ submitForm, isValid }): React.ReactNode => (
+            {({ handleSubmit, isValid }): React.ReactNode => (
                 <FormSection>
                     <SectionHeader>
                         {I18n.get(
                             'Account recovery requires verified contact information',
                         )}
                     </SectionHeader>
-                    <Form className={classes.form}>
+                    <Form className={classes.form} onSubmit={handleSubmit}>
                         <SectionBody>
                             <Field
                                 variant="outlined"
@@ -196,7 +196,7 @@ export const VerifyContact: React.FC = () => {
                         <SectionFooter>
                             <Button
                                 disabled={!isValid}
-                                onClick={submitForm}
+                                type="submit"
                                 className={classes.submit}
                             >
                                 {I18n.get('Submit')}
