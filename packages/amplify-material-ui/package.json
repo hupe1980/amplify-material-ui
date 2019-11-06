@@ -66,13 +66,13 @@
     "devDependencies": {
         "@aws-amplify/auth": "^1.5.0",
         "@aws-amplify/core": "^1.2.4",
-        "@babel/cli": "^7.6.4",
-        "@babel/core": "^7.6.4",
-        "@material-ui/core": "^4.5.2",
+        "@babel/cli": "^7.7.0",
+        "@babel/core": "^7.7.0",
+        "@material-ui/core": "^4.6.0",
         "@material-ui/icons": "^4.5.1",
-        "@testing-library/react": "^9.3.1",
-        "@testing-library/react-hooks": "^3.1.1",
-        "@types/jest": "^24.0.21",
+        "@testing-library/react": "^9.3.2",
+        "@testing-library/react-hooks": "^3.2.1",
+        "@types/jest": "^24.0.22",
         "@types/zxcvbn": "^4.4.0",
         "babel-jest": "^24.8.0",
         "babel-loader": "^8.0.6",
@@ -87,6 +87,6 @@
         "react-dom": "^16.11.0",
         "react-test-renderer": "^16.11.0",
         "rimraf": "^3.0.0",
-        "typescript": "^3.6.4"
+        "typescript": "^3.7.2"
     }
 }

@@ -14,26 +14,16 @@ import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
 import { useAuthContext } from './auth-context';
+import { ChangeAuthStateLink } from './change-auth-state-link';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        form: {
-            width: '100%', // Fix IE 11 issue.
-            marginTop: theme.spacing(1),
-        },
-        submit: {
-            margin: theme.spacing(3, 0, 2),
-        },
-    }),
-);
-
-export const ForgotPassword: React.FC = () => {
+export const useForgotPasswordSubmit = (): ((
+    code: string,
+    password: string,
+) => Promise<void>) => {
     const { onStateChange, authData } = useAuthContext();
 
-    const classes = useStyles();
-
-    const submit = async (code: string, password: string): Promise<void> => {
+    return async (code: string, password: string): Promise<void> => {
         invariant(
             Auth && typeof Auth.forgotPasswordSubmit === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',
@@ -48,6 +38,24 @@ export const ForgotPassword: React.FC = () => {
             console.log(error);
         }
     };
+};
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        form: {
+            width: '100%', // Fix IE 11 issue.
+            marginTop: theme.spacing(1),
+        },
+        submit: {
+            margin: theme.spacing(3, 0, 2),
+        },
+    }),
+);
+
+export const ForgotPassword: React.FC = () => {
+    const classes = useStyles();
+
+    const forgotPasswordSubmit = useForgotPasswordSubmit();
 
     return (
         <Formik<{ code: string; password: string }>
@@ -59,7 +67,7 @@ export const ForgotPassword: React.FC = () => {
                 { code, password },
                 { setSubmitting },
             ): Promise<void> => {
-                await submit(code, password);
+                await forgotPasswordSubmit(code, password);
                 setSubmitting(false);
             }}
         >
@@ -117,15 +125,10 @@ export const ForgotPassword: React.FC = () => {
                                     </Link>
                                 </Grid>
                                 <Grid item>
-                                    <Link
-                                        href="#"
-                                        onClick={(): void =>
-                                            onStateChange('signIn', null)
-                                        }
-                                        variant="body2"
-                                    >
-                                        {I18n.get('Back to Sign In')}
-                                    </Link>
+                                    <ChangeAuthStateLink
+                                        label={I18n.get('Back to Sign In')}
+                                        newState="signIn"
+                                    />
                                 </Grid>
                             </Grid>
                         </SectionFooter>

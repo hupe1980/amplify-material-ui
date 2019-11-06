@@ -33,10 +33,10 @@
     },
     "devDependencies": {
         "@aws-amplify/api": "^1.2.4",
-        "@types/jest": "^24.0.21",
+        "@types/jest": "^24.0.22",
         "jest": "^24.9.0",
         "ra-core": "^3.0.0-beta.4",
         "rimraf": "^3.0.0",
-        "typescript": "^3.6.4"
+        "typescript": "^3.7.2"
     }
 }

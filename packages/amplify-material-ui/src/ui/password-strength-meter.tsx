@@ -4,6 +4,25 @@ import zxcvbn from 'zxcvbn';
 import { Typography, LinearProgress, colors } from '@material-ui/core';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
+export type ScoreLabel = 'weak' | 'fair' | 'good' | 'strong';
+
+const mapScoreLabel = (score: number): ScoreLabel => {
+    switch (score) {
+        case 0:
+            return 'weak';
+        case 1:
+            return 'weak';
+        case 2:
+            return 'fair';
+        case 3:
+            return 'good';
+        case 4:
+            return 'strong';
+        default:
+            return 'weak';
+    }
+};
+
 const useStyles = makeStyles((theme: Theme) => ({
     progress: {
         backgroundColor: colors.grey[300],
@@ -22,23 +41,6 @@ const useStyles = makeStyles((theme: Theme) => ({
         backgroundColor: colors.green[500],
     },
 }));
-
-const mapScoreLabel = (score: number) => {
-    switch (score) {
-        case 0:
-            return 'weak';
-        case 1:
-            return 'weak';
-        case 2:
-            return 'fair';
-        case 3:
-            return 'good';
-        case 4:
-            return 'strong';
-        default:
-            return 'weak';
-    }
-};
 
 export interface PasswordStrengthMeterProps {
     className?: string;

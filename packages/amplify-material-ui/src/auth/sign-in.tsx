@@ -8,7 +8,7 @@ import {
     Theme,
 } from '@material-ui/core';
 import Auth from '@aws-amplify/auth';
-import { ConsoleLogger as Logger, I18n, JS } from '@aws-amplify/core';
+import { ConsoleLogger as Logger, I18n } from '@aws-amplify/core';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
@@ -19,16 +19,14 @@ import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
 const logger = new Logger('SignIn');
 
-export const useSignIn = () => {
+export const useSignIn = (validationData?: {
+    [key: string]: string;
+}): ((username: string, password: string) => Promise<void>) => {
     const { onStateChange } = useAuthContext();
 
     const checkContact = useCheckContact();
 
-    return async (
-        username: string,
-        password: string,
-        validationData?: { [key: string]: string },
-    ): Promise<void> => {
+    return async (username: string, password: string): Promise<void> => {
         invariant(
             Auth && typeof Auth.signIn === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',
@@ -101,7 +99,7 @@ export const SignIn: React.FC<SignInProps> = props => {
 
     const classes = useStyles();
 
-    const signIn = useSignIn();
+    const signIn = useSignIn(validationData);
 
     return (
         <Formik<{ username: string; password: string }>
@@ -113,7 +111,7 @@ export const SignIn: React.FC<SignInProps> = props => {
                 { username, password },
                 { setSubmitting },
             ): Promise<void> => {
-                await signIn(username, password, validationData);
+                await signIn(username, password);
                 setSubmitting(false);
             }}
         >

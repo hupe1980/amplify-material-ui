@@ -3,7 +3,6 @@ import invariant from 'tiny-invariant';
 import {
     Button,
     Grid,
-    Link,
     makeStyles,
     createStyles,
     Theme,
@@ -14,8 +13,45 @@ import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
 import { useAuthContext } from './auth-context';
+import { ChangeAuthStateLink } from './change-auth-state-link';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { CognitoUserAttribute } from 'amazon-cognito-identity-js';
+
+export const useSignUp = (validationData?: {
+    [key: string]: string;
+}): ((username: string, password: string) => Promise<void>) => {
+    const { onStateChange } = useAuthContext();
+
+    const validationDataArray: CognitoUserAttribute[] = [];
+    if (validationData) {
+        for (const [name, value] of Object.entries(validationData)) {
+            validationDataArray.push(
+                new CognitoUserAttribute({ Name: name, Value: value }),
+            );
+        }
+    }
+
+    return async (email: string, password: string): Promise<void> => {
+        invariant(
+            Auth && typeof Auth.signUp === 'function',
+            'No Auth module found, please ensure @aws-amplify/auth is imported',
+        );
+
+        const signupInfo = {
+            username: email,
+            password: password,
+            attributes: {},
+            validationData: validationDataArray,
+        };
+
+        try {
+            const data = await Auth.signUp(signupInfo);
+            onStateChange('confirmSignUp', data.user.getUsername());
+        } catch (error) {
+            console.log(error);
+        }
+    };
+};
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -34,38 +70,11 @@ export interface SignUpProps {
 }
 
 export const SignUp: React.FC<SignUpProps> = props => {
-    const { onStateChange } = useAuthContext();
+    const { validationData } = props;
+
     const classes = useStyles();
 
-    const signUp = async (email: string, password: string): Promise<void> => {
-        invariant(
-            Auth && typeof Auth.signUp === 'function',
-            'No Auth module found, please ensure @aws-amplify/auth is imported',
-        );
-
-        const validationData = [];
-        if (props.validationData) {
-            for (const [name, value] of Object.entries(props.validationData)) {
-                validationData.push(
-                    new CognitoUserAttribute({ Name: name, Value: value }),
-                );
-            }
-        }
-
-        const signupInfo = {
-            username: email,
-            password: password,
-            attributes: {},
-            validationData,
-        };
-
-        try {
-            const data = await Auth.signUp(signupInfo);
-            onStateChange('confirmSignUp', data.user.getUsername());
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    const signUp = useSignUp(validationData);
 
     return (
         <Formik<{ email: string; password: string }>
@@ -122,20 +131,15 @@ export const SignUp: React.FC<SignUpProps> = props => {
                                 color="primary"
                                 className={classes.submit}
                             >
-                                Sign Up
+                                {I18n.get('Create Account')}
                             </Button>
                             <Grid container>
                                 <Grid item xs>
-                                    Have an account?
-                                    <Link
-                                        href="#"
-                                        onClick={(): void =>
-                                            onStateChange('signIn', null)
-                                        }
-                                        variant="body2"
-                                    >
-                                        Sign in
-                                    </Link>
+                                    {I18n.get('Have an account? ')}
+                                    <ChangeAuthStateLink
+                                        label={I18n.get('Sign in')}
+                                        newState="signIn"
+                                    />
                                 </Grid>
                             </Grid>
                         </SectionFooter>

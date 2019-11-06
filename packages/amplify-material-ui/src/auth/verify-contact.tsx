@@ -3,7 +3,6 @@ import invariant from 'tiny-invariant';
 import {
     Button,
     Grid,
-    Link,
     FormControlLabel,
     Radio,
     makeStyles,
@@ -16,6 +15,7 @@ import { Formik, Field, Form } from 'formik';
 import { RadioGroup, TextField } from 'formik-material-ui';
 
 import { useAuthContext } from './auth-context';
+import { ChangeAuthStateLink } from './change-auth-state-link';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
 const logger = new Logger('VerifyContact');
@@ -75,9 +75,11 @@ export const VerifyContact: React.FC = () => {
     const skipLinkPanel = (): React.ReactElement => (
         <Grid container>
             <Grid item>
-                <Link onClick={(): void => onStateChange('signedIn', authData)}>
-                    {I18n.get('Skip')}
-                </Link>
+                <ChangeAuthStateLink
+                    label={I18n.get('Skip')}
+                    newState="signedIn"
+                    authData={authData}
+                />
             </Grid>
         </Grid>
     );

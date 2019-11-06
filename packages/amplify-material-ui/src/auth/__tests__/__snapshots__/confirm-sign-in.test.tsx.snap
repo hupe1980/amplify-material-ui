@@ -12,7 +12,7 @@ exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authS
         class="MuiBox-root MuiBox-root-41 makeStyles-box-38"
       >
         <div
-          class="MuiAvatar-root makeStyles-avatar-39 MuiAvatar-colorDefault"
+          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-39 MuiAvatar-colorDefault"
         >
           <svg
             aria-hidden="true"
@@ -48,7 +48,7 @@ exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authS
         class="makeStyles-form-1"
       >
         <div
-          class="MuiBox-root MuiBox-root-85 makeStyles-box-84"
+          class="MuiBox-root MuiBox-root-88 makeStyles-box-87"
         >
           <div
             class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
@@ -81,11 +81,11 @@ exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authS
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-145 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-151 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-146"
+                  class="PrivateNotchedOutline-legend-152"
                   style="width: 0px;"
                 >
                   <span>
@@ -97,7 +97,7 @@ exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authS
           </div>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-148 makeStyles-box-147"
+          class="MuiBox-root MuiBox-root-154 makeStyles-box-153"
         >
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-2 MuiButton-containedPrimary MuiButton-fullWidth"
