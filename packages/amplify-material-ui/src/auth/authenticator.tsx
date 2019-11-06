@@ -16,14 +16,6 @@ import { AuthRoute } from './auth-route';
 import { AuthContext } from './auth-context';
 import { useAuth } from './use-auth';
 
-export interface AuthenticatorProps {
-    hide?: React.FC<any>[];
-    theme?: Theme;
-    hideSignUp?: boolean;
-    hideForgotPassword?: boolean;
-    initialAuthState?: string;
-}
-
 const defaultChildren = [
     {
         validAuthStates: ['forgotPassword'],
@@ -62,6 +54,14 @@ const defaultChildren = [
         component: ConfirmSignUp,
     },
 ];
+
+export interface AuthenticatorProps {
+    hide?: React.FC[];
+    theme?: Theme;
+    hideSignUp?: boolean;
+    hideForgotPassword?: boolean;
+    initialAuthState?: string;
+}
 
 export const Authenticator: React.FC<AuthenticatorProps> = props => {
     const {

@@ -43,6 +43,7 @@ export interface GreetingsProps {
     title?: React.ReactNode;
     className?: string;
     burgerMenu?: React.ReactElement;
+    globalSignOut?: boolean;
 }
 
 export const Greetings: React.FC<GreetingsProps> = props => {
@@ -51,11 +52,12 @@ export const Greetings: React.FC<GreetingsProps> = props => {
         renderUserMenu,
         title = 'Greetings',
         burgerMenu,
+        globalSignOut,
     } = props;
 
     const { authData } = useAuthContext();
 
-    const signOut = useSignOut();
+    const signOut = useSignOut(globalSignOut);
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
