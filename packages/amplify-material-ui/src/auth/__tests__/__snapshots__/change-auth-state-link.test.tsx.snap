@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`change-auth-state-link should be rendered correctly 1`] = `
+<DocumentFragment>
+  <a
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+    href="#"
+  >
+    LinkLabel
+  </a>
+</DocumentFragment>
+`;

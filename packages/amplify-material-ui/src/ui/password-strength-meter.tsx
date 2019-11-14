@@ -47,9 +47,7 @@ export interface PasswordStrengthMeterProps {
     password: string;
 }
 
-export const PasswordStrengthMeter: React.FC<
-    PasswordStrengthMeterProps
-> = props => {
+export const PasswordStrengthMeter: React.FC<PasswordStrengthMeterProps> = props => {
     const { className, password } = props;
 
     const classes = useStyles();

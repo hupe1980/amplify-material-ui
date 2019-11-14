@@ -188,7 +188,7 @@ export const VerifyContact: React.FC = () => {
                                 required
                                 fullWidth
                                 id="code"
-                                label={`${I18n.get('Code')} *`}
+                                label={I18n.get('Code')}
                                 name="code"
                                 autoComplete="code"
                                 autoFocus

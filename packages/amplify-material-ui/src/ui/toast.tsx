@@ -48,22 +48,25 @@ const useStyles = makeStyles((theme: Theme) => ({
 export interface ToastProps {
     className?: string;
     message?: string;
-    variant: keyof typeof variantIcon;
+    variant?: keyof typeof variantIcon;
+    open?: boolean;
+    onClose?: (
+        event: React.SyntheticEvent | React.MouseEvent,
+        reason?: string,
+    ) => void;
 }
 
 export const Toast: React.FC<ToastProps> = props => {
-    const [open, setOpen] = React.useState(true);
+    const {
+        className,
+        message,
+        variant = 'info',
+        open = false,
+        onClose,
+        ...other
+    } = props;
     const classes = useStyles();
-    const { className, message, variant, ...other } = props;
     const Icon = variantIcon[variant];
-
-    function handleClose(event?: React.SyntheticEvent, reason?: string): void {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        setOpen(false);
-    }
 
     return (
         <Snackbar
@@ -73,7 +76,7 @@ export const Toast: React.FC<ToastProps> = props => {
             }}
             open={open}
             autoHideDuration={6000}
-            onClose={handleClose}
+            onClose={onClose}
         >
             <SnackbarContent
                 className={clsx(classes[variant], className)}
@@ -91,7 +94,7 @@ export const Toast: React.FC<ToastProps> = props => {
                         key="close"
                         aria-label="Close"
                         color="inherit"
-                        onClick={handleClose}
+                        onClick={onClose}
                     >
                         <CloseIcon className={classes.icon} />
                     </IconButton>,

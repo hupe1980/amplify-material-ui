@@ -1,11 +1,14 @@
 import * as React from 'react';
 
+import { MessasgeState } from './authenticator';
+
 export interface AuthContextProps {
     authState: string;
     onStateChange: (authState: string, authData: any) => void;
+    onMessage: (messageState: MessasgeState) => void;
     authData?: any;
-    hideSignUp?: boolean;
-    hideForgotPassword?: boolean;
+    hideSignUpLink?: boolean;
+    hideForgotPasswordLink?: boolean;
 }
 
 const createNamedContext = (

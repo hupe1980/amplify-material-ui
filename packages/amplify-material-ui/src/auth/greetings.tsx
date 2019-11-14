@@ -1,4 +1,5 @@
 import * as React from 'react';
+import invariant from 'tiny-invariant';
 import clsx from 'clsx';
 import {
     AppBar,
@@ -17,8 +18,16 @@ import Auth from '@aws-amplify/auth';
 
 import { useAuthContext } from './auth-context';
 
-export const useSignOut = (global = false) => async (): Promise<void> =>
-    Auth.signOut({ global });
+export const useSignOut = (
+    global = false,
+): ((global: boolean) => Promise<void>) => {
+    invariant(
+        Auth && typeof Auth.signOut === 'function',
+        'No Auth module found, please ensure @aws-amplify/auth is imported',
+    );
+
+    return async (): Promise<void> => Auth.signOut({ global });
+};
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

@@ -23,7 +23,7 @@
         ]
     },
     "dependencies": {
-        "@material-ui/core": "^4.6.0",
+        "@material-ui/core": "^4.6.1",
         "amplify-material-ui": "^0.0.27",
         "aws-amplify": "^1.2.4",
         "react": "^16.11.0",
@@ -32,12 +32,12 @@
     },
     "devDependencies": {
         "@testing-library/cypress": "^5.0.2",
-        "@types/jest": "^24.0.22",
-        "@types/node": "^12.12.6",
+        "@types/jest": "^24.0.23",
+        "@types/node": "^12.12.7",
         "@types/react": "^16.9.11",
         "@types/react-dom": "^16.9.4",
         "cross-env": "^6.0.3",
-        "cypress": "^3.6.0",
+        "cypress": "^3.6.1",
         "start-server-and-test": "^1.10.6",
         "typescript": "3.7.2"
     }

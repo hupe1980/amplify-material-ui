@@ -9,9 +9,7 @@ export interface ChangeAuthStateLinkProps {
     authData?: any;
 }
 
-export const ChangeAuthStateLink: React.FC<
-    ChangeAuthStateLinkProps
-> = props => {
+export const ChangeAuthStateLink: React.FC<ChangeAuthStateLinkProps> = props => {
     const { label, newState, authData } = props;
 
     const { onStateChange } = useAuthContext();

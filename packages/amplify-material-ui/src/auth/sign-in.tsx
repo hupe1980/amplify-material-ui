@@ -14,6 +14,7 @@ import { TextField } from 'formik-material-ui';
 
 import { useAuthContext } from './auth-context';
 import { useCheckContact } from './use-check-contact';
+import { useUsernameField } from './use-username-field';
 import { ChangeAuthStateLink } from './change-auth-state-link';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
@@ -86,32 +87,29 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export interface SignInProps {
     validationData?: { [key: string]: string };
-    hideSignUp?: boolean;
-    hideForgotPassword?: boolean;
+    hideSignUpLink?: boolean;
+    hideForgotPasswordLink?: boolean;
 }
 
 export const SignIn: React.FC<SignInProps> = props => {
     const {
         validationData,
-        hideSignUp = false,
-        hideForgotPassword = false,
+        hideSignUpLink = false,
+        hideForgotPasswordLink = false,
     } = props;
 
     const classes = useStyles();
-
     const signIn = useSignIn(validationData);
+    const { usernamefieldName, usernameField } = useUsernameField();
 
     return (
-        <Formik<{ username: string; password: string }>
+        <Formik<{ [fieldName: string]: string; password: string }>
             initialValues={{
-                username: '',
+                [usernamefieldName]: '',
                 password: '',
             }}
-            onSubmit={async (
-                { username, password },
-                { setSubmitting },
-            ): Promise<void> => {
-                await signIn(username, password);
+            onSubmit={async (values, { setSubmitting }): Promise<void> => {
+                await signIn(values[usernamefieldName], values['password']);
                 setSubmitting(false);
             }}
         >
@@ -127,17 +125,7 @@ export const SignIn: React.FC<SignInProps> = props => {
                         //noValidate
                     >
                         <SectionBody>
-                            <Field
-                                variant="outlined"
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="username"
-                                label="Username"
-                                name="username"
-                                autoFocus
-                                component={TextField}
-                            />
+                            {usernameField}
                             <Field
                                 variant="outlined"
                                 margin="normal"
@@ -164,7 +152,7 @@ export const SignIn: React.FC<SignInProps> = props => {
                                 {I18n.get('Sign In')}
                             </Button>
                             <Grid container>
-                                {!hideForgotPassword && (
+                                {!hideForgotPasswordLink && (
                                     <Grid item xs>
                                         <ChangeAuthStateLink
                                             label={I18n.get('Reset password')}
@@ -172,7 +160,7 @@ export const SignIn: React.FC<SignInProps> = props => {
                                         />
                                     </Grid>
                                 )}
-                                {!hideSignUp && (
+                                {!hideSignUpLink && (
                                     <Grid item>
                                         <ChangeAuthStateLink
                                             label={I18n.get('Create account')}

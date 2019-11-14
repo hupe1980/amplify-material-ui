@@ -16,6 +16,8 @@ import { AuthRoute } from './auth-route';
 import { AuthContext } from './auth-context';
 import { useAuth } from './use-auth';
 
+import { Toast, ToastProps } from '../ui';
+
 const defaultChildren = [
     {
         validAuthStates: ['forgotPassword'],
@@ -58,9 +60,14 @@ const defaultChildren = [
 export interface AuthenticatorProps {
     hide?: React.FC[];
     theme?: Theme;
-    hideSignUp?: boolean;
-    hideForgotPassword?: boolean;
+    hideSignUpLink?: boolean;
+    hideForgotPasswordLink?: boolean;
     initialAuthState?: string;
+}
+
+export interface MessasgeState {
+    message: string;
+    variant: ToastProps['variant'];
 }
 
 export const Authenticator: React.FC<AuthenticatorProps> = props => {
@@ -68,14 +75,37 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
         hide = [],
         children,
         theme,
-        hideSignUp = false,
-        hideForgotPassword = false,
+        hideSignUpLink = false,
+        hideForgotPasswordLink = false,
         initialAuthState = 'signIn',
     } = props;
+
+    const [message, setMessage] = React.useState<MessasgeState>({
+        message: '',
+        variant: 'info',
+    });
+
+    const [open, setOpen] = React.useState(false);
 
     const { authState, authData, handleStateChange } = useAuth(
         initialAuthState,
     );
+
+    const handleMessage = (messageState: MessasgeState): void => {
+        setMessage(messageState);
+        setOpen(true);
+    };
+
+    const handleClose = (
+        _event?: React.SyntheticEvent,
+        reason?: string,
+    ): void => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+        setMessage({ message: '', variant: 'info' });
+    };
 
     const renderChildren = defaultChildren
         .filter(item => !hide.includes(item.component))
@@ -85,19 +115,20 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
                 {...item}
             />
         ));
-
     return (
         <AuthContext.Provider
             value={{
                 authState: authState,
                 authData: authData,
                 onStateChange: handleStateChange,
-                hideSignUp,
-                hideForgotPassword,
+                onMessage: handleMessage,
+                hideSignUpLink,
+                hideForgotPasswordLink,
             }}
         >
             <ThemeProvider theme={createMuiTheme(theme)}>
                 <CssBaseline />
+                <Toast {...message} open={open} onClose={handleClose} />
                 {renderChildren}
                 {children}
             </ThemeProvider>
@@ -112,8 +143,8 @@ export const withAuthenticator = (
     const {
         hide,
         theme,
-        hideSignUp,
-        hideForgotPassword,
+        hideSignUpLink,
+        hideForgotPasswordLink,
         initialAuthState,
     } = authenticatorProps;
 
@@ -121,8 +152,8 @@ export const withAuthenticator = (
         <Authenticator
             hide={hide}
             theme={theme}
-            hideSignUp={hideSignUp}
-            hideForgotPassword={hideForgotPassword}
+            hideSignUpLink={hideSignUpLink}
+            hideForgotPasswordLink={hideForgotPasswordLink}
             initialAuthState={initialAuthState}
         >
             <AuthRoute validAuthStates={['signedIn']}>
