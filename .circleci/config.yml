@@ -131,10 +131,8 @@ workflows:
       - unit_tests_node10:
           requires:
             - lint
-            - unit_tests_node8
       - unit_tests_node12:
           requires:
             - lint
-            - unit_tests_node8
       - e2e_tests_auth:
           <<: *e2e-test-workflow
