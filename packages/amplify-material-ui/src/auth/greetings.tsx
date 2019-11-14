@@ -20,7 +20,7 @@ import { useAuthContext } from './auth-context';
 
 export const useSignOut = (
     global = false,
-): ((global: boolean) => Promise<void>) => {
+): ((global?: boolean) => Promise<void>) => {
     invariant(
         Auth && typeof Auth.signOut === 'function',
         'No Auth module found, please ensure @aws-amplify/auth is imported',

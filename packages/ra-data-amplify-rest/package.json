@@ -38,5 +38,6 @@
         "ra-core": "^3.0.0-beta.4",
         "rimraf": "^3.0.0",
         "typescript": "^3.7.2"
-    }
+    },
+    "gitHead": "334449b1c1ca6493b6bacb56e5f30551c60d9d01"
 }
