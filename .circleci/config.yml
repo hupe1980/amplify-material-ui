@@ -16,7 +16,7 @@ aliases:
     restore_cache:
       name: Restore node_modules cache
       keys:
-        - yarn-cypress-cache-{{ checksum "yarn.lock" }}
+        - yarn-cache-{{ checksum "yarn.lock" }}
 
   install_node_modules: &install_node_modules
     run:
@@ -26,7 +26,7 @@ aliases:
   persist_cache: &persist_cache
     save_cache:
       name: Save node modules cache
-      key: yarn-cypress-cache-{{ checksum "yarn.lock" }}
+      key: yarn-cache-{{ checksum "yarn.lock" }}
       paths:
         - ~/.cache
 
@@ -103,12 +103,6 @@ jobs:
       - <<: *persist_cache
       - run: yarn lint:ci
 
-  unit_tests_node8:
-    executor:
-      name: node
-      image: "8"
-    <<: *test_template
-
   unit_tests_node10:
     executor: node
     <<: *test_template
@@ -132,9 +126,6 @@ workflows:
     jobs:
       - bootstrap
       - lint:
-          requires:
-            - bootstrap
-      - unit_tests_node8:
           requires:
             - bootstrap
       - unit_tests_node10:
