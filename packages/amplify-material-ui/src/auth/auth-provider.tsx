@@ -5,29 +5,47 @@ import Auth from '@aws-amplify/auth';
 import { Hub } from '@aws-amplify/core';
 import { HubCapsule } from '@aws-amplify/core/lib/Hub';
 
-export const useAuth = (initialAuthState: string) => {
+import {
+    AuthData,
+    AuthState,
+    AuthContext,
+    AuthContextProps,
+} from './auth-context';
+
+export interface AuthProviderProps {
+    initialAuthState?: string;
+    onStateChange?: (prevState: AuthState, newState: AuthState) => void;
+}
+
+export const useAuth = (props: AuthProviderProps): AuthContextProps => {
+    const { initialAuthState = 'signIn', onStateChange } = props;
+
     const isMounted = useIsMounted();
 
-    const [state, setState] = React.useState({
+    const [state, setState] = React.useState<AuthState>({
         authState: initialAuthState,
         authData: null,
     });
 
     const handleStateChange = React.useCallback(
-        (authState: string, authData: any) => {
+        (authState: string, authData: AuthData) => {
             if (authState === 'signedOut') {
                 authState = 'signIn';
             }
 
             if (isMounted()) {
-                setState(prevState => ({
-                    ...prevState,
-                    authState,
-                    authData,
-                }));
+                setState(prev => {
+                    onStateChange &&
+                        onStateChange(prev, { authState, authData });
+                    return {
+                        ...prev,
+                        authState,
+                        authData,
+                    };
+                });
             }
         },
-        [isMounted],
+        [isMounted, onStateChange],
     );
 
     React.useEffect(() => {
@@ -85,4 +103,16 @@ export const useAuth = (initialAuthState: string) => {
         ...state,
         handleStateChange,
     };
+};
+
+export const AuthProvider: React.FC<AuthProviderProps> = props => {
+    const { children, ...authProviderProps } = props;
+
+    const authContexProps = useAuth(authProviderProps);
+
+    return (
+        <AuthContext.Provider value={authContexProps}>
+            {children}
+        </AuthContext.Provider>
+    );
 };

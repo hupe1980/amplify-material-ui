@@ -5,7 +5,7 @@ import { JS } from '@aws-amplify/core';
 import { useAuthContext } from './auth-context';
 
 export const useCheckContact = () => {
-    const { onStateChange } = useAuthContext();
+    const { handleStateChange } = useAuthContext();
 
     return async (user: any): Promise<void> => {
         invariant(
@@ -16,10 +16,10 @@ export const useCheckContact = () => {
         const data = await Auth.verifiedContact(user);
 
         if (!JS.isEmpty(data.verified)) {
-            onStateChange('signedIn', user);
+            handleStateChange('signedIn', user);
         } else {
             const newUser = Object.assign(user, data);
-            onStateChange('verifyContact', newUser);
+            handleStateChange('verifyContact', newUser);
         }
     };
 };

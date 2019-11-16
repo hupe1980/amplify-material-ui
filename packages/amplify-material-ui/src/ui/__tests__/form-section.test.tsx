@@ -1,15 +1,13 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
-import { Recaptcha } from '../recaptcha';
+import { FormSection } from '../form-section';
 
-describe('recaptcha', () => {
+describe('form-section', () => {
     it('should be rendered correctly', () => {
         const { asFragment } = render(
-            <Recaptcha
-                sitekey="KEY"
-                action="ACTION"
-                onToken={(): void => {}}
-            />,
+            <FormSection>
+                <div />
+            </FormSection>,
         );
         expect(asFragment()).toMatchSnapshot();
     });

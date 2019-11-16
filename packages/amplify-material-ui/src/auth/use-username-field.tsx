@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Field } from 'formik';
 import { TextField } from 'formik-material-ui';
 
-import { PhoneField } from './phone-field';
+import { PhoneField } from '../ui';
 
 export enum UsernameAttribute {
     EMAIL = 'email',
@@ -11,9 +11,9 @@ export enum UsernameAttribute {
 }
 
 export const useUsernameField = (
-    usernameAttributes?: UsernameAttribute,
+    usernameAttribute?: UsernameAttribute,
 ): { usernamefieldName: string; usernameField: React.ReactElement } => {
-    switch (usernameAttributes) {
+    switch (usernameAttribute) {
         case UsernameAttribute.EMAIL:
             return {
                 usernamefieldName: 'email',

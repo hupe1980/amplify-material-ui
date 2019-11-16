@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
+exports[`sign-in should be rendered correctly 1`] = `
 <DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthXs"
@@ -167,6 +167,7 @@ exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
             >
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+                data-testid="forgot-password-link"
                 href="#"
               >
                 Reset password
@@ -177,6 +178,7 @@ exports[`sign-in should be rendered correctly in the signIn authState 1`] = `
             >
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+                data-testid="sign-up-link"
                 href="#"
               >
                 Create account

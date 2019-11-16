@@ -6,15 +6,9 @@
 
 :warning: This is experimental and subject to breaking changes.
 
-## Install
+## Documentation
 
-```sh
-// with npm
-npm install amplify-material-ui
-
-// with yarn
-yarn add amplify-material-ui
-```
+[Read the documentation](/packages/amplify-material-ui/README.md).
 
 ## License
 

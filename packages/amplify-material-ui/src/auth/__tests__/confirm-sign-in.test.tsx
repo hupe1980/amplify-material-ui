@@ -7,18 +7,13 @@ import { ConfirmSignIn, useMfaType } from '../confirm-sign-in';
 
 describe('confirm-sign-in', () => {
     it('should be rendered correctly in the confirmSignIn authState', () => {
-        const { asFragment } = render(
-            withContext(<ConfirmSignIn />)({
-                authState: 'confirmSignIn',
-                authData: { challengeName: 'SOFTWARE_TOKEN_MFA' },
-            }),
-        );
+        const { asFragment } = render(withContext(<ConfirmSignIn />)());
         expect(asFragment()).toMatchSnapshot();
     });
 });
 
 describe('use-mfa-type', () => {
-    it('should return SMS', () => {
+    it('should return SMS as default', () => {
         const user = {
             challengeName: 'XXX',
         };

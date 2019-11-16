@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const SectionHeader: React.FC = ({ children }) => {
+export const SectionHeader: React.FC = ({ children }) => {
     const classes = useStyles();
 
     return (
@@ -38,5 +38,3 @@ const SectionHeader: React.FC = ({ children }) => {
         </Box>
     );
 };
-
-export default SectionHeader;

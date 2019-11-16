@@ -20,7 +20,7 @@ import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 const logger = new Logger('ConfirmSignUp');
 
 export const useConfirmSignUp = (): ((code: string) => Promise<void>) => {
-    const { onStateChange, authData } = useAuthContext();
+    const { handleStateChange, authData = {} } = useAuthContext();
 
     const { username } = authData;
 
@@ -32,7 +32,7 @@ export const useConfirmSignUp = (): ((code: string) => Promise<void>) => {
 
         try {
             await Auth.confirmSignUp(username, code);
-            onStateChange('signedUp', null);
+            handleStateChange('signedUp', null);
         } catch (error) {
             console.log(error);
         }
@@ -40,7 +40,7 @@ export const useConfirmSignUp = (): ((code: string) => Promise<void>) => {
 };
 
 export const useResendSignUp = (): (() => Promise<void>) => {
-    const { authData } = useAuthContext();
+    const { authData = {} } = useAuthContext();
 
     const { username } = authData;
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Paper, createStyles, makeStyles, Theme } from '@material-ui/core';
 
-import FormContainer from './form-container';
+import { FormContainer } from './form-container';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const FormSection: React.FC = ({ children }) => {
+export const FormSection: React.FC = ({ children }) => {
     const classes = useStyles();
 
     return (
@@ -25,5 +25,3 @@ const FormSection: React.FC = ({ children }) => {
         </FormContainer>
     );
 };
-
-export default FormSection;

@@ -1,20 +1,21 @@
 import * as React from 'react';
 
-import { AuthContext } from '../auth-context';
+import { AuthContext, AuthContextProps } from '../auth-context';
+import { NotificationProvider } from '../notification-provider';
 
-export const withContext = Component => (props?: any) => {
+export const withContext = Component => (
+    props?: AuthContextProps,
+): JSX.Element => {
     const handleStateChange = jest.fn();
-    const handleMessage = jest.fn();
 
     return (
         <AuthContext.Provider
             value={{
-                onStateChange: handleStateChange,
-                onMessage: handleMessage,
+                handleStateChange: handleStateChange,
                 ...props,
             }}
         >
-            {Component}
+            <NotificationProvider>{Component}</NotificationProvider>
         </AuthContext.Provider>
     );
 };

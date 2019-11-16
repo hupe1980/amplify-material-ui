@@ -3,6 +3,8 @@ import * as React from 'react';
 import { CssBaseline, createMuiTheme, Theme } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 
+import { NotificationProvider } from './notification-provider';
+import { AuthProvider, AuthProviderProps } from './auth-provider';
 import { ForgotPassword } from './forgot-password';
 import { Greetings } from './greetings';
 import { Loading } from './loading';
@@ -13,12 +15,17 @@ import { ConfirmSignIn } from './confirm-sign-in';
 import { ConfirmSignUp } from './confirm-sign-up';
 import { VerifyContact } from './verify-contact';
 import { AuthRoute } from './auth-route';
-import { AuthContext } from './auth-context';
-import { useAuth } from './use-auth';
-
-import { Toast, ToastProps } from '../ui';
+import { Notification } from './notification';
 
 const defaultChildren = [
+    {
+        validAuthStates: ['*'],
+        component: Notification,
+    },
+    {
+        validAuthStates: ['loading'],
+        component: Loading,
+    },
     {
         validAuthStates: ['forgotPassword'],
         component: ForgotPassword,
@@ -26,10 +33,6 @@ const defaultChildren = [
     {
         validAuthStates: ['signedIn'],
         component: Greetings,
-    },
-    {
-        validAuthStates: ['loading'],
-        component: Loading,
     },
     {
         validAuthStates: ['signIn', 'signedOut', 'signedUp'],
@@ -57,17 +60,11 @@ const defaultChildren = [
     },
 ];
 
-export interface AuthenticatorProps {
+export interface AuthenticatorProps extends AuthProviderProps {
     hide?: React.FC[];
     theme?: Theme;
     hideSignUpLink?: boolean;
     hideForgotPasswordLink?: boolean;
-    initialAuthState?: string;
-}
-
-export interface MessasgeState {
-    message: string;
-    variant: ToastProps['variant'];
 }
 
 export const Authenticator: React.FC<AuthenticatorProps> = props => {
@@ -75,90 +72,43 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
         hide = [],
         children,
         theme,
-        hideSignUpLink = false,
-        hideForgotPasswordLink = false,
-        initialAuthState = 'signIn',
+        hideSignUpLink,
+        hideForgotPasswordLink,
+        ...authProviderProps
     } = props;
-
-    const [message, setMessage] = React.useState<MessasgeState>({
-        message: '',
-        variant: 'info',
-    });
-
-    const [open, setOpen] = React.useState(false);
-
-    const { authState, authData, handleStateChange } = useAuth(
-        initialAuthState,
-    );
-
-    const handleMessage = (messageState: MessasgeState): void => {
-        setMessage(messageState);
-        setOpen(true);
-    };
-
-    const handleClose = (
-        _event?: React.SyntheticEvent,
-        reason?: string,
-    ): void => {
-        if (reason === 'clickaway') {
-            return;
-        }
-        setOpen(false);
-        setMessage({ message: '', variant: 'info' });
-    };
 
     const renderChildren = defaultChildren
         .filter(item => !hide.includes(item.component))
         .map((item, index) => (
             <AuthRoute
                 key={`amplify-material-ui-authenticator-default-children-${index}`}
+                hideSignUpLink={hideSignUpLink}
+                hideForgotPasswordLink={hideForgotPasswordLink}
                 {...item}
             />
         ));
     return (
-        <AuthContext.Provider
-            value={{
-                authState: authState,
-                authData: authData,
-                onStateChange: handleStateChange,
-                onMessage: handleMessage,
-                hideSignUpLink,
-                hideForgotPasswordLink,
-            }}
-        >
-            <ThemeProvider theme={createMuiTheme(theme)}>
-                <CssBaseline />
-                <Toast {...message} open={open} onClose={handleClose} />
-                {renderChildren}
-                {children}
-            </ThemeProvider>
-        </AuthContext.Provider>
+        <AuthProvider {...authProviderProps}>
+            <NotificationProvider>
+                <ThemeProvider theme={createMuiTheme(theme)}>
+                    <CssBaseline />
+                    {renderChildren}
+                    {children}
+                </ThemeProvider>
+            </NotificationProvider>
+        </AuthProvider>
     );
 };
 
 export const withAuthenticator = (
     Component: React.ComponentType,
     authenticatorProps: AuthenticatorProps = {},
-): React.ComponentType => (props): React.ReactElement => {
-    const {
-        hide,
-        theme,
-        hideSignUpLink,
-        hideForgotPasswordLink,
-        initialAuthState,
-    } = authenticatorProps;
-
-    return (
-        <Authenticator
-            hide={hide}
-            theme={theme}
-            hideSignUpLink={hideSignUpLink}
-            hideForgotPasswordLink={hideForgotPasswordLink}
-            initialAuthState={initialAuthState}
-        >
-            <AuthRoute validAuthStates={['signedIn']}>
-                {(): React.ReactElement => <Component {...props} />}
-            </AuthRoute>
-        </Authenticator>
-    );
-};
+): React.ComponentType => (props): React.ReactElement => (
+    <Authenticator {...authenticatorProps}>
+        <AuthRoute validAuthStates={['signedIn']}>
+            {(authRouteProps): React.ReactElement => (
+                <Component {...authRouteProps} {...props} />
+            )}
+        </AuthRoute>
+    </Authenticator>
+);

@@ -7,7 +7,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import green from '@material-ui/core/colors/green';
 import amber from '@material-ui/core/colors/amber';
 import IconButton from '@material-ui/core/IconButton';
-import Snackbar from '@material-ui/core/Snackbar';
+import Snackbar, { SnackbarOrigin } from '@material-ui/core/Snackbar';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import WarningIcon from '@material-ui/icons/Warning';
 import { makeStyles, Theme } from '@material-ui/core/styles';
@@ -47,7 +47,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export interface ToastProps {
     className?: string;
-    message?: string;
+    autoHideDuration?: number;
+    anchorOrigin?: SnackbarOrigin;
+    content?: string;
     variant?: keyof typeof variantIcon;
     open?: boolean;
     onClose?: (
@@ -58,24 +60,25 @@ export interface ToastProps {
 
 export const Toast: React.FC<ToastProps> = props => {
     const {
+        autoHideDuration = 6000,
+        anchorOrigin = {
+            vertical: 'top',
+            horizontal: 'center',
+        } as SnackbarOrigin,
         className,
-        message,
+        content,
         variant = 'info',
         open = false,
         onClose,
-        ...other
     } = props;
     const classes = useStyles();
     const Icon = variantIcon[variant];
 
     return (
         <Snackbar
-            anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'center',
-            }}
+            anchorOrigin={anchorOrigin}
             open={open}
-            autoHideDuration={6000}
+            autoHideDuration={autoHideDuration}
             onClose={onClose}
         >
             <SnackbarContent
@@ -86,7 +89,7 @@ export const Toast: React.FC<ToastProps> = props => {
                         <Icon
                             className={clsx(classes.icon, classes.iconVariant)}
                         />
-                        {message}
+                        {content}
                     </span>
                 }
                 action={[
@@ -99,7 +102,6 @@ export const Toast: React.FC<ToastProps> = props => {
                         <CloseIcon className={classes.icon} />
                     </IconButton>,
                 ]}
-                {...other}
             />
         </Snackbar>
     );

@@ -22,7 +22,7 @@ const logger = new Logger('RequireNewPassword');
 export const useCompleteNewPassword = (): ((
     password: string,
 ) => Promise<void>) => {
-    const { authData: user, onStateChange } = useAuthContext();
+    const { authData: user, handleStateChange } = useAuthContext();
 
     const checkContact = useCheckContact();
 
@@ -44,10 +44,10 @@ export const useCompleteNewPassword = (): ((
             logger.debug('complete new password', updatedUser);
 
             if (updatedUser.challengeName === 'SMS_MFA') {
-                onStateChange('confirmSignIn', updatedUser);
+                handleStateChange('confirmSignIn', updatedUser);
             } else if (updatedUser.challengeName === 'MFA_SETUP') {
                 logger.debug('TOTP setup', updatedUser.challengeParam);
-                onStateChange('TOTPSetup', updatedUser);
+                handleStateChange('TOTPSetup', updatedUser);
             } else {
                 checkContact(updatedUser);
             }

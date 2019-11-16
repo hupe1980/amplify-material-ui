@@ -19,11 +19,13 @@ export const PasswordField: React.FC<PasswordFieldProps> = props => {
         <TextField
             {...props}
             type={showPassword ? 'text' : 'password'}
+            inputProps={{ 'data-testid': 'password-input' }}
             InputProps={{
                 endAdornment: (
                     <InputAdornment position="end">
                         <IconButton
                             aria-label="Toggle password visibility"
+                            data-testid="togglePasswordVisibility"
                             onClick={(): void =>
                                 setShowPassword(showPassword => !showPassword)
                             }

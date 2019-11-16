@@ -17,25 +17,38 @@ import { ChangeAuthStateLink } from './change-auth-state-link';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { CognitoUserAttribute } from 'amazon-cognito-identity-js';
 
-export const useSignUp = (validationData?: {
-    [key: string]: string;
-}): ((username: string, password: string) => Promise<void>) => {
-    const { onStateChange } = useAuthContext();
+export const useSignUp = (): ((
+    username: string,
+    password: string,
+    validationData?: {
+        [key: string]: string;
+    },
+) => Promise<void>) => {
+    const { handleStateChange } = useAuthContext();
 
-    const validationDataArray: CognitoUserAttribute[] = [];
-    if (validationData) {
-        for (const [name, value] of Object.entries(validationData)) {
-            validationDataArray.push(
-                new CognitoUserAttribute({ Name: name, Value: value }),
-            );
-        }
-    }
-
-    return async (email: string, password: string): Promise<void> => {
+    return async (
+        email: string,
+        password: string,
+        validationData?: {
+            [key: string]: string;
+        },
+    ): Promise<void> => {
         invariant(
             Auth && typeof Auth.signUp === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',
         );
+
+        const validationDataArray: CognitoUserAttribute[] = [];
+        if (validationData) {
+            for (const [name, value] of Object.entries(validationData)) {
+                validationDataArray.push(
+                    new CognitoUserAttribute({
+                        Name: name,
+                        Value: value,
+                    }),
+                );
+            }
+        }
 
         const signupInfo = {
             username: email,
@@ -46,7 +59,7 @@ export const useSignUp = (validationData?: {
 
         try {
             const data = await Auth.signUp(signupInfo);
-            onStateChange('confirmSignUp', data.user.getUsername());
+            handleStateChange('confirmSignUp', data.user.getUsername());
         } catch (error) {
             console.log(error);
         }
@@ -74,7 +87,7 @@ export const SignUp: React.FC<SignUpProps> = props => {
 
     const classes = useStyles();
 
-    const signUp = useSignUp(validationData);
+    const signUp = useSignUp();
 
     return (
         <Formik<{ email: string; password: string }>
@@ -86,7 +99,7 @@ export const SignUp: React.FC<SignUpProps> = props => {
                 { email, password },
                 { setSubmitting },
             ): Promise<void> => {
-                await signUp(email, password);
+                await signUp(email, password, validationData);
                 setSubmitting(false);
             }}
         >

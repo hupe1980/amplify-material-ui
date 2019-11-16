@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authState 1`] = `
+exports[`sign-up should be rendered correctly 1`] = `
 <DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthXs"
@@ -40,7 +40,7 @@ exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authS
         <h1
           class="MuiTypography-root MuiTypography-h6"
         >
-          Confirm SMS Code
+          Sign in to your account
         </h1>
       </div>
       <form
@@ -56,10 +56,10 @@ exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authS
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-focused Mui-focused Mui-required Mui-required"
               data-shrink="true"
-              for="code"
-              id="code-label"
+              for="email"
+              id="email-label"
             >
-              Code *
+              Email Address
               <span
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
               >
@@ -71,10 +71,10 @@ exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authS
             >
               <input
                 aria-invalid="false"
-                autocomplete="code"
+                autocomplete="email"
                 class="MuiInputBase-input MuiOutlinedInput-input"
-                id="code"
-                name="code"
+                id="email"
+                name="email"
                 required=""
                 type="text"
                 value=""
@@ -95,6 +95,51 @@ exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authS
               </fieldset>
             </div>
           </div>
+          <div
+            class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+              data-shrink="false"
+              for="password"
+              id="password-label"
+            >
+              Password
+              <span
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                autocomplete="current-password"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                id="password"
+                name="password"
+                required=""
+                type="password"
+                value=""
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-151 MuiOutlinedInput-notchedOutline"
+                style="padding-left: 8px;"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legend-152"
+                  style="width: 0.01px;"
+                >
+                  <span>
+                    ​
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
         </div>
         <div
           class="MuiBox-root MuiBox-root-154 makeStyles-box-153"
@@ -107,7 +152,7 @@ exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authS
             <span
               class="MuiButton-label"
             >
-              Confirm
+              Create Account
             </span>
             <span
               class="MuiTouchRipple-root"
@@ -119,11 +164,12 @@ exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authS
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true"
             >
+              Have an account? 
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
                 href="#"
               >
-                Back to Sign In
+                Sign in
               </a>
             </div>
           </div>

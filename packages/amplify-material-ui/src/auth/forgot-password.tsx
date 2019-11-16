@@ -14,13 +14,15 @@ import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
 import { useAuthContext } from './auth-context';
+import { useNotificationContext } from './notification-context';
 import { useUsernameField } from './use-username-field';
 import { ChangeAuthStateLink } from './change-auth-state-link';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
 export const useForgotPassword = () => {
     const [delivery, setDelivery] = React.useState(null);
-    const { onStateChange, onMessage } = useAuthContext();
+    const { handleStateChange } = useAuthContext();
+    const { showNotification } = useNotificationContext();
 
     const submit = async (
         code: string,
@@ -34,11 +36,11 @@ export const useForgotPassword = () => {
 
         try {
             await Auth.forgotPasswordSubmit(username, code, password);
-            onStateChange('signIn', null);
+            handleStateChange('signIn', null);
             setDelivery(null);
         } catch (error) {
             console.log(error);
-            onMessage({ message: 'ERRRO', variant: 'error' });
+            showNotification({ content: 'ERRRO', variant: 'error' });
         }
     };
 
@@ -53,7 +55,7 @@ export const useForgotPassword = () => {
             setDelivery(data.CodeDeliveryDetails);
         } catch (error) {
             console.log(error);
-            onMessage({ message: 'ERRRO', variant: 'error' });
+            showNotification({ content: 'ERRRO', variant: 'error' });
         }
     };
 

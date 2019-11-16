@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const VerifyContact: React.FC = () => {
-    const { onStateChange, authData } = useAuthContext();
+    const { handleStateChange, authData } = useAuthContext();
     const [verifyAttr, setVerifyAttr] = React.useState<string | null>(null);
 
     const classes = useStyles();
@@ -65,7 +65,7 @@ export const VerifyContact: React.FC = () => {
 
         try {
             await Auth.verifyCurrentUserAttributeSubmit(verifyAttr, code);
-            onStateChange('signedIn', authData);
+            handleStateChange('signedIn', authData);
             setVerifyAttr(null);
         } catch (error) {
             console.log(error); //TODO

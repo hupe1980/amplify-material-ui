@@ -1,25 +1,43 @@
 import * as React from 'react';
 import Auth from '@aws-amplify/auth';
 import { render, cleanup, fireEvent, act, wait } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+
 import { SignIn } from '../sign-in';
-import { AuthContext } from '../auth-context';
+import { withContext } from './helper';
 
 describe('sign-in', () => {
     const handleStateChange = jest.fn();
 
-    const withContext = component => (
-        <AuthContext.Provider
-            value={{ authState: 'signIn', onStateChange: handleStateChange }}
-        >
-            {component}
-        </AuthContext.Provider>
-    );
-
     beforeEach(() => cleanup());
 
-    it('should be rendered correctly in the signIn authState', () => {
-        const { asFragment } = render(withContext(<SignIn />));
+    it('should be rendered correctly', () => {
+        const { asFragment } = render(withContext(<SignIn />)());
         expect(asFragment()).toMatchSnapshot();
+    });
+
+    it('should hide the signup link', () => {
+        const { getByTestId, queryByTestId } = render(
+            withContext(<SignIn hideSignUpLink />)(),
+        );
+
+        const forgotPasswordLink = getByTestId('forgot-password-link');
+        expect(forgotPasswordLink).toBeInTheDocument();
+
+        const signUpLink = queryByTestId('sign-up-link');
+        expect(signUpLink).not.toBeInTheDocument();
+    });
+
+    it('should hide the forgot password link', () => {
+        const { getByTestId, queryByTestId } = render(
+            withContext(<SignIn hideForgotPasswordLink />)(),
+        );
+
+        const signUpLink = getByTestId('sign-up-link');
+        expect(signUpLink).toBeInTheDocument();
+
+        const forgotPasswordLink = queryByTestId('forgot-password-link');
+        expect(forgotPasswordLink).not.toBeInTheDocument();
     });
 
     it('it should change state to requireNewPassword if challengeName equals NEW_PASSWORD_REQUIRED', async () => {
@@ -31,7 +49,12 @@ describe('sign-in', () => {
             );
         });
 
-        const { getByTestId, getByLabelText } = render(withContext(<SignIn />));
+        const { getByTestId, getByLabelText } = render(
+            withContext(<SignIn />)({
+                authState: 'signIn',
+                handleStateChange: handleStateChange,
+            }),
+        );
 
         const usernameInput = getByLabelText('Username', {
             exact: false,

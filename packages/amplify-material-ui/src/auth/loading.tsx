@@ -6,7 +6,7 @@ import {
     CircularProgress,
 } from '@material-ui/core';
 
-import FormSection from '../ui/form-section';
+import { FormSection } from '../ui';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

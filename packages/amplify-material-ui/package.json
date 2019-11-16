@@ -31,19 +31,7 @@
         "watch:types": "tsc -w --emitDeclarationOnly",
         "watch:js": "babel src --out-dir lib --extensions '.ts,.tsx' --ignore '**/__tests__, **/__stories__' --watch",
         "prepare": "npm run build",
-        "test": "jest --env=jsdom"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+        "test": "jest --env=jsdom --coverage"
     },
     "dependencies": {
         "clsx": "^1.0.4",
@@ -70,6 +58,7 @@
         "@babel/core": "^7.7.2",
         "@material-ui/core": "^4.6.1",
         "@material-ui/icons": "^4.5.1",
+        "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/react-hooks": "^3.2.1",
         "@types/jest": "^24.0.23",
@@ -77,17 +66,18 @@
         "babel-jest": "^24.8.0",
         "babel-loader": "^8.0.6",
         "babel-plugin-dev-expression": "^0.2.2",
-        "babel-plugin-macros": "^2.6.1",
+        "babel-plugin-macros": "^2.6.2",
         "babel-plugin-react-remove-properties": "^0.3.0",
         "babel-preset-react-app": "^9.0.2",
         "cross-env": "^6.0.3",
         "jest": "^24.8.0",
         "npm-run-all": "^4.1.5",
-        "react": "^16.11.0",
-        "react-dom": "^16.11.0",
-        "react-test-renderer": "^16.11.0",
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0",
+        "react-test-renderer": "^16.12.0",
         "rimraf": "^3.0.0",
         "typescript": "^3.7.2"
     },
+    "sideEffects": false,
     "gitHead": "334449b1c1ca6493b6bacb56e5f30551c60d9d01"
 }

@@ -5,28 +5,28 @@ import { Toast } from '../toast';
 describe('loading', () => {
     it('should be rendered correctly (error)', () => {
         const { asFragment } = render(
-            <Toast message="Error" variant="error" open />,
+            <Toast content="Error" variant="error" open />,
         );
         expect(asFragment()).toMatchSnapshot();
     });
 
     it('should be rendered correctly (info)', () => {
         const { asFragment } = render(
-            <Toast message="Info" variant="info" open />,
+            <Toast content="Info" variant="info" open />,
         );
         expect(asFragment()).toMatchSnapshot();
     });
 
     it('should be rendered correctly (warning)', () => {
         const { asFragment } = render(
-            <Toast message="Warning" variant="warning" open />,
+            <Toast content="Warning" variant="warning" open />,
         );
         expect(asFragment()).toMatchSnapshot();
     });
 
     it('should be rendered correctly (success)', () => {
         const { asFragment } = render(
-            <Toast message="Success" variant="success" open />,
+            <Toast content="Success" variant="success" open />,
         );
         expect(asFragment()).toMatchSnapshot();
     });

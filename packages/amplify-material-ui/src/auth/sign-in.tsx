@@ -13,21 +13,33 @@ import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
 import { useAuthContext } from './auth-context';
+import { useNotificationContext } from './notification-context';
 import { useCheckContact } from './use-check-contact';
-import { useUsernameField } from './use-username-field';
+import { useUsernameField, UsernameAttribute } from './use-username-field';
 import { ChangeAuthStateLink } from './change-auth-state-link';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
 const logger = new Logger('SignIn');
 
-export const useSignIn = (validationData?: {
-    [key: string]: string;
-}): ((username: string, password: string) => Promise<void>) => {
-    const { onStateChange } = useAuthContext();
+export const useSignIn = (): ((
+    username: string,
+    password: string,
+    validationData?: {
+        [key: string]: string;
+    },
+) => Promise<void>) => {
+    const { handleStateChange } = useAuthContext();
+    const { showNotification } = useNotificationContext();
 
     const checkContact = useCheckContact();
 
-    return async (username: string, password: string): Promise<void> => {
+    return async (
+        username: string,
+        password: string,
+        validationData?: {
+            [key: string]: string;
+        },
+    ): Promise<void> => {
         invariant(
             Auth && typeof Auth.signIn === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',
@@ -45,31 +57,31 @@ export const useSignIn = (validationData?: {
                 user.challengeName === 'SOFTWARE_TOKEN_MFA'
             ) {
                 logger.debug('confirm user with ' + user.challengeName);
-                onStateChange('confirmSignIn', user);
+                handleStateChange('confirmSignIn', user);
             } else if (user.challengeName === 'NEW_PASSWORD_REQUIRED') {
                 logger.debug('require new password', user.challengeParam);
-                onStateChange('requireNewPassword', user);
+                handleStateChange('requireNewPassword', user);
             } else if (user.challengeName === 'MFA_SETUP') {
                 logger.debug('TOTP setup', user.challengeParam);
-                onStateChange('TOTPSetup', user);
+                handleStateChange('TOTPSetup', user);
             } else {
                 checkContact(user);
             }
         } catch (err) {
             if (err.code === 'UserNotConfirmedException') {
                 logger.debug('the user is not confirmed');
-                onStateChange('confirmSignUp', { username });
+                handleStateChange('confirmSignUp', { username });
             } else if (err.code === 'PasswordResetRequiredException') {
                 logger.debug('the user requires a new password');
-                onStateChange('forgotPassword', { username });
+                handleStateChange('forgotPassword', { username });
             } else {
-                //this.error(err);
-                console.log(err);
+                logger.error(err);
+                showNotification({
+                    content: err.message,
+                    variant: 'error',
+                });
             }
-        } finally {
-            //this.setState({ loading: false });
         }
-        //onStateChange('signedIn', null); //TODO
     };
 };
 
@@ -89,6 +101,7 @@ export interface SignInProps {
     validationData?: { [key: string]: string };
     hideSignUpLink?: boolean;
     hideForgotPasswordLink?: boolean;
+    usernameAttribute?: UsernameAttribute;
 }
 
 export const SignIn: React.FC<SignInProps> = props => {
@@ -96,11 +109,14 @@ export const SignIn: React.FC<SignInProps> = props => {
         validationData,
         hideSignUpLink = false,
         hideForgotPasswordLink = false,
+        usernameAttribute,
     } = props;
 
     const classes = useStyles();
-    const signIn = useSignIn(validationData);
-    const { usernamefieldName, usernameField } = useUsernameField();
+    const signIn = useSignIn();
+    const { usernamefieldName, usernameField } = useUsernameField(
+        usernameAttribute,
+    );
 
     return (
         <Formik<{ [fieldName: string]: string; password: string }>
@@ -109,7 +125,11 @@ export const SignIn: React.FC<SignInProps> = props => {
                 password: '',
             }}
             onSubmit={async (values, { setSubmitting }): Promise<void> => {
-                await signIn(values[usernamefieldName], values['password']);
+                await signIn(
+                    values[usernamefieldName],
+                    values['password'],
+                    validationData,
+                );
                 setSubmitting(false);
             }}
         >
@@ -157,6 +177,7 @@ export const SignIn: React.FC<SignInProps> = props => {
                                         <ChangeAuthStateLink
                                             label={I18n.get('Reset password')}
                                             newState="forgotPassword"
+                                            data-testid="forgot-password-link"
                                         />
                                     </Grid>
                                 )}
@@ -165,6 +186,7 @@ export const SignIn: React.FC<SignInProps> = props => {
                                         <ChangeAuthStateLink
                                             label={I18n.get('Create account')}
                                             newState="signUp"
+                                            data-testid="sign-up-link"
                                         />
                                     </Grid>
                                 )}

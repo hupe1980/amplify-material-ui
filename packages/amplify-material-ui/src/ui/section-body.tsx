@@ -7,10 +7,8 @@ const useStyles = makeStyles((_theme: Theme) =>
     }),
 );
 
-const SectionBody: React.FC = ({ children }) => {
+export const SectionBody: React.FC = ({ children }) => {
     const classes = useStyles();
 
     return <Box className={classes.box}>{children}</Box>;
 };
-
-export default SectionBody;

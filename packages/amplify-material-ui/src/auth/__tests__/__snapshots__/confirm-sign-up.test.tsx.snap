@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authState 1`] = `
+exports[`confirm-sign-up should be rendered correctly 1`] = `
 <DocumentFragment>
   <div
     class="MuiContainer-root MuiContainer-maxWidthXs"
@@ -40,7 +40,7 @@ exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authS
         <h1
           class="MuiTypography-root MuiTypography-h6"
         >
-          Confirm SMS Code
+          Confirm Sign Up
         </h1>
       </div>
       <form
@@ -59,7 +59,7 @@ exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authS
               for="code"
               id="code-label"
             >
-              Code *
+              Confirmation Code *
               <span
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
               >
@@ -118,6 +118,16 @@ exports[`confirm-sign-in should be rendered correctly in the confirmSignIn authS
           >
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true"
+            >
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+                href="#"
+              >
+                Resend Code
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
             >
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
