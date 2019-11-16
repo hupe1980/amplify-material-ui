@@ -1,6 +1,6 @@
+./circleci
 /.git
 /coverage
-
 
 /packages/amplify-material-ui/lib
 /packages/ra-data-amplify-rest/lib

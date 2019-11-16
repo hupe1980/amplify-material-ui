@@ -1,138 +1,139 @@
 executors:
-  node:
-    parameters:
-      image:
-        type: string
-        default: "10"
-    docker:
-      - image: circleci/node:<< parameters.image >>
+    node:
+        parameters:
+            image:
+                type: string
+                default: '10'
+        docker:
+            - image: circleci/node:<< parameters.image >>
 
 aliases:
-  e2e-executor: &e2e-executor
-    docker:
-      - image: cypress/browsers:chrome69
+    e2e-executor: &e2e-executor
+        docker:
+            - image: cypress/browsers:chrome69
 
-  restore_cache: &restore_cache
-    restore_cache:
-      name: Restore node_modules cache
-      keys:
-        - yarn-cache-{{ checksum "yarn.lock" }}
+    restore_cache: &restore_cache
+        restore_cache:
+            name: Restore node_modules cache
+            keys:
+                - yarn-cache-{{ checksum "yarn.lock" }}
 
-  install_node_modules: &install_node_modules
-    run:
-      name: Install node modules
-      command: yarn --frozen-lockfile
+    install_node_modules: &install_node_modules
+        run:
+            name: Install node modules
+            command: yarn --frozen-lockfile
 
-  persist_cache: &persist_cache
-    save_cache:
-      name: Save node modules cache
-      key: yarn-cache-{{ checksum "yarn.lock" }}
-      paths:
-        - ~/.cache
+    persist_cache: &persist_cache
+        save_cache:
+            name: Save node modules cache
+            key: yarn-cache-{{ checksum "yarn.lock" }}
+            paths:
+                - ~/.cache
 
-  attach_to_bootstrap: &attach_to_bootstrap
-    attach_workspace:
-      at: packages
+    attach_to_bootstrap: &attach_to_bootstrap
+        attach_workspace:
+            at: packages
 
-  ignore_master: &ignore_master
-    filters:
-      branches:
-        ignore:
-          - master
+    ignore_master: &ignore_master
+        filters:
+            branches:
+                ignore:
+                    - master
 
-  e2e-test-workflow: &e2e-test-workflow
-    filters:
-      branches:
-        ignore:
-          - master
-    requires:
-      - lint
-      - unit_tests_node10
+    e2e-test-workflow: &e2e-test-workflow
+        filters:
+            branches:
+                ignore:
+                    - master
+        requires:
+            - lint
+            - unit_tests_node10
+            - unit_tests_node12
 
-  test_template: &test_template
-    steps:
-      - checkout
-      - <<: *restore_cache
-      - <<: *install_node_modules
-      - <<: *persist_cache
-      - <<: *attach_to_bootstrap
-      - run: yarn test:unit
+    test_template: &test_template
+        steps:
+            - checkout
+            - <<: *restore_cache
+            - <<: *install_node_modules
+            - <<: *persist_cache
+            - <<: *attach_to_bootstrap
+            - run: yarn test:unit
 
 commands:
-  e2e-test:
-    parameters:
-      trigger_pattern:
-        type: string
-        default: "packages/*|.circleci/*"
-      test_path:
-        type: string
-      test_command:
-        type: string
-        default: "" # if unset, e2e-test.sh specifies the command
-    steps:
-      - checkout
-      - run: ./scripts/assert-changed-files.sh "<< parameters.trigger_pattern >>|<< parameters.test_path >>/*"
-      - <<: *restore_cache
-      - <<: *install_node_modules
-      - <<: *persist_cache
-      - <<: *attach_to_bootstrap
-      - run: ./scripts/e2e-test.sh "<< parameters.test_path >>" "<< parameters.test_command >>"
+    e2e-test:
+        parameters:
+            trigger_pattern:
+                type: string
+                default: 'packages/*|.circleci/*'
+            test_path:
+                type: string
+            test_command:
+                type: string
+                default: '' # if unset, e2e-test.sh specifies the command
+        steps:
+            - checkout
+            - run: ./scripts/assert-changed-files.sh "<< parameters.trigger_pattern >>|<< parameters.test_path >>/*"
+            - <<: *restore_cache
+            - <<: *install_node_modules
+            - <<: *persist_cache
+            - <<: *attach_to_bootstrap
+            - run: ./scripts/e2e-test.sh "<< parameters.test_path >>" "<< parameters.test_command >>"
 
 version: 2.1
 
 jobs:
-  bootstrap:
-    executor: node
-    steps:
-      - checkout
-      - run: ./scripts/assert-changed-files.sh "packages/*|(e2e-tests/*|.circleci/*"
-      - <<: *restore_cache
-      - <<: *install_node_modules
-      - <<: *persist_cache
-      - persist_to_workspace:
-          root: packages
-          paths:
-            - "*"
+    bootstrap:
+        executor: node
+        steps:
+            - checkout
+            - run: ./scripts/assert-changed-files.sh "packages/*|(e2e-tests/*|.circleci/*"
+            - <<: *restore_cache
+            - <<: *install_node_modules
+            - <<: *persist_cache
+            - persist_to_workspace:
+                  root: packages
+                  paths:
+                      - '*'
 
-  lint:
-    executor: node
-    steps:
-      - checkout
-      - <<: *restore_cache
-      - <<: *install_node_modules
-      - <<: *persist_cache
-      - run: yarn lint:ci
+    lint:
+        executor: node
+        steps:
+            - checkout
+            - <<: *restore_cache
+            - <<: *install_node_modules
+            - <<: *persist_cache
+            - run: yarn lint:ci
 
-  unit_tests_node10:
-    executor: node
-    <<: *test_template
+    unit_tests_node10:
+        executor: node
+        <<: *test_template
 
-  unit_tests_node12:
-    executor:
-      name: node
-      image: "12"
-    <<: *test_template
+    unit_tests_node12:
+        executor:
+            name: node
+            image: '12'
+        <<: *test_template
 
-  e2e_tests_auth:
-    <<: *e2e-executor
-    steps:
-      - e2e-test:
-          test_path: e2e-tests/auth
-          trigger_pattern: "packages/amplify-material-ui|.circleci/*"
+    e2e_tests_auth:
+        <<: *e2e-executor
+        steps:
+            - e2e-test:
+                  test_path: e2e-tests/auth
+                  trigger_pattern: 'packages/amplify-material-ui|.circleci/*'
 
 workflows:
-  version: 2
-  build-test:
-    jobs:
-      - bootstrap
-      - lint:
-          requires:
+    version: 2
+    build-test:
+        jobs:
             - bootstrap
-      - unit_tests_node10:
-          requires:
-            - lint
-      - unit_tests_node12:
-          requires:
-            - lint
-      - e2e_tests_auth:
-          <<: *e2e-test-workflow
+            - lint:
+                  requires:
+                      - bootstrap
+            - unit_tests_node10:
+                  requires:
+                      - lint
+            - unit_tests_node12:
+                  requires:
+                      - lint
+            - e2e_tests_auth:
+                  <<: *e2e-test-workflow
