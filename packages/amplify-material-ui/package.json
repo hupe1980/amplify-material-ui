@@ -1,6 +1,6 @@
 {
     "name": "amplify-material-ui",
-    "version": "0.0.29",
+    "version": "0.0.30",
     "description": "A Material-UI based implementation of aws amplify",
     "license": "MIT",
     "repository": {

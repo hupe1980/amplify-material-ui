@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.31 (2019-11-16)
+
+
+### Bug Fixes
+
+* CircleCi ([f17dd4b](https://github.com/hupe1980/amplify-material-ui/commit/f17dd4b84c088281fb5365e670a72a0782b61dc4))
+* Misc ([bc1cb63](https://github.com/hupe1980/amplify-material-ui/commit/bc1cb634ef69e77f937dcd0ced6aa4672e07d6c5))
+* Misc ([8850e23](https://github.com/hupe1980/amplify-material-ui/commit/8850e233dfee90f530362a677ad3f47b1b6307d0))
+
+
+
+
+
 ## [0.0.30](https://github.com/hupe1980/amplify-material-ui/compare/e2e-tests@0.0.29...e2e-tests@0.0.30) (2019-11-14)
 
 **Note:** Version bump only for package e2e-tests
