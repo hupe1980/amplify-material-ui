@@ -5,21 +5,19 @@ import Auth from '@aws-amplify/auth';
 import { Hub } from '@aws-amplify/core';
 import { HubCapsule } from '@aws-amplify/core/lib/Hub';
 
-import {
-    AuthData,
-    AuthState,
-    AuthContext,
-    AuthContextProps,
-} from './auth-context';
+import { AuthData } from './types';
+import { AuthState, AuthContext, AuthContextProps } from './auth-context';
+import { useNotificationContext } from './notification-context';
 
 export interface AuthProviderProps {
     initialAuthState?: string;
-    onStateChange?: (prevState: AuthState, newState: AuthState) => void;
+    onStateChange?: (prevState: AuthState, newState: AuthState) => AuthState;
 }
 
 export const useAuth = (props: AuthProviderProps): AuthContextProps => {
     const { initialAuthState = 'signIn', onStateChange } = props;
 
+    const { clearNotification } = useNotificationContext();
     const isMounted = useIsMounted();
 
     const [state, setState] = React.useState<AuthState>({
@@ -34,18 +32,20 @@ export const useAuth = (props: AuthProviderProps): AuthContextProps => {
             }
 
             if (isMounted()) {
+                clearNotification();
+
                 setState(prev => {
-                    onStateChange &&
-                        onStateChange(prev, { authState, authData });
+                    const newState = onStateChange
+                        ? onStateChange(prev, { authState, authData })
+                        : { authState, authData };
                     return {
                         ...prev,
-                        authState,
-                        authData,
+                        ...newState,
                     };
                 });
             }
         },
-        [isMounted, onStateChange],
+        [isMounted, onStateChange, clearNotification],
     );
 
     React.useEffect(() => {

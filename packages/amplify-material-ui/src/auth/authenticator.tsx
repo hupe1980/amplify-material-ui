@@ -3,7 +3,10 @@ import * as React from 'react';
 import { CssBaseline, createMuiTheme, Theme } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 
-import { NotificationProvider } from './notification-provider';
+import {
+    NotificationProvider,
+    NotificationProviderProps,
+} from './notification-provider';
 import { AuthProvider, AuthProviderProps } from './auth-provider';
 import { ForgotPassword } from './forgot-password';
 import { Greetings } from './greetings';
@@ -60,7 +63,9 @@ const defaultChildren = [
     },
 ];
 
-export interface AuthenticatorProps extends AuthProviderProps {
+export interface AuthenticatorProps
+    extends AuthProviderProps,
+        NotificationProviderProps {
     hide?: React.FC[];
     theme?: Theme;
     hideSignUpLink?: boolean;
@@ -74,6 +79,7 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
         theme,
         hideSignUpLink,
         hideForgotPasswordLink,
+        onShowNotification,
         ...authProviderProps
     } = props;
 
@@ -88,15 +94,15 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
             />
         ));
     return (
-        <AuthProvider {...authProviderProps}>
-            <NotificationProvider>
+        <NotificationProvider onShowNotification={onShowNotification}>
+            <AuthProvider {...authProviderProps}>
                 <ThemeProvider theme={createMuiTheme(theme)}>
                     <CssBaseline />
                     {renderChildren}
                     {children}
                 </ThemeProvider>
-            </NotificationProvider>
-        </AuthProvider>
+            </AuthProvider>
+        </NotificationProvider>
     );
 };
 

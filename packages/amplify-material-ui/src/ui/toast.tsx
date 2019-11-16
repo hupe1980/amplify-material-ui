@@ -71,7 +71,9 @@ export const Toast: React.FC<ToastProps> = props => {
         open = false,
         onClose,
     } = props;
+
     const classes = useStyles();
+
     const Icon = variantIcon[variant];
 
     return (

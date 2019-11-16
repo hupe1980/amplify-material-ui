@@ -1,0 +1,1 @@
+export type AuthData = any;

@@ -5,12 +5,13 @@ module.exports = {
             { flow: false, typescript: true, absoluteRuntime: false },
         ],
     ],
-    plugins: ['dev-expression'],
-    // env: {
-    //     production: {
-    //         plugins: [
-    //             ['react-remove-properties', { properties: ['data-testid'] }],
-    //         ],
-    //     },
-    // },
+    plugins: ['optimize-clsx'],
+    env: {
+        production: {
+            plugins: [
+                'dev-expression',
+                ['react-remove-properties', { properties: ['data-testid'] }],
+            ],
+        },
+    },
 };

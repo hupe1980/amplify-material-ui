@@ -4,8 +4,6 @@
 
 > A [Material-UI](https://github.com/mui-org/material-ui) based implementation of [aws amplify](https://github.com/aws-amplify/amplify-js)
 
-:warning: This is experimental and subject to breaking changes.
-
 ## Documentation
 
 [Read the documentation](/packages/amplify-material-ui/README.md).

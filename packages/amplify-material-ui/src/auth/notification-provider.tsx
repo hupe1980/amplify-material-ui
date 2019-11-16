@@ -2,14 +2,23 @@ import * as React from 'react';
 
 import { NotificationState, NotificationContext } from './notification-context';
 
-export const NotificationProvider: React.FC = ({ children }) => {
+export interface NotificationProviderProps {
+    onShowNotification?: (message: NotificationState) => NotificationState;
+}
+
+export const NotificationProvider: React.FC<NotificationProviderProps> = ({
+    children,
+    onShowNotification,
+}) => {
     const [
         notification,
         setNotification,
     ] = React.useState<NotificationState | null>(null);
 
-    const showNotification = (message: NotificationState): void =>
-        setNotification(message);
+    const showNotification = (message: NotificationState): void => {
+        const msg = onShowNotification ? onShowNotification(message) : message;
+        setNotification(msg);
+    };
 
     const clearNotification = (): void => setNotification(null);
 

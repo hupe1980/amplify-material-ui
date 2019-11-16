@@ -17,6 +17,7 @@ export * from './require-new-password';
 export * from './sign-in';
 export * from './sign-up';
 export * from './totp-setup';
+export * from './types';
 export * from './use-check-contact';
 export * from './use-username-field';
 export * from './verify-contact';

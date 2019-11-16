@@ -2,11 +2,12 @@ import * as React from 'react';
 import { Link } from '@material-ui/core';
 
 import { useAuthContext } from './auth-context';
+import { AuthData } from './types';
 
 export interface ChangeAuthStateLinkProps {
     label: string;
     newState: string;
-    authData?: any;
+    authData?: AuthData;
     [key: string]: any;
 }
 

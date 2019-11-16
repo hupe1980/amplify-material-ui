@@ -2,8 +2,6 @@
 
 > A [Material-UI](https://github.com/mui-org/material-ui) based implementation of [aws amplify](https://github.com/aws-amplify/amplify-js)
 
-:warning: This is experimental and subject to breaking changes.
-
 ## Install
 
 ```sh
@@ -56,6 +54,18 @@ You can hide default components of your Authenticator.
 ```typescript
 withAuthenticator(App, {
     hide: [Greetings],
+});
+```
+
+## Hide links in default components
+
+You can disable sign up if you do not allow users to sign up themselves.
+
+```typescript
+withAuthenticator(App, {
+    hide: [SignUp],
+    hideSignUpLink: true,
+    //hideForgotPasswordLink: true,
 });
 ```
 

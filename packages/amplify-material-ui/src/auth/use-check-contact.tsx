@@ -1,24 +1,25 @@
 import invariant from 'tiny-invariant';
 import Auth from '@aws-amplify/auth';
-import { JS } from '@aws-amplify/core';
 
+import { isEmptyObject } from '../core';
 import { useAuthContext } from './auth-context';
+import { AuthData } from './types';
 
-export const useCheckContact = () => {
+export const useCheckContact = (): ((authData: AuthData) => Promise<void>) => {
     const { handleStateChange } = useAuthContext();
 
-    return async (user: any): Promise<void> => {
+    return async (authData: AuthData): Promise<void> => {
         invariant(
             Auth && typeof Auth.verifiedContact === 'function',
             'No Auth module found, please ensure @aws-amplify/auth is imported',
         );
 
-        const data = await Auth.verifiedContact(user);
+        const data = await Auth.verifiedContact(authData);
 
-        if (!JS.isEmpty(data.verified)) {
-            handleStateChange('signedIn', user);
+        if (!isEmptyObject(data.verified)) {
+            handleStateChange('signedIn', authData);
         } else {
-            const newUser = Object.assign(user, data);
+            const newUser = Object.assign(authData, data);
             handleStateChange('verifyContact', newUser);
         }
     };

@@ -9,3 +9,7 @@ export function createNamedContext<T>(
 
     return context;
 }
+
+export function isEmptyObject(obj: object): boolean {
+    return Object.keys(obj).length === 0;
+}

@@ -1,8 +1,7 @@
 import * as React from 'react';
 
 import { createNamedContext } from '../core';
-
-export type AuthData = any;
+import { AuthData } from './types';
 
 export interface AuthState {
     authState: string;
