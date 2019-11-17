@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export interface GreetingsProps {
     renderUserMenu?: () => React.ReactElement;
-    title?: React.ReactNode;
+    title?: string | React.ReactElement;
     className?: string;
     burgerMenu?: React.ReactElement;
     globalSignOut?: boolean;

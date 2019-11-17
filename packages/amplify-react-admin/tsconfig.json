@@ -1,0 +1,9 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "lib",
+        "noImplicitAny": false
+    },
+    "include": ["src"],
+    "exclude": ["**/__stories__/*", "**/__tests__/*"]
+}
