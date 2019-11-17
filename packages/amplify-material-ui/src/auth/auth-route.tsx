@@ -4,7 +4,7 @@ import { useAuthContext, AuthContextProps } from './auth-context';
 
 export interface AuthRouteProps {
     validAuthStates: string[];
-    component?: React.FC;
+    component?: React.FC<any>;
     children?: (props: AuthContextProps) => React.ReactElement;
     [key: string]: any;
 }
@@ -22,7 +22,11 @@ export const AuthRoute: React.FC<AuthRouteProps> = props => {
 
     return match
         ? component
-            ? React.createElement(component, authRouteProps)
+            ? React.createElement(component, {
+                  authState,
+                  ...rest,
+                  ...authRouteProps,
+              })
             : children
             ? children({ authState, ...rest, ...authRouteProps })
             : null

@@ -31,14 +31,16 @@ const App: React.FC = () => (
 export default withAuthenticator(App, {
     hide: [Greetings],
     hideSignUpLink: true,
+    //hideForgotPasswordLink: true,
+    //initialAuthState: 'signUp',
     onStateChange: (prevState, newState) => {
         console.log('STATE_CHANGE', prevState, newState);
         return newState;
     },
-    onShowNotification: notification => {
-        console.log(notification);
-        return notification;
+    notificationProps: {
+        onShowNotification: notification => {
+            console.log(notification);
+            return notification;
+        },
     },
-    //hideForgotPasswordLink: true,
-    //initialAuthState: 'signUp',
 });

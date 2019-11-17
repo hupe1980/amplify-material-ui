@@ -19,7 +19,7 @@ import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
 const logger = new Logger('RequireNewPassword');
 
-export const useCompleteNewPassword = (): ((
+export const useRequireNewPassword = (): ((
     password: string,
 ) => Promise<void>) => {
     const { authData: user, handleStateChange } = useAuthContext();
@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export const RequireNewPassword: React.FC = () => {
     const classes = useStyles();
 
-    const completeNewPassword = useCompleteNewPassword();
+    const completeNewPassword = useRequireNewPassword();
 
     return (
         <Formik<{ password: string }>

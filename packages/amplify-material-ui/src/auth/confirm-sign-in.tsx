@@ -8,27 +8,30 @@ import {
     Theme,
 } from '@material-ui/core';
 import Auth from '@aws-amplify/auth';
-import { I18n } from '@aws-amplify/core';
+import { ConsoleLogger as Logger, I18n } from '@aws-amplify/core';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
 import { useAuthContext } from './auth-context';
+import { useNotificationContext } from './notification-context';
 import { useCheckContact } from './use-check-contact';
 import { ChangeAuthStateLink } from './change-auth-state-link';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
-export const useMfaType = (user: { challengeName: string }): string => {
+const logger = new Logger('ConfirmSignIn');
+
+export const useMfaType = (authData: { challengeName: string }): string => {
     const [mfaType, setMfaType] = React.useState('SMS');
 
     React.useEffect(() => {
         const newMfaType =
-            user && user.challengeName === 'SOFTWARE_TOKEN_MFA'
+            authData && authData.challengeName === 'SOFTWARE_TOKEN_MFA'
                 ? 'TOTP'
                 : 'SMS';
         if (mfaType !== newMfaType) {
             setMfaType(newMfaType);
         }
-    }, [mfaType, user]);
+    }, [mfaType, authData]);
 
     return mfaType;
 };
@@ -36,8 +39,8 @@ export const useMfaType = (user: { challengeName: string }): string => {
 export const useConfirmSignIn = (
     mfaType: string,
 ): ((code: string) => Promise<void>) => {
-    const { authData: user } = useAuthContext();
-
+    const { authData } = useAuthContext();
+    const { showNotification } = useNotificationContext();
     const checkContact = useCheckContact();
 
     return async (code: string): Promise<void> => {
@@ -48,13 +51,14 @@ export const useConfirmSignIn = (
 
         try {
             await Auth.confirmSignIn(
-                user,
+                authData,
                 code,
                 mfaType === 'TOTP' ? 'SOFTWARE_TOKEN_MFA' : null,
             );
-            checkContact(user);
+            checkContact(authData);
         } catch (error) {
-            console.log(error);
+            logger.error(error);
+            showNotification({ content: error.message, variant: 'error' });
         }
     };
 };
@@ -72,12 +76,9 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const ConfirmSignIn: React.FC = () => {
-    const { authData: user } = useAuthContext();
-
     const classes = useStyles();
-
+    const { authData: user } = useAuthContext();
     const mfaType = useMfaType(user);
-
     const confirmSignIn = useConfirmSignIn(mfaType);
 
     return (

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useIntl, FormattedMessage } from 'react-intl';
 import invariant from 'tiny-invariant';
 import {
     Button,
@@ -8,25 +9,24 @@ import {
     Theme,
 } from '@material-ui/core';
 import Auth from '@aws-amplify/auth';
-import { ConsoleLogger as Logger, I18n } from '@aws-amplify/core';
+import { ConsoleLogger as Logger } from '@aws-amplify/core';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
+import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useAuthContext } from './auth-context';
 import { useNotificationContext } from './notification-context';
 import { useCheckContact } from './use-check-contact';
-import { useUsernameField, UsernameAttribute } from './use-username-field';
+import { useUsernameField } from './use-username-field';
 import { ChangeAuthStateLink } from './change-auth-state-link';
-import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
+import { UsernameAttribute } from './types';
 
 const logger = new Logger('SignIn');
 
 export const useSignIn = (): ((
     username: string,
     password: string,
-    validationData?: {
-        [key: string]: string;
-    },
+    validationData?: Record<string, string>,
 ) => Promise<void>) => {
     const { handleStateChange } = useAuthContext();
     const { showNotification } = useNotificationContext();
@@ -113,6 +113,7 @@ export const SignIn: React.FC<SignInProps> = props => {
     } = props;
 
     const classes = useStyles();
+    const { formatMessage } = useIntl();
     const signIn = useSignIn();
     const { usernamefieldName, usernameField } = useUsernameField(
         usernameAttribute,
@@ -136,7 +137,10 @@ export const SignIn: React.FC<SignInProps> = props => {
             {({ handleSubmit, isValid }): React.ReactNode => (
                 <FormSection>
                     <SectionHeader>
-                        {I18n.get('Sign in to your account')}
+                        <FormattedMessage
+                            id="signIn.header"
+                            defaultMessage="Sign in to your account"
+                        />
                     </SectionHeader>
                     <Form
                         className={classes.form}
@@ -152,7 +156,10 @@ export const SignIn: React.FC<SignInProps> = props => {
                                 required
                                 fullWidth
                                 name="password"
-                                label={I18n.get('Password')}
+                                label={formatMessage({
+                                    id: 'global.labels.password',
+                                    defaultMessage: 'Password',
+                                })}
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
@@ -169,13 +176,21 @@ export const SignIn: React.FC<SignInProps> = props => {
                                 className={classes.submit}
                                 data-testid="signInSubmit"
                             >
-                                {I18n.get('Sign In')}
+                                <FormattedMessage
+                                    id="signIn.buttons.signIn"
+                                    defaultMessage="Sign In"
+                                />
                             </Button>
                             <Grid container>
                                 {!hideForgotPasswordLink && (
                                     <Grid item xs>
                                         <ChangeAuthStateLink
-                                            label={I18n.get('Reset password')}
+                                            label={formatMessage({
+                                                id:
+                                                    'signIn.links.forgotPassword',
+                                                defaultMessage:
+                                                    'Reset password',
+                                            })}
                                             newState="forgotPassword"
                                             data-testid="forgot-password-link"
                                         />
@@ -184,7 +199,11 @@ export const SignIn: React.FC<SignInProps> = props => {
                                 {!hideSignUpLink && (
                                     <Grid item>
                                         <ChangeAuthStateLink
-                                            label={I18n.get('Create account')}
+                                            label={formatMessage({
+                                                id: 'signIn.links.signUp',
+                                                defaultMessage:
+                                                    'Create account',
+                                            })}
                                             newState="signUp"
                                             data-testid="sign-up-link"
                                         />

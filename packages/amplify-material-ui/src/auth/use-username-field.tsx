@@ -1,18 +1,16 @@
 import * as React from 'react';
+import { useIntl } from 'react-intl';
 import { Field } from 'formik';
 import { TextField } from 'formik-material-ui';
 
 import { PhoneField } from '../ui';
-
-export enum UsernameAttribute {
-    EMAIL = 'email',
-    PHONE_NUMBER = 'phone_number',
-    USERNAME = 'username',
-}
+import { UsernameAttribute } from './types';
 
 export const useUsernameField = (
     usernameAttribute?: UsernameAttribute,
 ): { usernamefieldName: string; usernameField: React.ReactElement } => {
+    const { formatMessage } = useIntl();
+
     switch (usernameAttribute) {
         case UsernameAttribute.EMAIL:
             return {
@@ -24,7 +22,10 @@ export const useUsernameField = (
                         required
                         fullWidth
                         id="email"
-                        label="EMail"
+                        label={formatMessage({
+                            id: 'global.labels.email',
+                            defaultMessage: 'Email',
+                        })}
                         name="email"
                         autoFocus
                         component={TextField}
@@ -35,7 +36,15 @@ export const useUsernameField = (
         case UsernameAttribute.PHONE_NUMBER:
             return {
                 usernamefieldName: 'phone',
-                usernameField: <PhoneField required label="Phone Number" />,
+                usernameField: (
+                    <PhoneField
+                        required
+                        label={formatMessage({
+                            id: 'global.labels.phoneNumber',
+                            defaultMessage: 'Phone Number',
+                        })}
+                    />
+                ),
             };
 
         default:
@@ -48,7 +57,10 @@ export const useUsernameField = (
                         required
                         fullWidth
                         id="username"
-                        label="Username"
+                        label={formatMessage({
+                            id: 'global.labels.username',
+                            defaultMessage: 'Username',
+                        })}
                         name="username"
                         autoFocus
                         component={TextField}

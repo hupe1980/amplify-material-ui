@@ -24,7 +24,7 @@
     ],
     "scripts": {
         "clean": "rimraf lib",
-        "build": "cross-env NODE_ENV=development run-s clean build:**",
+        "build": "cross-env BABEL_ENV=production run-s clean build:**",
         "build:types": "tsc --emitDeclarationOnly",
         "build:js": "babel src --out-dir lib --extensions '.ts,.tsx' --ignore '**/__tests__, **/__stories__'",
         "watch": "cross-env NODE_ENV=development npm-run-all clean -pl watch:**",
@@ -37,9 +37,10 @@
         "clsx": "^1.0.4",
         "formik": "^2.0.4",
         "formik-material-ui": "^1.0.0",
+        "langtag-utils": "^2.0.0",
+        "react-intl": "^3.6.0",
         "react-is-mounted-hook": "^1.0.1",
         "react-recaptcha-hook": "^1.0.5",
-        "react-script-hook": "^1.0.11",
         "tiny-invariant": "^1.0.6",
         "zxcvbn": "^4.4.2"
     },

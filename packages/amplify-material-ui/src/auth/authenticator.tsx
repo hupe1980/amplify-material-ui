@@ -1,8 +1,9 @@
 import * as React from 'react';
-
-import { CssBaseline, createMuiTheme, Theme } from '@material-ui/core';
+import { CssBaseline, Theme } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 
+import { defaultTheme } from '../theme';
+import { IntlProvider, IntlProviderProps } from '../i18n';
 import {
     NotificationProvider,
     NotificationProviderProps,
@@ -63,13 +64,11 @@ const defaultChildren = [
     },
 ];
 
-export interface AuthenticatorProps
-    extends AuthProviderProps,
-        NotificationProviderProps {
+export interface AuthenticatorProps extends AuthProviderProps {
     hide?: React.FC[];
     theme?: Theme;
-    hideSignUpLink?: boolean;
-    hideForgotPasswordLink?: boolean;
+    intlProps?: IntlProviderProps;
+    notificationProps?: NotificationProviderProps;
 }
 
 export const Authenticator: React.FC<AuthenticatorProps> = props => {
@@ -77,10 +76,9 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
         hide = [],
         children,
         theme,
-        hideSignUpLink,
-        hideForgotPasswordLink,
-        onShowNotification,
-        ...authProviderProps
+        intlProps,
+        notificationProps,
+        ...authProps
     } = props;
 
     const renderChildren = defaultChildren
@@ -88,21 +86,21 @@ export const Authenticator: React.FC<AuthenticatorProps> = props => {
         .map((item, index) => (
             <AuthRoute
                 key={`amplify-material-ui-authenticator-default-children-${index}`}
-                hideSignUpLink={hideSignUpLink}
-                hideForgotPasswordLink={hideForgotPasswordLink}
                 {...item}
             />
         ));
     return (
-        <NotificationProvider onShowNotification={onShowNotification}>
-            <AuthProvider {...authProviderProps}>
-                <ThemeProvider theme={createMuiTheme(theme)}>
-                    <CssBaseline />
-                    {renderChildren}
-                    {children}
-                </ThemeProvider>
-            </AuthProvider>
-        </NotificationProvider>
+        <IntlProvider {...intlProps}>
+            <NotificationProvider {...notificationProps}>
+                <AuthProvider {...authProps}>
+                    <ThemeProvider theme={{ ...defaultTheme, ...theme }}>
+                        <CssBaseline />
+                        {renderChildren}
+                        {children}
+                    </ThemeProvider>
+                </AuthProvider>
+            </NotificationProvider>
+        </IntlProvider>
     );
 };
 

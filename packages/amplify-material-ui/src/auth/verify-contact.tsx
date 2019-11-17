@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useIntl, FormattedMessage } from 'react-intl';
 import invariant from 'tiny-invariant';
 import {
     Button,
@@ -10,33 +11,21 @@ import {
     Theme,
 } from '@material-ui/core';
 import Auth from '@aws-amplify/auth';
-import { ConsoleLogger as Logger, I18n } from '@aws-amplify/core';
+import { ConsoleLogger as Logger } from '@aws-amplify/core';
 import { Formik, Field, Form } from 'formik';
 import { RadioGroup, TextField } from 'formik-material-ui';
 
 import { useAuthContext } from './auth-context';
+import { useNotificationContext } from './notification-context';
 import { ChangeAuthStateLink } from './change-auth-state-link';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
 const logger = new Logger('VerifyContact');
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        form: {
-            width: '100%', // Fix IE 11 issue.
-            marginTop: theme.spacing(1),
-        },
-        submit: {
-            margin: theme.spacing(3, 0, 2),
-        },
-    }),
-);
-
-export const VerifyContact: React.FC = () => {
+const useVerifyContact = () => {
     const { handleStateChange, authData } = useAuthContext();
+    const { showNotification } = useNotificationContext();
     const [verifyAttr, setVerifyAttr] = React.useState<string | null>(null);
-
-    const classes = useStyles();
 
     const verify = async (contact: string): Promise<void> => {
         invariant(
@@ -49,7 +38,11 @@ export const VerifyContact: React.FC = () => {
             logger.debug(data);
             setVerifyAttr(contact);
         } catch (error) {
-            console.log(error); /*this.error(err)*/
+            logger.error(error);
+            showNotification({
+                content: error.message,
+                variant: 'error',
+            });
         }
     };
 
@@ -68,20 +61,62 @@ export const VerifyContact: React.FC = () => {
             handleStateChange('signedIn', authData);
             setVerifyAttr(null);
         } catch (error) {
-            console.log(error); //TODO
+            logger.error(error);
+            showNotification({
+                content: error.message,
+                variant: 'error',
+            });
         }
     };
 
-    const skipLinkPanel = (): React.ReactElement => (
+    return {
+        verifyAttr,
+        verify,
+        submit,
+    };
+};
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        form: {
+            width: '100%', // Fix IE 11 issue.
+            marginTop: theme.spacing(1),
+        },
+        submit: {
+            margin: theme.spacing(3, 0, 2),
+        },
+    }),
+);
+
+export const VerifyContact: React.FC = () => {
+    const { authData } = useAuthContext();
+    const { verifyAttr, verify, submit } = useVerifyContact();
+
+    const classes = useStyles();
+    const { formatMessage } = useIntl();
+
+    const renderSkipLinkPanel = (): React.ReactElement => (
         <Grid container>
             <Grid item>
                 <ChangeAuthStateLink
-                    label={I18n.get('Skip')}
+                    label={formatMessage({
+                        id: 'verifyContact.links.skip',
+                        defaultMessage: 'Skip',
+                    })}
                     newState="signedIn"
                     authData={authData}
                 />
             </Grid>
         </Grid>
+    );
+
+    const renderSectionHeader = (): React.ReactElement => (
+        <SectionHeader>
+            <FormattedMessage
+                id="verifyContact.header"
+                defaultMessage="Account recovery requires verified contact information"
+            />
+        </SectionHeader>
     );
 
     const verifyView = (): React.ReactElement | null => {
@@ -108,11 +143,7 @@ export const VerifyContact: React.FC = () => {
             >
                 {({ handleSubmit, isSubmitting, isValid }): React.ReactNode => (
                     <FormSection>
-                        <SectionHeader>
-                            {I18n.get(
-                                'Account recovery requires verified contact information',
-                            )}
-                        </SectionHeader>
+                        {renderSectionHeader()}
                         <Form className={classes.form} onSubmit={handleSubmit}>
                             <SectionBody>
                                 <Field
@@ -128,7 +159,10 @@ export const VerifyContact: React.FC = () => {
                                                     disabled={isSubmitting}
                                                 />
                                             }
-                                            label={I18n.get('Email')}
+                                            label={formatMessage({
+                                                id: 'global.labels.email',
+                                                defaultMessage: 'Email',
+                                            })}
                                             disabled={isSubmitting}
                                         />
                                     )}
@@ -140,7 +174,10 @@ export const VerifyContact: React.FC = () => {
                                                     disabled={isSubmitting}
                                                 />
                                             }
-                                            label={I18n.get('Phone Number')}
+                                            label={formatMessage({
+                                                id: 'global.labels.phoneNumber',
+                                                defaultMessage: 'Phone Number',
+                                            })}
                                             disabled={isSubmitting}
                                         />
                                     )}
@@ -152,9 +189,12 @@ export const VerifyContact: React.FC = () => {
                                     type="submit"
                                     className={classes.submit}
                                 >
-                                    {I18n.get('Verify')}
+                                    <FormattedMessage
+                                        id="verifyContact.buttons.verify"
+                                        defaultMessage="Verify"
+                                    />
                                 </Button>
-                                {skipLinkPanel()}
+                                {renderSkipLinkPanel()}
                             </SectionFooter>
                         </Form>
                     </FormSection>
@@ -175,11 +215,7 @@ export const VerifyContact: React.FC = () => {
         >
             {({ handleSubmit, isValid }): React.ReactNode => (
                 <FormSection>
-                    <SectionHeader>
-                        {I18n.get(
-                            'Account recovery requires verified contact information',
-                        )}
-                    </SectionHeader>
+                    {renderSectionHeader()}
                     <Form className={classes.form} onSubmit={handleSubmit}>
                         <SectionBody>
                             <Field
@@ -188,7 +224,10 @@ export const VerifyContact: React.FC = () => {
                                 required
                                 fullWidth
                                 id="code"
-                                label={I18n.get('Code')}
+                                label={formatMessage({
+                                    id: 'global.labels.code',
+                                    defaultMessage: 'Code',
+                                })}
                                 name="code"
                                 autoComplete="code"
                                 autoFocus
@@ -201,9 +240,12 @@ export const VerifyContact: React.FC = () => {
                                 type="submit"
                                 className={classes.submit}
                             >
-                                {I18n.get('Submit')}
+                                <FormattedMessage
+                                    id="verifyContact.buttons.submit"
+                                    defaultMessage="Submit"
+                                />
                             </Button>
-                            {skipLinkPanel()}
+                            {renderSkipLinkPanel()}
                         </SectionFooter>
                     </Form>
                 </FormSection>

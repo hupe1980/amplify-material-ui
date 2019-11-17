@@ -6,10 +6,15 @@ import { Hub } from '@aws-amplify/core';
 import { HubCapsule } from '@aws-amplify/core/lib/Hub';
 
 import { AuthData } from './types';
-import { AuthState, AuthContext, AuthContextProps } from './auth-context';
+import {
+    AuthState,
+    AuthConfig,
+    AuthContext,
+    AuthContextProps,
+} from './auth-context';
 import { useNotificationContext } from './notification-context';
 
-export interface AuthProviderProps {
+export interface AuthProviderProps extends AuthConfig {
     initialAuthState?: string;
     onStateChange?: (prevState: AuthState, newState: AuthState) => AuthState;
 }
@@ -106,12 +111,19 @@ export const useAuth = (props: AuthProviderProps): AuthContextProps => {
 };
 
 export const AuthProvider: React.FC<AuthProviderProps> = props => {
-    const { children, ...authProviderProps } = props;
+    const {
+        children,
+        initialAuthState,
+        onStateChange,
+        ...authProviderContextProps
+    } = props;
 
-    const authContexProps = useAuth(authProviderProps);
+    const authContexProps = useAuth({ initialAuthState, onStateChange });
 
     return (
-        <AuthContext.Provider value={authContexProps}>
+        <AuthContext.Provider
+            value={{ ...authProviderContextProps, ...authContexProps }}
+        >
             {children}
         </AuthContext.Provider>
     );

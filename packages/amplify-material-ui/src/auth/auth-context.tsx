@@ -1,13 +1,19 @@
 import * as React from 'react';
 
 import { createNamedContext } from '../core';
-import { AuthData } from './types';
+import { AuthData, UsernameAttribute } from './types';
 
 export interface AuthState {
     authState: string;
     authData?: AuthData;
 }
-export interface AuthContextProps extends AuthState {
+
+export interface AuthConfig {
+    hideSignUpLink?: boolean;
+    hideForgotPasswordLink?: boolean;
+    usernameAttribute?: UsernameAttribute;
+}
+export interface AuthContextProps extends AuthState, AuthConfig {
     handleStateChange: (authState: string, authData: AuthData) => void;
 }
 

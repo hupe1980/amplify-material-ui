@@ -40,7 +40,7 @@ exports[`sign-up should be rendered correctly 1`] = `
         <h1
           class="MuiTypography-root MuiTypography-h6"
         >
-          Sign in to your account
+          Create a new account
         </h1>
       </div>
       <form
@@ -59,7 +59,7 @@ exports[`sign-up should be rendered correctly 1`] = `
               for="email"
               id="email-label"
             >
-              Email Address
+              Email
               <span
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
               >
@@ -169,7 +169,7 @@ exports[`sign-up should be rendered correctly 1`] = `
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
                 href="#"
               >
-                Sign in
+                Sign In
               </a>
             </div>
           </div>

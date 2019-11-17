@@ -9,7 +9,7 @@ import {
     Link,
 } from '@material-ui/core';
 import Auth from '@aws-amplify/auth';
-import { I18n } from '@aws-amplify/core';
+import { ConsoleLogger as Logger, I18n } from '@aws-amplify/core';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
@@ -18,6 +18,8 @@ import { useNotificationContext } from './notification-context';
 import { useUsernameField } from './use-username-field';
 import { ChangeAuthStateLink } from './change-auth-state-link';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
+
+const logger = new Logger('ForgotPassword');
 
 export const useForgotPassword = () => {
     const [delivery, setDelivery] = React.useState(null);
@@ -39,8 +41,8 @@ export const useForgotPassword = () => {
             handleStateChange('signIn', null);
             setDelivery(null);
         } catch (error) {
-            console.log(error);
-            showNotification({ content: 'ERRRO', variant: 'error' });
+            logger.error(error);
+            showNotification({ content: error.message, variant: 'error' });
         }
     };
 
@@ -54,8 +56,8 @@ export const useForgotPassword = () => {
             const data = await Auth.forgotPassword(username);
             setDelivery(data.CodeDeliveryDetails);
         } catch (error) {
-            console.log(error);
-            showNotification({ content: 'ERRRO', variant: 'error' });
+            logger.error(error);
+            showNotification({ content: error.message, variant: 'error' });
         }
     };
 
