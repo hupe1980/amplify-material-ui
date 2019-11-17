@@ -4,5 +4,6 @@
 
 /packages/amplify-material-ui/lib
 /packages/ra-data-amplify-rest/lib
+/packages/amplify-react-admin
 
 node_modules
