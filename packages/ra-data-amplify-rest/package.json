@@ -1,43 +1,53 @@
 {
-    "name": "ra-data-amplify-rest",
-    "version": "0.0.13",
-    "description": "aws amplify REST Data Provider for react-admin",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/hupe1980/amplify-material-ui",
-        "directory": "packages/ra-data-amplify-rest"
-    },
-    "keywords": [
-        "react",
-        "aws amplify",
-        "amplify",
-        "react admin",
-        "rest",
-        "api"
-    ],
-    "main": "lib/index.js",
-    "types": "lib/index.d.ts",
-    "files": [
-        "lib"
-    ],
-    "scripts": {
-        "build": "rimraf ./lib && tsc",
-        "watch": "rimraf ./lib && tsc --watch",
-        "test": "jest",
-        "prepare": "npm run build"
-    },
-    "peerDependencies": {
-        "@aws-amplify/api": "^1.1.1",
-        "ra-core": "^3.0.0-beta.4"
-    },
-    "devDependencies": {
-        "@aws-amplify/api": "^1.2.4",
-        "@types/jest": "^24.0.23",
-        "jest": "^24.9.0",
-        "ra-core": "^3.0.0-beta.6",
-        "rimraf": "^3.0.0",
-        "typescript": "^3.7.2"
-    },
-    "gitHead": "334449b1c1ca6493b6bacb56e5f30551c60d9d01"
+  "name": "ra-data-amplify-rest",
+  "version": "0.0.13",
+  "description": "aws amplify REST Data Provider for react-admin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hupe1980/amplify-material-ui",
+    "directory": "packages/ra-data-amplify-rest"
+  },
+  "keywords": [
+    "react",
+    "aws amplify",
+    "amplify",
+    "react admin",
+    "rest",
+    "api"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/ra-data-amplify-rest.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "prebuild": "rimraf dist",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "npm run build"
+  },
+  "peerDependencies": {
+    "@aws-amplify/api": "^1.1.1",
+    "ra-core": "^3.0.0-beta.4"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "devDependencies": {
+    "@aws-amplify/api": "^1.2.4",
+    "@types/jest": "^24.0.23",
+    "ra-core": "^3.0.0-beta.6",
+    "rimraf": "^3.0.0",
+    "tsdx": "^0.11.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.2"
+  },
+  "sideEffects": false
 }

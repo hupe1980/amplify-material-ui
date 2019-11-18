@@ -26,22 +26,22 @@ import './App.css';
 Amplify.configure(awsconfig);
 
 const App: React.FC = () => (
-    <div className="App">
-        <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-                Edit <code>src/App.tsx</code> and save to reload.
-            </p>
-            <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Learn React
-            </a>
-        </header>
-    </div>
+  <div className="App">
+    <header className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
+      <p>
+        Edit <code>src/App.tsx</code> and save to reload.
+      </p>
+      <a
+        className="App-link"
+        href="https://reactjs.org"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Learn React
+      </a>
+    </header>
+  </div>
 );
 
 export default withAuthenticator(App);
@@ -53,7 +53,7 @@ You can hide default components of your Authenticator.
 
 ```typescript
 withAuthenticator(App, {
-    hide: [Greetings],
+  hide: [Greetings],
 });
 ```
 
@@ -63,9 +63,9 @@ You can disable sign up if you do not allow users to sign up themselves.
 
 ```typescript
 withAuthenticator(App, {
-    hide: [SignUp],
-    hideSignUpLink: true,
-    //hideForgotPasswordLink: true,
+  hide: [SignUp],
+  hideSignUpLink: true,
+  //hideForgotPasswordLink: true,
 });
 ```
 
@@ -75,7 +75,7 @@ You can change the initial auth state for your Authenticator. By default the ini
 
 ```typescript
 withAuthenticator(App, {
-    initialAuthState: 'signUp',
+  initialAuthState: 'signUp',
 });
 ```
 

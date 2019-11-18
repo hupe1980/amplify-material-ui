@@ -6,21 +6,21 @@ import { Header } from './header';
 import { Main } from './main';
 
 const useStyles = makeStyles(() => ({
-    root: {
-        display: 'flex',
-        flexDirection: 'column',
-        maxHeight: '100vh',
-    },
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    maxHeight: '100vh',
+  },
 }));
 
 export const Layout: React.FC<LayoutProps> = ({ children, dashboard }) => {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-        <div className={classes.root}>
-            <Header title="AmplifyReactAdmin" hasDashboard={!!dashboard} />
-            <Main>{children}</Main>
-            <Notification />
-        </div>
-    );
+  return (
+    <div className={classes.root}>
+      <Header title="AmplifyReactAdmin" hasDashboard={!!dashboard} />
+      <Main>{children}</Main>
+      <Notification />
+    </div>
+  );
 };

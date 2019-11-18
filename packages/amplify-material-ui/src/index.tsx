@@ -4,5 +4,6 @@ import dict from './dict';
 
 export * from './auth';
 export * from './ui';
+export * from './i18n';
 
 I18n.putVocabularies(dict);

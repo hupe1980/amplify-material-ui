@@ -43,4 +43,14 @@ export default withAuthenticator(App, {
             return notification;
         },
     },
+    intlProps: {
+        supportedLocales: ['de'],
+        // customMessages: {
+        //     de: {
+        //         signIn: {
+        //             header: 'test',
+        //         },
+        //     },
+        // },
+    },
 });

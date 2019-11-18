@@ -1,0 +1,63 @@
+{
+  "name": "amplify-auth-hooks",
+  "version": "0.0.1",
+  "description": "Hooks for aws amplify auth",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hupe1980/amplify-material-ui",
+    "directory": "packages/amplify-auth-hooks"
+  },
+  "keywords": [
+    "react",
+    "aws amplify",
+    "amplify",
+    "hooks",
+    "auth"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/hooks.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "prebuild": "rimraf dist",
+    "build": "tsdx build",
+    "test": "tsdx test --env=jsdom",
+    "lint": "tsdx lint",
+    "prepare": "npm run build",
+    "size": "size-limit"
+  },
+  "dependencies": {
+    "react-is-mounted-hook": "^1.0.1",
+    "react-recaptcha-hook": "^1.0.5",
+    "tiny-invariant": "^1.0.6"
+  },
+  "peerDependencies": {
+    "@aws-amplify/auth": "^1.2.24",
+    "@aws-amplify/core": "^1.0.27",
+    "react": ">=16"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "devDependencies": {
+    "@aws-amplify/auth": "^1.2.24",
+    "@aws-amplify/core": "^1.0.27",
+    "@types/jest": "^24.0.23",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "rimraf": "^3.0.0",
+    "tsdx": "^0.11.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.2"
+  },
+  "sideEffects": false
+}

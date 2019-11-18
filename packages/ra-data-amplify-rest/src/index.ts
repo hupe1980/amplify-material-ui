@@ -1,3 +1,6 @@
-export * from './amplify-rest-data-provider';
-export * from './response-parser';
-export * from './request-builder';
+export const sum = (a: number, b: number) => {
+  if ('development' === process.env.NODE_ENV) {
+    console.log('boop');
+  }
+  return a + b;
+};
