@@ -1,6 +1,6 @@
 {
   "name": "amplify-react-admin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "aws amplify based react-admin",
   "license": "MIT",
   "repository": {
@@ -28,12 +28,12 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "amplify-material-ui": "^0.0.32",
+    "amplify-material-ui": "^0.0.33",
     "history": "^4.10.1"
   },
   "peerDependencies": {
-    "react-admin": "^3.0.0-beta.6",
-    "react": ">=16"
+    "react": ">=16",
+    "react-admin": "^3.0.0-beta.6"
   },
   "prettier": {
     "printWidth": 80,
@@ -43,11 +43,11 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.23",
-    "@types/react-router-dom": "^5.1.2",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
-    "react-admin": "^3.0.0-beta.6",
+    "@types/react-router-dom": "^5.1.2",
     "react": "^16.12.0",
+    "react-admin": "^3.0.0-beta.6",
     "react-dom": "^16.12.0",
     "rimraf": "^3.0.0",
     "tsdx": "^0.11.0",
