@@ -6,7 +6,6 @@ import { Hub } from '@aws-amplify/core';
 import { HubCapsule } from '@aws-amplify/core/lib/Hub';
 
 import { AuthData, AuthState, AuthContextProps } from './use-auth-context';
-import { useNotificationContext } from './use-notification-context';
 
 export interface AuthProps {
   initialAuthState?: string;
@@ -14,9 +13,13 @@ export interface AuthProps {
 }
 
 export const useAuth = (props: AuthProps): AuthContextProps => {
+  invariant(
+    Auth && typeof Auth.currentAuthenticatedUser === 'function',
+    'No Auth module found, please ensure @aws-amplify/auth is imported'
+  );
+
   const { initialAuthState = 'signIn', onStateChange } = props;
 
-  const { clearNotification } = useNotificationContext();
   const isMounted = useIsMounted();
 
   const [state, setState] = React.useState<AuthState>({
@@ -31,8 +34,6 @@ export const useAuth = (props: AuthProps): AuthContextProps => {
       }
 
       if (isMounted()) {
-        clearNotification();
-
         setState(prev => {
           const newState = onStateChange
             ? onStateChange(prev, { authState, authData })
@@ -44,16 +45,11 @@ export const useAuth = (props: AuthProps): AuthContextProps => {
         });
       }
     },
-    [isMounted, onStateChange, clearNotification]
+    [isMounted, onStateChange]
   );
 
   React.useEffect(() => {
     const checkUser = async (): Promise<void> => {
-      invariant(
-        Auth && typeof Auth.currentAuthenticatedUser === 'function',
-        'No Auth module found, please ensure @aws-amplify/auth is imported'
-      );
-
       try {
         const user = await Auth.currentAuthenticatedUser();
         if (!isMounted()) return;

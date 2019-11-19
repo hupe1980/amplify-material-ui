@@ -3,49 +3,37 @@ import Auth from '@aws-amplify/auth';
 import { Logger } from '@aws-amplify/core';
 
 import { useAuthContext } from './use-auth-context';
-import { useNotificationContext } from './use-notification-context';
 
 const logger = new Logger('useConfirmSignUp');
 
 export const useConfirmSignUp = () => {
+  invariant(
+    (Auth && typeof Auth.confirmSignUp === 'function') ||
+      typeof Auth.resendSignUp === 'function',
+    'No Auth module found, please ensure @aws-amplify/auth is imported'
+  );
+
   const { handleStateChange, authData = {} } = useAuthContext();
-  const { showNotification } = useNotificationContext();
 
   const { username } = authData;
 
   const confirm = async (code: string): Promise<void> => {
-    invariant(
-      Auth && typeof Auth.confirmSignUp === 'function',
-      'No Auth module found, please ensure @aws-amplify/auth is imported'
-    );
-
     try {
       await Auth.confirmSignUp(username, code);
       handleStateChange('signedUp', null);
     } catch (error) {
       logger.error(error);
-      showNotification({
-        content: error.message,
-        variant: 'error',
-      });
+      throw error;
     }
   };
 
   const resend = async (): Promise<void> => {
-    invariant(
-      Auth && typeof Auth.resendSignUp === 'function',
-      'No Auth module found, please ensure @aws-amplify/auth is imported'
-    );
-
     try {
       await Auth.resendSignUp(username);
       logger.debug('code resent');
     } catch (error) {
       logger.error(error);
-      showNotification({
-        content: error.message,
-        variant: 'error',
-      });
+      throw error;
     }
   };
 

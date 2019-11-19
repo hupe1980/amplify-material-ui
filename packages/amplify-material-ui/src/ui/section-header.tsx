@@ -1,13 +1,9 @@
 import * as React from 'react';
-import {
-  Avatar,
-  Box,
-  Typography,
-  createStyles,
-  makeStyles,
-  Theme,
-} from '@material-ui/core';
+import Avatar from '@material-ui/core/Avatar';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

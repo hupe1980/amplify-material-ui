@@ -1,21 +1,18 @@
 import * as React from 'react';
 import { useIntl, FormattedMessage } from 'react-intl';
+import { useAuthContext, useVerifyContact } from 'amplify-auth-hooks';
 import { ConsoleLogger as Logger } from '@aws-amplify/core';
-import {
-  Button,
-  Grid,
-  FormControlLabel,
-  Radio,
-  makeStyles,
-  createStyles,
-  Theme,
-} from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Radio from '@material-ui/core/Radio';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Formik, Field, Form } from 'formik';
 import { RadioGroup, TextField } from 'formik-material-ui';
 
-import { useAuthContext, useVerifyContact } from 'amplify-auth-hooks';
-import { ChangeAuthStateLink } from './change-auth-state-link';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
+import { useNotificationContext } from '../notification';
+import { ChangeAuthStateLink } from './change-auth-state-link';
 
 const logger = new Logger('VerifyContact');
 
@@ -32,11 +29,11 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const VerifyContact: React.FC = () => {
-  const { authData } = useAuthContext();
-  const { verifyAttr, verify, submit } = useVerifyContact();
-
   const classes = useStyles();
   const { formatMessage } = useIntl();
+  const { showNotification } = useNotificationContext();
+  const { authData } = useAuthContext();
+  const { verifyAttr, verify, submit } = useVerifyContact();
 
   const renderSkipLinkPanel = (): React.ReactElement => (
     <Grid container>
@@ -77,7 +74,12 @@ export const VerifyContact: React.FC = () => {
           contact: '',
         }}
         onSubmit={async ({ contact }, { setSubmitting }): Promise<void> => {
-          await verify(contact);
+          try {
+            await verify(contact);
+          } catch (error) {
+            showNotification({ content: error.message, variant: 'error' });
+          }
+
           setSubmitting(false);
         }}
       >

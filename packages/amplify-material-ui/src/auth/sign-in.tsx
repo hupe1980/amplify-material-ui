@@ -1,18 +1,15 @@
 import * as React from 'react';
 import { useIntl, FormattedMessage } from 'react-intl';
-import {
-  Button,
-  Grid,
-  makeStyles,
-  createStyles,
-  Theme,
-} from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 import { useSignIn } from 'amplify-auth-hooks';
 
-import { useUsernameField } from './use-username-field';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
+import { useNotificationContext } from '../notification';
+import { useUsernameField } from './use-username-field';
 import { ChangeAuthStateLink } from './change-auth-state-link';
 import { UsernameAttribute } from './types';
 
@@ -45,6 +42,7 @@ export const SignIn: React.FC<SignInProps> = props => {
 
   const classes = useStyles();
   const { formatMessage } = useIntl();
+  const { showNotification } = useNotificationContext();
   const signIn = useSignIn();
   const { usernamefieldName, usernameField } = useUsernameField(
     usernameAttribute
@@ -57,11 +55,16 @@ export const SignIn: React.FC<SignInProps> = props => {
         password: '',
       }}
       onSubmit={async (values, { setSubmitting }): Promise<void> => {
-        await signIn(
-          values[usernamefieldName],
-          values['password'],
-          validationData
-        );
+        try {
+          await signIn(
+            values[usernamefieldName],
+            values['password'],
+            validationData
+          );
+        } catch (error) {
+          showNotification({ content: error.message, variant: 'error' });
+        }
+
         setSubmitting(false);
       }}
     >

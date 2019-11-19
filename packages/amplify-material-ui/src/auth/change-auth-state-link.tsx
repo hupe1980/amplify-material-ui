@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from '@material-ui/core';
+import Link from '@material-ui/core/Link';
 import { AuthData, useAuthContext } from 'amplify-auth-hooks';
 
 export interface ChangeAuthStateLinkProps {

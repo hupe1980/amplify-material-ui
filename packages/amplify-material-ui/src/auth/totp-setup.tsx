@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Button } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import { I18n } from '@aws-amplify/core';
 import QRCode from 'qrcode.react';
 

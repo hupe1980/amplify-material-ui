@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Auth from '@aws-amplify/auth';
-import { render, cleanup, fireEvent, act, wait } from '@testing-library/react';
+import { render, fireEvent, act, wait } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import { SignIn } from '../../src';
@@ -8,8 +8,6 @@ import { withContext } from './helper';
 
 describe('sign-in', () => {
   const handleStateChange = jest.fn();
-
-  beforeEach(() => cleanup());
 
   it('should be rendered correctly', () => {
     const { asFragment } = render(withContext(<SignIn />)());

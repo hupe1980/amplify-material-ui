@@ -1,5 +1,9 @@
 import * as React from 'react';
-import { NotificationState, NotificationContext } from 'amplify-auth-hooks';
+
+import {
+  NotificationState,
+  NotificationContext,
+} from './use-notification-context';
 
 export interface NotificationProviderProps {
   onShowNotification?: (message: NotificationState) => NotificationState;

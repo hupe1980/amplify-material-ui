@@ -1,14 +1,10 @@
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useConfirmSignUp } from 'amplify-auth-hooks';
-import {
-  Button,
-  Grid,
-  Link,
-  makeStyles,
-  createStyles,
-  Theme,
-} from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { I18n } from '@aws-amplify/core';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';

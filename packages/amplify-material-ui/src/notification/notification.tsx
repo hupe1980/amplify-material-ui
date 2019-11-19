@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { useNotificationContext } from 'amplify-auth-hooks';
 
 import { Toast } from '../ui';
+import { useNotificationContext } from './use-notification-context';
 
 export interface NotificationProps {
   autoHideDuration?: number;

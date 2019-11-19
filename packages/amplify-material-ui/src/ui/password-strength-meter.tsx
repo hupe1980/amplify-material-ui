@@ -1,7 +1,12 @@
 import * as React from 'react';
 import clsx from 'clsx';
 import zxcvbn from 'zxcvbn';
-import { Typography, LinearProgress, colors } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import grey from '@material-ui/core/colors/grey';
+import yellow from '@material-ui/core/colors/yellow';
+import blue from '@material-ui/core/colors/blue';
+import green from '@material-ui/core/colors/green';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export type ScoreLabel = 'weak' | 'fair' | 'good' | 'strong';
@@ -25,20 +30,20 @@ const mapScoreLabel = (score: number): ScoreLabel => {
 
 const useStyles = makeStyles((theme: Theme) => ({
   progress: {
-    backgroundColor: colors.grey[300],
+    backgroundColor: grey[300],
     height: '8px',
   },
   weak: {
     backgroundColor: theme.palette.error.dark,
   },
   fair: {
-    backgroundColor: colors.yellow[500],
+    backgroundColor: yellow[500],
   },
   good: {
-    backgroundColor: colors.blue[500],
+    backgroundColor: blue[500],
   },
   strong: {
-    backgroundColor: colors.green[500],
+    backgroundColor: green[500],
   },
 }));
 

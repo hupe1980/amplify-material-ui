@@ -26,7 +26,7 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "tsdx test --env=jsdom",
+    "test": "tsdx test --env=jsdom --coverage",
     "lint": "tsdx lint",
     "prepare": "npm run build"
   },
@@ -75,6 +75,17 @@
     "tsdx": "^0.11.0",
     "tslib": "^1.10.0",
     "typescript": "^3.7.2"
+  },
+  "jest": {
+    "globals": {
+      "__DEV__": "boolean"
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/setupTests.ts"
+    ]
   },
   "sideEffects": false
 }

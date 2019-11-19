@@ -9,6 +9,11 @@ import { useAuthContext } from './use-auth-context';
 const logger = new Logger('useTOTPSetup');
 
 export const useTOTPSetup = () => {
+  invariant(
+    Auth && typeof Auth.setupTOTP === 'function',
+    'No Auth module found, please ensure @aws-amplify/auth is imported'
+  );
+
   const [code, setCode] = React.useState<string | null>(null);
   const { authData } = useAuthContext();
   //const checkContact = useCheckContact();
@@ -25,10 +30,6 @@ export const useTOTPSetup = () => {
 
   React.useEffect(() => {
     const setup = async (): Promise<void> => {
-      invariant(
-        Auth && typeof Auth.setupTOTP === 'function',
-        'No Auth module found, please ensure @aws-amplify/auth is imported'
-      );
       const data = await Auth.setupTOTP(authData);
       logger.debug('secret key', data);
 

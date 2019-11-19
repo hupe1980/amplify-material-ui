@@ -4,7 +4,6 @@ import Auth from '@aws-amplify/auth';
 import { ConsoleLogger as Logger } from '@aws-amplify/core';
 
 import { useAuthContext } from './use-auth-context';
-import { useNotificationContext } from './use-notification-context';
 import { useCheckContact } from './use-check-contact';
 
 const logger = new Logger('useSignIn');
@@ -14,9 +13,12 @@ export const useSignIn = (): ((
   password: string,
   validationData?: Record<string, string>
 ) => Promise<void>) => {
-  const { handleStateChange } = useAuthContext();
-  const { showNotification } = useNotificationContext();
+  invariant(
+    Auth && typeof Auth.signIn === 'function',
+    'No Auth module found, please ensure @aws-amplify/auth is imported'
+  );
 
+  const { handleStateChange } = useAuthContext();
   const checkContact = useCheckContact();
 
   return async (
@@ -26,11 +28,6 @@ export const useSignIn = (): ((
       [key: string]: string;
     }
   ): Promise<void> => {
-    invariant(
-      Auth && typeof Auth.signIn === 'function',
-      'No Auth module found, please ensure @aws-amplify/auth is imported'
-    );
-
     try {
       const user = await Auth.signIn({
         username,
@@ -53,19 +50,16 @@ export const useSignIn = (): ((
       } else {
         checkContact(user);
       }
-    } catch (err) {
-      if (err.code === 'UserNotConfirmedException') {
+    } catch (error) {
+      if (error.code === 'UserNotConfirmedException') {
         logger.debug('the user is not confirmed');
         handleStateChange('confirmSignUp', { username });
-      } else if (err.code === 'PasswordResetRequiredException') {
+      } else if (error.code === 'PasswordResetRequiredException') {
         logger.debug('the user requires a new password');
         handleStateChange('forgotPassword', { username });
       } else {
-        logger.error(err);
-        showNotification({
-          content: err.message,
-          variant: 'error',
-        });
+        logger.error(error);
+        throw error;
       }
     }
   };

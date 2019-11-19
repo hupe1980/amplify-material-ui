@@ -8,8 +8,6 @@ export * from './federated-sign-in';
 export * from './forgot-password';
 export * from './greetings';
 export * from './loading';
-export * from './notification-provider';
-export * from './notification';
 export * from './recaptcha';
 export * from './require-new-password';
 export * from './sign-in';

@@ -1,14 +1,16 @@
 import * as React from 'react';
-import { CssBaseline, Theme } from '@material-ui/core';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { Theme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { AuthProps } from 'amplify-auth-hooks';
 
 import { defaultTheme } from '../theme';
 import { IntlProvider, IntlProviderProps } from '../i18n';
 import {
+  Notification,
   NotificationProvider,
   NotificationProviderProps,
-} from './notification-provider';
+} from '../notification';
 import { AuthProvider } from './auth-provider';
 import { ForgotPassword } from './forgot-password';
 import { Greetings } from './greetings';
@@ -20,7 +22,6 @@ import { ConfirmSignIn } from './confirm-sign-in';
 import { ConfirmSignUp } from './confirm-sign-up';
 import { VerifyContact } from './verify-contact';
 import { AuthRoute, AuthConfig } from './auth-route';
-import { Notification } from './notification';
 
 const defaultChildren = [
   {
