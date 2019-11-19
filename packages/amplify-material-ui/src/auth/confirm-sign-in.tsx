@@ -9,6 +9,7 @@ import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
+import { useNotificationContext } from '../notification';
 import { ChangeAuthStateLink } from './change-auth-state-link';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export const ConfirmSignIn: React.FC = () => {
   const classes = useStyles();
   const { formatMessage } = useIntl();
+  const { showNotification } = useNotificationContext();
   const { confirm, mfaType } = useConfirmSignIn();
 
   return (
@@ -34,7 +36,12 @@ export const ConfirmSignIn: React.FC = () => {
         code: '',
       }}
       onSubmit={async ({ code }, { setSubmitting }): Promise<void> => {
-        await confirm(code);
+        try {
+          await confirm(code);
+        } catch (error) {
+          showNotification({ content: error.message, variant: 'error' });
+        }
+
         setSubmitting(false);
       }}
     >

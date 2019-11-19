@@ -143,7 +143,12 @@ export const VerifyContact: React.FC = () => {
         code: '',
       }}
       onSubmit={async ({ code }, { setSubmitting }): Promise<void> => {
-        await submit(code);
+        try {
+          await submit(code);
+        } catch (error) {
+          showNotification({ content: error.message, variant: 'error' });
+        }
+
         setSubmitting(false);
       }}
     >

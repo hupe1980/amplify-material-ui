@@ -9,9 +9,10 @@ import { I18n } from '@aws-amplify/core';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
+import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
+import { useNotificationContext } from '../notification';
 import { useUsernameField } from './use-username-field';
 import { ChangeAuthStateLink } from './change-auth-state-link';
-import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,6 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export const ForgotPassword: React.FC = () => {
   const classes = useStyles();
   const { formatMessage } = useIntl();
+  const { showNotification } = useNotificationContext();
   const { delivery, submit, send } = useForgotPassword();
   const { usernamefieldName, usernameField } = useUsernameField();
   const { authData = {} } = useAuthContext();
@@ -53,7 +55,12 @@ export const ForgotPassword: React.FC = () => {
         { code, password },
         { setSubmitting }
       ): Promise<void> => {
-        await submit(code, username, password);
+        try {
+          await submit(code, username, password);
+        } catch (error) {
+          showNotification({ content: error.message, variant: 'error' });
+        }
+
         setSubmitting(false);
       }}
     >
@@ -123,7 +130,12 @@ export const ForgotPassword: React.FC = () => {
         [usernamefieldName]: '',
       }}
       onSubmit={async (values, { setSubmitting }): Promise<void> => {
-        await send(values[usernamefieldName]);
+        try {
+          await send(values[usernamefieldName]);
+        } catch (error) {
+          showNotification({ content: error.message, variant: 'error' });
+        }
+
         setSubmitting(false);
       }}
     >

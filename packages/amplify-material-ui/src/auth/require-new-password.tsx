@@ -7,8 +7,9 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
-import { ChangeAuthStateLink } from './change-auth-state-link';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
+import { useNotificationContext } from '../notification';
+import { ChangeAuthStateLink } from './change-auth-state-link';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -25,6 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export const RequireNewPassword: React.FC = () => {
   const classes = useStyles();
   const { formatMessage } = useIntl();
+  const { showNotification } = useNotificationContext();
   const completeNewPassword = useRequireNewPassword();
 
   return (
@@ -33,7 +35,12 @@ export const RequireNewPassword: React.FC = () => {
         password: '',
       }}
       onSubmit={async ({ password }, { setSubmitting }): Promise<void> => {
-        await completeNewPassword(password);
+        try {
+          await completeNewPassword(password);
+        } catch (error) {
+          showNotification({ content: error.message, variant: 'error' });
+        }
+
         setSubmitting(false);
       }}
     >
