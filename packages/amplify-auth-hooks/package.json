@@ -1,6 +1,6 @@
 {
   "name": "amplify-auth-hooks",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Hooks for aws amplify auth",
   "repository": {
     "type": "git",
