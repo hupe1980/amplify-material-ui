@@ -28,7 +28,7 @@
     "build": "tsdx build",
     "test": "tsdx test --env=jsdom --coverage",
     "lint": "tsdx lint",
-    "prepare": "npm run build"
+    "prepare": "yarn run build"
   },
   "dependencies": {
     "amplify-auth-hooks": "^0.0.3",
@@ -63,7 +63,6 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/react-hooks": "^3.2.1",
-    "@types/jest": "^24.0.23",
     "@types/qrcode.react": "^1.0.0",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
@@ -71,10 +70,7 @@
     "babel-plugin-optimize-clsx": "^2.5.0",
     "babel-plugin-react-remove-properties": "^0.3.0",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "tsdx": "^0.11.0",
-    "tslib": "^1.10.0",
-    "typescript": "^3.7.2"
+    "react-dom": "^16.12.0"
   },
   "jest": {
     "globals": {

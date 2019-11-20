@@ -15,8 +15,12 @@
     "packages/*"
   ],
   "devDependencies": {
-    "husky": "^3.1.0",
+    "@types/jest": "^24.0.23",
+    "cross-env": "^6.0.3",
     "lerna": "^3.18.5",
-    "lint-staged": "^9.4.3"
+    "rimraf": "^3.0.0",
+    "tsdx": "^0.11.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.2"
   }
 }
