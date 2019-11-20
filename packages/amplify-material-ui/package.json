@@ -37,7 +37,7 @@
     "formik-material-ui": "^1.0.0",
     "langtag-utils": "^2.0.0",
     "qrcode.react": "^1.0.0",
-    "react-intl": "^3.6.0",
+    "react-intl": "^3.6.1",
     "react-recaptcha-hook": "^1.0.5",
     "tiny-invariant": "^1.0.6",
     "zxcvbn": "^4.4.2"

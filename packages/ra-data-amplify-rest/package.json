@@ -32,7 +32,7 @@
   },
   "peerDependencies": {
     "@aws-amplify/api": "^1.1.1",
-    "ra-core": "^3.0.0-beta.4"
+    "ra-core": "^3.0.0"
   },
   "prettier": {
     "printWidth": 80,
@@ -43,7 +43,7 @@
   "devDependencies": {
     "@aws-amplify/api": "^1.2.4",
     "@types/jest": "^24.0.23",
-    "ra-core": "^3.0.0-beta.6",
+    "ra-core": "^3.0.0",
     "rimraf": "^3.0.0",
     "tsdx": "^0.11.0",
     "tslib": "^1.10.0",
