@@ -27,12 +27,10 @@
     "build": "tsdx build",
     "test": "tsdx test --env=jsdom",
     "lint": "tsdx lint",
-    "prepare": "yarn run build",
-    "size": "size-limit"
+    "prepare": "yarn run build"
   },
   "dependencies": {
     "react-is-mounted-hook": "^1.0.1",
-    "react-recaptcha-hook": "^1.0.5",
     "tiny-invariant": "^1.0.6"
   },
   "peerDependencies": {

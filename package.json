@@ -2,7 +2,6 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "watch": "lerna run --scope amplify-* watch",
     "all:outdated": "yarn outdated",
     "all:upgrade": "yarn upgrade-interactive --latest",
     "lint:ci": "lerna run lint",
