@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useIntl, FormattedMessage } from 'react-intl';
 import { useConfirmSignUp } from 'amplify-auth-hooks';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { I18n } from '@aws-amplify/core';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
@@ -27,6 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const ConfirmSignUp: React.FC = () => {
   const classes = useStyles();
+  const { formatMessage } = useIntl();
   const { showNotification } = useNotificationContext();
   const { confirm, resend } = useConfirmSignUp();
 
@@ -61,7 +61,10 @@ export const ConfirmSignUp: React.FC = () => {
                 required
                 fullWidth
                 id="code"
-                label={`${I18n.get('Confirmation Code')} *`}
+                label={formatMessage({
+                  id: 'global.labels.confirmationCode',
+                  defaultMessage: 'Confirmation Code',
+                })}
                 name="code"
                 autoComplete="code"
                 autoFocus
@@ -77,17 +80,26 @@ export const ConfirmSignUp: React.FC = () => {
                 color="primary"
                 className={classes.submit}
               >
-                {I18n.get('Confirm')}
+                <FormattedMessage
+                  id="confirmSignUp.buttons.confirm"
+                  defaultMessage="Confirm"
+                />
               </Button>
               <Grid container>
                 <Grid item xs>
                   <Link href="#" onClick={resend} variant="body2">
-                    {I18n.get('Resend Code')}
+                    <FormattedMessage
+                      id="confirmSignUp.links.resendCode"
+                      defaultMessage="Resend Code"
+                    />
                   </Link>
                 </Grid>
                 <Grid item>
                   <ChangeAuthStateLink
-                    label={I18n.get('Back to Sign In')}
+                    label={formatMessage({
+                      id: 'confirmSignUp.links.backToSignIn',
+                      defaultMessage: 'Back to Sign In',
+                    })}
                     newState="signIn"
                   />
                 </Grid>

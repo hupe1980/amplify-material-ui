@@ -59,7 +59,7 @@ exports[`confirm-sign-up should be rendered correctly 1`] = `
               for="code"
               id="code-label"
             >
-              Confirmation Code *
+              Confirmation Code
               <span
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
               >

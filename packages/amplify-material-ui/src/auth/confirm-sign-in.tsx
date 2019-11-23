@@ -4,7 +4,6 @@ import { useConfirmSignIn } from 'amplify-auth-hooks';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { I18n } from '@aws-amplify/core';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
@@ -81,12 +80,18 @@ export const ConfirmSignIn: React.FC = () => {
                 color="primary"
                 className={classes.submit}
               >
-                {I18n.get('Confirm')}
+                <FormattedMessage
+                  id="confirmSignIn.buttons.confirm"
+                  defaultMessage="Confirm"
+                />
               </Button>
               <Grid container>
                 <Grid item xs>
                   <ChangeAuthStateLink
-                    label={I18n.get('Back to Sign In')}
+                    label={formatMessage({
+                      id: 'confirmSignUp.links.backToSignIn',
+                      defaultMessage: 'Back to Sign In',
+                    })}
                     newState="signIn"
                   />
                 </Grid>

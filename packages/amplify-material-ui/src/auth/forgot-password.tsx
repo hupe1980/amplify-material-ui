@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { I18n } from '@aws-amplify/core';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
 
@@ -89,7 +88,10 @@ export const ForgotPassword: React.FC = () => {
                 required
                 fullWidth
                 name="password"
-                label={I18n.get('New Password')}
+                label={formatMessage({
+                  id: 'global.labels.newPassword',
+                  defaultMessage: 'New Password',
+                })}
                 type="password"
                 id="password"
                 component={TextField}
@@ -104,7 +106,10 @@ export const ForgotPassword: React.FC = () => {
                 color="primary"
                 className={classes.submit}
               >
-                {I18n.get('Submit')}
+                <FormattedMessage
+                  id="forgotPassword.buttons.submit"
+                  defaultMessage="Submit"
+                />
               </Button>
               <Grid container>
                 <Grid item xs>
@@ -113,7 +118,10 @@ export const ForgotPassword: React.FC = () => {
                     onClick={(): Promise<void> => send(username)}
                     variant="body2"
                   >
-                    {I18n.get('Resend Code')}
+                    <FormattedMessage
+                      id="forgotPassword.links.resendCode"
+                      defaultMessage="Resend Code"
+                    />
                   </Link>
                 </Grid>
               </Grid>
@@ -153,12 +161,18 @@ export const ForgotPassword: React.FC = () => {
                 color="primary"
                 className={classes.submit}
               >
-                {I18n.get('Send Code')}
+                <FormattedMessage
+                  id="forgotPassword.buttons.sendCode"
+                  defaultMessage="Send Code"
+                />
               </Button>
               <Grid container>
                 <Grid item>
                   <ChangeAuthStateLink
-                    label={I18n.get('Back to Sign In')}
+                    label={formatMessage({
+                      id: 'signIn.links.backToSignIn',
+                      defaultMessage: 'Back to Sign In',
+                    })}
                     newState="signIn"
                   />
                 </Grid>

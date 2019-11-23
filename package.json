@@ -5,7 +5,7 @@
     "all:outdated": "yarn outdated",
     "all:upgrade": "yarn upgrade-interactive --latest",
     "lint:ci": "lerna run lint",
-    "lint:fix": "lerna run lint --fix",
+    "lint:fix": "lerna run lint -- --fix",
     "test:unit": "yarn workspace amplify-material-ui test",
     "prepare": "lerna run prepare"
   },

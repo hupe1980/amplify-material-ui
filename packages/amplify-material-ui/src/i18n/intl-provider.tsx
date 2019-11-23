@@ -18,6 +18,7 @@ const defaultMessages: RawIntlMessages = {
         email: 'Email',
         phoneNumber: 'Telefonnummer',
         code: 'Code',
+        confirmationCode: 'Bestätigungs-Code',
       },
     },
     signUp: {
@@ -63,12 +64,33 @@ const defaultMessages: RawIntlMessages = {
     },
     confirmSignIn: {
       header: '{mfaType} Code bestätigen',
+      buttons: {
+        confirm: 'Bestätigen',
+      },
+      links: {
+        backToSignIn: 'Zurück zur Anmeldung',
+      },
     },
     confirmSignUp: {
       header: 'Zurücksetzen des Passworts',
+      buttons: {
+        confirm: 'Bestätigen',
+      },
+      links: {
+        resendCode: 'Code erneut senden',
+        backToSignIn: 'Zurück zur Anmeldung',
+      },
     },
     forgotPassword: {
       header: 'Zurücksetzen des Passworts',
+      buttons: {
+        submit: 'Abschicken',
+        sendCode: 'Code senden',
+      },
+      links: {
+        resendCode: 'Code erneut senden',
+        backToSignIn: 'Zurück zur Anmeldung',
+      },
     },
     greetings: {
       menu: {
