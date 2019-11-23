@@ -1,6 +1,6 @@
 {
   "name": "amplify-react-admin",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "aws amplify based react-admin",
   "license": "MIT",
   "repository": {
@@ -28,7 +28,7 @@
     "prepare": "yarn run build"
   },
   "dependencies": {
-    "amplify-material-ui": "^0.0.36",
+    "amplify-material-ui": "^0.0.37",
     "history": "^4.10.1"
   },
   "peerDependencies": {
