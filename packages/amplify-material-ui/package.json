@@ -26,18 +26,18 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "tsdx test --env=jsdom --coverage",
+    "test": "tsdx test --env=jsdom --coverage --maxWorkers=2",
     "lint": "tsdx lint",
     "prepare": "yarn run build"
   },
   "dependencies": {
     "amplify-auth-hooks": "^0.0.4",
     "clsx": "^1.0.4",
-    "formik": "^2.0.4",
+    "formik": "^2.0.6",
     "formik-material-ui": "^1.0.0",
     "langtag-utils": "^2.0.0",
     "qrcode.react": "^1.0.0",
-    "react-intl": "^3.6.1",
+    "react-intl": "^3.6.2",
     "react-recaptcha-hook": "^1.0.5",
     "tiny-invariant": "^1.0.6",
     "zxcvbn": "^4.4.2"
@@ -58,13 +58,13 @@
   "devDependencies": {
     "@aws-amplify/auth": "^1.5.0",
     "@aws-amplify/core": "^1.2.4",
-    "@material-ui/core": "^4.0.1",
+    "@material-ui/core": "^4.7.0",
     "@material-ui/icons": "^4.0.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/react-hooks": "^3.2.1",
     "@types/qrcode.react": "^1.0.0",
-    "@types/react": "^16.9.11",
+    "@types/react": "^16.9.12",
     "@types/react-dom": "^16.9.4",
     "@types/zxcvbn": "^4.4.0",
     "babel-plugin-optimize-clsx": "^2.5.0",
