@@ -36,7 +36,6 @@ export const useVerifyContact = () => {
     try {
       await Auth.verifyCurrentUserAttributeSubmit(verifyAttr, code);
       handleStateChange('signedIn', authData);
-      setVerifyAttr(null);
     } catch (error) {
       logger.error(error);
       throw error;
