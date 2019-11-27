@@ -39,6 +39,7 @@ const defaultMessages: RawIntlMessages = {
         signIn: 'Anmelden',
       },
       links: {
+        backToSignIn: 'Zurück zur Anmeldung',
         forgotPassword: 'Passwort zurücksetzen',
         signUp: 'Hier registrieren',
       },

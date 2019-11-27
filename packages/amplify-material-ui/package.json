@@ -37,7 +37,7 @@
     "formik-material-ui": "^1.0.0",
     "langtag-utils": "^2.0.0",
     "qrcode.react": "^1.0.0",
-    "react-intl": "^3.6.2",
+    "react-intl": "^3.7.0",
     "react-recaptcha-hook": "^1.0.5",
     "tiny-invariant": "^1.0.6",
     "zxcvbn": "^4.4.2"
@@ -64,7 +64,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/react-hooks": "^3.2.1",
     "@types/qrcode.react": "^1.0.0",
-    "@types/react": "^16.9.12",
+    "@types/react": "^16.9.13",
     "@types/react-dom": "^16.9.4",
     "@types/zxcvbn": "^4.4.0",
     "babel-plugin-optimize-clsx": "^2.5.0",

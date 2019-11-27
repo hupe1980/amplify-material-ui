@@ -12,6 +12,8 @@ import Divider from '@material-ui/core/Divider';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
+import { UsernameAttribute } from './types';
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     toolbar: {
@@ -36,6 +38,7 @@ export interface GreetingsProps {
   className?: string;
   burgerMenu?: React.ReactElement;
   globalSignOut?: boolean;
+  usernameAttribute?: UsernameAttribute;
 }
 
 export const Greetings: React.FC<GreetingsProps> = props => {
@@ -45,6 +48,7 @@ export const Greetings: React.FC<GreetingsProps> = props => {
     title = 'Greetings',
     burgerMenu,
     globalSignOut,
+    usernameAttribute = UsernameAttribute.USERNAME,
   } = props;
 
   const { authData } = useAuthContext();
@@ -66,6 +70,22 @@ export const Greetings: React.FC<GreetingsProps> = props => {
   const logout = async (): Promise<void> => {
     handleClose();
     await signOut();
+  };
+
+  const getUserName = () => {
+    switch (usernameAttribute) {
+      case UsernameAttribute.EMAIL:
+        return authData.attributes
+          ? authData.attributes.email
+          : authData.username;
+      case UsernameAttribute.PHONE_NUMBER:
+        return authData.attributes
+          ? authData.attributes.phone_number
+          : authData.username;
+      case UsernameAttribute.EMAIL:
+      default:
+        return authData.username;
+    }
   };
 
   return (
@@ -105,7 +125,7 @@ export const Greetings: React.FC<GreetingsProps> = props => {
           <FormattedMessage
             id="greetings.menu.signedIn"
             defaultMessage="Signed in as {username}"
-            values={{ username: authData.username }}
+            values={{ username: getUserName() }}
           />
         </MenuItem>
         <Divider />

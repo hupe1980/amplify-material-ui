@@ -1,6 +1,5 @@
 import * as React from 'react';
 import invariant from 'tiny-invariant';
-import useIsMounted from 'react-is-mounted-hook';
 import Auth from '@aws-amplify/auth';
 import { Hub } from '@aws-amplify/core';
 import { HubCapsule } from '@aws-amplify/core/lib/Hub';
@@ -20,8 +19,6 @@ export const useAuth = (props: AuthProps): AuthContextProps => {
 
   const { initialAuthState = 'signIn', onStateChange } = props;
 
-  const isMounted = useIsMounted();
-
   const [state, setState] = React.useState<AuthState>({
     authState: initialAuthState,
     authData: null,
@@ -33,29 +30,25 @@ export const useAuth = (props: AuthProps): AuthContextProps => {
         authState = 'signIn';
       }
 
-      if (isMounted()) {
-        setState(prev => {
-          const newState = onStateChange
-            ? onStateChange(prev, { authState, authData })
-            : { authState, authData };
-          return {
-            ...prev,
-            ...newState,
-          };
-        });
-      }
+      setState(prev => {
+        const newState = onStateChange
+          ? onStateChange(prev, { authState, authData })
+          : { authState, authData };
+        return {
+          ...prev,
+          ...newState,
+        };
+      });
     },
-    [isMounted, onStateChange]
+    [onStateChange]
   );
 
   React.useEffect(() => {
     const checkUser = async (): Promise<void> => {
       try {
         const user = await Auth.currentAuthenticatedUser();
-        if (!isMounted()) return;
         handleStateChange('signedIn', user);
       } catch (error) {
-        if (!isMounted()) return;
         handleStateChange(initialAuthState, null);
       }
     };
@@ -84,6 +77,7 @@ export const useAuth = (props: AuthProps): AuthContextProps => {
           handleStateChange('signIn', null);
           break;
         default:
+          //TODO
           break;
       }
     };

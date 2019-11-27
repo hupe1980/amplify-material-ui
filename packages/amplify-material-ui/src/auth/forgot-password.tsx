@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useIntl, FormattedMessage } from 'react-intl';
-import { useAuthContext, useForgotPassword } from 'amplify-auth-hooks';
+import { useForgotPassword } from 'amplify-auth-hooks';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
@@ -29,11 +29,8 @@ export const ForgotPassword: React.FC = () => {
   const classes = useStyles();
   const { formatMessage } = useIntl();
   const { showNotification } = useNotificationContext();
-  const { delivery, submit, send } = useForgotPassword();
+  const { delivery, submit, send, username } = useForgotPassword();
   const { usernamefieldName, usernameField } = useUsernameField();
-  const { authData = {} } = useAuthContext();
-
-  const { username } = authData;
 
   const renderSectionHeader = (): React.ReactElement => (
     <SectionHeader>
@@ -50,17 +47,13 @@ export const ForgotPassword: React.FC = () => {
         code: '',
         password: '',
       }}
-      onSubmit={async (
-        { code, password },
-        { setSubmitting }
-      ): Promise<void> => {
+      key="submit-form"
+      onSubmit={async ({ code, password }): Promise<void> => {
         try {
-          await submit(code, username, password);
+          await submit(code, password);
         } catch (error) {
           showNotification({ content: error.message, variant: 'error' });
         }
-
-        setSubmitting(false);
       }}
     >
       {({ handleSubmit, isValid }): React.ReactNode => (
@@ -137,14 +130,13 @@ export const ForgotPassword: React.FC = () => {
       initialValues={{
         [usernamefieldName]: '',
       }}
-      onSubmit={async (values, { setSubmitting }): Promise<void> => {
+      key="send-form"
+      onSubmit={async (values): Promise<void> => {
         try {
           await send(values[usernamefieldName]);
         } catch (error) {
           showNotification({ content: error.message, variant: 'error' });
         }
-
-        setSubmitting(false);
       }}
     >
       {({ handleSubmit, isValid }): React.ReactNode => (
