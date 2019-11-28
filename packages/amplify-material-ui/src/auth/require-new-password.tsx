@@ -34,14 +34,12 @@ export const RequireNewPassword: React.FC = () => {
       initialValues={{
         password: '',
       }}
-      onSubmit={async ({ password }, { setSubmitting }): Promise<void> => {
+      onSubmit={async ({ password }): Promise<void> => {
         try {
           await completeNewPassword(password);
         } catch (error) {
           showNotification({ content: error.message, variant: 'error' });
         }
-
-        setSubmitting(false);
       }}
     >
       {({ handleSubmit, isValid }): React.ReactNode => (

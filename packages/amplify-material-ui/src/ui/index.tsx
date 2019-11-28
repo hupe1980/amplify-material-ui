@@ -5,5 +5,4 @@ export * from './section-footer';
 export * from './section-header';
 export * from './toast';
 export * from './password-field';
-export * from './password-strength-meter';
 export * from './phone-field';

@@ -73,14 +73,13 @@ export const VerifyContact: React.FC = () => {
         initialValues={{
           contact: '',
         }}
-        onSubmit={async ({ contact }, { setSubmitting }): Promise<void> => {
+        key="verify-contract-verify-form"
+        onSubmit={async ({ contact }): Promise<void> => {
           try {
             await verify(contact);
           } catch (error) {
             showNotification({ content: error.message, variant: 'error' });
           }
-
-          setSubmitting(false);
         }}
       >
         {({ handleSubmit, isSubmitting, isValid }): React.ReactNode => (
@@ -142,14 +141,13 @@ export const VerifyContact: React.FC = () => {
       initialValues={{
         code: '',
       }}
-      onSubmit={async ({ code }, { setSubmitting }): Promise<void> => {
+      key="verify-contract-submit-form"
+      onSubmit={async ({ code }): Promise<void> => {
         try {
           await submit(code);
         } catch (error) {
           showNotification({ content: error.message, variant: 'error' });
         }
-
-        setSubmitting(false);
       }}
     >
       {({ handleSubmit, isValid }): React.ReactNode => (

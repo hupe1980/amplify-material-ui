@@ -41,17 +41,12 @@ export const SignUp: React.FC<SignUpProps> = props => {
         email: '',
         password: '',
       }}
-      onSubmit={async (
-        { email, password },
-        { setSubmitting }
-      ): Promise<void> => {
+      onSubmit={async ({ email, password }): Promise<void> => {
         try {
           await signUp(email, password, validationData);
         } catch (error) {
           showNotification({ content: error.message, variant: 'error' });
         }
-
-        setSubmitting(false);
       }}
     >
       {({ handleSubmit, isValid }): React.ReactNode => (

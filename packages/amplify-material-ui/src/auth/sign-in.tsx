@@ -54,7 +54,7 @@ export const SignIn: React.FC<SignInProps> = props => {
         [usernamefieldName]: '',
         password: '',
       }}
-      onSubmit={async (values, { setSubmitting }): Promise<void> => {
+      onSubmit={async (values): Promise<void> => {
         try {
           await signIn(
             values[usernamefieldName],
@@ -64,8 +64,6 @@ export const SignIn: React.FC<SignInProps> = props => {
         } catch (error) {
           showNotification({ content: error.message, variant: 'error' });
         }
-
-        setSubmitting(false);
       }}
     >
       {({ handleSubmit, isValid }): React.ReactNode => (

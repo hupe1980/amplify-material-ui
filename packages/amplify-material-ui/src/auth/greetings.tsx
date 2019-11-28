@@ -82,7 +82,7 @@ export const Greetings: React.FC<GreetingsProps> = props => {
         return authData.attributes
           ? authData.attributes.phone_number
           : authData.username;
-      case UsernameAttribute.EMAIL:
+      //case UsernameAttribute.EMAIL:
       default:
         return authData.username;
     }

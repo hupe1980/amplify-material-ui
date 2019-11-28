@@ -34,14 +34,12 @@ export const ConfirmSignIn: React.FC = () => {
       initialValues={{
         code: '',
       }}
-      onSubmit={async ({ code }, { setSubmitting }): Promise<void> => {
+      onSubmit={async ({ code }): Promise<void> => {
         try {
           await confirm(code);
         } catch (error) {
           showNotification({ content: error.message, variant: 'error' });
         }
-
-        setSubmitting(false);
       }}
     >
       {({ handleSubmit, isValid }): React.ReactNode => (

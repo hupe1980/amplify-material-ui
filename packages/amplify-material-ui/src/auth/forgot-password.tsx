@@ -47,7 +47,7 @@ export const ForgotPassword: React.FC = () => {
         code: '',
         password: '',
       }}
-      key="submit-form"
+      key="forgot-password-submit-form"
       onSubmit={async ({ code, password }): Promise<void> => {
         try {
           await submit(code, password);
@@ -130,7 +130,7 @@ export const ForgotPassword: React.FC = () => {
       initialValues={{
         [usernamefieldName]: '',
       }}
-      key="send-form"
+      key="forgot-password-send-form"
       onSubmit={async (values): Promise<void> => {
         try {
           await send(values[usernamefieldName]);
