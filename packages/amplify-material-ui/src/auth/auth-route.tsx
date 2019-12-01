@@ -7,6 +7,7 @@ export interface AuthConfig {
   hideSignUpLink?: boolean;
   hideForgotPasswordLink?: boolean;
   usernameAttribute?: UsernameAttribute;
+  title?: string | React.ReactElement;
 }
 export interface AuthRouteProps extends AuthConfig {
   validAuthStates: string[];

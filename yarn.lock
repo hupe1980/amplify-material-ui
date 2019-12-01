@@ -1624,33 +1624,33 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
-"@formatjs/intl-listformat@^1.2.6":
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-listformat/-/intl-listformat-1.2.7.tgz#af0ebd2574bc8296dffb2274ff7f314f86f4ec69"
-  integrity sha512-wxoUh1qZ4FTkGP2xRTzh0qzFwq/8AbfkPntZ9u8fiydhnb4YDjZRAKm2FbvPXyFaIDomfJA1FjrpnhedhvEQFg==
+"@formatjs/intl-listformat@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-listformat/-/intl-listformat-1.3.0.tgz#822b7393f753fb1eab023a75351f63da3cb232b7"
+  integrity sha512-iueYwNh2qDZ2hs1y3au2pO+xeXJxgQ990uFpFenc3hz2gCeh/aKzYTkakVqFTlhkou/rvavV7mnNudJzzU5UaQ==
   dependencies:
-    "@formatjs/intl-utils" "^1.4.4"
+    "@formatjs/intl-utils" "^1.5.0"
 
-"@formatjs/intl-relativetimeformat@^4.4.5":
-  version "4.4.6"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-relativetimeformat/-/intl-relativetimeformat-4.4.6.tgz#d5ac5ea857186aae6c5cc71194134a18e26c3225"
-  integrity sha512-eyYNGp8fTUGnWnX1sYpJfu1zqUQDo/30HIkAOs9lwTpU1mTwbVUCkA9m6ivYWo/NNoKNVACbwFctspl+NimkRg==
+"@formatjs/intl-relativetimeformat@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-relativetimeformat/-/intl-relativetimeformat-4.5.0.tgz#152c06d71c15ee3b41ffb351fead7873028bd445"
+  integrity sha512-TjLwsSymxOrOC4dEzjuTSyyeR15wcBzJUp8iKmAK3tRBYM4EK8fvKBLEZNRPBkubjJ0oVq2CpSSIg+5KjH+Buw==
   dependencies:
-    "@formatjs/intl-utils" "^1.4.4"
+    "@formatjs/intl-utils" "^1.5.0"
 
-"@formatjs/intl-unified-numberformat@^2.1.6":
-  version "2.1.7"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-unified-numberformat/-/intl-unified-numberformat-2.1.7.tgz#04236d9f28bf040259d0748006ef7718f208b53d"
-  integrity sha512-hC4Qq6XP7Lv1QYqzxuyeTX9dC4+QC+TBNF+mRf4H0eXQP02e2KIWz6sgaPDPfbgOj1HdxMnxACbbUdG+a9LDEw==
+"@formatjs/intl-unified-numberformat@^2.1.8":
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-unified-numberformat/-/intl-unified-numberformat-2.1.8.tgz#524c8aec302908108fa38133434c52599e83fcb2"
+  integrity sha512-tSsH3xMPzGIfW2R6wnxVdmsKAr6PqFyAUEuNsoI6TTHtJW03HfovTR/c+RsO+MDp0xZpq2OCcCyzEjm6Cj6QxQ==
   dependencies:
-    "@formatjs/intl-utils" "^1.4.4"
+    "@formatjs/intl-utils" "^1.5.0"
 
-"@formatjs/intl-utils@^1.4.4":
-  version "1.4.4"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-1.4.4.tgz#1f3120448dc4e9968d859fd85aa027b1ae0b29bc"
-  integrity sha512-FYLEfy5rn1AYV03Vm8ey4snJRwcXzlGJWdi+oDEAMogyhPoFX4Y/jCeFSMfkcxbztYfNM8zzJqXlRBTLtAYldg==
+"@formatjs/intl-utils@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-1.5.0.tgz#885f5ef7d11dae3ed65fffbae9c04c9c51830370"
+  integrity sha512-yUYVbqR0GX1ROUT67UzChIS3Q3Y8M3l9zGVbW4av4aZsWtnFc7p6qBO+jwhf0jElkPPi3tmICVKu/9ABuzwl+w==
 
-"@formatjs/macro@^0.2.5":
+"@formatjs/macro@^0.2.6":
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/@formatjs/macro/-/macro-0.2.6.tgz#eb173658d803416a43210778b2f5c04c5a240bb6"
   integrity sha512-DfdnLJf8+PwLHzJECZ1Xfa8+sI9akQnUuLN2UdkaExTQmlY0Vs36rMzEP0JoVDBMk+KdQbJNt72rPeZkBNcKWg==
@@ -2518,16 +2518,16 @@
     prop-types "^15.7.2"
     react-transition-group "^4.3.0"
 
-"@material-ui/core@^4.7.0":
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.7.0.tgz#84c02a6d1c99c7900e184538c5f9d87e30cf4c23"
-  integrity sha512-mwLehUo0Q9ZxjuWo7J1uy1/Grh3nRxlOAaWJ3EtKeJP2HwqlSy8bWrcvRQYlapaYIPXa5jN8zWbTwi8Pk30VQg==
+"@material-ui/core@^4.7.1":
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.7.1.tgz#87b83da3f6adf45772c0a2be9fd9d162e026f10c"
+  integrity sha512-gqbZqpwUT5/59KTrWyA9Mr9s8NaNyfWHlEQToM1tfpiHqrIJajLVg2ZgVDzExvN985v2YQIfbuTNVzJDOnM28Q==
   dependencies:
     "@babel/runtime" "^7.4.4"
-    "@material-ui/styles" "^4.6.0"
-    "@material-ui/system" "^4.5.2"
+    "@material-ui/styles" "^4.7.1"
+    "@material-ui/system" "^4.7.1"
     "@material-ui/types" "^4.1.1"
-    "@material-ui/utils" "^4.5.2"
+    "@material-ui/utils" "^4.7.1"
     "@types/react-transition-group" "^4.2.0"
     clsx "^1.0.2"
     convert-css-length "^2.0.1"
@@ -2535,6 +2535,7 @@
     normalize-scroll-left "^0.2.0"
     popper.js "^1.14.1"
     prop-types "^15.7.2"
+    react-is "^16.8.0"
     react-transition-group "^4.3.0"
 
 "@material-ui/icons@^4.0.1", "@material-ui/icons@^4.2.1":
@@ -2566,6 +2567,28 @@
     jss-plugin-vendor-prefixer "^10.0.0"
     prop-types "^15.7.2"
 
+"@material-ui/styles@^4.7.1":
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.7.1.tgz#48fa70f06441c35e301a9c4b6c825526a97b7a29"
+  integrity sha512-BBfxVThaPrglqHmKtSdrZJxnbFGJqKdZ5ZvDarj3HsmkteGCXsP1ohrDi5TWoa5JEJFo9S6q6NywqsENZn9rZA==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    "@emotion/hash" "^0.7.1"
+    "@material-ui/types" "^4.1.1"
+    "@material-ui/utils" "^4.7.1"
+    clsx "^1.0.2"
+    csstype "^2.5.2"
+    hoist-non-react-statics "^3.2.1"
+    jss "^10.0.0"
+    jss-plugin-camel-case "^10.0.0"
+    jss-plugin-default-unit "^10.0.0"
+    jss-plugin-global "^10.0.0"
+    jss-plugin-nested "^10.0.0"
+    jss-plugin-props-sort "^10.0.0"
+    jss-plugin-rule-value-function "^10.0.0"
+    jss-plugin-vendor-prefixer "^10.0.0"
+    prop-types "^15.7.2"
+
 "@material-ui/system@^4.5.2":
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/@material-ui/system/-/system-4.5.2.tgz#7143bd8422a3f33f435c23f378136254004bbd60"
@@ -2573,6 +2596,15 @@
   dependencies:
     "@babel/runtime" "^7.4.4"
     "@material-ui/utils" "^4.5.2"
+    prop-types "^15.7.2"
+
+"@material-ui/system@^4.7.1":
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/@material-ui/system/-/system-4.7.1.tgz#d928dacc0eeae6bea569ff3ee079f409efb3517d"
+  integrity sha512-zH02p+FOimXLSKOW/OT2laYkl9bB3dD1AvnZqsHYoseUaq0aVrpbl2BGjQi+vJ5lg8w73uYlt9zOWzb3+1UdMQ==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    "@material-ui/utils" "^4.7.1"
     prop-types "^15.7.2"
 
 "@material-ui/types@^4.1.1":
@@ -2590,6 +2622,15 @@
     "@babel/runtime" "^7.4.4"
     prop-types "^15.7.2"
     react-is "^16.8.6"
+
+"@material-ui/utils@^4.7.1":
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/@material-ui/utils/-/utils-4.7.1.tgz#dc16c7f0d2cd02fbcdd5cfe601fd6863ae3cc652"
+  integrity sha512-+ux0SlLdlehvzCk2zdQ3KiS3/ylWvuo/JwAGhvb8dFVvwR21K28z0PU9OQW2PGogrMEdvX3miEI5tGxTwwWiwQ==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    prop-types "^15.7.2"
+    react-is "^16.8.0"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -8118,28 +8159,28 @@ interpret@^1.0.0:
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.2.0.tgz#d5061a6224be58e8083985f5014d844359576296"
   integrity sha512-mT34yGKMNceBQUoVn7iCDKDntA7SC6gycMAWzGx1z/CMCTV7b2AAtXlo3nRyHZ1FelRkQbQjprHSYGwzLtkVbw==
 
-intl-format-cache@^4.2.10, intl-format-cache@^4.2.11:
-  version "4.2.11"
-  resolved "https://registry.yarnpkg.com/intl-format-cache/-/intl-format-cache-4.2.11.tgz#0819aad42a27fb38f3e0814f487a1530ad536588"
-  integrity sha512-5AEkYXzkrbz/PZDgQ2SLCgpBO6pHDqagaj7oF2PGcRyQf8f0uK8/YCAIU/E6UXomeZhjpqJ+qf18wvJglAJnjw==
+intl-format-cache@^4.2.12:
+  version "4.2.12"
+  resolved "https://registry.yarnpkg.com/intl-format-cache/-/intl-format-cache-4.2.12.tgz#7165f25bd9dbed87b7af521463746ac62440bda6"
+  integrity sha512-Dy3DTz9DacuS9Z2CPym96yz/PS617mpbHhzHsYMsNKefcyi6bRqgRTzwE1OmqYEfO5XDEUOEmBuE2+KVXA+fCA==
 
-intl-locales-supported@^1.8.3:
+intl-locales-supported@^1.8.4:
   version "1.8.4"
   resolved "https://registry.yarnpkg.com/intl-locales-supported/-/intl-locales-supported-1.8.4.tgz#e1d19812afa50dc2e2a2b4741ceb4030522d45b1"
   integrity sha512-wO0JhDqhshhkq8Pa9CLcstqd1aCXjfMgfMzjD6mDreS3mTSDbjGiMU+07O8BdJGxed7Q0Wf3TFVjGq0W3Y0n1w==
 
-intl-messageformat-parser@^3.3.0, intl-messageformat-parser@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-3.3.1.tgz#2140b2072149ae8639645823a3a895d515d251a4"
-  integrity sha512-H+t27dpxi8r51GD9km0huyy5UJET3YF3AT2mvXRc0PRioKPFNexxhMUSagPNrMqGhb+/7p7RPcmsv7tcgCdWWQ==
+intl-messageformat-parser@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-3.4.0.tgz#3af6931fbd4a790d2c65aeab2ba9ea76ab14aba0"
+  integrity sha512-t9Frb9jU2Zodp4M9QjaSBVgmSpFa2+yq7cer20Wr4cJmnyfdgGIYcxfYYLT0Z/s3aL01/bfbGGdwFRFScNzJcA==
 
-intl-messageformat@^7.6.0:
-  version "7.6.1"
-  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-7.6.1.tgz#69ca8ccc755e854d985ddf1595f4301746f4f248"
-  integrity sha512-RN2wah9s/56EVMgVQKTcou2C2DoevmiPlWqIyoY3mciNrOWLlfjFqEFqqJrFinf32/LvnOhClwoqvDZ3T0Jh8Q==
+intl-messageformat@^7.7.0:
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-7.7.0.tgz#f861c2d16f92e8e5c0664465584097b967eef267"
+  integrity sha512-ecWgQmtbhoTPFZ3Q5e8dA3SjnU3TgKMsYW3NFRKDb4AmuiRKNWdCRPz1ttBWa9o3lzb2PqhDPtpxNJNItEqtlw==
   dependencies:
-    intl-format-cache "^4.2.11"
-    intl-messageformat-parser "^3.3.1"
+    intl-format-cache "^4.2.12"
+    intl-messageformat-parser "^3.4.0"
 
 invariant@^2.1.1, invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
@@ -12180,10 +12221,10 @@ quick-lru@^1.0.0:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-1.1.0.tgz#4360b17c61136ad38078397ff11416e186dcfbb8"
   integrity sha1-Q2CxfGETatOAeDl/8RQW4Ybc+7g=
 
-ra-core@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/ra-core/-/ra-core-3.0.1.tgz#a12138208dd2d623721fc2667cb15ab2529c57cf"
-  integrity sha512-OMfxNppaEnSzZbWl1JIaua1faUtUhz0J8atj7TM3OkCBPFSQjeqD4NFh3+zWVyQqjJVOusx8QxeUlV+Na43bEQ==
+ra-core@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/ra-core/-/ra-core-3.0.2.tgz#18523632c96b902f5b96c9d2732bd47a6eeb7b18"
+  integrity sha512-IbUrkaOeLP4a1t3u04kVLEPRlHBUrtRd4uRsHAaJYCwjEN91ptsOs9ULd+DHphC8PvqKQ1mnAsblXQw7T79QAQ==
   dependencies:
     "@testing-library/react" "^8.0.7"
     classnames "~2.2.5"
@@ -12203,23 +12244,23 @@ ra-data-fakerest@^3.0.1:
   dependencies:
     fakerest "~2.1.0"
 
-ra-i18n-polyglot@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/ra-i18n-polyglot/-/ra-i18n-polyglot-3.0.1.tgz#705134974934ac9881f87da150c358f2fd1001a3"
-  integrity sha512-akKNRGePFGF+gsRGYEqTkQmGi6UB8p+RZbHtCQ2C9cUWXCz6uxYdlp36abyIH8d3HPsrpIR+2E+70YkHsWgpQw==
+ra-i18n-polyglot@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/ra-i18n-polyglot/-/ra-i18n-polyglot-3.0.2.tgz#55fa933556b36ce5920a8ca682c6b854cda9013c"
+  integrity sha512-bgCc3uNwgDNINZiVIcCfVzt/Fn3E67P7cKmiLW82P6VAGUKlwbpTx+veil8/5YJ0mqAK+GovSPC3H8LRn6wnjA==
   dependencies:
     node-polyglot "^2.2.2"
-    ra-core "^3.0.1"
+    ra-core "^3.0.2"
 
 ra-language-english@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ra-language-english/-/ra-language-english-3.0.0.tgz#45d8a76dcc3a43f2c11c3865d4a666c889f69cc0"
   integrity sha512-eG27ljHM0So1agbfS37o312JTkXLlCLJALgBnO8sc+IYHMV8ZU3CnAxxICipx9JBgz0PqvtRQD1QAQXByP/gOA==
 
-ra-ui-materialui@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/ra-ui-materialui/-/ra-ui-materialui-3.0.1.tgz#173350f75f3431f9b6e1e58a3ae2e7cb46198496"
-  integrity sha512-MQA8zFLNx4fvK2j6BbXCXhvvYCKOqmTsNBeieoBypLuT4qzND1REgc1dktM8iBYN3d9+LXHThVDAQ7cxfAgpTg==
+ra-ui-materialui@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/ra-ui-materialui/-/ra-ui-materialui-3.0.2.tgz#65dad6af189bd5e5c994ed9bf2684fd38b416283"
+  integrity sha512-3MR4Qz6rf31aIgaacUOmFioy48B/nj5OtMesPxehhzwEh+09lmWMs98pgzI35VTG/tK+rg/ab2L21K7TvN8cag==
   dependencies:
     autosuggest-highlight "^3.1.1"
     classnames "~2.2.5"
@@ -12286,10 +12327,10 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-admin@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/react-admin/-/react-admin-3.0.1.tgz#73bd495de423556760db344503a7cdef69aa199e"
-  integrity sha512-Tpkm2HXwZAzNrVZUq5SdPT+T+J6NjRf0XCyawCFMIkbsm7ToVFQgFPbv8/QgIjBFiZN56pKfOaIzkTRFgZfm0A==
+react-admin@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-admin/-/react-admin-3.0.2.tgz#7330dadbd89f8ba870a035287d3c846e8a773795"
+  integrity sha512-ciqzRtW9KQY1IlpUjQQDq68FGi2/14eKCH+5B3gggNvuP5yAwIak00tPJ9jgKwLtg42N2E52Q0tZNHoNlCaxXQ==
   dependencies:
     "@material-ui/core" "^4.3.3"
     "@material-ui/icons" "^4.2.1"
@@ -12297,10 +12338,10 @@ react-admin@^3.0.1:
     connected-react-router "^6.5.2"
     final-form "^4.18.5"
     final-form-arrays "^3.0.1"
-    ra-core "^3.0.1"
-    ra-i18n-polyglot "^3.0.1"
+    ra-core "^3.0.2"
+    ra-i18n-polyglot "^3.0.2"
     ra-language-english "^3.0.0"
-    ra-ui-materialui "^3.0.1"
+    ra-ui-materialui "^3.0.2"
     react-final-form "^6.3.3"
     react-final-form-arrays "^3.1.1"
     react-redux "^7.1.0"
@@ -12396,22 +12437,22 @@ react-final-form@^6.3.3:
     "@babel/runtime" "^7.4.5"
     ts-essentials "^3.0.2"
 
-react-intl@^3.7.0:
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-3.7.0.tgz#27d377f2795da4590c49cc1410dc40c528f1f3a0"
-  integrity sha512-hzG1+eZCVE38WMHQBqaQbz+yYXnc7Kg3UZW5XmqhbujHivUJlCzBw5u2PKtO9qhdiGt5bOEoyl1DRs7397K18g==
+react-intl@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-3.8.0.tgz#d4e955c00a0d8c2acace0d9e5a0ef152336c60ff"
+  integrity sha512-jWSbc7PUJOpmy0gC9LzTyERpt/auYmMyY0jtCmczgmRns5MIKG9Bav+NpCyZ6XG2jJQgJNWpLkMFy8u7MgjuqA==
   dependencies:
-    "@formatjs/intl-listformat" "^1.2.6"
-    "@formatjs/intl-relativetimeformat" "^4.4.5"
-    "@formatjs/intl-unified-numberformat" "^2.1.6"
-    "@formatjs/macro" "^0.2.5"
+    "@formatjs/intl-listformat" "^1.3.0"
+    "@formatjs/intl-relativetimeformat" "^4.5.0"
+    "@formatjs/intl-unified-numberformat" "^2.1.8"
+    "@formatjs/macro" "^0.2.6"
     "@types/hoist-non-react-statics" "^3.3.1"
     "@types/invariant" "^2.2.30"
     hoist-non-react-statics "^3.3.1"
-    intl-format-cache "^4.2.10"
-    intl-locales-supported "^1.8.3"
-    intl-messageformat "^7.6.0"
-    intl-messageformat-parser "^3.3.0"
+    intl-format-cache "^4.2.12"
+    intl-locales-supported "^1.8.4"
+    intl-messageformat "^7.7.0"
+    intl-messageformat-parser "^3.4.0"
     invariant "^2.1.1"
     shallow-equal "^1.1.0"
 
@@ -12420,7 +12461,7 @@ react-is-mounted-hook@^1.0.1:
   resolved "https://registry.yarnpkg.com/react-is-mounted-hook/-/react-is-mounted-hook-1.0.2.tgz#0da3fa2eeab0d3032cf167d22e8b90f5c13118fb"
   integrity sha512-BYgVf4Yj5eHyIy1qDX5unNvVn/Ow7sDTQTRkxfLTwoS6iQhLpNrmxijJvn3dGp7Jbudexf1jSIyMQxOhSniQhw==
 
-react-is@^16.5.2, react-is@^16.6.0, react-is@^16.9.0:
+react-is@^16.5.2, react-is@^16.6.0, react-is@^16.8.0, react-is@^16.9.0:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
