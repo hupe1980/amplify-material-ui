@@ -1,5 +1,6 @@
 export * from './auth-provider';
 export * from './auth-route';
+export * from './auth-router';
 export * from './authenticator';
 export * from './change-auth-state-link';
 export * from './confirm-sign-in';

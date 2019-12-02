@@ -6,3 +6,4 @@ export * from './section-header';
 export * from './toast';
 export * from './password-field';
 export * from './phone-field';
+export * from './theme-provider';
