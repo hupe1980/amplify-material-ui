@@ -25,17 +25,17 @@
   "dependencies": {
     "@material-ui/core": "^4.7.1",
     "amplify-react-admin": "^0.0.11",
-    "aws-amplify": "^1.2.4",
+    "aws-amplify": "^2.2.0",
     "ra-data-fakerest": "^3.0.1",
     "react": "^16.12.0",
-    "react-admin": "^3.0.2",
+    "react-admin": "^3.0.3",
     "react-dom": "^16.12.0",
     "react-scripts": "3.2.0"
   },
   "devDependencies": {
     "@testing-library/cypress": "^5.0.2",
     "@types/node": "^12.12.14",
-    "@types/react": "^16.9.13",
+    "@types/react": "^16.9.15",
     "@types/react-dom": "^16.9.4",
     "cypress": "3.6.0",
     "start-server-and-test": "^1.10.6"

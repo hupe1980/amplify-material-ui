@@ -41,8 +41,8 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@aws-amplify/api": "^1.2.4",
-    "ra-core": "^3.0.2"
+    "@aws-amplify/api": "^2.1.1",
+    "ra-core": "^3.0.3"
   },
   "sideEffects": false
 }

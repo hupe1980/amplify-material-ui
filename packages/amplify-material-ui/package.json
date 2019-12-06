@@ -37,7 +37,7 @@
     "formik-material-ui": "^1.0.0",
     "langtag-utils": "^2.0.0",
     "qrcode.react": "^1.0.0",
-    "react-intl": "^3.8.0",
+    "react-intl": "^3.9.1",
     "react-recaptcha-hook": "^1.0.5",
     "tiny-invariant": "^1.0.6"
   },
@@ -54,14 +54,14 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@aws-amplify/core": "^1.2.4",
+    "@aws-amplify/core": "^2.2.0",
     "@material-ui/core": "^4.7.1",
     "@material-ui/icons": "^4.0.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/react-hooks": "^3.2.1",
     "@types/qrcode.react": "^1.0.0",
-    "@types/react": "^16.9.13",
+    "@types/react": "^16.9.15",
     "@types/react-dom": "^16.9.4",
     "babel-plugin-optimize-clsx": "^2.5.0",
     "babel-plugin-react-remove-properties": "^0.3.0",
