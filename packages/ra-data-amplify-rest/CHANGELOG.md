@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.21](https://github.com/hupe1980/amplify-material-ui/compare/ra-data-amplify-rest@0.0.20...ra-data-amplify-rest@0.0.21) (2019-12-14)
+
+**Note:** Version bump only for package ra-data-amplify-rest
+
+
+
+
+
 ## [0.0.20](https://github.com/hupe1980/amplify-material-ui/compare/ra-data-amplify-rest@0.0.19...ra-data-amplify-rest@0.0.20) (2019-12-06)
 
 **Note:** Version bump only for package ra-data-amplify-rest
