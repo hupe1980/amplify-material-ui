@@ -33,12 +33,6 @@
     "amazon-cognito-identity-js": "^3.2.0",
     "react": ">=16"
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
   "devDependencies": {
     "@aws-amplify/auth": "^2.1.1",
     "@aws-amplify/core": "^2.2.0",

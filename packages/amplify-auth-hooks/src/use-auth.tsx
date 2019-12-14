@@ -53,8 +53,7 @@ export const useAuth = (props: AuthProps): AuthContextProps => {
       }
     };
     checkUser();
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [handleStateChange, initialAuthState]);
 
   React.useEffect(() => {
     const handleAuthCapsule = (capsule: HubCapsule): void => {

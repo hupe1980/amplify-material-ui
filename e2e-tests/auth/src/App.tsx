@@ -42,10 +42,10 @@ export default withAuthenticator(App, {
     onShowNotification: notification => {
       console.log(notification);
       return notification;
-    }
+    },
   },
   intlProps: {
-    supportedLocales: ['de']
+    supportedLocales: ['de'],
     // customMessages: {
     //     de: {
     //         signIn: {
@@ -53,5 +53,5 @@ export default withAuthenticator(App, {
     //         },
     //     },
     // },
-  }
+  },
 });

@@ -40,7 +40,7 @@ export const useTOTPSetup = () => {
       );
     };
     setup();
-  }, []);
+  }, [authData]);
 
   return { code, verifyTotpToken };
 };

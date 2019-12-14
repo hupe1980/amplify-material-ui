@@ -4,8 +4,8 @@
   "scripts": {
     "all:outdated": "yarn outdated",
     "all:upgrade": "yarn upgrade-interactive --latest",
-    "lint": "lerna run lint",
-    "lint:fix": "lerna run lint -- --fix",
+    "lint": "eslint '*/**/*.{ts,tsx}' --report-unused-disable-directives",
+    "lint:fix": "eslint '*/**/*.{ts,tsx}' --fix",
     "postinstall": "preconstruct dev",
     "build": "preconstruct build",
     "watch": "preconstruct watch",
@@ -23,12 +23,25 @@
     "@babel/preset-typescript": "^7.7.4",
     "@preconstruct/cli": "^1.1.4",
     "@types/jest": "^24.0.23",
+    "@typescript-eslint/eslint-plugin": "2.x",
+    "@typescript-eslint/parser": "2.x",
+    "babel-eslint": "10.x",
     "babel-plugin-optimize-clsx": "^2.5.0",
     "babel-plugin-react-remove-properties": "^0.3.0",
     "bundlesize": "^0.18.0",
     "cross-env": "^6.0.3",
+    "eslint": "6.x",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-react-app": "^5.1.0",
+    "eslint-plugin-flowtype": "3.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "1.x",
     "jest": "^24.9.0",
     "lerna": "^3.19.0",
+    "prettier": "^1.19.1",
     "rimraf": "^3.0.0",
     "typescript": "^3.7.3"
   },
@@ -39,10 +52,12 @@
   },
   "bundlesize": [
     {
+      "name": "amplify-auth-hooks",
       "path": "./packages/amplify-auth-hooks/dist/amplify-auth-hooks.cjs.prod.js",
       "maxSize": "4 Kb"
     },
     {
+      "name": "amplify-material-ui",
       "path": "./packages/amplify-material-ui/dist/amplify-material-ui.cjs.prod.js",
       "maxSize": "10 Kb"
     }
