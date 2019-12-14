@@ -15,26 +15,22 @@
     "auth"
   ],
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "dist/amplify-auth-hooks.cjs.js",
   "module": "dist/amplify-auth-hooks.esm.js",
-  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "start": "tsdx watch",
-    "prebuild": "rimraf dist",
-    "build": "tsdx build",
-    "test": "tsdx test --env=jsdom",
-    "lint": "tsdx lint",
-    "prepare": "yarn run build"
+    "prebuild": "rimraf dist"
   },
   "dependencies": {
+    "react-script-hook": "^1.0.11",
     "tiny-invariant": "^1.0.6"
   },
   "peerDependencies": {
     "@aws-amplify/auth": "^1.2.24",
     "@aws-amplify/core": "^1.0.27",
+    "amazon-cognito-identity-js": "^3.2.0",
     "react": ">=16"
   },
   "prettier": {
@@ -48,6 +44,7 @@
     "@aws-amplify/core": "^2.2.0",
     "@types/react": "^16.9.15",
     "@types/react-dom": "^16.9.4",
+    "amazon-cognito-identity-js": "^3.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },

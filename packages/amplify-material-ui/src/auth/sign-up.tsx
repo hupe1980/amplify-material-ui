@@ -10,6 +10,7 @@ import { TextField } from 'formik-material-ui';
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useNotificationContext } from '../notification';
 import { ChangeAuthStateLink } from './change-auth-state-link';
+import { UsernameAttribute } from './types';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,8 +24,35 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+const signUpFields = [
+  {
+    label: 'Username',
+    key: 'username',
+    required: true,
+    placeholder: 'Username',
+    displayOrder: 1,
+  },
+  {
+    label: 'Password',
+    key: 'password',
+    required: true,
+    placeholder: 'Password',
+    type: 'password',
+    displayOrder: 2,
+  },
+  {
+    label: 'Email',
+    key: 'email',
+    required: true,
+    placeholder: 'Email',
+    type: 'email',
+    displayOrder: 3,
+  },
+];
+
 export interface SignUpProps {
   validationData?: { [key: string]: string };
+  usernameAttribute?: UsernameAttribute;
 }
 
 export const SignUp: React.FC<SignUpProps> = props => {
@@ -59,7 +87,19 @@ export const SignUp: React.FC<SignUpProps> = props => {
           </SectionHeader>
           <Form className={classes.form} onSubmit={handleSubmit}>
             <SectionBody>
-              <Field
+              {signUpFields.map(field => (
+                <Field
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  key={field.key}
+                  name={field.key}
+                  label={field.label}
+                  component={TextField}
+                />
+              ))}
+              {/* <Field
                 variant="outlined"
                 margin="normal"
                 required
@@ -88,7 +128,7 @@ export const SignUp: React.FC<SignUpProps> = props => {
                 id="password"
                 autoComplete="current-password"
                 component={TextField}
-              />
+              /> */}
             </SectionBody>
             <SectionFooter>
               <Button

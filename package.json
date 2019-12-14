@@ -4,22 +4,47 @@
   "scripts": {
     "all:outdated": "yarn outdated",
     "all:upgrade": "yarn upgrade-interactive --latest",
-    "lint:ci": "lerna run lint",
+    "lint": "lerna run lint",
     "lint:fix": "lerna run lint -- --fix",
-    "test:unit": "yarn workspace amplify-material-ui test",
-    "prepare": "lerna run prepare"
+    "postinstall": "preconstruct dev",
+    "build": "preconstruct build",
+    "watch": "preconstruct watch",
+    "size": "bundlesize",
+    "test:unit": "jest"
   },
   "workspaces": [
     "e2e-tests/*",
     "packages/*"
   ],
   "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.4",
+    "@preconstruct/cli": "^1.1.4",
     "@types/jest": "^24.0.23",
+    "babel-plugin-optimize-clsx": "^2.5.0",
+    "babel-plugin-react-remove-properties": "^0.3.0",
+    "bundlesize": "^0.18.0",
     "cross-env": "^6.0.3",
+    "jest": "^24.9.0",
     "lerna": "^3.19.0",
     "rimraf": "^3.0.0",
-    "tsdx": "^0.11.0",
-    "tslib": "^1.10.0",
     "typescript": "^3.7.3"
-  }
+  },
+  "preconstruct": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "bundlesize": [
+    {
+      "path": "./packages/amplify-auth-hooks/dist/amplify-auth-hooks.cjs.prod.js",
+      "maxSize": "4 Kb"
+    },
+    {
+      "path": "./packages/amplify-material-ui/dist/amplify-material-ui.cjs.prod.js",
+      "maxSize": "10 Kb"
+    }
+  ]
 }

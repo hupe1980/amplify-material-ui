@@ -14,24 +14,23 @@
     "amplify",
     "react admin"
   ],
-  "main": "dist/index.js",
+  "main": "dist/amplify-react-admin.cjs.js",
   "module": "dist/amplify-react-admin.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --env=jsdom",
-    "lint": "tsdx lint",
-    "prepare": "yarn run build"
-  },
+  "scripts": {},
   "dependencies": {
     "amplify-material-ui": "^0.0.42",
-    "history": "^4.10.1"
+    "history": "^4.10.1",
+    "ra-core": "^3.0.4",
+    "react-redux": "^7.1.3",
+    "react-router-dom": "^5.1.2"
   },
   "peerDependencies": {
+    "@material-ui/core": "^4.7.2",
+    "@material-ui/icons": "^4.5.1",
     "react": ">=16",
     "react-admin": "^3.0.0"
   },
@@ -42,11 +41,13 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
+    "@material-ui/core": "^4.7.2",
+    "@material-ui/icons": "^4.5.1",
     "@types/react": "^16.9.15",
     "@types/react-dom": "^16.9.4",
     "@types/react-router-dom": "^5.1.3",
     "react": "^16.12.0",
-    "react-admin": "^3.0.3",
+    "react-admin": "^3.0.4",
     "react-dom": "^16.12.0"
   },
   "sideEffects": false

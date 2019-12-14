@@ -93,6 +93,15 @@ const defaultMessages: RawIntlMessages = {
         backToSignIn: 'Zurück zur Anmeldung',
       },
     },
+    totpSetup: {
+      header: '',
+      labels: {
+        totpCode: '',
+      },
+      buttons: {
+        verifyTotpToken: '',
+      },
+    },
     greetings: {
       menu: {
         signedIn: 'Angemeldet als {username}',

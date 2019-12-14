@@ -48,18 +48,16 @@ exports[`sign-up should be rendered correctly 1`] = `
         class="makeStyles-form-1"
       >
         <div
-          class="MuiBox-root MuiBox-root-88 makeStyles-box-87"
+          class="MuiBox-root MuiBox-root-89 makeStyles-box-88"
         >
           <div
             class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-focused Mui-focused Mui-required Mui-required"
-              data-shrink="true"
-              for="email"
-              id="email-label"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+              data-shrink="false"
             >
-              Email
+              Username
               <span
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
               >
@@ -67,26 +65,24 @@ exports[`sign-up should be rendered correctly 1`] = `
               </span>
             </label>
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth Mui-focused Mui-focused MuiInputBase-formControl"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
             >
               <input
                 aria-invalid="false"
-                autocomplete="email"
                 class="MuiInputBase-input MuiOutlinedInput-input"
-                id="email"
-                name="email"
+                name="username"
                 required=""
                 type="text"
                 value=""
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-149 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-150 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-150"
-                  style="width: 0px;"
+                  class="PrivateNotchedOutline-legend-151"
+                  style="width: 0.01px;"
                 >
                   <span>
                     ​
@@ -101,8 +97,6 @@ exports[`sign-up should be rendered correctly 1`] = `
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
-              for="password"
-              id="password-label"
             >
               Password
               <span
@@ -116,21 +110,60 @@ exports[`sign-up should be rendered correctly 1`] = `
             >
               <input
                 aria-invalid="false"
-                autocomplete="current-password"
                 class="MuiInputBase-input MuiOutlinedInput-input"
-                id="password"
                 name="password"
                 required=""
-                type="password"
+                type="text"
                 value=""
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-149 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-150 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-150"
+                  class="PrivateNotchedOutline-legend-151"
+                  style="width: 0.01px;"
+                >
+                  <span>
+                    ​
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+          <div
+            class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+              data-shrink="false"
+            >
+              Email
+              <span
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                name="email"
+                required=""
+                type="text"
+                value=""
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-150 MuiOutlinedInput-notchedOutline"
+                style="padding-left: 8px;"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legend-151"
                   style="width: 0.01px;"
                 >
                   <span>
@@ -142,7 +175,7 @@ exports[`sign-up should be rendered correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-152 makeStyles-box-151"
+          class="MuiBox-root MuiBox-root-153 makeStyles-box-152"
         >
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-2 MuiButton-containedPrimary MuiButton-fullWidth"

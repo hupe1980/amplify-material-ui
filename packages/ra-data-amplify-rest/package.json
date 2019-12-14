@@ -16,19 +16,14 @@
     "rest",
     "api"
   ],
-  "main": "dist/index.js",
+  "main": "dist/ra-data-amplify-rest.cjs.js",
   "module": "dist/ra-data-amplify-rest.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "start": "tsdx watch",
-    "prebuild": "rimraf dist",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "yarn run build"
+    "prebuild": "rimraf dist"
   },
   "peerDependencies": {
     "@aws-amplify/api": "^1.1.1",
@@ -42,7 +37,7 @@
   },
   "devDependencies": {
     "@aws-amplify/api": "^2.1.1",
-    "ra-core": "^3.0.3"
+    "ra-core": "^3.0.4"
   },
   "sideEffects": false
 }
