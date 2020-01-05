@@ -7,7 +7,7 @@ exports[`loading should be rendered correctly (error) 1`] = `
   >
     <div
       aria-describedby="client-snackbar"
-      class="MuiTypography-root MuiPaper-root MuiPaper-elevation6 MuiSnackbarContent-root makeStyles-error-2 MuiTypography-body2"
+      class="MuiPaper-root MuiSnackbarContent-root makeStyles-error-2 MuiPaper-elevation6"
       direction="down"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
@@ -74,7 +74,7 @@ exports[`loading should be rendered correctly (info) 1`] = `
   >
     <div
       aria-describedby="client-snackbar"
-      class="MuiTypography-root MuiPaper-root MuiPaper-elevation6 MuiSnackbarContent-root makeStyles-info-108 MuiTypography-body2"
+      class="MuiPaper-root MuiSnackbarContent-root makeStyles-info-79 MuiPaper-elevation6"
       direction="down"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
@@ -83,12 +83,12 @@ exports[`loading should be rendered correctly (info) 1`] = `
         class="MuiSnackbarContent-message"
       >
         <span
-          class="makeStyles-message-112"
+          class="makeStyles-message-83"
           id="client-snackbar"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root makeStyles-icon-110 makeStyles-iconVariant-111"
+            class="MuiSvgIcon-root makeStyles-icon-81 makeStyles-iconVariant-82"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -114,7 +114,7 @@ exports[`loading should be rendered correctly (info) 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root makeStyles-icon-110"
+              class="MuiSvgIcon-root makeStyles-icon-81"
               focusable="false"
               role="presentation"
               viewBox="0 0 24 24"
@@ -141,7 +141,7 @@ exports[`loading should be rendered correctly (success) 1`] = `
   >
     <div
       aria-describedby="client-snackbar"
-      class="MuiTypography-root MuiPaper-root MuiPaper-elevation6 MuiSnackbarContent-root makeStyles-success-316 MuiTypography-body2"
+      class="MuiPaper-root MuiSnackbarContent-root makeStyles-success-229 MuiPaper-elevation6"
       direction="down"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
@@ -150,12 +150,12 @@ exports[`loading should be rendered correctly (success) 1`] = `
         class="MuiSnackbarContent-message"
       >
         <span
-          class="makeStyles-message-322"
+          class="makeStyles-message-235"
           id="client-snackbar"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root makeStyles-icon-320 makeStyles-iconVariant-321"
+            class="MuiSvgIcon-root makeStyles-icon-233 makeStyles-iconVariant-234"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -181,7 +181,7 @@ exports[`loading should be rendered correctly (success) 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root makeStyles-icon-320"
+              class="MuiSvgIcon-root makeStyles-icon-233"
               focusable="false"
               role="presentation"
               viewBox="0 0 24 24"
@@ -208,7 +208,7 @@ exports[`loading should be rendered correctly (warning) 1`] = `
   >
     <div
       aria-describedby="client-snackbar"
-      class="MuiTypography-root MuiPaper-root MuiPaper-elevation6 MuiSnackbarContent-root makeStyles-warning-214 MuiTypography-body2"
+      class="MuiPaper-root MuiSnackbarContent-root makeStyles-warning-156 MuiPaper-elevation6"
       direction="down"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
@@ -217,12 +217,12 @@ exports[`loading should be rendered correctly (warning) 1`] = `
         class="MuiSnackbarContent-message"
       >
         <span
-          class="makeStyles-message-217"
+          class="makeStyles-message-159"
           id="client-snackbar"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root makeStyles-icon-215 makeStyles-iconVariant-216"
+            class="MuiSvgIcon-root makeStyles-icon-157 makeStyles-iconVariant-158"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -248,7 +248,7 @@ exports[`loading should be rendered correctly (warning) 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root makeStyles-icon-215"
+              class="MuiSvgIcon-root makeStyles-icon-157"
               focusable="false"
               role="presentation"
               viewBox="0 0 24 24"

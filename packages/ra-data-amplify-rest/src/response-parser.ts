@@ -63,23 +63,19 @@ export const defaultResponseParser: ResponseParser = {
   },
 
   getOne: (response, _resource, _params): GetOneResult => {
-    const { data } = response;
-
     return {
-      data,
+      data: response?.data,
     };
   },
 
   getMany: (response, _resource, _params): GetManyResult => {
-    const { data } = response;
-
     return {
-      data,
+      data: response?.data,
     };
   },
 
   getManyReference: (response, _resource, _params): GetManyReferenceResult => {
-    const { headers, data } = response;
+    const { headers } = response;
 
     if (!headers || !headers.has('x-total-count')) {
       throw new Error(
@@ -88,7 +84,7 @@ export const defaultResponseParser: ResponseParser = {
     }
 
     return {
-      data,
+      data: response?.data,
       total: parseInt(
         headers
           .get('x-total-count')
@@ -100,38 +96,29 @@ export const defaultResponseParser: ResponseParser = {
   },
 
   update: (response, _resource, _params): UpdateResult => {
-    const { data } = response;
-
     return {
-      data,
+      data: response?.data,
     };
   },
 
   updateMany: (response, _resource, _params): UpdateManyResult => {
-    const { data } = response;
-
     return {
-      data,
+      data: response?.data,
     };
   },
 
   create: (response, _resource, params): CreateResult => {
     const { data } = response;
-
     return { data: { ...params.data, id: data.id } };
   },
 
   delete: (response, _resource, _params): DeleteResult => {
-    const { data } = response;
-
     return {
-      data,
+      data: response?.data,
     };
   },
 
   deleteMany: (response, _resource, _params): DeleteManyResult => {
-    const { data } = response;
-
-    return { data: data || [] };
+    return { data: response?.data || [] };
   },
 };

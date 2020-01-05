@@ -17,33 +17,33 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@babel/core": "^7.7.5",
-    "@babel/preset-env": "^7.7.6",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
-    "@babel/preset-typescript": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.7",
     "@preconstruct/cli": "^1.1.4",
-    "@types/jest": "^24.0.23",
-    "@typescript-eslint/eslint-plugin": "2.x",
-    "@typescript-eslint/parser": "2.x",
+    "@types/jest": "^24.0.25",
+    "@typescript-eslint/eslint-plugin": "2.14.0",
+    "@typescript-eslint/parser": "2.14.0",
     "babel-eslint": "10.x",
     "babel-plugin-optimize-clsx": "^2.5.0",
     "babel-plugin-react-remove-properties": "^0.3.0",
     "bundlesize": "^0.18.0",
     "cross-env": "^6.0.3",
-    "eslint": "6.x",
-    "eslint-config-prettier": "^6.7.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "^6.9.0",
     "eslint-config-react-app": "^5.1.0",
     "eslint-plugin-flowtype": "3.x",
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jsx-a11y": "6.x",
-    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "7.x",
-    "eslint-plugin-react-hooks": "1.x",
+    "eslint-plugin-react-hooks": "2.3.0",
     "jest": "^24.9.0",
-    "lerna": "^3.19.0",
+    "lerna": "^3.20.2",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.0",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.4"
   },
   "preconstruct": {
     "packages": [
@@ -59,7 +59,7 @@
     {
       "name": "amplify-material-ui",
       "path": "./packages/amplify-material-ui/dist/amplify-material-ui.cjs.prod.js",
-      "maxSize": "10 Kb"
+      "maxSize": "8 Kb"
     }
   ]
 }

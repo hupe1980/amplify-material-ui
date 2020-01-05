@@ -6,13 +6,13 @@ exports[`sign-up should be rendered correctly 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthXs"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-3 MuiPaper-rounded"
+      class="MuiPaper-root makeStyles-paper-3 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
-        class="MuiBox-root MuiBox-root-41 makeStyles-box-38"
+        class="MuiBox-root MuiBox-root-43 makeStyles-box-40"
       >
         <div
-          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-39 MuiAvatar-colorDefault"
+          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-41 MuiAvatar-colorDefault"
         >
           <svg
             aria-hidden="true"
@@ -48,7 +48,7 @@ exports[`sign-up should be rendered correctly 1`] = `
         class="makeStyles-form-1"
       >
         <div
-          class="MuiBox-root MuiBox-root-89 makeStyles-box-88"
+          class="MuiBox-root MuiBox-root-91 makeStyles-box-90"
         >
           <div
             class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
@@ -77,11 +77,11 @@ exports[`sign-up should be rendered correctly 1`] = `
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-150 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-152 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-151"
+                  class="PrivateNotchedOutline-legend-153"
                   style="width: 0.01px;"
                 >
                   <span>
@@ -118,11 +118,11 @@ exports[`sign-up should be rendered correctly 1`] = `
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-150 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-152 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-151"
+                  class="PrivateNotchedOutline-legend-153"
                   style="width: 0.01px;"
                 >
                   <span>
@@ -159,11 +159,11 @@ exports[`sign-up should be rendered correctly 1`] = `
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-150 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-152 MuiOutlinedInput-notchedOutline"
                 style="padding-left: 8px;"
               >
                 <legend
-                  class="PrivateNotchedOutline-legend-151"
+                  class="PrivateNotchedOutline-legend-153"
                   style="width: 0.01px;"
                 >
                   <span>
@@ -175,7 +175,7 @@ exports[`sign-up should be rendered correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-153 makeStyles-box-152"
+          class="MuiBox-root MuiBox-root-155 makeStyles-box-154"
         >
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-2 MuiButton-containedPrimary MuiButton-fullWidth"

@@ -6,7 +6,7 @@ exports[`form-section should be rendered correctly 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthXs"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-1 MuiPaper-rounded"
+      class="MuiPaper-root makeStyles-paper-1 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div />
     </div>

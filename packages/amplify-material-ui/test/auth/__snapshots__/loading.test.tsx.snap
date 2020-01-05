@@ -6,7 +6,7 @@ exports[`loading should be rendered correctly 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthXs"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation1 makeStyles-paper-2 MuiPaper-rounded"
+      class="MuiPaper-root makeStyles-paper-2 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         class="MuiCircularProgress-root makeStyles-progress-1 MuiCircularProgress-colorSecondary MuiCircularProgress-indeterminate"

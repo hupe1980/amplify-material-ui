@@ -30,8 +30,8 @@
     "ra-core": "^3.0.0"
   },
   "devDependencies": {
-    "@aws-amplify/api": "^2.1.1",
-    "ra-core": "^3.0.4"
+    "@aws-amplify/api": "^2.1.2",
+    "ra-core": "^3.1.1"
   },
   "sideEffects": false
 }
