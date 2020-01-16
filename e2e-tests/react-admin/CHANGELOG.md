@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.46](https://github.com/hupe1980/amplify-material-ui/compare/e2e-test-react-admin@0.0.45...e2e-test-react-admin@0.0.46) (2020-01-16)
+
+**Note:** Version bump only for package e2e-test-react-admin
+
+
+
+
+
 ## [0.0.45](https://github.com/hupe1980/amplify-material-ui/compare/e2e-test-react-admin@0.0.44...e2e-test-react-admin@0.0.45) (2020-01-05)
 
 **Note:** Version bump only for package e2e-test-react-admin

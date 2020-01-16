@@ -1,6 +1,6 @@
 {
   "name": "e2e-test-react-admin",
-  "version": "0.0.45",
+  "version": "0.0.46",
   "private": true,
   "scripts": {
     "start": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts start",
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.8.3",
-    "amplify-react-admin": "^0.0.14",
+    "amplify-react-admin": "^0.0.15",
     "aws-amplify": "^2.2.2",
     "ra-data-fakerest": "^3.0.1",
     "react": "^16.12.0",
