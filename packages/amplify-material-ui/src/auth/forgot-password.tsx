@@ -52,7 +52,11 @@ export const ForgotPassword: React.FC = () => {
         try {
           await submit(code, password);
         } catch (error) {
-          showNotification({ content: error.message, variant: 'error' });
+          const content = formatMessage({
+            id: `forgotPassword.errors.${error.code}`,
+            defaultMessage: error.message,
+          });
+          showNotification({ content, variant: 'error' });
         }
       }}
     >
@@ -135,7 +139,11 @@ export const ForgotPassword: React.FC = () => {
         try {
           await send(values[usernamefieldName]);
         } catch (error) {
-          showNotification({ content: error.message, variant: 'error' });
+          const content = formatMessage({
+            id: `forgotPassword.errors.${error.code}`,
+            defaultMessage: error.message,
+          });
+          showNotification({ content, variant: 'error' });
         }
       }}
     >

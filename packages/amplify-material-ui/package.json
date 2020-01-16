@@ -28,11 +28,11 @@
   "dependencies": {
     "amplify-auth-hooks": "^0.0.11",
     "clsx": "^1.0.4",
-    "formik": "^2.1.1",
+    "formik": "^2.1.2",
     "formik-material-ui": "^1.0.0",
     "langtag-utils": "^2.0.0",
     "qrcode.react": "^1.0.0",
-    "react-intl": "^3.9.3",
+    "react-intl": "^3.11.0",
     "react-recaptcha-hook": "^1.0.9",
     "tiny-invariant": "^1.0.6"
   },
@@ -44,8 +44,8 @@
     "react": ">=16"
   },
   "devDependencies": {
-    "@aws-amplify/core": "^2.2.1",
-    "@material-ui/core": "^4.8.2",
+    "@aws-amplify/core": "^2.2.2",
+    "@material-ui/core": "^4.8.3",
     "@material-ui/icons": "^4.0.1",
     "@material-ui/styles": "^4.8.2",
     "@testing-library/jest-dom": "^4.2.4",

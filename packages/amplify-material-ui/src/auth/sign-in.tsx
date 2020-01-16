@@ -62,7 +62,11 @@ export const SignIn: React.FC<SignInProps> = props => {
             validationData
           );
         } catch (error) {
-          showNotification({ content: error.message, variant: 'error' });
+          const content = formatMessage({
+            id: `signIn.errors.${error.code}`,
+            defaultMessage: error.message,
+          });
+          showNotification({ content, variant: 'error' });
         }
       }}
     >

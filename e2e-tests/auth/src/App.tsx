@@ -47,11 +47,14 @@ export default withAuthenticator(App, {
   intlProps: {
     supportedLocales: ['de'],
     // customMessages: {
-    //     de: {
-    //         signIn: {
-    //             header: 'test',
-    //         },
+    //   de: {
+    //     signIn: {
+    //       header: 'test',
+    //       errors: {
+    //         UserNotFoundException: 'TEST',
+    //       },
     //     },
+    //   },
     // },
   },
 });

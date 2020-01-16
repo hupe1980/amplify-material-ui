@@ -24,7 +24,7 @@
   "dependencies": {
     "amplify-material-ui": "^0.0.44",
     "history": "^4.10.1",
-    "ra-core": "^3.1.1",
+    "ra-core": "^3.1.2",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2"
   },
@@ -35,13 +35,13 @@
     "react-admin": "^3.0.0"
   },
   "devDependencies": {
-    "@material-ui/core": "^4.8.2",
+    "@material-ui/core": "^4.8.3",
     "@material-ui/icons": "^4.5.1",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "@types/react-router-dom": "^5.1.3",
     "react": "^16.12.0",
-    "react-admin": "^3.1.1",
+    "react-admin": "^3.1.2",
     "react-dom": "^16.12.0"
   },
   "sideEffects": false

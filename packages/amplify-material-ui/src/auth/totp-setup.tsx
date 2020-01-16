@@ -40,7 +40,11 @@ export const TOTPSetup: React.FC = () => {
         try {
           await verifyTotpToken(totpCode);
         } catch (error) {
-          showNotification({ content: error.message, variant: 'error' });
+          const content = formatMessage({
+            id: `totpSetup.errors.${error.code}`,
+            defaultMessage: error.message,
+          });
+          showNotification({ content, variant: 'error' });
         }
       }}
     >

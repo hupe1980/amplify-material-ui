@@ -23,16 +23,16 @@
     ]
   },
   "dependencies": {
-    "@material-ui/core": "^4.8.2",
+    "@material-ui/core": "^4.8.3",
     "amplify-material-ui": "^0.0.44",
-    "aws-amplify": "^2.2.1",
+    "aws-amplify": "^2.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.2.0"
   },
   "devDependencies": {
     "@testing-library/cypress": "^5.0.2",
-    "@types/node": "^12.12.17",
+    "@types/node": "^13.1.7",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "cypress": "3.8.0",

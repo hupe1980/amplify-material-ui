@@ -38,7 +38,11 @@ export const ConfirmSignIn: React.FC = () => {
         try {
           await confirm(code);
         } catch (error) {
-          showNotification({ content: error.message, variant: 'error' });
+          const content = formatMessage({
+            id: `confirmSignIn.errors.${error.code}`,
+            defaultMessage: error.message,
+          });
+          showNotification({ content, variant: 'error' });
         }
       }}
     >

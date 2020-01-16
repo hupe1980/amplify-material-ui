@@ -38,7 +38,11 @@ export const RequireNewPassword: React.FC = () => {
         try {
           await completeNewPassword(password);
         } catch (error) {
-          showNotification({ content: error.message, variant: 'error' });
+          const content = formatMessage({
+            id: `requireNewPassword.errors.${error.code}`,
+            defaultMessage: error.message,
+          });
+          showNotification({ content, variant: 'error' });
         }
       }}
     >

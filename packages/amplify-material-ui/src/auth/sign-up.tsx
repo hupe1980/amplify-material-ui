@@ -73,7 +73,11 @@ export const SignUp: React.FC<SignUpProps> = props => {
         try {
           await signUp(email, password, validationData);
         } catch (error) {
-          showNotification({ content: error.message, variant: 'error' });
+          const content = formatMessage({
+            id: `signUp.errors.${error.code}`,
+            defaultMessage: error.message,
+          });
+          showNotification({ content, variant: 'error' });
         }
       }}
     >

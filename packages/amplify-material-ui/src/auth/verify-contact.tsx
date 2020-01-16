@@ -78,7 +78,11 @@ export const VerifyContact: React.FC = () => {
           try {
             await verify(contact);
           } catch (error) {
-            showNotification({ content: error.message, variant: 'error' });
+            const content = formatMessage({
+              id: `verifyContact.errors.${error.code}`,
+              defaultMessage: error.message,
+            });
+            showNotification({ content, variant: 'error' });
           }
         }}
       >
@@ -146,7 +150,11 @@ export const VerifyContact: React.FC = () => {
         try {
           await submit(code);
         } catch (error) {
-          showNotification({ content: error.message, variant: 'error' });
+          const content = formatMessage({
+            id: `verifyContact.errors.${error.code}`,
+            defaultMessage: error.message,
+          });
+          showNotification({ content, variant: 'error' });
         }
       }}
     >
