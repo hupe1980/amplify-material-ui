@@ -1,6 +1,6 @@
 {
   "name": "e2e-test-auth",
-  "version": "0.0.46",
+  "version": "0.0.47",
   "private": true,
   "scripts": {
     "start": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts start",
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
-    "amplify-material-ui": "^0.0.45",
+    "amplify-material-ui": "^0.0.46",
     "aws-amplify": "^3.0.18",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
