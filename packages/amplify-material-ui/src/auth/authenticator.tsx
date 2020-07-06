@@ -16,7 +16,7 @@ export interface AuthenticatorProps
   notificationProps?: NotificationProviderProps;
 }
 
-export const Authenticator: React.FC<AuthenticatorProps> = props => {
+export const Authenticator: React.FC<AuthenticatorProps> = (props) => {
   const {
     children,
     intlProps,

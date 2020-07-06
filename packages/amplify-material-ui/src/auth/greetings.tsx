@@ -41,7 +41,7 @@ export interface GreetingsProps {
   usernameAttribute?: UsernameAttribute;
 }
 
-export const Greetings: React.FC<GreetingsProps> = props => {
+export const Greetings: React.FC<GreetingsProps> = (props) => {
   const {
     className,
     renderUserMenu,

@@ -52,13 +52,7 @@ export const defaultResponseParser: ResponseParser = {
 
     return {
       data,
-      total: parseInt(
-        headers
-          .get('x-total-count')
-          .split('/')
-          .pop(),
-        10
-      ),
+      total: parseInt(headers.get('x-total-count').split('/').pop(), 10),
     };
   },
 
@@ -85,13 +79,7 @@ export const defaultResponseParser: ResponseParser = {
 
     return {
       data: response?.data,
-      total: parseInt(
-        headers
-          .get('x-total-count')
-          .split('/')
-          .pop(),
-        10
-      ),
+      total: parseInt(headers.get('x-total-count').split('/').pop(), 10),
     };
   },
 

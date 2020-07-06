@@ -61,7 +61,7 @@ export interface AuthRouterProps extends AuthProps, AuthConfig {
   hide?: React.FC[];
 }
 
-export const AuthRouter: React.FC<AuthRouterProps> = props => {
+export const AuthRouter: React.FC<AuthRouterProps> = (props) => {
   const {
     hide = [],
     children,
@@ -71,7 +71,7 @@ export const AuthRouter: React.FC<AuthRouterProps> = props => {
   } = props;
 
   const renderChildren = defaultChildren
-    .filter(item => !hide.includes(item.component))
+    .filter((item) => !hide.includes(item.component))
     .map((item, index) => (
       <AuthRoute
         key={`amplify-material-ui-authenticator-default-children-${index}`}

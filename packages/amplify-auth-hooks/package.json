@@ -24,8 +24,8 @@
     "prebuild": "rimraf dist"
   },
   "dependencies": {
-    "react-script-hook": "^1.0.12",
-    "tiny-invariant": "^1.0.6"
+    "react-script-hook": "^1.1.1",
+    "tiny-invariant": "^1.1.0"
   },
   "peerDependencies": {
     "@aws-amplify/auth": "^1.2.24",
@@ -34,13 +34,13 @@
     "react": ">=16"
   },
   "devDependencies": {
-    "@aws-amplify/auth": "^2.1.3",
-    "@aws-amplify/core": "^2.2.2",
-    "@types/react": "^16.9.17",
-    "@types/react-dom": "^16.9.4",
-    "amazon-cognito-identity-js": "^3.2.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "@aws-amplify/auth": "^3.2.14",
+    "@aws-amplify/core": "^3.4.0",
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "amazon-cognito-identity-js": "^4.3.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "sideEffects": false
 }

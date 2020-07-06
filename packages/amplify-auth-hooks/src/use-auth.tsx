@@ -30,7 +30,7 @@ export const useAuth = (props: AuthProps): AuthContextProps => {
         authState = 'signIn';
       }
 
-      setState(prev => {
+      setState((prev) => {
         const newState = onStateChange
           ? onStateChange(prev, { authState, authData })
           : { authState, authData };

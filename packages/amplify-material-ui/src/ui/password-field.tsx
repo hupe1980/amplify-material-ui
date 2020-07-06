@@ -15,7 +15,7 @@ export type PasswordFieldProps =
   | FilledTextFieldProps
   | OutlinedTextFieldProps;
 
-export const PasswordField: React.FC<PasswordFieldProps> = props => {
+export const PasswordField: React.FC<PasswordFieldProps> = (props) => {
   const [showPassword, setShowPassword] = React.useState<boolean>(false);
 
   return (
@@ -30,7 +30,7 @@ export const PasswordField: React.FC<PasswordFieldProps> = props => {
               aria-label="Toggle password visibility"
               data-testid="togglePasswordVisibility"
               onClick={(): void =>
-                setShowPassword(showPassword => !showPassword)
+                setShowPassword((showPassword) => !showPassword)
               }
             >
               {showPassword ? <Visibility /> : <VisibilityOff />}

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Auth from '@aws-amplify/auth';
-import { render, fireEvent, act, wait } from '@testing-library/react';
+import { render, fireEvent, act, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import { SignIn } from '../../src';
@@ -40,7 +40,7 @@ describe('sign-in', () => {
 
   it('it should change state to requireNewPassword if challengeName equals NEW_PASSWORD_REQUIRED', async () => {
     jest.spyOn(Auth, 'signIn').mockImplementationOnce(() => {
-      return new Promise(res =>
+      return new Promise((res) =>
         res({
           challengeName: 'NEW_PASSWORD_REQUIRED',
         })
@@ -76,7 +76,7 @@ describe('sign-in', () => {
       fireEvent.click(getByTestId('signInSubmit'));
     });
 
-    await wait(() => {
+    await waitFor(() => {
       expect(handleStateChange).toHaveBeenCalledTimes(1);
       expect(handleStateChange).toHaveBeenCalledWith('requireNewPassword', {
         challengeName: 'NEW_PASSWORD_REQUIRED',

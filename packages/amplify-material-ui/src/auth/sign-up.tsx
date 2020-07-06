@@ -55,7 +55,7 @@ export interface SignUpProps {
   usernameAttribute?: UsernameAttribute;
 }
 
-export const SignUp: React.FC<SignUpProps> = props => {
+export const SignUp: React.FC<SignUpProps> = (props) => {
   const { validationData } = props;
 
   const classes = useStyles();
@@ -91,7 +91,7 @@ export const SignUp: React.FC<SignUpProps> = props => {
           </SectionHeader>
           <Form className={classes.form} onSubmit={handleSubmit}>
             <SectionBody>
-              {signUpFields.map(field => (
+              {signUpFields.map((field) => (
                 <Field
                   variant="outlined"
                   margin="normal"

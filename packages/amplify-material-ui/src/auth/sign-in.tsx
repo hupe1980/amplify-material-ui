@@ -32,7 +32,7 @@ export interface SignInProps {
   usernameAttribute?: UsernameAttribute;
 }
 
-export const SignIn: React.FC<SignInProps> = props => {
+export const SignIn: React.FC<SignInProps> = (props) => {
   const {
     validationData,
     hideSignUpLink = false,

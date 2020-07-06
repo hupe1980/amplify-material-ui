@@ -39,7 +39,7 @@ export default withAuthenticator(App, {
     return newState;
   },
   notificationProps: {
-    onShowNotification: notification => {
+    onShowNotification: (notification) => {
       console.log(notification);
       return notification;
     },

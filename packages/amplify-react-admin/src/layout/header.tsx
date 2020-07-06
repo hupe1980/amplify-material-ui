@@ -54,7 +54,7 @@ export interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ title, hasDashboard }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const open = useSelector(state => state.admin.ui.sidebarOpen);
+  const open = useSelector((state) => state.admin.ui.sidebarOpen);
 
   const handleDrawerToggle = () => dispatch(toggleSidebar());
 

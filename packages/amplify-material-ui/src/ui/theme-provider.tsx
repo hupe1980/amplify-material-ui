@@ -8,7 +8,7 @@ export interface ThemeProviderProps {
   theme?: Theme;
 }
 
-export const ThemeProvider: React.FC<ThemeProviderProps> = props => {
+export const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
   const { children, theme = createMuiTheme() } = props;
 
   const enrichedTheme = responsiveFontSizes(theme);

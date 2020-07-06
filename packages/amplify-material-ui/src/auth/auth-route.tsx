@@ -15,14 +15,14 @@ export interface AuthRouteProps extends AuthConfig {
   children?: (props: AuthConfig) => React.ReactElement;
 }
 
-export const AuthRoute: React.FC<AuthRouteProps> = props => {
+export const AuthRoute: React.FC<AuthRouteProps> = (props) => {
   const { validAuthStates, component, children, ...authConfig } = props;
 
   const { authState } = useAuthContext();
 
   const regExp = new RegExp(`(${authState}|\\*)`);
 
-  const match = validAuthStates.some(validAuthStates =>
+  const match = validAuthStates.some((validAuthStates) =>
     regExp.test(validAuthStates)
   );
 

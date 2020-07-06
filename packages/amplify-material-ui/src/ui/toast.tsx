@@ -58,7 +58,7 @@ export interface ToastProps {
   ) => void;
 }
 
-export const Toast: React.FC<ToastProps> = props => {
+export const Toast: React.FC<ToastProps> = (props) => {
   const {
     autoHideDuration = 6000,
     anchorOrigin = {
