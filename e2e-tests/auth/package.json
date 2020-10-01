@@ -8,7 +8,7 @@
     "eject": "react-scripts eject",
     "cy:open": "cypress open",
     "cy:run": "cypress run --browser chrome",
-    "test": "start-server-and-test start http://localhost:3000 cy:run"
+    "test": "start-server-and-test 'yarn start' http://localhost:3000 'yarn cy:run'"
   },
   "browserslist": {
     "production": [
@@ -36,6 +36,6 @@
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
     "cypress": "4.9.0",
-    "start-server-and-test": "^1.11.0"
+    "start-server-and-test": "^1.11.4"
   }
 }
