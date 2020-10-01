@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.48](https://github.com/hupe1980/amplify-material-ui/compare/e2e-test-auth@0.0.47...e2e-test-auth@0.0.48) (2020-10-01)
+
+**Note:** Version bump only for package e2e-test-auth
+
+
+
+
+
 ## [0.0.47](https://github.com/hupe1980/amplify-material-ui/compare/e2e-test-auth@0.0.46...e2e-test-auth@0.0.47) (2020-07-06)
 
 **Note:** Version bump only for package e2e-test-auth

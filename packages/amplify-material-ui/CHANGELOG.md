@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.47](https://github.com/hupe1980/amplify-material-ui/compare/amplify-material-ui@0.0.46...amplify-material-ui@0.0.47) (2020-10-01)
+
+
+### Bug Fixes
+
+* Trim white spaces from username and password ([46943b0](https://github.com/hupe1980/amplify-material-ui/commit/46943b048786e484775f1e9e07a2817b8a9d104f))
+
+
+
+
+
 ## [0.0.46](https://github.com/hupe1980/amplify-material-ui/compare/amplify-material-ui@0.0.45...amplify-material-ui@0.0.46) (2020-07-06)
 
 **Note:** Version bump only for package amplify-material-ui
