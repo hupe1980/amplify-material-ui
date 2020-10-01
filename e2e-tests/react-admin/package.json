@@ -30,7 +30,7 @@
     "react": "^16.13.1",
     "react-admin": "^3.7.0",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.3"
   },
   "devDependencies": {
     "@testing-library/cypress": "^6.0.0",
