@@ -3,12 +3,12 @@
   "version": "0.0.47",
   "private": true,
   "scripts": {
-    "start": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts start",
+    "start": "cross-env SKIP_PREFLIGHT_CHECK=true CI=true react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "cy:open": "cypress open",
     "cy:run": "cypress run --browser chrome",
-    "test": "start-server-and-test start http://localhost:3000 cy:run"
+    "test": "start-server-and-test 'yarn start' http://localhost:3000 'yarn cy:run'"
   },
   "browserslist": {
     "production": [
@@ -30,7 +30,7 @@
     "react": "^16.13.1",
     "react-admin": "^3.7.0",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.0"
   },
   "devDependencies": {
     "@testing-library/cypress": "^6.0.0",
@@ -38,6 +38,6 @@
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
     "cypress": "4.9.0",
-    "start-server-and-test": "^1.11.0"
+    "start-server-and-test": "^1.11.4"
   }
 }

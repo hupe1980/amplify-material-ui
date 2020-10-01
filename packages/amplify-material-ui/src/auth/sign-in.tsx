@@ -57,8 +57,8 @@ export const SignIn: React.FC<SignInProps> = (props) => {
       onSubmit={async (values): Promise<void> => {
         try {
           await signIn(
-            values[usernamefieldName],
-            values['password'],
+            values[usernamefieldName].trim(),
+            values['password'].trim(),
             validationData
           );
         } catch (error) {
