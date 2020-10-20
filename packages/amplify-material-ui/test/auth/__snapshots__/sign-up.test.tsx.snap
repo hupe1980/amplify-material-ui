@@ -101,7 +101,7 @@ exports[`sign-up should be rendered correctly 1`] = `
                 class="MuiInputBase-input MuiOutlinedInput-input"
                 name="password"
                 required=""
-                type="text"
+                type="password"
                 value=""
               />
               <fieldset
@@ -141,7 +141,7 @@ exports[`sign-up should be rendered correctly 1`] = `
                 class="MuiInputBase-input MuiOutlinedInput-input"
                 name="email"
                 required=""
-                type="text"
+                type="email"
                 value=""
               />
               <fieldset

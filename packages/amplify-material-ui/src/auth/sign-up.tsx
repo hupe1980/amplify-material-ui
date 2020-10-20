@@ -30,6 +30,7 @@ const signUpFields = [
     key: 'username',
     required: true,
     placeholder: 'Username',
+    type: 'text',
     displayOrder: 1,
   },
   {
@@ -100,6 +101,7 @@ export const SignUp: React.FC<SignUpProps> = (props) => {
                   key={field.key}
                   name={field.key}
                   label={field.label}
+                  type={field.type}
                   component={TextField}
                 />
               ))}
