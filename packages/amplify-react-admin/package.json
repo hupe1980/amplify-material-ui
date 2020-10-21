@@ -1,6 +1,6 @@
 {
   "name": "amplify-react-admin",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "aws amplify based react-admin",
   "license": "MIT",
   "repository": {
@@ -22,7 +22,7 @@
   ],
   "scripts": {},
   "dependencies": {
-    "amplify-material-ui": "^0.0.48",
+    "amplify-material-ui": "^0.0.49",
     "history": "^5.0.0",
     "ra-core": "^3.7.0",
     "react-redux": "^7.2.0",

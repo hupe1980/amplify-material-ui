@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.49](https://github.com/hupe1980/amplify-material-ui/compare/amplify-material-ui@0.0.48...amplify-material-ui@0.0.49) (2020-10-21)
+
+
+### Bug Fixes
+
+* **material-ui:** ensure password type is set on the password field ([253d2ed](https://github.com/hupe1980/amplify-material-ui/commit/253d2ed9b149870c839a1ab9d1fe1828a7374f12))
+
+
+
+
+
 ## [0.0.48](https://github.com/hupe1980/amplify-material-ui/compare/amplify-material-ui@0.0.47...amplify-material-ui@0.0.48) (2020-10-01)
 
 **Note:** Version bump only for package amplify-material-ui
