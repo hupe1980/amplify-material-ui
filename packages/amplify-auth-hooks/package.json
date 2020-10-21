@@ -36,11 +36,11 @@
   "devDependencies": {
     "@aws-amplify/auth": "^3.2.14",
     "@aws-amplify/core": "^3.4.0",
-    "@types/react": "^16.9.49",
+    "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
-    "amazon-cognito-identity-js": "^4.3.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "amazon-cognito-identity-js": "^4.5.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   },
   "sideEffects": false
 }
