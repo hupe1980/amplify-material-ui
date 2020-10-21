@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.50](https://github.com/hupe1980/amplify-material-ui/compare/amplify-material-ui@0.0.49...amplify-material-ui@0.0.50) (2020-10-21)
+
+**Note:** Version bump only for package amplify-material-ui
+
+
+
+
+
 ## [0.0.49](https://github.com/hupe1980/amplify-material-ui/compare/amplify-material-ui@0.0.48...amplify-material-ui@0.0.49) (2020-10-21)
 
 
