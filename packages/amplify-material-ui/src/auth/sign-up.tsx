@@ -24,40 +24,82 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const signUpFields = [
+export type SignUpValues = Record<string, string>;
+
+export interface SignUpConfig {
+  signUpFields?: SignUpField[];
+  initialValues?: SignUpValues;
+}
+
+export type SignUpField = {
+  key: string;
+  displayOrder?: number;
+  label?: string;
+  placeholder?: string;
+  type?: string;
+  required?: boolean;
+  intl?: Record<string, string>;
+} & Record<string, string | number | boolean | Record<string, string>>;
+
+export interface SignUpProps {
+  validationData?: { [key: string]: string };
+  usernameAttribute?: UsernameAttribute;
+  signUpConfig?: SignUpConfig;
+}
+
+const defaultSignUpFields: SignUpField[] = [
   {
     label: 'Username',
     key: 'username',
     required: true,
-    placeholder: 'Username',
     type: 'text',
     displayOrder: 1,
+    intl: {
+      label: 'global.labels.username',
+    },
   },
   {
     label: 'Password',
     key: 'password',
     required: true,
-    placeholder: 'Password',
     type: 'password',
     displayOrder: 2,
+    intl: {
+      label: 'global.labels.password',
+    },
   },
   {
     label: 'Email',
     key: 'email',
     required: true,
-    placeholder: 'Email',
     type: 'email',
     displayOrder: 3,
+    intl: {
+      label: 'global.labels.email',
+    },
   },
 ];
 
-export interface SignUpProps {
-  validationData?: { [key: string]: string };
-  usernameAttribute?: UsernameAttribute;
-}
+const sortByDisplayOrder = (a: SignUpField, b?: SignUpField) => {
+  if (a.displayOrder === undefined) {
+    return -1;
+  }
+
+  if (b?.displayOrder === undefined) {
+    return 1;
+  }
+
+  return Math.sign(a.displayOrder - (b.displayOrder ?? 0));
+};
 
 export const SignUp: React.FC<SignUpProps> = (props) => {
-  const { validationData } = props;
+  const { validationData, signUpConfig } = props;
+
+  const signUpFields = signUpConfig?.signUpFields ?? defaultSignUpFields;
+  const initialValues = signUpConfig?.initialValues ?? {};
+  signUpFields.forEach(
+    (field) => (initialValues[field.key] = initialValues[field.key] ?? '')
+  );
 
   const classes = useStyles();
   const { formatMessage } = useIntl();
@@ -65,14 +107,11 @@ export const SignUp: React.FC<SignUpProps> = (props) => {
   const signUp = useSignUp();
 
   return (
-    <Formik<{ email: string; password: string }>
-      initialValues={{
-        email: '',
-        password: '',
-      }}
-      onSubmit={async ({ email, password }): Promise<void> => {
+    <Formik<SignUpValues>
+      initialValues={initialValues}
+      onSubmit={async ({ email, password, ...attributes }): Promise<void> => {
         try {
-          await signUp(email, password, validationData);
+          await signUp(email, password, validationData, attributes);
         } catch (error) {
           const content = formatMessage({
             id: `signUp.errors.${error.code}`,
@@ -92,49 +131,37 @@ export const SignUp: React.FC<SignUpProps> = (props) => {
           </SectionHeader>
           <Form className={classes.form} onSubmit={handleSubmit}>
             <SectionBody>
-              {signUpFields.map((field) => (
-                <Field
-                  variant="outlined"
-                  margin="normal"
-                  required
-                  fullWidth
-                  key={field.key}
-                  name={field.key}
-                  label={field.label}
-                  type={field.type}
-                  component={TextField}
-                />
-              ))}
-              {/* <Field
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label={formatMessage({
-                  id: 'global.labels.email',
-                  defaultMessage: 'Email',
-                })}
-                name="email"
-                autoComplete="email"
-                autoFocus
-                component={TextField}
-              />
-              <Field
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label={formatMessage({
-                  id: 'global.labels.password',
-                  defaultMessage: 'Password',
-                })}
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                component={TextField}
-              /> */}
+              {signUpFields
+                .sort(sortByDisplayOrder)
+                .map(
+                  ({
+                    displayOrder,
+                    label,
+                    placeholder,
+                    intl,
+                    ...inputProps
+                  }) => {
+                    return (
+                      <Field
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        name={inputProps.key}
+                        label={
+                          intl?.label !== undefined
+                            ? formatMessage({
+                                id: intl.label,
+                                defaultMessage: label,
+                              })
+                            : label
+                        }
+                        {...inputProps}
+                        component={TextField}
+                      />
+                    );
+                  }
+                )}
             </SectionBody>
             <SectionFooter>
               <Button

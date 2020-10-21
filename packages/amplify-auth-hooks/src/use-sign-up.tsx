@@ -10,7 +10,8 @@ const logger = new Logger('useSignUp');
 export const useSignUp = (): ((
   username: string,
   password: string,
-  validationData?: Record<string, string>
+  validationData?: Record<string, string>,
+  attributes?: Record<string, string>
 ) => Promise<void>) => {
   invariant(
     Auth && typeof Auth.signUp === 'function',
@@ -20,11 +21,10 @@ export const useSignUp = (): ((
   const { handleStateChange } = useAuthContext();
 
   return async (
-    email: string,
+    username: string,
     password: string,
-    validationData?: {
-      [key: string]: string;
-    }
+    validationData?: Record<string, string>,
+    attributes?: Record<string, string>
   ): Promise<void> => {
     const validationDataArray: CognitoUserAttribute[] = [];
 
@@ -40,15 +40,15 @@ export const useSignUp = (): ((
     }
 
     const signupInfo = {
-      username: email,
-      password: password,
-      attributes: {},
+      username,
+      password,
+      attributes,
       validationData: validationDataArray,
     };
 
     try {
       const data = await Auth.signUp(signupInfo);
-      handleStateChange('confirmSignUp', data.user.getUsername());
+      handleStateChange('confirmSignUp', { username: data.user.getUsername() });
     } catch (error) {
       logger.error(error);
       throw error;

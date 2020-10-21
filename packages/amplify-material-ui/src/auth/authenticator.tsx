@@ -8,12 +8,14 @@ import {
 import { ThemeProvider, ThemeProviderProps } from '../ui';
 import { AuthRoute } from './auth-route';
 import { AuthRouter, AuthRouterProps } from './auth-router';
+import { SignUpConfig } from './sign-up';
 
 export interface AuthenticatorProps
   extends AuthRouterProps,
     ThemeProviderProps {
   intlProps?: IntlProviderProps;
   notificationProps?: NotificationProviderProps;
+  signUpConfig?: SignUpConfig;
 }
 
 export const Authenticator: React.FC<AuthenticatorProps> = (props) => {
