@@ -79,6 +79,96 @@ withAuthenticator(App, {
 });
 ```
 
+
+## Localization
+
+amplify-material-ui is built with [react-intl](https://formatjs.io/docs/getting-started/installation/) support. You can add your own localized strings translations by passing the intlProps into the authenticator.
+
+```typescript
+withAuthenticator(App, {
+  intlProps: {
+    customMessages: {
+      de: {
+        global: {
+          labels: {
+            username: 'Overwrite username label',
+          },
+        },
+      },
+    },
+  },
+});
+```
+
+
+## Customize sign-up form
+
+You can customize the sign-up fields as well as the initial values passed into the form:
+
+```typescript
+const signUpConfig = {
+  signUpFields: [
+    {
+      label: 'First name',
+      key: 'given_name',
+      required: true,
+      displayOrder: 1,
+      type: 'text',
+      intl: {
+        label: 'signUp.labels.family_name',
+      }
+    },
+    {
+      label: 'Surname',
+      key: 'family_name',
+      required: true,
+      displayOrder: 2,
+      type: 'text',
+      intl: {
+        label: 'signUp.labels.given_name',
+      }
+    },
+    {
+      label: 'Email',
+      key: 'email',
+      required: true,
+      displayOrder: 3,
+      type: 'email',
+    },
+    {
+      label: 'Password',
+      key: 'password',
+      required: true,
+      displayOrder: 4,
+      type: 'password',
+    },
+  ],
+  initialValues: {
+    given_name: 'John',
+    family_name: 'Smith',
+  },
+};
+
+withAuthenticator(App, {
+  signUpConfig,
+  intlProps: {
+    customMessages: {
+      de: {
+        signUp: {
+          labels: {
+            given_name: 'Translated given name',
+            family_name: 'Translated family name',
+          },
+        },
+      },
+    },
+  },
+});
+
+```
+
+## Customize sign-up fields
+
 ## License
 
 [MIT](LICENSE)
