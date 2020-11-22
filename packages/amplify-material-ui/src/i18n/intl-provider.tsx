@@ -128,14 +128,14 @@ export const IntlProvider: React.FC<IntlProviderProps> = ({
   );
 
   const createMessages = (): IntlMessages | undefined => {
-    if (detectedLocale === DEFAULT_LOCAL) return;
+    const mergedMessages = defaultMessages[detectedLocale]
+      ? mergeDeep(
+          defaultMessages[detectedLocale],
+          customMessages[detectedLocale]
+        )
+      : customMessages[detectedLocale];
 
-    const mergedMessages = mergeDeep(
-      defaultMessages[detectedLocale],
-      customMessages[detectedLocale]
-    );
-
-    return flattenMessages(mergedMessages);
+    return mergedMessages ? flattenMessages(mergedMessages) : undefined;
   };
 
   const messages = createMessages();
