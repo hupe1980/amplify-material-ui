@@ -45,13 +45,21 @@ export default withAuthenticator(App, {
     },
   },
   intlProps: {
-    supportedLocales: ['de'],
+    supportedLocales: ['en, de'],
     // customMessages: {
+    //   en: {
+    //     signIn: {
+    //       header: 'testEN',
+    //       errors: {
+    //         UserNotFoundException: 'TEST_EN',
+    //       },
+    //     },
+    //   },
     //   de: {
     //     signIn: {
-    //       header: 'test',
+    //       header: 'testDE',
     //       errors: {
-    //         UserNotFoundException: 'TEST',
+    //         UserNotFoundException: 'TEST_DE',
     //       },
     //     },
     //   },
