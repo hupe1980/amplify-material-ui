@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.17](https://github.com/hupe1980/amplify-material-ui/compare/amplify-auth-hooks@0.0.16...amplify-auth-hooks@0.0.17) (2020-11-22)
+
+**Note:** Version bump only for package amplify-auth-hooks
+
+
+
+
+
 ## [0.0.16](https://github.com/hupe1980/amplify-material-ui/compare/amplify-auth-hooks@0.0.15...amplify-auth-hooks@0.0.16) (2020-10-24)
 
 

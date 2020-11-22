@@ -1,6 +1,6 @@
 {
   "name": "ra-data-amplify-rest",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "aws amplify REST Data Provider for react-admin",
   "license": "MIT",
   "repository": {
