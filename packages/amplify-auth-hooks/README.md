@@ -7,7 +7,7 @@
 npm install amplify-auth-hooks
 
 // with yarn
-yarn add ramplify-auth-hooks
+yarn add amplify-auth-hooks
 ```
 
 ## License
