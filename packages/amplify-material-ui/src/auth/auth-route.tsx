@@ -4,6 +4,7 @@ import { useAuthContext } from 'amplify-auth-hooks';
 import { UsernameAttribute } from './types';
 
 export interface AuthConfig {
+  hideSkipVerifyLink?: boolean;
   hideSignUpLink?: boolean;
   hideForgotPasswordLink?: boolean;
   usernameAttribute?: UsernameAttribute;

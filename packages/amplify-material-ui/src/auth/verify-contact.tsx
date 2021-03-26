@@ -28,7 +28,13 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export const VerifyContact: React.FC = () => {
+export interface VerifyContactProps {
+  hideSkipVerifyLink?: boolean;
+}
+
+export const VerifyContact: React.FC<VerifyContactProps> = (props) => {
+  const { hideSkipVerifyLink = false } = props;
+
   const classes = useStyles();
   const { formatMessage } = useIntl();
   const { showNotification } = useNotificationContext();
@@ -131,7 +137,7 @@ export const VerifyContact: React.FC = () => {
                     defaultMessage="Verify"
                   />
                 </Button>
-                {renderSkipLinkPanel()}
+                {!hideSkipVerifyLink && renderSkipLinkPanel()}
               </SectionFooter>
             </Form>
           </FormSection>
@@ -190,7 +196,7 @@ export const VerifyContact: React.FC = () => {
                   defaultMessage="Submit"
                 />
               </Button>
-              {renderSkipLinkPanel()}
+              {!hideSkipVerifyLink && renderSkipLinkPanel()}
             </SectionFooter>
           </Form>
         </FormSection>
