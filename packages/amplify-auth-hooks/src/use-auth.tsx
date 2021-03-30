@@ -11,6 +11,8 @@ export interface AuthProps {
   onStateChange?: (prevState: AuthState, newState: AuthState) => AuthState;
 }
 
+const UNINITIALIZED = 'uninitialized';
+
 export const useAuth = (props: AuthProps): AuthContextProps => {
   invariant(
     Auth && typeof Auth.currentAuthenticatedUser === 'function',
@@ -20,7 +22,7 @@ export const useAuth = (props: AuthProps): AuthContextProps => {
   const { initialAuthState = 'signIn', onStateChange } = props;
 
   const [state, setState] = React.useState<AuthState>({
-    authState: initialAuthState,
+    authState: UNINITIALIZED,
     authData: null,
   });
 
