@@ -30,8 +30,8 @@ const App: React.FC = () => (
 
 export default withAuthenticator(App, {
   hide: [Greetings],
-  //hideSignUpLink: true,
-  //hideSkipVerifyLink: true,
+  hideSignUpLink: true,
+  forceVerify: true,
   //hideForgotPasswordLink: true,
   //initialAuthState: 'signUp',
   //title: 'TEST_TITLE',

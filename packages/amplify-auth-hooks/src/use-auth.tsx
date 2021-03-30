@@ -3,6 +3,7 @@ import invariant from 'tiny-invariant';
 import Auth from '@aws-amplify/auth';
 import { Hub } from '@aws-amplify/core';
 import { HubCapsule } from '@aws-amplify/core/lib/Hub';
+import { isEmptyObject } from './utils';
 
 import { AuthData, AuthState, AuthContextProps } from './use-auth-context';
 
@@ -17,7 +18,7 @@ export const useAuth = (props: AuthProps): AuthContextProps => {
     'No Auth module found, please ensure @aws-amplify/auth is imported'
   );
 
-  const { initialAuthState = 'signIn', onStateChange } = props;
+  const { initialAuthState = 'signIn', onStateChange, forceVerify } = props;
 
   const [state, setState] = React.useState<AuthState>({
     authState: initialAuthState,
@@ -46,8 +47,28 @@ export const useAuth = (props: AuthProps): AuthContextProps => {
   React.useEffect(() => {
     const checkUser = async (): Promise<void> => {
       try {
+        const codeRequested = JSON.parse(
+          localStorage.getItem('codeRequested') ?? 'false'
+        );
         const user = await Auth.currentAuthenticatedUser();
-        handleStateChange('signedIn', user);
+        const verifiedData = await Auth.verifiedContact(user);
+        const userWithVerify = { ...user, ...verifiedData };
+
+        if (
+          isEmptyObject(verifiedData.verified) &&
+          forceVerify &&
+          codeRequested
+        ) {
+          handleStateChange('submitCode', userWithVerify);
+        }
+
+        if (isEmptyObject(verifiedData.verified) && forceVerify) {
+          handleStateChange('verifyContact', userWithVerify);
+        }
+
+        if (!isEmptyObject(verifiedData.verified)) {
+          handleStateChange('signedIn', userWithVerify);
+        }
       } catch (error) {
         handleStateChange(initialAuthState, null);
       }

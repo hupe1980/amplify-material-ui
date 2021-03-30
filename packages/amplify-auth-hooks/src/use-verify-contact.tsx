@@ -29,6 +29,8 @@ export const useVerifyContact = () => {
   };
 
   const submit = async (code: string): Promise<void> => {
+    const verifyAttr = localStorage.getItem('verifyAttr') ?? null;
+
     if (!verifyAttr) {
       return;
     }

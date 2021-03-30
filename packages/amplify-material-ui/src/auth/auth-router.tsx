@@ -12,6 +12,7 @@ import { RequireNewPassword } from './require-new-password';
 import { ConfirmSignIn } from './confirm-sign-in';
 import { ConfirmSignUp } from './confirm-sign-up';
 import { VerifyContact } from './verify-contact';
+import { SubmitCode } from './submit-code';
 import { AuthRoute, AuthConfig } from './auth-route';
 
 const defaultChildren = [
@@ -46,6 +47,10 @@ const defaultChildren = [
   {
     validAuthStates: ['verifyContact'],
     component: VerifyContact,
+  },
+  {
+    validAuthStates: ['submitCode'],
+    component: SubmitCode,
   },
   {
     validAuthStates: ['confirmSignIn'],
@@ -83,6 +88,7 @@ export const AuthRouter: React.FC<AuthRouterProps> = (props) => {
     <AuthProvider
       initialAuthState={initialAuthState}
       onStateChange={onStateChange}
+      {...authConfig}
     >
       {renderChildren}
       {children}

@@ -4,8 +4,8 @@ import { useAuthContext } from 'amplify-auth-hooks';
 import { UsernameAttribute } from './types';
 
 export interface AuthConfig {
-  hideSkipVerifyLink?: boolean;
   hideSignUpLink?: boolean;
+  forceVerify?: boolean;
   hideForgotPasswordLink?: boolean;
   usernameAttribute?: UsernameAttribute;
   title?: string | React.ReactElement;
