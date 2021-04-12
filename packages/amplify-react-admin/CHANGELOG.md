@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/hupe1980/amplify-material-ui/compare/amplify-react-admin@0.0.22...amplify-react-admin@0.1.0) (2021-04-12)
+
+**Note:** Version bump only for package amplify-react-admin
+
+
+
+
+
 ## [0.0.22](https://github.com/hupe1980/amplify-material-ui/compare/amplify-react-admin@0.0.21...amplify-react-admin@0.0.22) (2020-11-22)
 
 **Note:** Version bump only for package amplify-react-admin
