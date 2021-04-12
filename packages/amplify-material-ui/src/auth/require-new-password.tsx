@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
+import * as Yup from 'yup';
 
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useNotificationContext } from '../notification';
@@ -34,6 +35,19 @@ export const RequireNewPassword: React.FC = () => {
       initialValues={{
         password: '',
       }}
+      validationSchema={Yup.object().shape({
+        password: Yup.string().required('This field is required'),
+        confirmPassword: Yup.string().when('password', {
+          is: (val: string) => val && val.length,
+          then: Yup.string().oneOf(
+            [Yup.ref('password')],
+            formatMessage({
+              id: 'requireNewPassword.confirmPassword.notEqual',
+              defaultMessage: 'passwords do not match',
+            })
+          ),
+        }),
+      })}
       onSubmit={async ({ password }): Promise<void> => {
         try {
           await completeNewPassword(password);
@@ -68,6 +82,20 @@ export const RequireNewPassword: React.FC = () => {
                 })}
                 type="password"
                 id="password"
+                component={TextField}
+              />
+              <Field
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="confirmPassword"
+                label={formatMessage({
+                  id: 'global.labels.confirmPassword',
+                  defaultMessage: 'Confirm Password',
+                })}
+                type="password"
+                id="confirmPassword"
                 component={TextField}
               />
             </SectionBody>

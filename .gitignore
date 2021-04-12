@@ -68,3 +68,6 @@ dist
 
 # apple
 .DS_Store
+
+# IDE
+.idea
