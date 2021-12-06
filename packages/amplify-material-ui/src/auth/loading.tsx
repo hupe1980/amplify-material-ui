@@ -1,5 +1,5 @@
 import * as React from 'react';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import { CircularProgress } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 import { FormSection } from '../ui';
