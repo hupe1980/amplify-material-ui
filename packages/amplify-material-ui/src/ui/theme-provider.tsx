@@ -1,8 +1,11 @@
 import * as React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { Theme } from '@material-ui/core/styles';
-import { ThemeProvider as MUIThemeProvider } from '@material-ui/styles';
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { CssBaseline } from '@material-ui/core';
+import {
+  Theme,
+  ThemeProvider as MUIThemeProvider,
+  createMuiTheme,
+  responsiveFontSizes,
+} from '@material-ui/core/styles';
 
 export interface ThemeProviderProps {
   theme?: Theme;

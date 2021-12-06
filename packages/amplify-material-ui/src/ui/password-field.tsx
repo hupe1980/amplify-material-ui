@@ -1,14 +1,14 @@
 import * as React from 'react';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import IconButton from '@material-ui/core/IconButton';
-import TextField from '@material-ui/core/TextField';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import {
+  InputAdornment,
+  IconButton,
+  TextField,
   StandardTextFieldProps,
   FilledTextFieldProps,
   OutlinedTextFieldProps,
-} from '@material-ui/core/TextField';
+} from '@material-ui/core';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 export type PasswordFieldProps =
   | StandardTextFieldProps

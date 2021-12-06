@@ -4,13 +4,15 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import ErrorIcon from '@material-ui/icons/Error';
 import InfoIcon from '@material-ui/icons/Info';
 import CloseIcon from '@material-ui/icons/Close';
-import green from '@material-ui/core/colors/green';
-import amber from '@material-ui/core/colors/amber';
-import IconButton from '@material-ui/core/IconButton';
-import Snackbar, { SnackbarOrigin } from '@material-ui/core/Snackbar';
-import SnackbarContent from '@material-ui/core/SnackbarContent';
-import { makeStyles, Theme } from '@material-ui/core/styles';
 import WarningIcon from '@material-ui/icons/Warning';
+import {
+  colors,
+  IconButton,
+  Snackbar,
+  SnackbarOrigin,
+  SnackbarContent,
+} from '@material-ui/core';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 
 const variantIcon = {
   success: CheckCircleIcon,
@@ -21,7 +23,7 @@ const variantIcon = {
 
 const useStyles = makeStyles((theme: Theme) => ({
   success: {
-    backgroundColor: green[600],
+    backgroundColor: colors.green[600],
   },
   error: {
     backgroundColor: theme.palette.error.dark,
@@ -30,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.primary.dark,
   },
   warning: {
-    backgroundColor: amber[700],
+    backgroundColor: colors.amber[700],
   },
   icon: {
     fontSize: 20,

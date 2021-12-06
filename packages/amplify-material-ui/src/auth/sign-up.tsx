@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { useIntl, FormattedMessage } from 'react-intl';
 import { useSignUp } from 'amplify-auth-hooks';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
+import { Button, Grid } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-material-ui';
