@@ -150,9 +150,9 @@ export const SignUp: React.FC<SignUpProps> = (props) => {
                         label={
                           intl?.label !== undefined
                             ? formatMessage({
-                              id: intl.label,
-                              defaultMessage: label,
-                            })
+                                id: intl.label,
+                                defaultMessage: label,
+                              })
                             : label
                         }
                         {...inputProps}

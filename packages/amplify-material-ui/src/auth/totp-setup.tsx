@@ -59,7 +59,7 @@ export const TOTPSetup: React.FC = () => {
           <Form
             className={classes.form}
             onSubmit={handleSubmit}
-          //noValidate
+            //noValidate
           ></Form>
           <SectionBody>
             <QRCode value={code} />
