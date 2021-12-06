@@ -2,5 +2,13 @@
   "extends": [
     "react-app",
     "plugin:prettier/recommended"
-  ]
+  ],
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["@material-ui/*/*/*", "!@material-ui/core/test-utils/*"]
+      }
+    ]
+  }
 }

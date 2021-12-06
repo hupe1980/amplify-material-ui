@@ -1,4 +1,4 @@
-import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+import { createMuiTheme } from '@material-ui/core/styles';
 
 declare module '@material-ui/core/styles/createMuiTheme' {
   interface Theme {
