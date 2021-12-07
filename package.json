@@ -7,7 +7,7 @@
     "lint": "eslint '*/**/*.{ts,tsx}' --report-unused-disable-directives",
     "prepare": "yarn build",
     "build": "lerna run --scope amplify* build",
-    "test:unit": "jest",
+    "test:unit": "jest --runInBand",
     "test:e2e-auth": "yarn workspace e2e-test-auth test"
   },
   "workspaces": [
