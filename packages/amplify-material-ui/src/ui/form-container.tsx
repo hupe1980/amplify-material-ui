@@ -2,7 +2,7 @@ import React, { ReactChild, ReactFragment, ReactPortal } from 'react';
 import { Container } from '@material-ui/core';
 
 export interface FormContainerProps {
-  children: boolean | ReactChild | ReactFragment | ReactPortal
+  children: boolean | ReactChild | ReactFragment | ReactPortal;
 }
 
 export const FormContainer: React.FC<FormContainerProps> = ({ children }) => {

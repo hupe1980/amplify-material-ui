@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
-  })
+  }),
 );
 
 export const ConfirmSignUp: React.FC = () => {
@@ -48,10 +48,7 @@ export const ConfirmSignUp: React.FC = () => {
       {({ handleSubmit, isValid }): React.ReactNode => (
         <FormSection>
           <SectionHeader>
-            <FormattedMessage
-              id="confirmSignUp.header"
-              defaultMessage="Confirm Sign Up"
-            />
+            <FormattedMessage id="confirmSignUp.header" defaultMessage="Confirm Sign Up" />
           </SectionHeader>
           <Form className={classes.form} onSubmit={handleSubmit}>
             <SectionBody>
@@ -80,18 +77,12 @@ export const ConfirmSignUp: React.FC = () => {
                 color="primary"
                 className={classes.submit}
               >
-                <FormattedMessage
-                  id="confirmSignUp.buttons.confirm"
-                  defaultMessage="Confirm"
-                />
+                <FormattedMessage id="confirmSignUp.buttons.confirm" defaultMessage="Confirm" />
               </Button>
               <Grid container>
                 <Grid item xs>
                   <Link href="#" onClick={resend} variant="body2">
-                    <FormattedMessage
-                      id="confirmSignUp.links.resendCode"
-                      defaultMessage="Resend Code"
-                    />
+                    <FormattedMessage id="confirmSignUp.links.resendCode" defaultMessage="Resend Code" />
                   </Link>
                 </Grid>
                 <Grid item>

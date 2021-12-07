@@ -8,16 +8,10 @@ export interface NotificationProps {
   className?: string;
 }
 
-export const Notification: React.FC<NotificationProps> = ({
-  autoHideDuration,
-  className,
-}) => {
+export const Notification: React.FC<NotificationProps> = ({ autoHideDuration, className }) => {
   const { notification, clearNotification } = useNotificationContext();
 
-  const handleClose = (
-    _event?: React.SyntheticEvent,
-    reason?: string
-  ): void => {
+  const handleClose = (_event?: React.SyntheticEvent, reason?: string): void => {
     if (reason === 'clickaway') {
       return;
     }

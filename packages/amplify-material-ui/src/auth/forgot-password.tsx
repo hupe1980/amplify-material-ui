@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
-  })
+  }),
 );
 
 export const ForgotPassword: React.FC = () => {
@@ -32,10 +32,7 @@ export const ForgotPassword: React.FC = () => {
 
   const renderSectionHeader = (): React.ReactElement => (
     <SectionHeader>
-      <FormattedMessage
-        id="forgotPassword.header"
-        defaultMessage="Reset your password"
-      />
+      <FormattedMessage id="forgotPassword.header" defaultMessage="Reset your password" />
     </SectionHeader>
   );
 
@@ -101,22 +98,12 @@ export const ForgotPassword: React.FC = () => {
                 color="primary"
                 className={classes.submit}
               >
-                <FormattedMessage
-                  id="forgotPassword.buttons.submit"
-                  defaultMessage="Submit"
-                />
+                <FormattedMessage id="forgotPassword.buttons.submit" defaultMessage="Submit" />
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link
-                    href="#"
-                    onClick={(): Promise<void> => send(username)}
-                    variant="body2"
-                  >
-                    <FormattedMessage
-                      id="forgotPassword.links.resendCode"
-                      defaultMessage="Resend Code"
-                    />
+                  <Link href="#" onClick={(): Promise<void> => send(username)} variant="body2">
+                    <FormattedMessage id="forgotPassword.links.resendCode" defaultMessage="Resend Code" />
                   </Link>
                 </Grid>
               </Grid>
@@ -159,10 +146,7 @@ export const ForgotPassword: React.FC = () => {
                 color="primary"
                 className={classes.submit}
               >
-                <FormattedMessage
-                  id="forgotPassword.buttons.sendCode"
-                  defaultMessage="Send Code"
-                />
+                <FormattedMessage id="forgotPassword.buttons.sendCode" defaultMessage="Send Code" />
               </Button>
               <Grid container>
                 <Grid item>

@@ -7,12 +7,10 @@ import { useCheckContact } from './use-check-contact';
 
 const logger = new Logger('useRequireNewPassword');
 
-export const useRequireNewPassword = (): ((
-  password: string
-) => Promise<void>) => {
+export const useRequireNewPassword = (): ((password: string) => Promise<void>) => {
   invariant(
     Auth && typeof Auth.completeNewPassword === 'function',
-    'No Auth module found, please ensure @aws-amplify/auth is imported'
+    'No Auth module found, please ensure @aws-amplify/auth is imported',
   );
 
   const { authData: user, handleStateChange } = useAuthContext();
@@ -23,11 +21,7 @@ export const useRequireNewPassword = (): ((
     //const attrs = objectWithProperties(this.inputs, requiredAttributes);
 
     try {
-      const updatedUser = await Auth.completeNewPassword(
-        user,
-        password,
-        undefined
-      );
+      const updatedUser = await Auth.completeNewPassword(user, password, undefined);
 
       logger.debug('complete new password', updatedUser);
 

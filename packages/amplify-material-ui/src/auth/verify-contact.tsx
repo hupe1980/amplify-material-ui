@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
-  })
+  }),
 );
 
 export const VerifyContact: React.FC = () => {
@@ -88,11 +88,7 @@ export const VerifyContact: React.FC = () => {
             {renderSectionHeader()}
             <Form className={classes.form} onSubmit={handleSubmit}>
               <SectionBody>
-                <Field
-                  name="contact"
-                  label="Radio Group"
-                  component={RadioGroup}
-                >
+                <Field name="contact" label="Radio Group" component={RadioGroup}>
                   {email && (
                     <FormControlLabel
                       value="email"
@@ -118,15 +114,8 @@ export const VerifyContact: React.FC = () => {
                 </Field>
               </SectionBody>
               <SectionFooter>
-                <Button
-                  disabled={!isValid}
-                  type="submit"
-                  className={classes.submit}
-                >
-                  <FormattedMessage
-                    id="verifyContact.buttons.verify"
-                    defaultMessage="Verify"
-                  />
+                <Button disabled={!isValid} type="submit" className={classes.submit}>
+                  <FormattedMessage id="verifyContact.buttons.verify" defaultMessage="Verify" />
                 </Button>
                 {renderSkipLinkPanel()}
               </SectionFooter>
@@ -177,15 +166,8 @@ export const VerifyContact: React.FC = () => {
               />
             </SectionBody>
             <SectionFooter>
-              <Button
-                disabled={!isValid}
-                type="submit"
-                className={classes.submit}
-              >
-                <FormattedMessage
-                  id="verifyContact.buttons.submit"
-                  defaultMessage="Submit"
-                />
+              <Button disabled={!isValid} type="submit" className={classes.submit}>
+                <FormattedMessage id="verifyContact.buttons.submit" defaultMessage="Submit" />
               </Button>
               {renderSkipLinkPanel()}
             </SectionFooter>

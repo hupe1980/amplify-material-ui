@@ -4,7 +4,7 @@ import { useRecaptcha, Badge } from 'react-recaptcha-hook';
 export interface RecaptchaProps {
   sitekey: string;
   action: string;
-  onToken: Function;
+  onToken: (token: string) => void;
 }
 
 export const Recaptcha: React.FC<RecaptchaProps> = (props) => {

@@ -5,7 +5,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 const useStyles = makeStyles((_theme: Theme) =>
   createStyles({
     box: {},
-  })
+  }),
 );
 
 export const SectionFooter: React.FC = ({ children }) => {

@@ -11,7 +11,7 @@ export const useVerifyContact = () => {
   invariant(
     (Auth && typeof Auth.verifyCurrentUserAttribute === 'function') ||
       typeof Auth.verifyCurrentUserAttributeSubmit === 'function',
-    'No Auth module found, please ensure @aws-amplify/auth is imported'
+    'No Auth module found, please ensure @aws-amplify/auth is imported',
   );
 
   const { handleStateChange, authData } = useAuthContext();

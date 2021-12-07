@@ -7,7 +7,7 @@ describe('section-body', () => {
     const { asFragment } = render(
       <SectionBody>
         <div />
-      </SectionBody>
+      </SectionBody>,
     );
     expect(asFragment()).toMatchSnapshot();
   });

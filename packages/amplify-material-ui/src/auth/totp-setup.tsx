@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
-  })
+  }),
 );
 
 export const TOTPSetup: React.FC = () => {
@@ -51,10 +51,7 @@ export const TOTPSetup: React.FC = () => {
       {({ handleSubmit, isValid }): React.ReactNode => (
         <FormSection>
           <SectionHeader>
-            <FormattedMessage
-              id="totpSetup.header"
-              defaultMessage="Scan then enter verification code"
-            />
+            <FormattedMessage id="totpSetup.header" defaultMessage="Scan then enter verification code" />
           </SectionHeader>
           <Form
             className={classes.form}
@@ -87,10 +84,7 @@ export const TOTPSetup: React.FC = () => {
               color="primary"
               className={classes.submit}
             >
-              <FormattedMessage
-                id="totpSetup.buttons.verifyTotpToken"
-                defaultMessage="Verify Security Token"
-              />
+              <FormattedMessage id="totpSetup.buttons.verifyTotpToken" defaultMessage="Verify Security Token" />
             </Button>
           </SectionFooter>
         </FormSection>

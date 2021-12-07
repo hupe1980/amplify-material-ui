@@ -22,15 +22,13 @@ export const AuthRoute: React.FC<AuthRouteProps> = (props) => {
 
   const regExp = new RegExp(`(${authState}|\\*)`);
 
-  const match = validAuthStates.some((validAuthStates) =>
-    regExp.test(validAuthStates)
-  );
+  const match = validAuthStates.some((validAuthStates) => regExp.test(validAuthStates));
 
   return match
     ? component
       ? React.createElement(component, authConfig)
       : children
-      ? children(authConfig)
-      : null
+        ? children(authConfig)
+        : null
     : null;
 };

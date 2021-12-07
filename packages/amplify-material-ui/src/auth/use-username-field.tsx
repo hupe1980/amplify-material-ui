@@ -7,7 +7,7 @@ import { PhoneField } from '../ui';
 import { UsernameAttribute } from './types';
 
 export const useUsernameField = (
-  usernameAttribute?: UsernameAttribute
+  usernameAttribute?: UsernameAttribute,
 ): { usernamefieldName: string; usernameField: React.ReactElement } => {
   const { formatMessage } = useIntl();
 

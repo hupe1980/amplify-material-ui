@@ -11,11 +11,11 @@ export const useSignUp = (): ((
   username: string,
   password: string,
   validationData?: Record<string, string>,
-  attributes?: Record<string, string>
+  attributes?: Record<string, string>,
 ) => Promise<void>) => {
   invariant(
     Auth && typeof Auth.signUp === 'function',
-    'No Auth module found, please ensure @aws-amplify/auth is imported'
+    'No Auth module found, please ensure @aws-amplify/auth is imported',
   );
 
   const { handleStateChange } = useAuthContext();
@@ -24,7 +24,7 @@ export const useSignUp = (): ((
     username: string,
     password: string,
     validationData?: Record<string, string>,
-    attributes?: Record<string, string>
+    attributes?: Record<string, string>,
   ): Promise<void> => {
     const validationDataArray: CognitoUserAttribute[] = [];
 
@@ -34,7 +34,7 @@ export const useSignUp = (): ((
           new CognitoUserAttribute({
             Name: name,
             Value: value,
-          })
+          }),
         );
       }
     }

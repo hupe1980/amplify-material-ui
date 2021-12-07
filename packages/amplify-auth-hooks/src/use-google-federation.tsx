@@ -12,21 +12,13 @@ export interface GoogleFederationProps {
   scriptSrc?: string;
 }
 
-interface GoogleUser {
-  getAuthResponse: Function;
-  getBasicProfile: Function;
-}
-
 export const useGoogleFederation = (props: GoogleFederationProps) => {
   invariant(
-    Auth &&
-      typeof Auth.federatedSignIn === 'function' &&
-      typeof Auth.currentAuthenticatedUser === 'function',
-    'No Auth module found, please ensure @aws-amplify/auth is imported'
+    Auth && typeof Auth.federatedSignIn === 'function' && typeof Auth.currentAuthenticatedUser === 'function',
+    'No Auth module found, please ensure @aws-amplify/auth is imported',
   );
 
-  const { clientId, scriptSrc = 'https://apis.google.com/js/platform.js' } =
-    props;
+  const { clientId, scriptSrc = 'https://apis.google.com/js/platform.js' } = props;
 
   const { handleStateChange } = useAuthContext();
 
@@ -46,9 +38,8 @@ export const useGoogleFederation = (props: GoogleFederationProps) => {
     },
   });
 
-  const federatedSignIn = async (googleUser: GoogleUser) => {
-    const { id_token: idToken, expires_at: expiresAt } =
-      googleUser.getAuthResponse();
+  const federatedSignIn = async (googleUser: gapi.auth2.GoogleUser) => {
+    const { id_token: idToken, expires_at: expiresAt } = googleUser.getAuthResponse();
 
     const profile = googleUser.getBasicProfile();
 
@@ -58,11 +49,7 @@ export const useGoogleFederation = (props: GoogleFederationProps) => {
       picture: profile.getImageUrl(),
     };
 
-    await Auth.federatedSignIn(
-      'google',
-      { token: idToken, expires_at: expiresAt },
-      user
-    );
+    await Auth.federatedSignIn('google', { token: idToken, expires_at: expiresAt }, user);
 
     const authUser = await Auth.currentAuthenticatedUser();
 
@@ -79,9 +66,7 @@ export const useGoogleFederation = (props: GoogleFederationProps) => {
 
   const signOut = async () => {
     const googleAuth =
-      (window as any).gapi && (window as any).gapi.auth2
-        ? (window as any).gapi.auth2.getAuthInstance()
-        : null;
+      (window as any).gapi && (window as any).gapi.auth2 ? (window as any).gapi.auth2.getAuthInstance() : null;
 
     if (!googleAuth) {
       logger.debug('google Auth undefined');

@@ -5,7 +5,6 @@
     "outdated:all": "yarn outdated",
     "upgrade:all": "yarn upgrade-interactive --latest",
     "lint": "eslint '*/**/*.{ts,tsx}' --report-unused-disable-directives",
-    "lint:fix": "eslint '*/**/*.{ts,tsx}' --fix",
     "prepare": "yarn build",
     "build": "lerna run --scope amplify* build",
     "test:unit": "jest",
@@ -19,7 +18,6 @@
     "@types/jest": "^27.0.3",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
-    "babel-eslint": "10.1.0",
     "cross-env": "^7.0.2",
     "eslint": "8.4.1",
     "eslint-config-prettier": "^8.3.0",
@@ -29,10 +27,10 @@
     "eslint-plugin-react": "7.27.1",
     "eslint-plugin-react-hooks": "4.3.0",
     "jest": "27.4.3",
-    "jest-environment-jsdom-sixteen": "^2.0.0",
     "lerna": "^4.0.0",
     "prettier": "^2.2.0",
     "rimraf": "^3.0.2",
+    "ts-jest": "^27.1.0",
     "typescript": "^4.5.2"
   }
 }

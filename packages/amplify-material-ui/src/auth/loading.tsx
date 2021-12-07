@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme: Theme) =>
     progress: {
       margin: theme.spacing(2),
     },
-  })
+  }),
 );
 
 export interface LoadingProps {

@@ -2,15 +2,7 @@ import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useAuthContext, useSignOut } from 'amplify-auth-hooks';
 import clsx from 'clsx';
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  Menu,
-  MenuItem,
-  Divider,
-} from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem, Divider } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
@@ -31,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
         duration: theme.transitions.duration.leavingScreen,
       }),
     },
-  })
+  }),
 );
 
 export interface GreetingsProps {
@@ -77,13 +69,9 @@ export const Greetings: React.FC<GreetingsProps> = (props) => {
   const getUserName = () => {
     switch (usernameAttribute) {
       case UsernameAttribute.EMAIL:
-        return authData.attributes
-          ? authData.attributes.email
-          : authData.username;
+        return authData.attributes ? authData.attributes.email : authData.username;
       case UsernameAttribute.PHONE_NUMBER:
-        return authData.attributes
-          ? authData.attributes.phone_number
-          : authData.username;
+        return authData.attributes ? authData.attributes.phone_number : authData.username;
       //case UsernameAttribute.EMAIL:
       default:
         return authData.username;
@@ -95,34 +83,17 @@ export const Greetings: React.FC<GreetingsProps> = (props) => {
       <Toolbar className={classes.toolbar}>
         {burgerMenu}
         {typeof title === 'string' ? (
-          <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap
-            className={classes.title}
-          >
+          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             {title}
           </Typography>
         ) : (
           <div className={classes.title}>{title}</div>
         )}
-        <IconButton
-          color="inherit"
-          aria-controls="user-menu"
-          aria-haspopup="true"
-          onClick={handleClick}
-        >
+        <IconButton color="inherit" aria-controls="user-menu" aria-haspopup="true" onClick={handleClick}>
           <AccountCircle />
         </IconButton>
       </Toolbar>
-      <Menu
-        id="user-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
+      <Menu id="user-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
         <MenuItem disabled>
           <FormattedMessage
             id="greetings.menu.signedIn"
@@ -133,10 +104,7 @@ export const Greetings: React.FC<GreetingsProps> = (props) => {
         <Divider />
         {renderUserMenu && renderUserMenu()}
         <MenuItem onClick={logout}>
-          <FormattedMessage
-            id="greetings.menu.logout"
-            defaultMessage="Logout"
-          />
+          <FormattedMessage id="greetings.menu.logout" defaultMessage="Logout" />
         </MenuItem>
       </Menu>
     </AppBar>

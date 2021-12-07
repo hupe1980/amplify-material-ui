@@ -13,7 +13,7 @@ export const useTOTPSetup = () => {
       typeof Auth.setupTOTP === 'function' &&
       typeof Auth.verifyTotpToken === 'function' &&
       typeof Auth.setPreferredMFA === 'function',
-    'No Auth module found, please ensure @aws-amplify/auth is imported'
+    'No Auth module found, please ensure @aws-amplify/auth is imported',
   );
 
   const [code, setCode] = useState<string | null>(null);
@@ -35,9 +35,7 @@ export const useTOTPSetup = () => {
       const data = await Auth.setupTOTP(authData);
       logger.debug('secret key', data);
 
-      setCode(
-        `otpauth://totp/AWSCognito:${authData.username}?secret=${data}&issuer=AWSCognito`
-      );
+      setCode(`otpauth://totp/AWSCognito:${authData.username}?secret=${data}&issuer=AWSCognito`);
     };
     setup();
   }, [authData]);

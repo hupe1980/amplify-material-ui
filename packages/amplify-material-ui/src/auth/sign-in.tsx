@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
-  })
+  }),
 );
 
 export interface SignInProps {
@@ -32,19 +32,13 @@ export interface SignInProps {
 }
 
 export const SignIn: React.FC<SignInProps> = (props) => {
-  const {
-    validationData,
-    hideSignUpLink = false,
-    hideForgotPasswordLink = false,
-    usernameAttribute,
-  } = props;
+  const { validationData, hideSignUpLink = false, hideForgotPasswordLink = false, usernameAttribute } = props;
 
   const classes = useStyles();
   const { formatMessage } = useIntl();
   const { showNotification } = useNotificationContext();
   const signIn = useSignIn();
-  const { usernamefieldName, usernameField } =
-    useUsernameField(usernameAttribute);
+  const { usernamefieldName, usernameField } = useUsernameField(usernameAttribute);
 
   return (
     <Formik<{ [fieldName: string]: string; password: string }>
@@ -54,11 +48,7 @@ export const SignIn: React.FC<SignInProps> = (props) => {
       }}
       onSubmit={async (values): Promise<void> => {
         try {
-          await signIn(
-            values[usernamefieldName].trim(),
-            values['password'].trim(),
-            validationData
-          );
+          await signIn(values[usernamefieldName].trim(), values['password'].trim(), validationData);
         } catch (error) {
           const content = formatMessage({
             id: `signIn.errors.${error.code}`,
@@ -71,10 +61,7 @@ export const SignIn: React.FC<SignInProps> = (props) => {
       {({ handleSubmit, isValid }): React.ReactNode => (
         <FormSection>
           <SectionHeader>
-            <FormattedMessage
-              id="signIn.header"
-              defaultMessage="Sign in to your account"
-            />
+            <FormattedMessage id="signIn.header" defaultMessage="Sign in to your account" />
           </SectionHeader>
           <Form
             className={classes.form}
@@ -110,10 +97,7 @@ export const SignIn: React.FC<SignInProps> = (props) => {
                 className={classes.submit}
                 data-testid="signInSubmit"
               >
-                <FormattedMessage
-                  id="signIn.buttons.signIn"
-                  defaultMessage="Sign In"
-                />
+                <FormattedMessage id="signIn.buttons.signIn" defaultMessage="Sign In" />
               </Button>
               <Grid container>
                 {!hideForgotPasswordLink && (

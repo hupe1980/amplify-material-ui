@@ -10,7 +10,7 @@ export const useCheckContact = (): ((authData: AuthData) => Promise<void>) => {
   return async (authData: AuthData): Promise<void> => {
     invariant(
       Auth && typeof Auth.verifiedContact === 'function',
-      'No Auth module found, please ensure @aws-amplify/auth is imported'
+      'No Auth module found, please ensure @aws-amplify/auth is imported',
     );
 
     const data = await Auth.verifiedContact(authData);

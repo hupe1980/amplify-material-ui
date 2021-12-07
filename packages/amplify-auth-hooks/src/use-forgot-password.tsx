@@ -9,9 +9,8 @@ const logger = new Logger('useForgotPassword');
 
 export const useForgotPassword = () => {
   invariant(
-    (Auth && typeof Auth.forgotPassword === 'function') ||
-      typeof Auth.forgotPasswordSubmit === 'function',
-    'No Auth module found, please ensure @aws-amplify/auth is imported'
+    (Auth && typeof Auth.forgotPassword === 'function') || typeof Auth.forgotPasswordSubmit === 'function',
+    'No Auth module found, please ensure @aws-amplify/auth is imported',
   );
   const [delivery, setDelivery] = React.useState(null);
   const [username, setUsername] = React.useState('');

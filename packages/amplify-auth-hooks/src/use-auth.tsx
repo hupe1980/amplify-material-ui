@@ -14,7 +14,7 @@ export interface AuthProps {
 export const useAuth = (props: AuthProps): AuthContextProps => {
   invariant(
     Auth && typeof Auth.currentAuthenticatedUser === 'function',
-    'No Auth module found, please ensure @aws-amplify/auth is imported'
+    'No Auth module found, please ensure @aws-amplify/auth is imported',
   );
 
   const { initialAuthState = 'signIn', onStateChange } = props;
@@ -31,16 +31,14 @@ export const useAuth = (props: AuthProps): AuthContextProps => {
       }
 
       setState((prev) => {
-        const newState = onStateChange
-          ? onStateChange(prev, { authState, authData })
-          : { authState, authData };
+        const newState = onStateChange ? onStateChange(prev, { authState, authData }) : { authState, authData };
         return {
           ...prev,
           ...newState,
         };
       });
     },
-    [onStateChange]
+    [onStateChange],
   );
 
   React.useEffect(() => {

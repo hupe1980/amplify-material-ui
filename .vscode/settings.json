@@ -1,8 +1,9 @@
 {
   "eslint.validate": [
     "javascript",
-    "javascriptreact",
+    "typescript"
   ],
+  "editor.formatOnSave": true,
   "eslint.alwaysShowStatus": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

@@ -3,14 +3,14 @@ executors:
         parameters:
             image:
                 type: string
-                default: "10"
+                default: "14"
         docker:
             - image: circleci/node:<< parameters.image >>
 
 aliases:
     e2e-executor: &e2e-executor
         docker:
-            - image: cypress/browsers:node10.16.0-chrome76
+            - image: cypress/browsers:node14.15.0-chrome86-ff82
 
     restore_cache: &restore_cache
         restore_cache:
@@ -47,8 +47,8 @@ aliases:
                     - master
         requires:
             - lint
-            - unit_tests_node10
-            - unit_tests_node12
+            - unit_tests_node14
+            - unit_tests_node16
 
     test_template: &test_template
         steps:
@@ -105,14 +105,14 @@ jobs:
             - <<: *persist_cache
             - run: yarn lint
 
-    unit_tests_node10:
+    unit_tests_node14:
         executor: node
         <<: *test_template
 
-    unit_tests_node12:
+    unit_tests_node16:
         executor:
             name: node
-            image: "12"
+            image: "16"
         <<: *test_template
 
     e2e_tests_auth:
@@ -130,10 +130,10 @@ workflows:
             - lint:
                   requires:
                       - bootstrap
-            - unit_tests_node10:
+            - unit_tests_node14:
                   requires:
                       - lint
-            - unit_tests_node12:
+            - unit_tests_node16:
                   requires:
                       - lint
             - e2e_tests_auth:
