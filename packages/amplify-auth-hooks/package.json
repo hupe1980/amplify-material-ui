@@ -15,13 +15,17 @@
     "auth"
   ],
   "license": "MIT",
-  "main": "dist/amplify-auth-hooks.cjs.js",
-  "module": "dist/amplify-auth-hooks.esm.js",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
   "files": [
-    "dist"
+    "lib"
   ],
   "scripts": {
-    "prebuild": "rimraf dist"
+    "build": "rimraf lib && yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
+    "test": "jest"
   },
   "dependencies": {
     "react-script-hook": "^1.2.1",
