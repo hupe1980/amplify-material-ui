@@ -31,10 +31,8 @@ export const useAmazonFederation = (props: AmazonFederationProps) => {
     'No Auth module found, please ensure @aws-amplify/auth is imported'
   );
 
-  const {
-    clientId,
-    scriptSrc = 'https://api-cdn.amazon.com/sdk/login1.js',
-  } = props;
+  const { clientId, scriptSrc = 'https://api-cdn.amazon.com/sdk/login1.js' } =
+    props;
 
   const { handleStateChange } = useAuthContext();
 

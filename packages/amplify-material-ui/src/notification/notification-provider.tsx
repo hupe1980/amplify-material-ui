@@ -13,10 +13,8 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({
   children,
   onShowNotification,
 }) => {
-  const [
-    notification,
-    setNotification,
-  ] = React.useState<NotificationState | null>(null);
+  const [notification, setNotification] =
+    React.useState<NotificationState | null>(null);
 
   const showNotification = (message: NotificationState): void => {
     const msg = onShowNotification ? onShowNotification(message) : message;

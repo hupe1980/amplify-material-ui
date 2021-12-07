@@ -12,7 +12,7 @@ exports[`sign-up should allow custom initial values 1`] = `
         class="MuiBox-root MuiBox-root-48 makeStyles-box-46"
       >
         <div
-          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-47 MuiAvatar-colorDefault"
+          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar-47 MuiAvatar-colorDefault"
         >
           <svg
             aria-hidden="true"
@@ -210,7 +210,7 @@ exports[`sign-up should be rendered correctly 1`] = `
         class="MuiBox-root MuiBox-root-6 makeStyles-box-4"
       >
         <div
-          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-5 MuiAvatar-colorDefault"
+          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar-5 MuiAvatar-colorDefault"
         >
           <svg
             aria-hidden="true"
@@ -408,7 +408,7 @@ exports[`sign-up should render custom sign-up fields 1`] = `
         class="MuiBox-root MuiBox-root-20 makeStyles-box-18"
       >
         <div
-          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-19 MuiAvatar-colorDefault"
+          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar-19 MuiAvatar-colorDefault"
         >
           <svg
             aria-hidden="true"
@@ -646,7 +646,7 @@ exports[`sign-up should render custom sign-up fields in the correct order 1`] = 
         class="MuiBox-root MuiBox-root-34 makeStyles-box-32"
       >
         <div
-          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-33 MuiAvatar-colorDefault"
+          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar-33 MuiAvatar-colorDefault"
         >
           <svg
             aria-hidden="true"

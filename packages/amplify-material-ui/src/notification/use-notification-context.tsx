@@ -21,10 +21,8 @@ function createNamedContext<T>(
   return context;
 }
 
-export const NotificationContext = createNamedContext<NotificationContextProps | null>(
-  'Notification',
-  null
-);
+export const NotificationContext =
+  createNamedContext<NotificationContextProps | null>('Notification', null);
 
 export const useNotificationContext = (): NotificationContextProps =>
   React.useContext(NotificationContext) as NotificationContextProps;

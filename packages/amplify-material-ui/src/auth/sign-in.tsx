@@ -43,9 +43,8 @@ export const SignIn: React.FC<SignInProps> = (props) => {
   const { formatMessage } = useIntl();
   const { showNotification } = useNotificationContext();
   const signIn = useSignIn();
-  const { usernamefieldName, usernameField } = useUsernameField(
-    usernameAttribute
-  );
+  const { usernamefieldName, usernameField } =
+    useUsernameField(usernameAttribute);
 
   return (
     <Formik<{ [fieldName: string]: string; password: string }>

@@ -25,10 +25,8 @@ export const useGoogleFederation = (props: GoogleFederationProps) => {
     'No Auth module found, please ensure @aws-amplify/auth is imported'
   );
 
-  const {
-    clientId,
-    scriptSrc = 'https://apis.google.com/js/platform.js',
-  } = props;
+  const { clientId, scriptSrc = 'https://apis.google.com/js/platform.js' } =
+    props;
 
   const { handleStateChange } = useAuthContext();
 
@@ -49,10 +47,8 @@ export const useGoogleFederation = (props: GoogleFederationProps) => {
   });
 
   const federatedSignIn = async (googleUser: GoogleUser) => {
-    const {
-      id_token: idToken,
-      expires_at: expiresAt,
-    } = googleUser.getAuthResponse();
+    const { id_token: idToken, expires_at: expiresAt } =
+      googleUser.getAuthResponse();
 
     const profile = googleUser.getBasicProfile();
 

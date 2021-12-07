@@ -63,7 +63,7 @@
     {
       "name": "amplify-material-ui",
       "path": "./packages/amplify-material-ui/dist/amplify-material-ui.cjs.prod.js",
-      "maxSize": "8 Kb"
+      "maxSize": "9 Kb"
     }
   ]
 }

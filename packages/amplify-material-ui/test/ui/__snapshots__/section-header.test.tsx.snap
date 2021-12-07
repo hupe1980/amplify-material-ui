@@ -6,7 +6,7 @@ exports[`section-header should be rendered correctly 1`] = `
     class="MuiBox-root MuiBox-root-3 makeStyles-box-1"
   >
     <div
-      class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-2 MuiAvatar-colorDefault"
+      class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar-2 MuiAvatar-colorDefault"
     >
       <svg
         aria-hidden="true"

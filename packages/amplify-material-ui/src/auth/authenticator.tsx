@@ -19,13 +19,8 @@ export interface AuthenticatorProps
 }
 
 export const Authenticator: React.FC<AuthenticatorProps> = (props) => {
-  const {
-    children,
-    intlProps,
-    notificationProps,
-    theme,
-    ...authConfig
-  } = props;
+  const { children, intlProps, notificationProps, theme, ...authConfig } =
+    props;
 
   return (
     <IntlProvider {...intlProps}>
@@ -38,15 +33,18 @@ export const Authenticator: React.FC<AuthenticatorProps> = (props) => {
   );
 };
 
-export const withAuthenticator = (
-  Component: React.ComponentType,
-  authenticatorProps: AuthenticatorProps = {}
-): React.ComponentType => (props): React.ReactElement => (
-  <Authenticator {...authenticatorProps}>
-    <AuthRoute validAuthStates={['signedIn']}>
-      {(authConfigProps): React.ReactElement => (
-        <Component {...authConfigProps} {...props} />
-      )}
-    </AuthRoute>
-  </Authenticator>
-);
+export const withAuthenticator =
+  (
+    Component: React.ComponentType,
+    authenticatorProps: AuthenticatorProps = {}
+  ): React.ComponentType =>
+  (props): React.ReactElement =>
+    (
+      <Authenticator {...authenticatorProps}>
+        <AuthRoute validAuthStates={['signedIn']}>
+          {(authConfigProps): React.ReactElement => (
+            <Component {...authConfigProps} {...props} />
+          )}
+        </AuthRoute>
+      </Authenticator>
+    );
