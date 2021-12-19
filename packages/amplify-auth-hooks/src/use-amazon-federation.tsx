@@ -25,14 +25,11 @@ interface AuthorizeResponse {
 
 export const useAmazonFederation = (props: AmazonFederationProps) => {
   invariant(
-    Auth &&
-      typeof Auth.federatedSignIn === 'function' &&
-      typeof Auth.currentAuthenticatedUser === 'function',
-    'No Auth module found, please ensure @aws-amplify/auth is imported'
+    Auth && typeof Auth.federatedSignIn === 'function' && typeof Auth.currentAuthenticatedUser === 'function',
+    'No Auth module found, please ensure @aws-amplify/auth is imported',
   );
 
-  const { clientId, scriptSrc = 'https://api-cdn.amazon.com/sdk/login1.js' } =
-    props;
+  const { clientId, scriptSrc = 'https://api-cdn.amazon.com/sdk/login1.js' } = props;
 
   const { handleStateChange } = useAuthContext();
 
@@ -67,11 +64,7 @@ export const useAmazonFederation = (props: AmazonFederationProps) => {
         email: userInfo.profile.PrimaryEmail,
       };
 
-      await Auth.federatedSignIn(
-        'amazon',
-        { token: accessToken, expires_at: expiresAt },
-        user
-      );
+      await Auth.federatedSignIn('amazon', { token: accessToken, expires_at: expiresAt }, user);
       const authUser = await Auth.currentAuthenticatedUser();
 
       handleStateChange('signedIn', authUser);

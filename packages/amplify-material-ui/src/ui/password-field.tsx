@@ -10,10 +10,7 @@ import {
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
-export type PasswordFieldProps =
-  | StandardTextFieldProps
-  | FilledTextFieldProps
-  | OutlinedTextFieldProps;
+export type PasswordFieldProps = StandardTextFieldProps | FilledTextFieldProps | OutlinedTextFieldProps;
 
 export const PasswordField: React.FC<PasswordFieldProps> = (props) => {
   const [showPassword, setShowPassword] = React.useState<boolean>(false);
@@ -29,9 +26,7 @@ export const PasswordField: React.FC<PasswordFieldProps> = (props) => {
             <IconButton
               aria-label="Toggle password visibility"
               data-testid="togglePasswordVisibility"
-              onClick={(): void =>
-                setShowPassword((showPassword) => !showPassword)
-              }
+              onClick={(): void => setShowPassword((showPassword) => !showPassword)}
             >
               {showPassword ? <Visibility /> : <VisibilityOff />}
             </IconButton>

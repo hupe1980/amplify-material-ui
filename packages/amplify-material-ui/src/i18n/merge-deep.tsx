@@ -1,9 +1,6 @@
 import { RawIntlMessages } from './types';
 
-export function mergeDeep(
-  target: RawIntlMessages,
-  source: RawIntlMessages
-): RawIntlMessages {
+export function mergeDeep(target: RawIntlMessages, source: RawIntlMessages): RawIntlMessages {
   if (!source) return target;
 
   for (const key of Object.keys(source)) {

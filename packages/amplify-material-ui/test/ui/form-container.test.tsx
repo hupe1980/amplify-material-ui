@@ -7,7 +7,7 @@ describe('form-container', () => {
     const { asFragment } = render(
       <FormContainer>
         <div />
-      </FormContainer>
+      </FormContainer>,
     );
     expect(asFragment()).toMatchSnapshot();
   });

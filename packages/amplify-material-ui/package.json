@@ -17,24 +17,28 @@
     "aws",
     "auth"
   ],
-  "main": "dist/amplify-material-ui.cjs.js",
-  "module": "dist/amplify-material-ui.esm.js",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
   "files": [
-    "dist"
+    "lib"
   ],
   "scripts": {
+    "build": "rimraf lib && yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
     "test": "jest"
   },
   "dependencies": {
     "amplify-auth-hooks": "^0.2.0",
     "clsx": "^1.1.1",
-    "formik": "^2.2.5",
+    "formik": "^2.2.9",
     "formik-material-ui": "^3.0.0",
     "langtag-utils": "^2.0.2",
     "qrcode.react": "^1.0.0",
-    "react-intl": "^5.10.4",
-    "react-recaptcha-hook": "^1.1.1",
-    "tiny-invariant": "^1.1.0",
+    "react-intl": "^5.23.0",
+    "react-recaptcha-hook": "^1.2.2",
+    "tiny-invariant": "^1.2.0",
     "yup": "^0.32.9"
   },
   "peerDependencies": {
@@ -45,13 +49,13 @@
     "react": ">=16"
   },
   "devDependencies": {
-    "@aws-amplify/core": "^3.8.4",
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
-    "@material-ui/styles": "^4.10.0",
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/react-hooks": "^3.4.2",
+    "@aws-amplify/core": "^4.3.10",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/styles": "^4.11.4",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/react-hooks": "^7.0.2",
     "@types/qrcode.react": "^1.0.1",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",

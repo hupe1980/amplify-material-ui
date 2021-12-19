@@ -7,7 +7,7 @@ describe('section-header', () => {
     const { asFragment } = render(
       <SectionHeader>
         <div />
-      </SectionHeader>
+      </SectionHeader>,
     );
     expect(asFragment()).toMatchSnapshot();
   });

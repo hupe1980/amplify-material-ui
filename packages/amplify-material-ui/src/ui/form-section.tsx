@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
       minWidth: '300px',
       padding: theme.spacing(1),
     },
-  })
+  }),
 );
 
 export const FormSection: React.FC = ({ children }) => {

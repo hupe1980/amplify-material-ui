@@ -11,11 +11,11 @@ const logger = new Logger('useSignIn');
 export const useSignIn = (): ((
   username: string,
   password: string,
-  validationData?: Record<string, string>
+  validationData?: Record<string, string>,
 ) => Promise<void>) => {
   invariant(
     Auth && typeof Auth.signIn === 'function',
-    'No Auth module found, please ensure @aws-amplify/auth is imported'
+    'No Auth module found, please ensure @aws-amplify/auth is imported',
   );
 
   const { handleStateChange } = useAuthContext();
@@ -26,7 +26,7 @@ export const useSignIn = (): ((
     password: string,
     validationData?: {
       [key: string]: string;
-    }
+    },
   ): Promise<void> => {
     try {
       const user = await Auth.signIn({
@@ -35,10 +35,7 @@ export const useSignIn = (): ((
         validationData,
       });
       logger.debug(user);
-      if (
-        user.challengeName === 'SMS_MFA' ||
-        user.challengeName === 'SOFTWARE_TOKEN_MFA'
-      ) {
+      if (user.challengeName === 'SMS_MFA' || user.challengeName === 'SOFTWARE_TOKEN_MFA') {
         logger.debug('confirm user with ' + user.challengeName);
         handleStateChange('confirmSignIn', user);
       } else if (user.challengeName === 'NEW_PASSWORD_REQUIRED') {

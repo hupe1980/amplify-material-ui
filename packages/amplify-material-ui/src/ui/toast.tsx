@@ -5,13 +5,7 @@ import ErrorIcon from '@material-ui/icons/Error';
 import InfoIcon from '@material-ui/icons/Info';
 import CloseIcon from '@material-ui/icons/Close';
 import WarningIcon from '@material-ui/icons/Warning';
-import {
-  colors,
-  IconButton,
-  Snackbar,
-  SnackbarOrigin,
-  SnackbarContent,
-} from '@material-ui/core';
+import { colors, IconButton, Snackbar, SnackbarOrigin, SnackbarContent } from '@material-ui/core';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 const variantIcon = {
@@ -54,10 +48,7 @@ export interface ToastProps {
   content?: string;
   variant?: keyof typeof variantIcon;
   open?: boolean;
-  onClose?: (
-    event: React.SyntheticEvent | React.MouseEvent,
-    reason?: string
-  ) => void;
+  onClose?: (event: React.SyntheticEvent | React.MouseEvent, reason?: string) => void;
 }
 
 export const Toast: React.FC<ToastProps> = (props) => {
@@ -79,12 +70,7 @@ export const Toast: React.FC<ToastProps> = (props) => {
   const Icon = variantIcon[variant];
 
   return (
-    <Snackbar
-      anchorOrigin={anchorOrigin}
-      open={open}
-      autoHideDuration={autoHideDuration}
-      onClose={onClose}
-    >
+    <Snackbar anchorOrigin={anchorOrigin} open={open} autoHideDuration={autoHideDuration} onClose={onClose}>
       <SnackbarContent
         className={clsx(classes[variant], className)}
         aria-describedby="client-snackbar"
@@ -95,12 +81,7 @@ export const Toast: React.FC<ToastProps> = (props) => {
           </span>
         }
         action={[
-          <IconButton
-            key="close"
-            aria-label="Close"
-            color="inherit"
-            onClick={onClose}
-          >
+          <IconButton key="close" aria-label="Close" color="inherit" onClick={onClose}>
             <CloseIcon className={classes.icon} />
           </IconButton>,
         ]}

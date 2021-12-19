@@ -1,11 +1,26 @@
 module.exports = {
-  rootDir: './packages',
-  projects: ['<rootDir>'],
-  transform: {
-    '^.+\\.[t|j]sx?$': 'babel-jest',
-  },
-  testURL: 'http://localhost',
-  testMatch: ['<rootDir>/*/test/**/*.test.ts?(x)'],
-  testPathIgnorePatterns: ['node_modules', 'dist'],
-  testEnvironment: 'jest-environment-jsdom-sixteen',
+  projects: [
+    {
+      displayName: 'amplify-auth-hooks',
+      rootDir: './packages/amplify-auth-hooks',
+      preset: 'ts-jest',
+      testEnvironment: 'jsdom',
+      globals: {
+        'ts-jest': {
+          tsconfig: '<rootDir>/tsconfig.dev.json',
+        },
+      },
+    },
+    {
+      displayName: 'amplify-material-ui',
+      rootDir: './packages/amplify-material-ui',
+      preset: 'ts-jest',
+      testEnvironment: 'jsdom',
+      globals: {
+        'ts-jest': {
+          tsconfig: '<rootDir>/tsconfig.dev.json',
+        },
+      },
+    },
+  ],
 };

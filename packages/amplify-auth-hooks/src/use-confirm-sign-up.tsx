@@ -8,9 +8,8 @@ const logger = new Logger('useConfirmSignUp');
 
 export const useConfirmSignUp = () => {
   invariant(
-    (Auth && typeof Auth.confirmSignUp === 'function') ||
-      typeof Auth.resendSignUp === 'function',
-    'No Auth module found, please ensure @aws-amplify/auth is imported'
+    (Auth && typeof Auth.confirmSignUp === 'function') || typeof Auth.resendSignUp === 'function',
+    'No Auth module found, please ensure @aws-amplify/auth is imported',
   );
 
   const { handleStateChange, authData = {} } = useAuthContext();

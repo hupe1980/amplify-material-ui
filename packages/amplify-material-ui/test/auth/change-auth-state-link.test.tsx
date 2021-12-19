@@ -6,11 +6,7 @@ import { ChangeAuthStateLink } from '../../src';
 
 describe('change-auth-state-link', () => {
   it('should be rendered correctly', () => {
-    const { asFragment } = render(
-      withContext(
-        <ChangeAuthStateLink label="LinkLabel" newState="newState" />
-      )()
-    );
+    const { asFragment } = render(withContext(<ChangeAuthStateLink label="LinkLabel" newState="newState" />)());
     expect(asFragment()).toMatchSnapshot();
   });
 });

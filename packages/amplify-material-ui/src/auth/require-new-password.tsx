@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
-  })
+  }),
 );
 
 export const RequireNewPassword: React.FC = () => {
@@ -43,7 +43,7 @@ export const RequireNewPassword: React.FC = () => {
             formatMessage({
               id: 'requireNewPassword.confirmPassword.notEqual',
               defaultMessage: 'passwords do not match',
-            })
+            }),
           ),
         }),
       })}
@@ -62,10 +62,7 @@ export const RequireNewPassword: React.FC = () => {
       {({ handleSubmit, isValid }): React.ReactNode => (
         <FormSection>
           <SectionHeader>
-            <FormattedMessage
-              id="requireNewPassword.header"
-              defaultMessage="Change Password"
-            />
+            <FormattedMessage id="requireNewPassword.header" defaultMessage="Change Password" />
           </SectionHeader>
           <Form className={classes.form} onSubmit={handleSubmit}>
             <SectionBody>
@@ -107,10 +104,7 @@ export const RequireNewPassword: React.FC = () => {
                 color="primary"
                 className={classes.submit}
               >
-                <FormattedMessage
-                  id="requireNewPassword.buttons.change"
-                  defaultMessage="Change"
-                />
+                <FormattedMessage id="requireNewPassword.buttons.change" defaultMessage="Change" />
               </Button>
               <Grid container>
                 <Grid item>

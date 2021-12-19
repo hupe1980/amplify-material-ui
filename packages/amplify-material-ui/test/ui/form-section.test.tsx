@@ -7,7 +7,7 @@ describe('form-section', () => {
     const { asFragment } = render(
       <FormSection>
         <div />
-      </FormSection>
+      </FormSection>,
     );
     expect(asFragment()).toMatchSnapshot();
   });

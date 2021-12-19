@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: theme.spacing(1),
       backgroundColor: theme.palette.secondary.main,
     },
-  })
+  }),
 );
 
 export const SectionHeader: React.FC = ({ children }) => {

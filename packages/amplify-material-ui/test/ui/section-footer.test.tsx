@@ -7,7 +7,7 @@ describe('section-footer', () => {
     const { asFragment } = render(
       <SectionFooter>
         <div />
-      </SectionFooter>
+      </SectionFooter>,
     );
     expect(asFragment()).toMatchSnapshot();
   });

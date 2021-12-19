@@ -9,20 +9,13 @@ export interface ChangeAuthStateLinkProps {
   [key: string]: any;
 }
 
-export const ChangeAuthStateLink: React.FC<ChangeAuthStateLinkProps> = (
-  props
-) => {
+export const ChangeAuthStateLink: React.FC<ChangeAuthStateLinkProps> = (props) => {
   const { label, newState, authData, ...rest } = props;
 
   const { handleStateChange } = useAuthContext();
 
   return (
-    <Link
-      href="#"
-      onClick={(): void => handleStateChange(newState, authData)}
-      variant="body2"
-      {...rest}
-    >
+    <Link href="#" onClick={(): void => handleStateChange(newState, authData)} variant="body2" {...rest}>
       {label}
     </Link>
   );

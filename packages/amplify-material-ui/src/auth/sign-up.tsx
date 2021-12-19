@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
-  })
+  }),
 );
 
 export type SignUpValues = Record<string, string>;
@@ -96,9 +96,7 @@ export const SignUp: React.FC<SignUpProps> = (props) => {
 
   const signUpFields = signUpConfig?.signUpFields ?? defaultSignUpFields;
   const initialValues = signUpConfig?.initialValues ?? {};
-  signUpFields.forEach(
-    (field) => (initialValues[field.key] = initialValues[field.key] ?? '')
-  );
+  signUpFields.forEach((field) => (initialValues[field.key] = initialValues[field.key] ?? ''));
 
   const classes = useStyles();
   const { formatMessage } = useIntl();
@@ -123,44 +121,34 @@ export const SignUp: React.FC<SignUpProps> = (props) => {
       {({ handleSubmit, isValid }): React.ReactNode => (
         <FormSection>
           <SectionHeader>
-            <FormattedMessage
-              id="signUp.header"
-              defaultMessage="Create a new account"
-            />
+            <FormattedMessage id="signUp.header" defaultMessage="Create a new account" />
           </SectionHeader>
           <Form className={classes.form} onSubmit={handleSubmit}>
             <SectionBody>
               {signUpFields
                 .sort(sortByDisplayOrder)
-                .map(
-                  ({
-                    displayOrder,
-                    label,
-                    placeholder,
-                    intl,
-                    ...inputProps
-                  }) => {
-                    return (
-                      <Field
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        name={inputProps.key}
-                        label={
-                          intl?.label !== undefined
-                            ? formatMessage({
-                                id: intl.label,
-                                defaultMessage: label,
-                              })
-                            : label
-                        }
-                        {...inputProps}
-                        component={TextField}
-                      />
-                    );
-                  }
-                )}
+                .map(({ key, displayOrder: _displayOrder, label, intl, ...inputProps }) => {
+                  return (
+                    <Field
+                      key={key}
+                      variant="outlined"
+                      margin="normal"
+                      required
+                      fullWidth
+                      name={key}
+                      label={
+                        intl?.label !== undefined
+                          ? formatMessage({
+                            id: intl.label,
+                            defaultMessage: label,
+                          })
+                          : label
+                      }
+                      {...inputProps}
+                      component={TextField}
+                    />
+                  );
+                })}
             </SectionBody>
             <SectionFooter>
               <Button
@@ -171,17 +159,11 @@ export const SignUp: React.FC<SignUpProps> = (props) => {
                 color="primary"
                 className={classes.submit}
               >
-                <FormattedMessage
-                  id="signUp.buttons.create"
-                  defaultMessage="Create Account"
-                />
+                <FormattedMessage id="signUp.buttons.create" defaultMessage="Create Account" />
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <FormattedMessage
-                    id="signUp.text.haveAccount"
-                    defaultMessage="Have an account?"
-                  />{' '}
+                  <FormattedMessage id="signUp.text.haveAccount" defaultMessage="Have an account?" />{' '}
                   <ChangeAuthStateLink
                     label={formatMessage({
                       id: 'signUp.links.signIn',

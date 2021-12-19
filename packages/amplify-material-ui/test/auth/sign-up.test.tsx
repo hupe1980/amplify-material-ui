@@ -44,9 +44,7 @@ describe('sign-up', () => {
       ],
     };
 
-    const { asFragment } = render(
-      withContext(<SignUp signUpConfig={signUpConfig} />)()
-    );
+    const { asFragment } = render(withContext(<SignUp signUpConfig={signUpConfig} />)());
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -84,9 +82,7 @@ describe('sign-up', () => {
       ],
     };
 
-    const { asFragment } = render(
-      withContext(<SignUp signUpConfig={signUpConfig} />)()
-    );
+    const { asFragment } = render(withContext(<SignUp signUpConfig={signUpConfig} />)());
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -99,9 +95,7 @@ describe('sign-up', () => {
       },
     };
 
-    const { asFragment } = render(
-      withContext(<SignUp signUpConfig={signUpConfig} />)()
-    );
+    const { asFragment } = render(withContext(<SignUp signUpConfig={signUpConfig} />)());
     expect(asFragment()).toMatchSnapshot();
   });
 });

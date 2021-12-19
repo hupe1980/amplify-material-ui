@@ -15,9 +15,7 @@ describe('sign-in', () => {
   });
 
   it('should hide the signup link', () => {
-    const { getByTestId, queryByTestId } = render(
-      withContext(<SignIn hideSignUpLink />)()
-    );
+    const { getByTestId, queryByTestId } = render(withContext(<SignIn hideSignUpLink />)());
 
     const forgotPasswordLink = getByTestId('forgot-password-link');
     expect(forgotPasswordLink).toBeInTheDocument();
@@ -27,9 +25,7 @@ describe('sign-in', () => {
   });
 
   it('should hide the forgot password link', () => {
-    const { getByTestId, queryByTestId } = render(
-      withContext(<SignIn hideForgotPasswordLink />)()
-    );
+    const { getByTestId, queryByTestId } = render(withContext(<SignIn hideForgotPasswordLink />)());
 
     const signUpLink = getByTestId('sign-up-link');
     expect(signUpLink).toBeInTheDocument();
@@ -43,7 +39,7 @@ describe('sign-in', () => {
       return new Promise((res) =>
         res({
           challengeName: 'NEW_PASSWORD_REQUIRED',
-        })
+        }),
       );
     });
 
@@ -51,7 +47,7 @@ describe('sign-in', () => {
       withContext(<SignIn />)({
         authState: 'signIn',
         handleStateChange: handleStateChange,
-      })
+      }),
     );
 
     const usernameInput = getByLabelText('Username', {

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
-  })
+  }),
 );
 
 export const ConfirmSignIn: React.FC = () => {
@@ -48,11 +48,7 @@ export const ConfirmSignIn: React.FC = () => {
       {({ handleSubmit, isValid }): React.ReactNode => (
         <FormSection>
           <SectionHeader>
-            <FormattedMessage
-              id="confirmSignIn.header"
-              defaultMessage="Confirm {mfaType} Code"
-              values={{ mfaType }}
-            />
+            <FormattedMessage id="confirmSignIn.header" defaultMessage="Confirm {mfaType} Code" values={{ mfaType }} />
           </SectionHeader>
           <Form className={classes.form} onSubmit={handleSubmit}>
             <SectionBody>
@@ -81,10 +77,7 @@ export const ConfirmSignIn: React.FC = () => {
                 color="primary"
                 className={classes.submit}
               >
-                <FormattedMessage
-                  id="confirmSignIn.buttons.confirm"
-                  defaultMessage="Confirm"
-                />
+                <FormattedMessage id="confirmSignIn.buttons.confirm" defaultMessage="Confirm" />
               </Button>
               <Grid container>
                 <Grid item xs>

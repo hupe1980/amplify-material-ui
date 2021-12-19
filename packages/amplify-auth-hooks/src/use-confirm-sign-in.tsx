@@ -10,24 +10,17 @@ const logger = new Logger('useConfirmSignIn');
 export const useConfirmSignIn = () => {
   invariant(
     Auth && typeof Auth.confirmSignIn === 'function',
-    'No Auth module found, please ensure @aws-amplify/auth is imported'
+    'No Auth module found, please ensure @aws-amplify/auth is imported',
   );
 
   const { authData } = useAuthContext();
   const checkContact = useCheckContact();
 
-  const mfaType =
-    authData && authData.challengeName === 'SOFTWARE_TOKEN_MFA'
-      ? 'TOTP'
-      : 'SMS';
+  const mfaType = authData && authData.challengeName === 'SOFTWARE_TOKEN_MFA' ? 'TOTP' : 'SMS';
 
   const confirm = async (code: string): Promise<void> => {
     try {
-      await Auth.confirmSignIn(
-        authData,
-        code,
-        mfaType === 'TOTP' ? 'SOFTWARE_TOKEN_MFA' : null
-      );
+      await Auth.confirmSignIn(authData, code, mfaType === 'TOTP' ? 'SOFTWARE_TOKEN_MFA' : null);
       checkContact(authData);
     } catch (error) {
       logger.error(error);

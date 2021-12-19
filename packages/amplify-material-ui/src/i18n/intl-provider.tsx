@@ -121,18 +121,11 @@ export const IntlProvider: React.FC<IntlProviderProps> = ({
   customMessages = {},
   children,
 }) => {
-  const detectedLocale = lookup(
-    supportedLocales,
-    navigatorLanguages(),
-    DEFAULT_LOCAL
-  );
+  const detectedLocale = lookup(supportedLocales, navigatorLanguages(), DEFAULT_LOCAL);
 
   const createMessages = (): IntlMessages | undefined => {
     const mergedMessages = defaultMessages[detectedLocale]
-      ? mergeDeep(
-          defaultMessages[detectedLocale],
-          customMessages[detectedLocale]
-        )
+      ? mergeDeep(defaultMessages[detectedLocale], customMessages[detectedLocale])
       : customMessages[detectedLocale];
 
     return mergedMessages ? flattenMessages(mergedMessages) : undefined;
@@ -141,12 +134,7 @@ export const IntlProvider: React.FC<IntlProviderProps> = ({
   const messages = createMessages();
 
   return (
-    <Intl
-      locale={detectedLocale}
-      key={detectedLocale}
-      messages={messages}
-      defaultLocale={DEFAULT_LOCAL}
-    >
+    <Intl locale={detectedLocale} key={detectedLocale} messages={messages} defaultLocale={DEFAULT_LOCAL}>
       {children}
     </Intl>
   );
