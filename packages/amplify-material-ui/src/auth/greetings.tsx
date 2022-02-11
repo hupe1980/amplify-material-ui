@@ -2,9 +2,11 @@ import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useAuthContext, useSignOut } from 'amplify-auth-hooks';
 import clsx from 'clsx';
-import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem, Divider } from '@material-ui/core';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem, Divider } from '@mui/material';
+import { Theme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import createStyles from '@mui/styles/createStyles';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 import { UsernameAttribute } from './types';
 
@@ -89,7 +91,12 @@ export const Greetings: React.FC<GreetingsProps> = (props) => {
         ) : (
           <div className={classes.title}>{title}</div>
         )}
-        <IconButton color="inherit" aria-controls="user-menu" aria-haspopup="true" onClick={handleClick}>
+        <IconButton
+          color="inherit"
+          aria-controls="user-menu"
+          aria-haspopup="true"
+          onClick={handleClick}
+          size="large">
           <AccountCircle />
         </IconButton>
       </Toolbar>

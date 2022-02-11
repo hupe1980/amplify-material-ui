@@ -1,5 +1,5 @@
 import React, { ReactChild, ReactFragment, ReactPortal } from 'react';
-import { Container } from '@material-ui/core';
+import { Container } from '@mui/material';
 
 export interface FormContainerProps {
   children: boolean | ReactChild | ReactFragment | ReactPortal;

@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { useIntl, FormattedMessage } from 'react-intl';
-import { Button, Grid } from '@material-ui/core';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Button, Grid } from '@mui/material';
+import { Theme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import createStyles from '@mui/styles/createStyles';
 import { Formik, Field, Form } from 'formik';
-import { TextField } from 'formik-material-ui';
+import { TextField } from 'formik-mui';
 import { useSignIn } from 'amplify-auth-hooks';
 
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';

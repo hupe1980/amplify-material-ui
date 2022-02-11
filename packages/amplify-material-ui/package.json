@@ -33,7 +33,7 @@
     "amplify-auth-hooks": "^0.3.0",
     "clsx": "^1.1.1",
     "formik": "^2.2.9",
-    "formik-material-ui": "^3.0.0",
+    "formik-mui": "^4.0.0-alpha.3",
     "langtag-utils": "^2.0.2",
     "qrcode.react": "^1.0.0",
     "react-intl": "^5.23.0",
@@ -43,16 +43,17 @@
   },
   "peerDependencies": {
     "@aws-amplify/core": "^1.0.27",
-    "@material-ui/core": "^4.0.1",
-    "@material-ui/icons": "^4.0.1",
-    "@material-ui/styles": "^4.0.1",
-    "react": ">=16"
+    "@mui/icons-material": "^5.2.5",
+    "@mui/material": "^5.2.7",
+    "react": ">=17"
   },
   "devDependencies": {
     "@aws-amplify/core": "^4.3.10",
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/styles": "^4.11.4",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.2.5",
+    "@mui/material": "^5.2.7",
+    "@mui/styles": "^5.4.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
