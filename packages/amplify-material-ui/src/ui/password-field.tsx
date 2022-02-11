@@ -6,9 +6,9 @@ import {
   StandardTextFieldProps,
   FilledTextFieldProps,
   OutlinedTextFieldProps,
-} from '@material-ui/core';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
+} from '@mui/material';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 export type PasswordFieldProps = StandardTextFieldProps | FilledTextFieldProps | OutlinedTextFieldProps;
 
@@ -27,7 +27,7 @@ export const PasswordField: React.FC<PasswordFieldProps> = (props) => {
               aria-label="Toggle password visibility"
               data-testid="togglePasswordVisibility"
               onClick={(): void => setShowPassword((showPassword) => !showPassword)}
-            >
+              size="large">
               {showPassword ? <Visibility /> : <VisibilityOff />}
             </IconButton>
           </InputAdornment>

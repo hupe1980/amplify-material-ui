@@ -1,12 +1,14 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import ErrorIcon from '@material-ui/icons/Error';
-import InfoIcon from '@material-ui/icons/Info';
-import CloseIcon from '@material-ui/icons/Close';
-import WarningIcon from '@material-ui/icons/Warning';
-import { colors, IconButton, Snackbar, SnackbarOrigin, SnackbarContent } from '@material-ui/core';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ErrorIcon from '@mui/icons-material/Error';
+import InfoIcon from '@mui/icons-material/Info';
+import CloseIcon from '@mui/icons-material/Close';
+import WarningIcon from '@mui/icons-material/Warning';
+import { colors, IconButton, Snackbar, SnackbarOrigin, SnackbarContent } from '@mui/material';
+import { Theme } from '@mui/material/styles';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 const variantIcon = {
   success: CheckCircleIcon,
@@ -81,7 +83,12 @@ export const Toast: React.FC<ToastProps> = (props) => {
           </span>
         }
         action={[
-          <IconButton key="close" aria-label="Close" color="inherit" onClick={onClose}>
+          <IconButton
+            key="close"
+            aria-label="Close"
+            color="inherit"
+            onClick={onClose}
+            size="large">
             <CloseIcon className={classes.icon} />
           </IconButton>,
         ]}
