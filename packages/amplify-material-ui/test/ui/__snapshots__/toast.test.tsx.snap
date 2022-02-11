@@ -3,17 +3,18 @@
 exports[`loading should be rendered correctly (error) 1`] = `
 <DocumentFragment>
   <div
-    class="MuiSnackbar-root MuiSnackbar-anchorOriginTopCenter"
+    class="MuiSnackbar-root MuiSnackbar-anchorOriginTopCenter css-zzms1-MuiSnackbar-root"
+    role="presentation"
   >
     <div
       aria-describedby="client-snackbar"
-      class="MuiPaper-root MuiSnackbarContent-root makeStyles-error-2 MuiPaper-elevation6"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation6 MuiSnackbarContent-root makeStyles-error-2 css-1eqdgzv-MuiPaper-root-MuiSnackbarContent-root"
       direction="down"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     >
       <div
-        class="MuiSnackbarContent-message"
+        class="MuiSnackbarContent-message css-1exqwzz-MuiSnackbarContent-message"
       >
         <span
           class="makeStyles-message-7"
@@ -21,7 +22,8 @@ exports[`loading should be rendered correctly (error) 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root makeStyles-icon-5 makeStyles-iconVariant-6"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium makeStyles-icon-5 makeStyles-iconVariant-6 css-i4bv87-MuiSvgIcon-root"
+            data-testid="ErrorIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -33,30 +35,27 @@ exports[`loading should be rendered correctly (error) 1`] = `
         </span>
       </div>
       <div
-        class="MuiSnackbarContent-action"
+        class="MuiSnackbarContent-action css-1kr9x0n-MuiSnackbarContent-action"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-1pz7awu-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium makeStyles-icon-5 css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root makeStyles-icon-5"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
       </div>
@@ -68,17 +67,18 @@ exports[`loading should be rendered correctly (error) 1`] = `
 exports[`loading should be rendered correctly (info) 1`] = `
 <DocumentFragment>
   <div
-    class="MuiSnackbar-root MuiSnackbar-anchorOriginTopCenter"
+    class="MuiSnackbar-root MuiSnackbar-anchorOriginTopCenter css-zzms1-MuiSnackbar-root"
+    role="presentation"
   >
     <div
       aria-describedby="client-snackbar"
-      class="MuiPaper-root MuiSnackbarContent-root makeStyles-info-10 MuiPaper-elevation6"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation6 MuiSnackbarContent-root makeStyles-info-10 css-1eqdgzv-MuiPaper-root-MuiSnackbarContent-root"
       direction="down"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     >
       <div
-        class="MuiSnackbarContent-message"
+        class="MuiSnackbarContent-message css-1exqwzz-MuiSnackbarContent-message"
       >
         <span
           class="makeStyles-message-14"
@@ -86,7 +86,8 @@ exports[`loading should be rendered correctly (info) 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root makeStyles-icon-12 makeStyles-iconVariant-13"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium makeStyles-icon-12 makeStyles-iconVariant-13 css-i4bv87-MuiSvgIcon-root"
+            data-testid="InfoIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -98,30 +99,27 @@ exports[`loading should be rendered correctly (info) 1`] = `
         </span>
       </div>
       <div
-        class="MuiSnackbarContent-action"
+        class="MuiSnackbarContent-action css-1kr9x0n-MuiSnackbarContent-action"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-1pz7awu-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium makeStyles-icon-12 css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root makeStyles-icon-12"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
       </div>
@@ -133,17 +131,18 @@ exports[`loading should be rendered correctly (info) 1`] = `
 exports[`loading should be rendered correctly (success) 1`] = `
 <DocumentFragment>
   <div
-    class="MuiSnackbar-root MuiSnackbar-anchorOriginTopCenter"
+    class="MuiSnackbar-root MuiSnackbar-anchorOriginTopCenter css-zzms1-MuiSnackbar-root"
+    role="presentation"
   >
     <div
       aria-describedby="client-snackbar"
-      class="MuiPaper-root MuiSnackbarContent-root makeStyles-success-22 MuiPaper-elevation6"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation6 MuiSnackbarContent-root makeStyles-success-22 css-1eqdgzv-MuiPaper-root-MuiSnackbarContent-root"
       direction="down"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     >
       <div
-        class="MuiSnackbarContent-message"
+        class="MuiSnackbarContent-message css-1exqwzz-MuiSnackbarContent-message"
       >
         <span
           class="makeStyles-message-28"
@@ -151,42 +150,40 @@ exports[`loading should be rendered correctly (success) 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root makeStyles-icon-26 makeStyles-iconVariant-27"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium makeStyles-icon-26 makeStyles-iconVariant-27 css-i4bv87-MuiSvgIcon-root"
+            data-testid="CheckCircleIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
             />
           </svg>
           Success
         </span>
       </div>
       <div
-        class="MuiSnackbarContent-action"
+        class="MuiSnackbarContent-action css-1kr9x0n-MuiSnackbarContent-action"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-1pz7awu-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium makeStyles-icon-26 css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root makeStyles-icon-26"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
       </div>
@@ -198,17 +195,18 @@ exports[`loading should be rendered correctly (success) 1`] = `
 exports[`loading should be rendered correctly (warning) 1`] = `
 <DocumentFragment>
   <div
-    class="MuiSnackbar-root MuiSnackbar-anchorOriginTopCenter"
+    class="MuiSnackbar-root MuiSnackbar-anchorOriginTopCenter css-zzms1-MuiSnackbar-root"
+    role="presentation"
   >
     <div
       aria-describedby="client-snackbar"
-      class="MuiPaper-root MuiSnackbarContent-root makeStyles-warning-18 MuiPaper-elevation6"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation6 MuiSnackbarContent-root makeStyles-warning-18 css-1eqdgzv-MuiPaper-root-MuiSnackbarContent-root"
       direction="down"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     >
       <div
-        class="MuiSnackbarContent-message"
+        class="MuiSnackbarContent-message css-1exqwzz-MuiSnackbarContent-message"
       >
         <span
           class="makeStyles-message-21"
@@ -216,7 +214,8 @@ exports[`loading should be rendered correctly (warning) 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root makeStyles-icon-19 makeStyles-iconVariant-20"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium makeStyles-icon-19 makeStyles-iconVariant-20 css-i4bv87-MuiSvgIcon-root"
+            data-testid="WarningIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -228,30 +227,27 @@ exports[`loading should be rendered correctly (warning) 1`] = `
         </span>
       </div>
       <div
-        class="MuiSnackbarContent-action"
+        class="MuiSnackbarContent-action css-1kr9x0n-MuiSnackbarContent-action"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-1pz7awu-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium makeStyles-icon-19 css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root makeStyles-icon-19"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
       </div>
