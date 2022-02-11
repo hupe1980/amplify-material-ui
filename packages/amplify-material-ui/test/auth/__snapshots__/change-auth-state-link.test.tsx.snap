@@ -3,7 +3,7 @@
 exports[`change-auth-state-link should be rendered correctly 1`] = `
 <DocumentFragment>
   <a
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiTypography-body2 MuiLink-root MuiLink-underlineAlways css-wpssva-MuiTypography-root-MuiLink-root"
     href="#"
   >
     LinkLabel

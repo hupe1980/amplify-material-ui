@@ -3,7 +3,7 @@
 exports[`form-container should be rendered correctly 1`] = `
 <DocumentFragment>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXs"
+    class="MuiContainer-root MuiContainer-maxWidthXs css-nzinn5-MuiContainer-root"
   >
     <div />
   </div>

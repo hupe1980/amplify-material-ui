@@ -3,22 +3,22 @@
 exports[`loading should be rendered correctly 1`] = `
 <DocumentFragment>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXs"
+    class="MuiContainer-root MuiContainer-maxWidthXs css-nzinn5-MuiContainer-root"
   >
     <div
-      class="MuiPaper-root makeStyles-paper-2 MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 makeStyles-paper-2 css-1ps6pg7-MuiPaper-root"
     >
-      <div
-        class="MuiCircularProgress-root makeStyles-progress-1 MuiCircularProgress-colorSecondary MuiCircularProgress-indeterminate"
+      <span
+        class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorSecondary makeStyles-progress-1 css-1szo49z-MuiCircularProgress-root"
         role="progressbar"
         style="width: 40px; height: 40px;"
       >
         <svg
-          class="MuiCircularProgress-svg"
+          class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
           viewBox="22 22 44 44"
         >
           <circle
-            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
             cx="44"
             cy="44"
             fill="none"
@@ -26,7 +26,7 @@ exports[`loading should be rendered correctly 1`] = `
             stroke-width="3.6"
           />
         </svg>
-      </div>
+      </span>
     </div>
   </div>
 </DocumentFragment>

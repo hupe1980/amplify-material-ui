@@ -3,20 +3,21 @@
 exports[`confirm-sign-up should be rendered correctly 1`] = `
 <DocumentFragment>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXs"
+    class="MuiContainer-root MuiContainer-maxWidthXs css-nzinn5-MuiContainer-root"
   >
     <div
-      class="MuiPaper-root makeStyles-paper-3 MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 makeStyles-paper-3 css-1ps6pg7-MuiPaper-root"
     >
       <div
-        class="MuiBox-root MuiBox-root-6 makeStyles-box-4"
+        class="makeStyles-box-4 MuiBox-root css-0"
       >
         <div
-          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar-5 MuiAvatar-colorDefault"
+          class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault makeStyles-avatar-5 css-2s90m6-MuiAvatar-root"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="LockOutlinedIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -26,7 +27,7 @@ exports[`confirm-sign-up should be rendered correctly 1`] = `
           </svg>
         </div>
         <h1
-          class="MuiTypography-root MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
         >
           Confirm Sign Up
         </h1>
@@ -36,13 +37,13 @@ exports[`confirm-sign-up should be rendered correctly 1`] = `
         class="makeStyles-form-1"
       >
         <div
-          class="MuiBox-root MuiBox-root-8 makeStyles-box-7"
+          class="makeStyles-box-6 MuiBox-root css-0"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiFormControl-marginNormal MuiFormControl-fullWidth MuiTextField-root css-17vbkzs-MuiFormControl-root-MuiTextField-root"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-focused Mui-focused Mui-required Mui-required"
+              class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary Mui-focused Mui-required css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
               data-shrink="true"
               for="code"
               id="code-label"
@@ -50,18 +51,18 @@ exports[`confirm-sign-up should be rendered correctly 1`] = `
               Confirmation Code
               <span
                 aria-hidden="true"
-                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                class="MuiInputLabel-asterisk MuiFormLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"
               >
                  *
               </span>
             </label>
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth Mui-focused Mui-focused MuiInputBase-formControl"
+              class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-fullWidth Mui-focused MuiInputBase-formControl css-md26zr-MuiInputBase-root-MuiOutlinedInput-root"
             >
               <input
                 aria-invalid="false"
                 autocomplete="code"
-                class="MuiInputBase-input MuiOutlinedInput-input"
+                class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
                 id="code"
                 name="code"
                 required=""
@@ -70,10 +71,10 @@ exports[`confirm-sign-up should be rendered correctly 1`] = `
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+                class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-11 PrivateNotchedOutline-legendNotched-12"
+                  class="css-1z7n62"
                 >
                   <span>
                     Confirmation Code *
@@ -84,40 +85,36 @@ exports[`confirm-sign-up should be rendered correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-14 makeStyles-box-13"
+          class="makeStyles-box-7 MuiBox-root css-0"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-2 MuiButton-containedPrimary MuiButton-fullWidth"
+            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root makeStyles-submit-2 css-1fu7jd5-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="submit"
           >
+            Confirm
             <span
-              class="MuiButton-label"
-            >
-              Confirm
-            </span>
-            <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
           <div
-            class="MuiGrid-root MuiGrid-container"
+            class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-1vd824g-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+                class="MuiTypography-root MuiTypography-body2 MuiLink-root MuiLink-underlineAlways css-wpssva-MuiTypography-root-MuiLink-root"
                 href="#"
               >
                 Resend Code
               </a>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+                class="MuiTypography-root MuiTypography-body2 MuiLink-root MuiLink-underlineAlways css-wpssva-MuiTypography-root-MuiLink-root"
                 href="#"
               >
                 Back to Sign In
