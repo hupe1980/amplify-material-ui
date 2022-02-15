@@ -1,17 +1,21 @@
 {
-    "command": {
-        "create": {
-            "license": "MIT"
-        },
-        "publish": {
-            "allowBranch": "master",
-            "bump": "patch",
-            "conventionalCommits": true,
-            "message": "chore(release): Publish"
-        }
+  "command": {
+    "create": {
+      "license": "MIT"
     },
-    "npmClient": "yarn",
-    "useWorkspaces": true,
-    "version": "independent",
-    "ignoreChanges": ["**/__tests__/**", "**/__mocks__/**", "**/__stories__/**"]
+    "publish": {
+      "allowBranch": "master",
+      "bump": "patch",
+      "conventionalCommits": true,
+      "message": "chore(release): Publish"
+    }
+  },
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "0.3.0",
+  "ignoreChanges": [
+    "**/__tests__/**",
+    "**/__mocks__/**",
+    "**/__stories__/**"
+  ]
 }
