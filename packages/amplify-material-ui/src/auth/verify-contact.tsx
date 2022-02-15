@@ -2,10 +2,12 @@ import * as React from 'react';
 import { useIntl, FormattedMessage } from 'react-intl';
 import { useAuthContext, useVerifyContact } from 'amplify-auth-hooks';
 import { ConsoleLogger as Logger } from '@aws-amplify/core';
-import { Button, Grid, FormControlLabel, Radio } from '@material-ui/core';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Button, Grid, FormControlLabel, Radio } from '@mui/material';
+import { Theme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import createStyles from '@mui/styles/createStyles';
 import { Formik, Field, Form } from 'formik';
-import { RadioGroup, TextField } from 'formik-material-ui';
+import { RadioGroup, TextField } from 'formik-mui';
 
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useNotificationContext } from '../notification';

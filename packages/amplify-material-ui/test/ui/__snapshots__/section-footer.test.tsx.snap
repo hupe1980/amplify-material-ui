@@ -3,7 +3,7 @@
 exports[`section-footer should be rendered correctly 1`] = `
 <DocumentFragment>
   <div
-    class="MuiBox-root MuiBox-root-2 makeStyles-box-1"
+    class="makeStyles-box-1 MuiBox-root css-0"
   >
     <div />
   </div>

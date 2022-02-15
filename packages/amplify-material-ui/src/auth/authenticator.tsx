@@ -3,9 +3,11 @@ import * as React from 'react';
 import { IntlProvider, IntlProviderProps } from '../i18n';
 import { NotificationProvider, NotificationProviderProps } from '../notification';
 import { ThemeProvider, ThemeProviderProps } from '../ui';
+import { StyledEngineProvider } from '@mui/system';
 import { AuthRoute } from './auth-route';
 import { AuthRouter, AuthRouterProps } from './auth-router';
 import { SignUpConfig } from './sign-up';
+
 
 export interface AuthenticatorProps extends AuthRouterProps, ThemeProviderProps {
   intlProps?: IntlProviderProps;
@@ -19,9 +21,11 @@ export const Authenticator: React.FC<AuthenticatorProps> = (props) => {
   return (
     <IntlProvider {...intlProps}>
       <NotificationProvider {...notificationProps}>
-        <ThemeProvider theme={theme}>
-          <AuthRouter {...authConfig}>{children}</AuthRouter>
-        </ThemeProvider>
+        <StyledEngineProvider injectFirst>
+          <ThemeProvider theme={theme}>
+            <AuthRouter {...authConfig}>{children}</AuthRouter>
+          </ThemeProvider>
+        </StyledEngineProvider>
       </NotificationProvider>
     </IntlProvider>
   );

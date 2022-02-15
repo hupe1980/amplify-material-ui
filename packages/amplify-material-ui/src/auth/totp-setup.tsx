@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { useIntl, FormattedMessage } from 'react-intl';
 import { useTOTPSetup } from 'amplify-auth-hooks';
-import { Button } from '@material-ui/core';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Button } from '@mui/material';
+import { Theme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import createStyles from '@mui/styles/createStyles';
 import { Formik, Field, Form } from 'formik';
-import { TextField } from 'formik-material-ui';
+import { TextField } from 'formik-mui';
 import QRCode from 'qrcode.react';
 
 import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
