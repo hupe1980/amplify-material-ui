@@ -12,7 +12,7 @@
   },
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "version": "0.3.0",
+  "version": "1.0.0",
   "ignoreChanges": [
     "**/__tests__/**",
     "**/__mocks__/**",

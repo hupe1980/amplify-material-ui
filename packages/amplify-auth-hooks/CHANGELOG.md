@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/hupe1980/amplify-material-ui/compare/v0.0.17...v1.0.0) (2022-02-15)
+
+
+### Features
+
+* **sign-up:** Allow custom sign up fields and attributes ([c1c78a8](https://github.com/hupe1980/amplify-material-ui/commit/c1c78a8e08b031d92123940d98209678b6555c30))
+
+
+
+
+
 # [0.3.0](https://github.com/hupe1980/amplify-material-ui/compare/amplify-auth-hooks@0.2.0...amplify-auth-hooks@0.3.0) (2021-12-19)
 
 **Note:** Version bump only for package amplify-auth-hooks
