@@ -12,6 +12,7 @@ import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useNotificationContext } from '../notification';
 import { useUsernameField } from './use-username-field';
 import { ChangeAuthStateLink } from './change-auth-state-link';
+import { UsernameAttribute } from '.';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -25,12 +26,17 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export const ForgotPassword: React.FC = () => {
+export interface ForgotPasswordProps {
+  usernameAttribute?: UsernameAttribute;
+}
+
+export const ForgotPassword: React.FC<ForgotPasswordProps> = (props) => {
+  const { usernameAttribute } = props
   const classes = useStyles();
   const { formatMessage } = useIntl();
   const { showNotification } = useNotificationContext();
   const { delivery, submit, send, username } = useForgotPassword();
-  const { usernamefieldName, usernameField } = useUsernameField();
+  const { usernamefieldName, usernameField } = useUsernameField(usernameAttribute);
 
   const renderSectionHeader = (): React.ReactElement => (
     <SectionHeader>
