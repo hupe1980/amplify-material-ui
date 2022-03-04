@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/hupe1980/amplify-material-ui/compare/v1.0.0...v1.0.1) (2022-02-24)
+
+**Note:** Version bump only for package e2e-test-auth
+
+
+
+
+
+# [1.0.0](https://github.com/hupe1980/amplify-material-ui/compare/v0.0.17...v1.0.0) (2022-02-15)
+
+
+### Bug Fixes
+
+* CircleCi ([f17dd4b](https://github.com/hupe1980/amplify-material-ui/commit/f17dd4b84c088281fb5365e670a72a0782b61dc4))
+* Customizable default messages ([e760eb8](https://github.com/hupe1980/amplify-material-ui/commit/e760eb819498272ea64e7a828aaf62c267086eee))
+* Misc ([bc1cb63](https://github.com/hupe1980/amplify-material-ui/commit/bc1cb634ef69e77f937dcd0ced6aa4672e07d6c5))
+* Misc ([8850e23](https://github.com/hupe1980/amplify-material-ui/commit/8850e233dfee90f530362a677ad3f47b1b6307d0))
+
+
+
+
+
 # [0.3.0](https://github.com/hupe1980/amplify-material-ui/compare/e2e-test-auth@0.2.0...e2e-test-auth@0.3.0) (2021-12-19)
 
 **Note:** Version bump only for package e2e-test-auth

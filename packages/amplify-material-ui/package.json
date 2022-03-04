@@ -1,6 +1,6 @@
 {
   "name": "amplify-material-ui",
-  "version": "0.3.0",
+  "version": "1.0.1",
   "description": "A Material-UI based implementation of aws amplify",
   "license": "MIT",
   "repository": {
@@ -30,7 +30,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "amplify-auth-hooks": "^0.3.0",
+    "amplify-auth-hooks": "^1.0.0",
     "clsx": "^1.1.1",
     "formik": "^2.2.9",
     "formik-mui": "^4.0.0-alpha.3",
@@ -42,7 +42,7 @@
     "yup": "^0.32.9"
   },
   "peerDependencies": {
-    "@aws-amplify/core": "^1.0.27",
+    "@aws-amplify/core": "^4.3.10",
     "@mui/icons-material": "^5.2.5",
     "@mui/material": "^5.2.7",
     "react": ">=17"
