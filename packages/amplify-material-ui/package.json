@@ -30,6 +30,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@mui/styles": "^5.4.1",
     "amplify-auth-hooks": "^1.0.0",
     "clsx": "^1.1.1",
     "formik": "^2.2.9",
@@ -53,7 +54,6 @@
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.2.5",
     "@mui/material": "^5.2.7",
-    "@mui/styles": "^5.4.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
