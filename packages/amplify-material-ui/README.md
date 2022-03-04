@@ -15,13 +15,13 @@ yarn add amplify-material-ui
 ## How to use
 
 ```typescript
-import React from 'react';
-import Amplify from 'aws-amplify';
-import { withAuthenticator } from 'amplify-material-ui';
+import React from "react";
+import Amplify from "aws-amplify";
+import { withAuthenticator } from "amplify-material-ui";
 
-import awsconfig from './aws-exports';
-import logo from './logo.svg';
-import './App.css';
+import awsconfig from "./aws-exports";
+import logo from "./logo.svg";
+import "./App.css";
 
 Amplify.configure(awsconfig);
 
@@ -57,6 +57,18 @@ withAuthenticator(App, {
 });
 ```
 
+## Override default components
+
+Override default UI components. Currently only support form header logo.
+
+```typescript
+withAuthenticator(App, {
+  overrides: {
+    logo: <YourLogo />,
+  },
+});
+```
+
 ## Hide links in default components
 
 You can disable sign up if you do not allow users to sign up themselves.
@@ -75,10 +87,9 @@ You can change the initial auth state for your Authenticator. By default the ini
 
 ```typescript
 withAuthenticator(App, {
-  initialAuthState: 'signUp',
+  initialAuthState: "signUp",
 });
 ```
-
 
 ## Localization
 
@@ -91,7 +102,7 @@ withAuthenticator(App, {
       de: {
         global: {
           labels: {
-            username: 'Overwrite username label',
+            username: "Overwrite username label",
           },
         },
       },
@@ -99,7 +110,6 @@ withAuthenticator(App, {
   },
 });
 ```
-
 
 ## Customize sign-up form
 
@@ -109,43 +119,43 @@ You can customize the sign-up fields as well as the initial values passed into t
 const signUpConfig = {
   signUpFields: [
     {
-      label: 'First name',
-      key: 'given_name',
+      label: "First name",
+      key: "given_name",
       required: true,
       displayOrder: 1,
-      type: 'text',
+      type: "text",
       intl: {
-        label: 'signUp.labels.family_name',
-      }
+        label: "signUp.labels.family_name",
+      },
     },
     {
-      label: 'Surname',
-      key: 'family_name',
+      label: "Surname",
+      key: "family_name",
       required: true,
       displayOrder: 2,
-      type: 'text',
+      type: "text",
       intl: {
-        label: 'signUp.labels.given_name',
-      }
+        label: "signUp.labels.given_name",
+      },
     },
     {
-      label: 'Email',
-      key: 'email',
+      label: "Email",
+      key: "email",
       required: true,
       displayOrder: 3,
-      type: 'email',
+      type: "email",
     },
     {
-      label: 'Password',
-      key: 'password',
+      label: "Password",
+      key: "password",
       required: true,
       displayOrder: 4,
-      type: 'password',
+      type: "password",
     },
   ],
   initialValues: {
-    given_name: 'John',
-    family_name: 'Smith',
+    given_name: "John",
+    family_name: "Smith",
   },
 };
 
@@ -156,15 +166,14 @@ withAuthenticator(App, {
       de: {
         signUp: {
           labels: {
-            given_name: 'Translated given name',
-            family_name: 'Translated family name',
+            given_name: "Translated given name",
+            family_name: "Translated family name",
           },
         },
       },
     },
   },
 });
-
 ```
 
 ## Customize sign-up fields
