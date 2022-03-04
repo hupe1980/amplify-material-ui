@@ -7,23 +7,26 @@ import { StyledEngineProvider } from '@mui/system';
 import { AuthRoute } from './auth-route';
 import { AuthRouter, AuthRouterProps } from './auth-router';
 import { SignUpConfig } from './sign-up';
-
+import { OverrideComponents, OverrideProvider } from '../ui/override-provider';
 
 export interface AuthenticatorProps extends AuthRouterProps, ThemeProviderProps {
   intlProps?: IntlProviderProps;
   notificationProps?: NotificationProviderProps;
   signUpConfig?: SignUpConfig;
+  overrides?: OverrideComponents
 }
 
 export const Authenticator: React.FC<AuthenticatorProps> = (props) => {
-  const { children, intlProps, notificationProps, theme, ...authConfig } = props;
+  const { children, intlProps, notificationProps, theme, overrides, ...authConfig } = props;
 
   return (
     <IntlProvider {...intlProps}>
       <NotificationProvider {...notificationProps}>
         <StyledEngineProvider injectFirst>
           <ThemeProvider theme={theme}>
-            <AuthRouter {...authConfig}>{children}</AuthRouter>
+            <OverrideProvider {...overrides}>
+              <AuthRouter {...authConfig}>{children}</AuthRouter>
+            </OverrideProvider>
           </ThemeProvider>
         </StyledEngineProvider>
       </NotificationProvider>

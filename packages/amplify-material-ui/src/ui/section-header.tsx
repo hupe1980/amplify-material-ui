@@ -5,6 +5,7 @@ import { Theme } from '@mui/material/styles';
 
 import makeStyles from '@mui/styles/makeStyles';
 import createStyles from '@mui/styles/createStyles';
+import { useOverrides } from './override-provider';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -24,11 +25,17 @@ const useStyles = makeStyles((theme: Theme) =>
 export const SectionHeader: React.FC = ({ children }) => {
   const classes = useStyles();
 
-  return (
-    <Box className={classes.box}>
+  const { logo } = useOverrides();
+
+  const renderLogo = logo || (
       <Avatar className={classes.avatar}>
         <LockOutlinedIcon />
       </Avatar>
+  )
+
+  return (
+    <Box className={classes.box}>
+      {renderLogo}
       <Typography component="h1" variant="h6">
         {children}
       </Typography>
