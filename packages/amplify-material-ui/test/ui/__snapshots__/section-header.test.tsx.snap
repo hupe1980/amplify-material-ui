@@ -3,10 +3,10 @@
 exports[`section-header should be rendered correctly 1`] = `
 <DocumentFragment>
   <div
-    class="makeStyles-box-1 MuiBox-root css-0"
+    class="tss-10vlsjz-box MuiBox-root css-0"
   >
     <div
-      class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault makeStyles-avatar-2 css-2s90m6-MuiAvatar-root"
+      class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault tss-wy3cmf-avatar css-2s90m6-MuiAvatar-root"
     >
       <svg
         aria-hidden="true"

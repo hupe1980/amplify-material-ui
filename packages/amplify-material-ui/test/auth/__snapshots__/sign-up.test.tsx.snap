@@ -6,13 +6,13 @@ exports[`sign-up should allow custom initial values 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthXs css-nzinn5-MuiContainer-root"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 makeStyles-paper-24 css-1ps6pg7-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 tss-fuibka-paper css-1ps6pg7-MuiPaper-root"
     >
       <div
-        class="makeStyles-box-25 MuiBox-root css-0"
+        class="tss-10vlsjz-box MuiBox-root css-0"
       >
         <div
-          class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault makeStyles-avatar-26 css-2s90m6-MuiAvatar-root"
+          class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault tss-wy3cmf-avatar css-2s90m6-MuiAvatar-root"
         >
           <svg
             aria-hidden="true"
@@ -34,10 +34,10 @@ exports[`sign-up should allow custom initial values 1`] = `
       </div>
       <form
         action="#"
-        class="makeStyles-form-22"
+        class="tss-16bg6wn-form"
       >
         <div
-          class="makeStyles-box-27 MuiBox-root css-0"
+          class="tss-zezy7h-box MuiBox-root css-0"
         >
           <div
             class="MuiFormControl-root MuiFormControl-marginNormal MuiFormControl-fullWidth MuiTextField-root css-17vbkzs-MuiFormControl-root-MuiTextField-root"
@@ -170,10 +170,10 @@ exports[`sign-up should allow custom initial values 1`] = `
           </div>
         </div>
         <div
-          class="makeStyles-box-28 MuiBox-root css-0"
+          class="tss-zezy7h-box MuiBox-root css-0"
         >
           <button
-            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root makeStyles-submit-23 css-1fu7jd5-MuiButtonBase-root-MuiButton-root"
+            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root tss-apfx2m-submit css-1fu7jd5-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="submit"
           >
@@ -210,13 +210,13 @@ exports[`sign-up should be rendered correctly 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthXs css-nzinn5-MuiContainer-root"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 makeStyles-paper-3 css-1ps6pg7-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 tss-fuibka-paper css-1ps6pg7-MuiPaper-root"
     >
       <div
-        class="makeStyles-box-4 MuiBox-root css-0"
+        class="tss-10vlsjz-box MuiBox-root css-0"
       >
         <div
-          class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault makeStyles-avatar-5 css-2s90m6-MuiAvatar-root"
+          class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault tss-wy3cmf-avatar css-2s90m6-MuiAvatar-root"
         >
           <svg
             aria-hidden="true"
@@ -238,10 +238,10 @@ exports[`sign-up should be rendered correctly 1`] = `
       </div>
       <form
         action="#"
-        class="makeStyles-form-1"
+        class="tss-16bg6wn-form"
       >
         <div
-          class="makeStyles-box-6 MuiBox-root css-0"
+          class="tss-zezy7h-box MuiBox-root css-0"
         >
           <div
             class="MuiFormControl-root MuiFormControl-marginNormal MuiFormControl-fullWidth MuiTextField-root css-17vbkzs-MuiFormControl-root-MuiTextField-root"
@@ -374,10 +374,10 @@ exports[`sign-up should be rendered correctly 1`] = `
           </div>
         </div>
         <div
-          class="makeStyles-box-7 MuiBox-root css-0"
+          class="tss-zezy7h-box MuiBox-root css-0"
         >
           <button
-            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root makeStyles-submit-2 css-1fu7jd5-MuiButtonBase-root-MuiButton-root"
+            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root tss-apfx2m-submit css-1fu7jd5-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="submit"
           >
@@ -414,13 +414,13 @@ exports[`sign-up should render custom sign-up fields 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthXs css-nzinn5-MuiContainer-root"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 makeStyles-paper-10 css-1ps6pg7-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 tss-fuibka-paper css-1ps6pg7-MuiPaper-root"
     >
       <div
-        class="makeStyles-box-11 MuiBox-root css-0"
+        class="tss-10vlsjz-box MuiBox-root css-0"
       >
         <div
-          class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault makeStyles-avatar-12 css-2s90m6-MuiAvatar-root"
+          class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault tss-wy3cmf-avatar css-2s90m6-MuiAvatar-root"
         >
           <svg
             aria-hidden="true"
@@ -442,10 +442,10 @@ exports[`sign-up should render custom sign-up fields 1`] = `
       </div>
       <form
         action="#"
-        class="makeStyles-form-8"
+        class="tss-16bg6wn-form"
       >
         <div
-          class="makeStyles-box-13 MuiBox-root css-0"
+          class="tss-zezy7h-box MuiBox-root css-0"
         >
           <div
             class="MuiFormControl-root MuiFormControl-marginNormal MuiFormControl-fullWidth MuiTextField-root css-17vbkzs-MuiFormControl-root-MuiTextField-root"
@@ -621,10 +621,10 @@ exports[`sign-up should render custom sign-up fields 1`] = `
           </div>
         </div>
         <div
-          class="makeStyles-box-14 MuiBox-root css-0"
+          class="tss-zezy7h-box MuiBox-root css-0"
         >
           <button
-            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root makeStyles-submit-9 css-1fu7jd5-MuiButtonBase-root-MuiButton-root"
+            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root tss-apfx2m-submit css-1fu7jd5-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="submit"
           >
@@ -661,13 +661,13 @@ exports[`sign-up should render custom sign-up fields in the correct order 1`] = 
     class="MuiContainer-root MuiContainer-maxWidthXs css-nzinn5-MuiContainer-root"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 makeStyles-paper-17 css-1ps6pg7-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 tss-fuibka-paper css-1ps6pg7-MuiPaper-root"
     >
       <div
-        class="makeStyles-box-18 MuiBox-root css-0"
+        class="tss-10vlsjz-box MuiBox-root css-0"
       >
         <div
-          class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault makeStyles-avatar-19 css-2s90m6-MuiAvatar-root"
+          class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault tss-wy3cmf-avatar css-2s90m6-MuiAvatar-root"
         >
           <svg
             aria-hidden="true"
@@ -689,10 +689,10 @@ exports[`sign-up should render custom sign-up fields in the correct order 1`] = 
       </div>
       <form
         action="#"
-        class="makeStyles-form-15"
+        class="tss-16bg6wn-form"
       >
         <div
-          class="makeStyles-box-20 MuiBox-root css-0"
+          class="tss-zezy7h-box MuiBox-root css-0"
         >
           <div
             class="MuiFormControl-root MuiFormControl-marginNormal MuiFormControl-fullWidth MuiTextField-root css-17vbkzs-MuiFormControl-root-MuiTextField-root"
@@ -868,10 +868,10 @@ exports[`sign-up should render custom sign-up fields in the correct order 1`] = 
           </div>
         </div>
         <div
-          class="makeStyles-box-21 MuiBox-root css-0"
+          class="tss-zezy7h-box MuiBox-root css-0"
         >
           <button
-            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root makeStyles-submit-16 css-1fu7jd5-MuiButtonBase-root-MuiButton-root"
+            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root tss-apfx2m-submit css-1fu7jd5-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="submit"
           >
