@@ -6,10 +6,10 @@
 
 ```sh
 // with npm
-npm install amplify-material-ui
+npm install amplify-material-ui @mui/material @emotion/react @emotion/styled
 
 // with yarn
-yarn add amplify-material-ui
+yarn add amplify-material-ui @mui/material @emotion/react @emotion/styled
 ```
 
 ## How to use
@@ -168,6 +168,31 @@ withAuthenticator(App, {
 ```
 
 ## Customize sign-up fields
+
+## Enable SSR
+
+To enable SSR you have to explicitly provide an emotion cache to MUI:
+
+```typescript
+import { render } from "react-dom";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
+
+export const muiCache = createCache({
+    "key": "mui",
+    "prepend": true
+});
+
+//NOTE: Don't use <StyledEngineProvider injectFirst/>
+render(
+    <CacheProvider value={muiCache}>
+        {/* ...your app...*/}
+    </CacheProvider>,
+    document.getElementById("root")
+);
+```
+
+Also follow [TSS's instructions to enable SSR](https://docs.tss-react.dev/ssr)
 
 ## License
 

@@ -3,11 +3,10 @@ import { Avatar, Box, Typography } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Theme } from '@mui/material/styles';
 
-import makeStyles from '@mui/styles/makeStyles';
-import createStyles from '@mui/styles/createStyles';
+import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
+const useStyles = makeStyles()((theme: Theme) =>
+  ({
     box: {
       marginTop: theme.spacing(1),
       display: 'flex',
@@ -18,11 +17,10 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: theme.spacing(1),
       backgroundColor: theme.palette.secondary.main,
     },
-  }),
-);
+  }));
 
 export const SectionHeader: React.FC = ({ children }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <Box className={classes.box}>

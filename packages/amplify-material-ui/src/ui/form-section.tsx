@@ -2,13 +2,12 @@ import * as React from 'react';
 import { Paper } from '@mui/material';
 import { Theme } from '@mui/material/styles';
 
-import makeStyles from '@mui/styles/makeStyles';
-import createStyles from '@mui/styles/createStyles';
+import { makeStyles } from 'tss-react/mui';
 
 import { FormContainer } from './form-container';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
+const useStyles = makeStyles()((theme: Theme) =>
+  ({
     paper: {
       marginTop: theme.spacing(12),
       display: 'flex',
@@ -17,11 +16,10 @@ const useStyles = makeStyles((theme: Theme) =>
       minWidth: '300px',
       padding: theme.spacing(1),
     },
-  }),
-);
+  }));
 
 export const FormSection: React.FC = ({ children }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <FormContainer>

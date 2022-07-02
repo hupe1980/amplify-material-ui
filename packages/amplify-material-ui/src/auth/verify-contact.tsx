@@ -4,8 +4,7 @@ import { useAuthContext, useVerifyContact } from 'amplify-auth-hooks';
 import { ConsoleLogger as Logger } from '@aws-amplify/core';
 import { Button, Grid, FormControlLabel, Radio } from '@mui/material';
 import { Theme } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
-import createStyles from '@mui/styles/createStyles';
+import { makeStyles } from 'tss-react/mui';
 import { Formik, Field, Form } from 'formik';
 import { RadioGroup, TextField } from 'formik-mui';
 
@@ -15,8 +14,8 @@ import { ChangeAuthStateLink } from './change-auth-state-link';
 
 const logger = new Logger('VerifyContact');
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
+const useStyles = makeStyles()((theme: Theme) =>
+  ({
     form: {
       width: '100%', // Fix IE 11 issue.
       marginTop: theme.spacing(1),
@@ -24,11 +23,10 @@ const useStyles = makeStyles((theme: Theme) =>
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
-  }),
-);
+  }));
 
 export const VerifyContact: React.FC = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { formatMessage } = useIntl();
   const { showNotification } = useNotificationContext();
   const { authData } = useAuthContext();

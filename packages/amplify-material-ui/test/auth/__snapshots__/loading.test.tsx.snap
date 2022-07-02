@@ -6,10 +6,10 @@ exports[`loading should be rendered correctly 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthXs css-nzinn5-MuiContainer-root"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 makeStyles-paper-2 css-1ps6pg7-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 tss-fuibka-paper css-1ps6pg7-MuiPaper-root"
     >
       <span
-        class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorSecondary makeStyles-progress-1 css-1szo49z-MuiCircularProgress-root"
+        class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorSecondary tss-ddnmuz-progress css-1szo49z-MuiCircularProgress-root"
         role="progressbar"
         style="width: 40px; height: 40px;"
       >

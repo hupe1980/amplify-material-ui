@@ -3,8 +3,7 @@ import { useIntl, FormattedMessage } from 'react-intl';
 import { useConfirmSignIn } from 'amplify-auth-hooks';
 import { Button, Grid } from '@mui/material';
 import { Theme } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
-import createStyles from '@mui/styles/createStyles';
+import { makeStyles } from 'tss-react/mui';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-mui';
 
@@ -12,8 +11,8 @@ import { FormSection, SectionHeader, SectionBody, SectionFooter } from '../ui';
 import { useNotificationContext } from '../notification';
 import { ChangeAuthStateLink } from './change-auth-state-link';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
+const useStyles = makeStyles()((theme: Theme) =>
+  ({
     form: {
       width: '100%', // Fix IE 11 issue.
       marginTop: theme.spacing(1),
@@ -21,11 +20,10 @@ const useStyles = makeStyles((theme: Theme) =>
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
-  }),
-);
+  }));
 
 export const ConfirmSignIn: React.FC = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { formatMessage } = useIntl();
   const { showNotification } = useNotificationContext();
   const { confirm, mfaType } = useConfirmSignIn();

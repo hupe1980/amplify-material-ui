@@ -1,17 +1,15 @@
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useAuthContext, useSignOut } from 'amplify-auth-hooks';
-import clsx from 'clsx';
 import { AppBar, Toolbar, IconButton, Typography, Menu, MenuItem, Divider } from '@mui/material';
 import { Theme } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
-import createStyles from '@mui/styles/createStyles';
+import { makeStyles } from 'tss-react/mui';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 
 import { UsernameAttribute } from './types';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
+const useStyles = makeStyles()((theme: Theme) =>
+  ({
     toolbar: {
       paddingRight: 24,
     },
@@ -25,8 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
         duration: theme.transitions.duration.leavingScreen,
       }),
     },
-  }),
-);
+  }));
 
 export interface GreetingsProps {
   renderUserMenu?: () => React.ReactElement;
@@ -53,7 +50,7 @@ export const Greetings: React.FC<GreetingsProps> = (props) => {
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
     setAnchorEl(event.currentTarget);
@@ -81,7 +78,7 @@ export const Greetings: React.FC<GreetingsProps> = (props) => {
   };
 
   return (
-    <AppBar position="absolute" className={clsx(classes.appBar, className)}>
+    <AppBar position="absolute" className={cx(classes.appBar, className)}>
       <Toolbar className={classes.toolbar}>
         {burgerMenu}
         {typeof title === 'string' ? (

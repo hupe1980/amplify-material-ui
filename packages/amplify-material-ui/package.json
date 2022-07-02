@@ -40,10 +40,12 @@
     "react-intl": "^5.23.0",
     "react-recaptcha-hook": "^1.2.2",
     "tiny-invariant": "^1.2.0",
+    "tss-react": "^3.7.0",
     "yup": "^0.32.9"
   },
   "peerDependencies": {
     "@aws-amplify/core": "^4.3.10",
+    "@emotion/react": "^11.4.1",
     "@mui/icons-material": "^5.2.5",
     "@mui/material": "^5.2.7",
     "react": ">=17"

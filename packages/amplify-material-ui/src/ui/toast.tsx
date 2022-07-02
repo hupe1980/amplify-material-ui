@@ -1,5 +1,4 @@
 import * as React from 'react';
-import clsx from 'clsx';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ErrorIcon from '@mui/icons-material/Error';
 import InfoIcon from '@mui/icons-material/Info';
@@ -8,7 +7,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import { colors, IconButton, Snackbar, SnackbarOrigin, SnackbarContent } from '@mui/material';
 import { Theme } from '@mui/material/styles';
 
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 
 const variantIcon = {
   success: CheckCircleIcon,
@@ -17,7 +16,7 @@ const variantIcon = {
   info: InfoIcon,
 };
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles()((theme: Theme) => ({
   success: {
     backgroundColor: colors.green[600],
   },
@@ -67,18 +66,18 @@ export const Toast: React.FC<ToastProps> = (props) => {
     onClose,
   } = props;
 
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
 
   const Icon = variantIcon[variant];
 
   return (
     <Snackbar anchorOrigin={anchorOrigin} open={open} autoHideDuration={autoHideDuration} onClose={onClose}>
       <SnackbarContent
-        className={clsx(classes[variant], className)}
+        className={cx(classes[variant], className)}
         aria-describedby="client-snackbar"
         message={
           <span id="client-snackbar" className={classes.message}>
-            <Icon className={clsx(classes.icon, classes.iconVariant)} />
+            <Icon className={cx(classes.icon, classes.iconVariant)} />
             {content}
           </span>
         }

@@ -2,8 +2,7 @@ import * as React from 'react';
 import { useIntl, FormattedMessage } from 'react-intl';
 import { Button, Grid } from '@mui/material';
 import { Theme } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
-import createStyles from '@mui/styles/createStyles';
+import { makeStyles } from 'tss-react/mui';
 import { Formik, Field, Form } from 'formik';
 import { TextField } from 'formik-mui';
 import { useSignIn } from 'amplify-auth-hooks';
@@ -14,8 +13,8 @@ import { useUsernameField } from './use-username-field';
 import { ChangeAuthStateLink } from './change-auth-state-link';
 import { UsernameAttribute } from './types';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
+const useStyles = makeStyles()((theme: Theme) =>
+  ({
     form: {
       width: '100%', // Fix IE 11 issue.
       marginTop: theme.spacing(1),
@@ -23,8 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
-  }),
-);
+  }));
 
 export interface SignInProps {
   validationData?: { [key: string]: string };
@@ -36,7 +34,7 @@ export interface SignInProps {
 export const SignIn: React.FC<SignInProps> = (props) => {
   const { validationData, hideSignUpLink = false, hideForgotPasswordLink = false, usernameAttribute } = props;
 
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { formatMessage } = useIntl();
   const { showNotification } = useNotificationContext();
   const signIn = useSignIn();
